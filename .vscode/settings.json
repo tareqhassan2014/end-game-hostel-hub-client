@@ -1,0 +1,68 @@
+{
+    // config related to code formatting
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+    "[javascript]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[javascriptreact]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "javascript.validate.enable": false, //disable all built-in syntax checking
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true,
+        "source.fixAll.tslint": true,
+        "source.organizeImports": true
+    },
+    "eslint.alwaysShowStatus": true,
+    // emmet
+    "emmet.triggerExpansionOnTab": true,
+    "emmet.includeLanguages": {
+        "javascript": "javascriptreact"
+    },
+    "editor.fontSize": 18,
+    "git.enableSmartCommit": true,
+    "git.confirmSync": false,
+    "git.autofetch": true,
+    "terminal.integrated.defaultProfile.windows": "Git Bash",
+    "workbench.iconTheme": "material-icon-theme",
+    "prettier.singleQuote": true,
+    "workbench.startupEditor": "none",
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "cSpell.userWords": [
+        "appspot",
+        "bgcolor",
+        "biswas",
+        "boxicons",
+        "chartjs",
+        "cloudinary",
+        "codepaths",
+        "envalid",
+        "firebaseapp",
+        "Hassan",
+        "linebreak",
+        "maxlength",
+        "MERN",
+        "mkdir",
+        "Moyenuddin",
+        "nestjs",
+        "paren",
+        "persistor",
+        "reduxjs",
+        "signup",
+        "swipeable",
+        "tailwindcss",
+        "Tareq",
+        "toastify",
+        "tsbuildinfo",
+        "Unstyled",
+        "virtuals"
+    ],
+    "prettier.tabWidth": 4,
+    "editor.minimap.enabled": false,
+    "workbench.editor.untitled.hint": "hidden",
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "window.zoomLevel": 1
+}
