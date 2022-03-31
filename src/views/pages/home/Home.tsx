@@ -13,7 +13,9 @@ function Home() {
             }}
         >
             <Typography variant="h2" align="center">
+
                 Home page from production branch
+
             </Typography>
         </Box>
     );
