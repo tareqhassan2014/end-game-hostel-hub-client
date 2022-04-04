@@ -13,7 +13,7 @@ function Home() {
             }}
         >
             <Typography variant="h2" align="center">
-                Home page from amirul
+                Home page from Tareq Hassan (The Leader)
             </Typography>
         </Box>
     );
