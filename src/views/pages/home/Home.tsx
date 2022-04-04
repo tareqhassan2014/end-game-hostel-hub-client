@@ -13,7 +13,7 @@ function Home() {
             }}
         >
             <Typography variant="h2" align="center">
-                Grand Grand Home page
+                Home page from amirul
             </Typography>
         </Box>
     );
