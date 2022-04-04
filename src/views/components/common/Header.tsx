@@ -86,7 +86,7 @@ export default function Header() {
                             width: '30px',
                         }}
                     >
-                        Hostel Hub
+                        HH
                     </Box>
 
                     <Box
