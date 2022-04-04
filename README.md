@@ -1,5 +1,5 @@
-@everyone #warriors #nermx-developers #clan-delta
+@everyone warriors nermx-developers clan-delta
 
-our morning scrum starts at 10:30 pm. please join this scrum.
+our scrum starts at 04:15 PM. please join this scrum.
 
-https://meet.google.com/rze-yths-qxo
+https://meet.google.com/rcj-jvii-rgp
