@@ -1,7 +1,7 @@
 import React from 'react';
 
-const banner = () => {
-    return <Div></Div>;
+const Banner = () => {
+    return <div>Banner</div>;
 };
 
-export default banner;
+export default Banner;
