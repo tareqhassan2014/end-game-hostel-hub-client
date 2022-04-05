@@ -2,7 +2,7 @@ import { Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import React from 'react';
 
-const AdminSignup = () => {
+const VendorSignup = () => {
     return (
         <Box
             sx={{
@@ -14,10 +14,10 @@ const AdminSignup = () => {
             }}
         >
             <Typography variant="h3" align="center">
-                This is admin Signup page
+                This is Vendor Signup page
             </Typography>
         </Box>
     );
 };
 
-export default AdminSignup;
+export default VendorSignup;

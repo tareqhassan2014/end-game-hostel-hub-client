@@ -56,14 +56,7 @@ const Banner = () => {
     };
 
     return (
-        // <div className='banner-container'>
-        //     <Box className="banner">
-        //         <img style={{ width: '100%', height: '100%' }} src={b1} alt="" />
-
-        //     </Box>
-        // </div>
-
-        <Box sx={{ maxWidth: "100%", flexGrow: 1 }}>
+        <Box sx={{ maxWidth: '100%', flexGrow: 1 }}>
             <Paper
                 square
                 elevation={0}
@@ -89,9 +82,9 @@ const Banner = () => {
                             <Box
                                 component="img"
                                 sx={{
-                                    height: "95vh",
+                                    height: '95vh',
                                     display: 'block',
-                                    maxWidth: "100%",
+                                    maxWidth: '100%',
                                     overflow: 'hidden',
                                     width: '100%',
                                 }}
