@@ -27,24 +27,24 @@ interface SignUpRequest {
 const baseUrl = process.env.REACT_APP_BASE_URL;
 
 const api = createApi({
-  baseQuery: fetchBaseQuery({ baseUrl }),
-  endpoints: (builder) => ({
-    login: builder.mutation<AuthResponse, LoginRequest>({
-      query: (credentials) => ({
-        url: '/auth/login',
-        method: 'POST',
-        body: credentials,
-      }),
-    }),
+    baseQuery: fetchBaseQuery({ baseUrl }),
+    endpoints: (builder) => ({
+        login: builder.mutation<AuthResponse, LoginRequest>({
+            query: (credentials) => ({
+                url: '/auth/login',
+                method: 'POST',
+                body: credentials,
+            }),
+        }),
 
-    signUp: builder.mutation<AuthResponse, SignUpRequest>({
-      query: (credentials) => ({
-        url: '/auth/signup',
-        method: 'POST',
-        body: credentials,
-      }),
+        signUp: builder.mutation<AuthResponse, SignUpRequest>({
+            query: (credentials) => ({
+                url: '/auth/signup',
+                method: 'POST',
+                body: credentials,
+            }),
+        }),
     }),
-  }),
 });
 
 export const { useLoginMutation, useSignUpMutation } = api;
