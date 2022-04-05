@@ -1,14 +1,5 @@
-import { Button } from '@mui/material';
-import Link from '@mui/material/Link';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
 import * as React from 'react';
-import { useGetAppointmentByEmailQuery } from '../../../app/services/api';
-import { useAuth } from '../../../Hooks/useAuth';
-import Title from './Title';
+import useAuth from '../../../../hooks/useAuth';
 
 // Generate Order Data
 function createData(
@@ -74,54 +65,6 @@ const statusButton = {};
 export default function Orders() {
     const { user } = useAuth();
     const query = user.role === 'admin' ? '' : `/user/${user.email}`;
-    const { data, isLoading, isFetching } =
-        useGetAppointmentByEmailQuery(query);
 
-    return isLoading || isFetching ? (
-        <div>Loading....</div>
-    ) : (
-        <React.Fragment>
-            <Title>
-                {user.role === 'admin'
-                    ? 'All Appointments'
-                    : 'Your Appointments'}
-            </Title>
-            <Table size="small">
-                <TableHead>
-                    <TableRow>
-                        <TableCell>Order</TableCell>
-                        <TableCell>Date</TableCell>
-                        <TableCell>Name</TableCell>
-                        <TableCell>Email</TableCell>
-                        <TableCell>Phone</TableCell>
-                        <TableCell align="right">Status</TableCell>
-                    </TableRow>
-                </TableHead>
-                <TableBody>
-                    {data?.data.map((row, index) => (
-                        <TableRow key={row._id}>
-                            <TableCell>{index + 1}</TableCell>
-                            <TableCell>
-                                {new Date(row.date).toDateString()}
-                            </TableCell>
-                            <TableCell>{row.name}</TableCell>
-                            <TableCell>{row.email}</TableCell>
-                            <TableCell>{row.phone}</TableCell>
-                            <TableCell align="right">
-                                <Button sx={statusButton}>{row.status}</Button>
-                            </TableCell>
-                        </TableRow>
-                    ))}
-                </TableBody>
-            </Table>
-            <Link
-                color="primary"
-                href="#"
-                onClick={preventDefault}
-                sx={{ mt: 3 }}
-            >
-                See more orders
-            </Link>
-        </React.Fragment>
-    );
+    return <div>Loading....</div>;
 }
