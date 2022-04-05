@@ -28,8 +28,8 @@ const pages = [
         link: '/contact',
     },
     {
-        page: 'Secure',
-        link: '/secure',
+        page: 'Cart',
+        link: '/cart',
     },
     {
         page: 'Dashboard',
