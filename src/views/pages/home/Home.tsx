@@ -12,8 +12,8 @@ function Home() {
                 justifyContent: 'center',
             }}
         >
-            <Typography variant="h2" align="center">
-                Tareq Hassan Home Page
+            <Typography variant="h3" align="center">
+                Tareq Hassan Home Page Change for make Conflict 😂(With Leader)
             </Typography>
         </Box>
     );
