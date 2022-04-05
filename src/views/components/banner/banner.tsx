@@ -1,6 +1,6 @@
 import React from 'react';
 
-const DisplayBanner = () => {
+const banner = () => {
     return (
         <div>
             
@@ -8,4 +8,4 @@ const DisplayBanner = () => {
     );
 };
 
-export default DisplayBanner;
+export default banner;
