@@ -1,4 +1,5 @@
 import { lazy } from 'react';
+import Cart from '../views/components/common/Cart';
 
 const Home = lazy(() => import('../views/pages/home/Home'));
 const SignIn = lazy(() => import('../views/pages/signIn/SignIn'));
@@ -74,5 +75,9 @@ export const openRoutes = [
     {
         path: '/discover',
         element: Discover,
+    },
+    {
+        path: '/cart',
+        element: Cart,
     },
 ];
