@@ -1,0 +1,12 @@
+.banner {
+    background-image: url('./../../../assets/dubai-slider-screen-1.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+    background-blend-mode: overlay;
+}
+.banner-container {
+    width: auto;
+}
