@@ -13,7 +13,7 @@ function Home() {
             }}
         >
             <Typography variant="h2" align="center">
-                Home page from amirul
+                Home page Change for make Conflict 😂(With  Leader)
             </Typography>
         </Box>
     );
