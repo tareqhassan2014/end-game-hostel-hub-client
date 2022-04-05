@@ -1,7 +1,7 @@
 import React from 'react';
 
 const BannerDetails = () => {
-    return <Dsdiv></Dsdiv>;
+    return <div>BannerDetails</div>;
 };
 
 export default BannerDetails;
