@@ -68,7 +68,9 @@
         "lint-staged": "^12.3.7"
     },
     "lint-staged": {
-        "*.{js,jsx,ts,tsx}": "eslint --cache --fix",
-        "*.{ts,tsx,css,md}": "npx prettier --write"
+        "src/*.{js,jsx,ts,tsx,css,scss,md}": [
+            "npm run lint",
+            "npx prettier --write"
+        ]
     }
 }
