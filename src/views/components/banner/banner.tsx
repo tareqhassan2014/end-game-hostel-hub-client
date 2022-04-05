@@ -35,7 +35,7 @@ const images = [
     },
 ];
 
-ladfasd;
+    <div></div>;
 
 function Banner() {
     const theme = useTheme();
