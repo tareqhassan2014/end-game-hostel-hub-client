@@ -28,6 +28,14 @@ const pages = [
         link: '/contact',
     },
     {
+        page: 'VendorSignup',
+        link: '/vendor-signup',
+    },
+    {
+        page: 'Admin-signup',
+        link: '/admin-signup',
+    },
+    {
         page: 'Cart',
         link: '/cart',
     },
