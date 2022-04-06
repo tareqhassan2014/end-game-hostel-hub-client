@@ -20,9 +20,12 @@
         "react": "^17.0.2",
         "react-dom": "^17.0.2",
         "react-hook-form": "^7.28.1",
+        "react-material-ui-carousel": "^3.3.3",
         "react-redux": "^7.2.6",
         "react-router-dom": "^6.2.2",
         "react-scripts": "5.0.0",
+        "react-swipeable-views": "^0.14.0",
+        "react-swipeable-views-utils": "^0.14.0",
         "react-toastify": "^8.2.0",
         "recharts": "^2.1.9",
         "redux-persist": "^6.0.0",
@@ -33,7 +36,8 @@
         "build": "react-scripts build",
         "test": "react-scripts test",
         "eject": "react-scripts eject",
-        "lint": "tsc --noEmit && eslint --ext .js,.jsx,.ts,.tsx src --fix"
+        "lint": "tsc --noEmit && eslint --ext .js,.jsx,.ts,.tsx src --fix",
+        "prepare": "husky install"
     },
     "eslintConfig": {
         "extends": "react-app"
@@ -51,6 +55,8 @@
         ]
     },
     "devDependencies": {
+        "@types/react-swipeable-views": "^0.13.1",
+        "@types/react-swipeable-views-utils": "^0.13.3",
         "@typescript-eslint/eslint-plugin": "^5.17.0",
         "@typescript-eslint/parser": "^5.17.0",
         "eslint": "^8.12.0",
@@ -58,6 +64,12 @@
         "eslint-plugin-import": "^2.25.4",
         "eslint-plugin-jsx-a11y": "^6.5.1",
         "eslint-plugin-react": "^7.29.4",
-        "eslint-plugin-react-hooks": "^4.4.0"
-    }
+        "eslint-plugin-react-hooks": "^4.4.0",
+        "husky": "^7.0.0",
+        "lint-staged": "^12.3.7"
+    },
+    "lint-staged": {
+        "*{.tsx,.ts}": "npx eslint '**/*{.ts,.tsx}' --fix",
+        "*.{ts,tsx,css,md}": "npx prettier --write"
+      }
 }
