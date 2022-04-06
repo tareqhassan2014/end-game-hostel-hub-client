@@ -14,28 +14,39 @@ import b2 from './../../../assets/maldives-slider-img-1.jpg';
 import b3 from './../../../assets/sydney-slider-img-1.jpg';
 import './Banner.css';
 
-const img = {
-    backgroundImage: `${b1}`,
-};
-
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
 const Banner = () => {
     const images = [
+        // {
+        //     label: 'San Francisco – Oakland Bay Bridge, United States',
+        //     imgPath:
+        //         'https://tourpress.b-cdn.net/wp-content/uploads/2017/11/dubai-slider-screen-1.jpg',
+        // },
+        // {
+        //     label: 'Australia, Sydney Attraction' ,
+        //     imgPath:
+        //         'https://tourpress.b-cdn.net/wp-content/uploads/2017/11/sydney-slider-img-1.jpg',
+        // },
+        // {
+        //     label: 'Bali, Maldives',
+        //     imgPath:
+        //         'https://tourpress.b-cdn.net/wp-content/uploads/2017/11/maldives-slider-img-1.jpg',
+        // },
         {
-            label: 'San Francisco – Oakland Bay Bridge, United States',
+            label: 'Luxury, Hostel Apartment',
             imgPath:
-                'https://tourpress.b-cdn.net/wp-content/uploads/2017/11/dubai-slider-screen-1.jpg',
+                'http://bilalmghl.online/html/hotel/light-demo/extra-images/banner-03.jpg',
         },
         {
-            label: 'Bird',
+            label: 'Eye Catching Beauty, Meal-Time',
             imgPath:
-                'https://tourpress.b-cdn.net/wp-content/uploads/2017/11/sydney-slider-img-1.jpg',
+                'http://bilalmghl.online/html/hotel/light-demo/extra-images/banner-01.jpg',
         },
         {
-            label: 'Bali, Maldives',
+            label: "Fancy Gossip Table, Hostel's Inner Beauty.",
             imgPath:
-                'https://tourpress.b-cdn.net/wp-content/uploads/2017/11/maldives-slider-img-1.jpg',
+                'http://bilalmghl.online/html/hotel/light-demo/extra-images/banner-02.jpg',
         },
     ];
 
@@ -56,20 +67,13 @@ const Banner = () => {
     };
 
     return (
-        <Box sx={{ maxWidth: '100%', flexGrow: 1 }}>
-            <Paper
-                square
-                elevation={0}
-                sx={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    height: 50,
-                    pl: 2,
-                    bgcolor: 'background.default',
-                }}
-            >
-                <Typography>{images[activeStep].label}</Typography>
-            </Paper>
+        <Box
+            sx={{
+                maxWidth: '100%',
+                flexGrow: 1,
+                paddingTop: { md: '68px', sm: '64px', xs: '48px' },
+            }}
+        >
             <AutoPlaySwipeableViews
                 axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
                 index={activeStep}
@@ -82,7 +86,7 @@ const Banner = () => {
                             <Box
                                 component="img"
                                 sx={{
-                                    height: '95vh',
+                                    height: '90vh',
                                     display: 'block',
                                     maxWidth: '100%',
                                     overflow: 'hidden',
@@ -92,6 +96,19 @@ const Banner = () => {
                                 alt={step.label}
                             />
                         ) : null}
+                        <Paper
+                            square
+                            elevation={0}
+                            sx={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                height: 50,
+                                pl: 2,
+                                bgcolor: 'background.default',
+                            }}
+                        >
+                            <Typography>{images[activeStep].label}</Typography>
+                        </Paper>
                     </div>
                 ))}
             </AutoPlaySwipeableViews>
