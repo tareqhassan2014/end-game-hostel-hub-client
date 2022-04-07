@@ -15,79 +15,22 @@ import {
 } from '@mui/material';
 import { useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import { useDispatch } from 'react-redux';
 import { Link as DomLink } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { useSignUpMutation } from '../../../app/api';
-import { setCredentials } from '../../../app/reducers/auth/authSlice';
 import useFirebase from '../../../hooks/firebase/useFirebase';
 
 type Inputs = {
     email: string;
     password: string;
-
     name: string;
     ConfirmPassword: string;
 };
 
 export default function SignUp() {
     const [show, setShow] = useState(false);
-    const dispatch = useDispatch();
-
     const { firebaseGoogle, firebaseFacebook, RegisterUser } = useFirebase();
-    const [signUp, { isLoading }] = useSignUpMutation();
-
-    const handelFacebookLogin = async () => {
-        try {
-            const FirebaseUser = await firebaseFacebook();
-
-            if (FirebaseUser) {
-                dispatch(
-                    setCredentials({
-                        user: {
-                            name: '',
-                            email: '',
-                            status: '',
-                            role: '',
-                            _id: '',
-                            img: '',
-                            phone: '',
-                        },
-                        token: FirebaseUser.token,
-                    })
-                );
-
-                const { user } = await signUp(FirebaseUser).unwrap();
-
-                dispatch(
-                    setCredentials({
-                        user,
-                        token: FirebaseUser.token,
-                    })
-                );
-            }
-        } catch (error) {
-            console.log(error);
-        }
-    };
-
-    const handleGoogleLogin = async () => {
-        try {
-            const FirebaseUser = await firebaseGoogle();
-
-            if (FirebaseUser) {
-                const { user } = await signUp(FirebaseUser).unwrap();
-                dispatch(
-                    setCredentials({
-                        user,
-                        token: FirebaseUser.token,
-                    })
-                );
-            }
-        } catch (error) {
-            console.log(error);
-        }
-    };
+    const [_, { isLoading }] = useSignUpMutation();
 
     const {
         register,
@@ -100,17 +43,8 @@ export default function SignUp() {
 
     const onSubmit: SubmitHandler<Inputs> = async (data) => {
         try {
-            // const FirebaseUser = await RegisterUser({
-            //     name: data.name,
-            //     email: data.email,
-            //     password: data.password,
-            // });
-            // const {
-            //   data: { token, ...user },
-            // } = await SignUp(forData).unwrap();
-            // dispatch(setCredentials({ user, token }));
+            RegisterUser(data.name, data.email, data.password);
             reset();
-            toast.success('Account create successfully');
         } catch (error: any) {
             console.log(error?.data?.message);
             toast.error(error?.data?.message);
@@ -236,12 +170,10 @@ export default function SignUp() {
                     </Grid>
                     <Grid container>
                         <Grid item>
-                            <Button onClick={handleGoogleLogin}>Google</Button>
+                            <Button onClick={firebaseGoogle}>Google</Button>
                         </Grid>
                         <Grid item>
-                            <Button onClick={handelFacebookLogin}>
-                                Facebook
-                            </Button>
+                            <Button onClick={firebaseFacebook}>Facebook</Button>
                         </Grid>
                     </Grid>
                 </Box>
