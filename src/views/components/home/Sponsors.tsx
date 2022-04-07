@@ -97,6 +97,7 @@ const Sponsors = () => {
                     alt=""
                 />
             </div>
+            <button>Become a sponsor/backer</button>
         </div>
     );
 };
