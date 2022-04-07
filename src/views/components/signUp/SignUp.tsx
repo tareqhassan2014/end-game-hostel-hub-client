@@ -18,7 +18,6 @@ import { useDispatch } from 'react-redux';
 import { Link as DomLink } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { useSignUpMutation } from '../../../app/api';
-import { setCredentials } from '../../../app/reducers/auth/authSlice';
 
 type Inputs = {
     email: string;
@@ -45,10 +44,10 @@ export default function SignUp() {
 
     const onSubmit: SubmitHandler<Inputs> = async (forData) => {
         try {
-            const {
-                data: { token, ...user },
-            } = await SignUp(forData).unwrap();
-            dispatch(setCredentials({ user, token }));
+            // const {
+            //     data: { token, ...user },
+            // } = await SignUp(forData).unwrap();
+            // dispatch(setCredentials({ user, token }));
             reset();
             toast.success('Account create successfully');
         } catch (error: any) {
