@@ -13,7 +13,6 @@ import {
     Typography,
 } from '@mui/material';
 import { MouseEvent, useState } from 'react';
-import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import useFirebase from '../../../hooks/firebase/useFirebase';
 import useAuth from '../../../hooks/useAuth';
@@ -65,7 +64,6 @@ const settings = [
 ];
 
 export default function Header() {
-    const dispatch = useDispatch();
     const navigate = useNavigate();
     const { user } = useAuth();
     const { logout } = useFirebase();

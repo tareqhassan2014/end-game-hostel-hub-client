@@ -1,5 +1,5 @@
 import { Suspense } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import useAuth from '../hooks/useAuth';
 import { openRoutes, protectedRoutes } from '../routes/routes';
 import PrivateRoute from '../utility/PrivateRoute';
@@ -14,6 +14,7 @@ const View = () => {
     return (
         <Suspense fallback={<h1>Loading</h1>}>
             <Routes>
+                <Route path="*" element={<Navigate to="/" />} />
                 {openRoutes.map((route, idx) => {
                     return (
                         route.element && (
