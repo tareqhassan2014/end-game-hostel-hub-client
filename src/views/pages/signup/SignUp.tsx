@@ -100,11 +100,11 @@ export default function SignUp() {
 
     const onSubmit: SubmitHandler<Inputs> = async (data) => {
         try {
-            const FirebaseUser = await RegisterUser({
-                name: data.name,
-                email: data.email,
-                password: data.password,
-            });
+            // const FirebaseUser = await RegisterUser({
+            //     name: data.name,
+            //     email: data.email,
+            //     password: data.password,
+            // });
             // const {
             //   data: { token, ...user },
             // } = await SignUp(forData).unwrap();
