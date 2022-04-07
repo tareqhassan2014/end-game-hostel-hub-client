@@ -179,7 +179,7 @@ export default function Header() {
                                     onClick={handleOpenUserMenu}
                                     sx={{ p: 0 }}
                                 >
-                                    <Avatar alt={user.name} src={user.name} />
+                                    <Avatar alt={user.name} src={user.img} />
                                 </IconButton>
                             </Tooltip>
                         ) : (

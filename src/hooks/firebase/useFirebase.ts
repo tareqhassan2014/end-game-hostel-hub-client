@@ -56,7 +56,7 @@ const useFirebase = () => {
             const { user: newUser } = await signUp({
                 name,
                 phone: user.phoneNumber,
-                img: user.photoURL,
+                img: 'https://i.ibb.co/dBQjP3N/profile.png',
                 email: user.email,
             }).unwrap();
             toast.success('Account create successfully');
@@ -78,6 +78,21 @@ const useFirebase = () => {
                 auth,
                 email,
                 password
+            );
+
+            dispatch(
+                setCredentials({
+                    user: {
+                        name: '',
+                        email: '',
+                        status: '',
+                        role: '',
+                        _id: '',
+                        img: '',
+                        phone: '',
+                    },
+                    token: user.accessToken,
+                })
             );
 
             const { user: newUser } = await signIn({
@@ -166,17 +181,7 @@ const useFirebase = () => {
     useEffect(() => {
         const unsubscribed = onAuthStateChanged(auth, (authUser) => {
             if (authUser) {
-                const user = {
-                    name: authUser.displayName || '',
-                    email: authUser.email || '',
-                    role: '',
-                    _id: '',
-                    phone: '',
-                    status: '',
-                    img:
-                        authUser.photoURL ||
-                        'https://i.ibb.co/dDS0Jq5/user.png',
-                };
+                console.log(authUser);
             } else {
                 dispatch(setCredentials({ user, token: '' }));
             }
