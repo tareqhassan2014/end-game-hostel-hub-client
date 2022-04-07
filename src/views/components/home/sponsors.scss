@@ -1,0 +1,44 @@
+.sponsors {
+    min-height: 100vh;
+    padding-bottom: 40px;
+
+    h1 {
+        text-align: center;
+        padding-top: 20px;
+        color: #1976d2;
+        font-weight: bold;
+        font-size: 40px;
+    }
+    p {
+        text-align: center;
+        padding-bottom: 20px;
+    }
+    h3 {
+        text-align: center;
+        padding-top: 20px;
+    }
+
+    img {
+        width: 170px;
+        object-fit: contain;
+        margin: 20px 40px;
+        filter: grayscale(100%);
+        &:hover {
+            filter: grayscale(0%);
+            transition: 0.4s;
+        }
+        @media (max-width: 700px) {
+            width: 100px;
+        }
+    }
+
+    .content {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-top: -10px;
+    }
+    .content2 {
+        text-align: center;
+    }
+}
