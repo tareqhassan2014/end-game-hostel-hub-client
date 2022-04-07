@@ -2,6 +2,18 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    ::-webkit-scrollbar {
+        width: 5px;
+        background-color: #fff8f5;
+    }
+    ::-webkit-scrollbar-thumb {
+        border-radius: 2px;
+        background-color: #2d363f;
+    }
+    ::-webkit-scrollbar-track {
+        border-radius: 10px;
+        background-color: #fff8f5;
+    }
 }
 
 .custom_cart {

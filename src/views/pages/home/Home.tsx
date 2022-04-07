@@ -2,7 +2,7 @@ import { Box } from '@mui/system';
 import Banner from '../../components/banner/banner';
 import AllService from '../../components/home/AllService';
 import Raju from '../../components/home/Raju';
-import Rashidul from '../../components/home/Rashidul';
+import Sponsors from '../../components/home/Sponsors';
 
 function Home() {
     return (
@@ -10,7 +10,7 @@ function Home() {
             <Banner />
             <Raju />
             <AllService />
-            <Rashidul />
+            <Sponsors />
         </Box>
     );
 }

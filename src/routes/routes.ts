@@ -1,8 +1,8 @@
 import { lazy } from 'react';
 import Cart from '../views/components/common/cart/Cart';
 import AdminSignup from '../views/components/signUp/AdminSignup';
-import SignUp from '../views/components/signUp/SignUp';
 import VendorSignup from '../views/components/signUp/VendorSignup';
+import SignUp from '../views/pages/signup/SignUp';
 
 const Home = lazy(() => import('../views/pages/home/Home'));
 const SignIn = lazy(() => import('../views/pages/signIn/SignIn'));

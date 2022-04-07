@@ -1,0 +1,70 @@
+.sponsors {
+    min-height: 100vh;
+    padding-bottom: 40px;
+
+    h1 {
+        text-align: center;
+        padding-top: 20px;
+        color: #1976d2;
+        font-weight: bold;
+        font-size: 40px;
+    }
+    p {
+        text-align: center;
+        padding-bottom: 20px;
+    }
+    h3 {
+        text-align: center;
+        padding-top: 20px;
+    }
+
+    img {
+        width: 170px;
+        object-fit: contain;
+        margin: 20px 40px;
+        filter: grayscale(100%);
+        &:hover {
+            filter: grayscale(0%);
+            transition: 0.4s;
+        }
+        @media (max-width: 700px) {
+            width: 100px;
+        }
+    }
+
+    .content {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-top: -10px;
+    }
+    .content2 {
+        text-align: center;
+    }
+    button {
+        background-color: #2d363f;
+        padding: 16px 26px;
+        color: white;
+        cursor: pointer;
+        display: block;
+        text-transform: uppercase;
+        border: none;
+        position: relative;
+        transition: all 0.4s ease-in-out;
+        margin: 0 auto;
+        &::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 0.4rem;
+            transition: all 0.4s ease-in-out;
+            left: 0;
+            bottom: 0;
+            opacity: 1;
+        }
+        &:hover::after {
+            width: 100%;
+            background-color: #1976d2;
+        }
+    }
+}

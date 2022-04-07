@@ -15,7 +15,7 @@ import {
 import { MouseEvent, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { logOut } from '../../../app/reducers/auth/authSlice';
+import useFirebase from '../../../hooks/firebase/useFirebase';
 import useAuth from '../../../hooks/useAuth';
 
 const pages = [
@@ -68,6 +68,7 @@ export default function Header() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const { user } = useAuth();
+    const { logout } = useFirebase();
 
     const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
     const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
@@ -213,7 +214,7 @@ export default function Header() {
                                         navigate(setting.link);
 
                                         if (setting.page === 'Logout') {
-                                            dispatch(logOut());
+                                            logout();
                                         }
                                     }}
                                 >
