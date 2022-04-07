@@ -1,6 +1,7 @@
 import { Box } from '@mui/system';
 import Banner from '../../components/banner/banner';
 import Amirul from '../../components/home/Amirul';
+import FeatureApp from '../../components/home/FeatureApp';
 import Raju from '../../components/home/Raju';
 import Sponsors from '../../components/home/Sponsors';
 
@@ -9,6 +10,7 @@ function Home() {
         <Box>
             <Banner />
             <Raju />
+            <FeatureApp />
             <Amirul />
             <Sponsors />
         </Box>
