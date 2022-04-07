@@ -15,11 +15,9 @@ import {
 } from '@mui/material';
 import { useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import { useDispatch } from 'react-redux';
 import { Link as DomLink, useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { useLoginMutation } from '../../../app/api';
-import { setCredentials } from '../../../app/reducers/auth/authSlice';
 import useFirebase from '../../../hooks/firebase/useFirebase';
 
 type Inputs = {
@@ -29,79 +27,10 @@ type Inputs = {
 
 export default function SignIn() {
     const [show, setShow] = useState(false);
-    const dispatch = useDispatch();
     const { state } = useLocation();
     const navigate = useNavigate();
-    const { firebaseGoogle, firebaseFacebook } = useFirebase();
+    const { firebaseGoogle, firebaseFacebook, SignInFirebase } = useFirebase();
     const [signIn, { isLoading }] = useLoginMutation();
-
-    const handleGoogleLogin = async () => {
-        try {
-            const FirebaseUser = await firebaseGoogle();
-
-            if (FirebaseUser) {
-                dispatch(
-                    setCredentials({
-                        user: {
-                            name: '',
-                            email: '',
-                            status: '',
-                            role: '',
-                            _id: '',
-                            img: '',
-                            phone: '',
-                        },
-                        token: FirebaseUser.token,
-                    })
-                );
-
-                const { user } = await signIn(FirebaseUser).unwrap();
-
-                dispatch(
-                    setCredentials({
-                        user,
-                        token: FirebaseUser.token,
-                    })
-                );
-            }
-        } catch (error) {
-            console.log(error);
-        }
-    };
-
-    const handelFacebookLogin = async () => {
-        try {
-            const FirebaseUser = await firebaseFacebook();
-
-            if (FirebaseUser) {
-                dispatch(
-                    setCredentials({
-                        user: {
-                            name: '',
-                            email: '',
-                            status: '',
-                            role: '',
-                            _id: '',
-                            img: '',
-                            phone: '',
-                        },
-                        token: FirebaseUser.token,
-                    })
-                );
-
-                const { user } = await signIn(FirebaseUser).unwrap();
-
-                dispatch(
-                    setCredentials({
-                        user,
-                        token: FirebaseUser.token,
-                    })
-                );
-            }
-        } catch (error) {
-            console.log(error);
-        }
-    };
 
     const {
         register,
@@ -110,15 +39,10 @@ export default function SignIn() {
         reset,
     } = useForm<Inputs>();
 
-    const onSubmit: SubmitHandler<Inputs> = async (forData) => {
+    const onSubmit: SubmitHandler<Inputs> = async ({ email, password }) => {
         try {
-            // const {
-            //     data: { token, ...user },
-            // } = await login(forData).unwrap();
-            // dispatch(setCredentials({ user, token }));
+            SignInFirebase(email, password);
             reset();
-            navigate(state as string);
-            toast.success('successfully login');
         } catch (error: any) {
             console.log(error?.data?.message);
             toast.error(error?.data?.message);
@@ -201,12 +125,10 @@ export default function SignIn() {
 
                     <Grid container>
                         <Grid item>
-                            <Button onClick={handleGoogleLogin}>Google</Button>
+                            <Button onClick={firebaseGoogle}>Google</Button>
                         </Grid>
                         <Grid item>
-                            <Button onClick={handelFacebookLogin}>
-                                Facebook
-                            </Button>
+                            <Button onClick={firebaseFacebook}>Facebook</Button>
                         </Grid>
                     </Grid>
                 </Box>
