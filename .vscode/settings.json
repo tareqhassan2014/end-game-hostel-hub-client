@@ -22,7 +22,7 @@
     "emmet.includeLanguages": {
         "javascript": "javascriptreact"
     },
-    "editor.fontSize": 18,
+    "editor.fontSize": 15,
     "git.enableSmartCommit": true,
     "git.confirmSync": false,
     "git.autofetch": true,
