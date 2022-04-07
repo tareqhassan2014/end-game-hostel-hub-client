@@ -34,17 +34,17 @@ const Banner = () => {
         //         'https://tourpress.b-cdn.net/wp-content/uploads/2017/11/maldives-slider-img-1.jpg',
         // },
         {
-            label: 'Luxury, Hostel Apartment',
+            label: 'Luxury Apartment, Hostel Overview',
             imgPath:
                 'http://bilalmghl.online/html/hotel/light-demo/extra-images/banner-03.jpg',
         },
         {
-            label: 'Eye Catching Beauty, Meal-Time',
+            label: 'Eye-Catching Beauty, Meal-Time',
             imgPath:
                 'http://bilalmghl.online/html/hotel/light-demo/extra-images/banner-01.jpg',
         },
         {
-            label: "Fancy Gossip Table, Hostel's Inner Beauty.",
+            label: "Fancy Gossip-Table, Hostel's Inner Beauty.",
             imgPath:
                 'http://bilalmghl.online/html/hotel/light-demo/extra-images/banner-02.jpg',
         },
