@@ -1,11 +1,11 @@
 import { lazy } from 'react';
 import Cart from '../views/components/common/Cart';
 import AdminSignup from '../views/components/signUp/AdminSignup';
+import SignUp from '../views/components/signUp/SignUp';
 import VendorSignup from '../views/components/signUp/VendorSignup';
 
 const Home = lazy(() => import('../views/pages/home/Home'));
 const SignIn = lazy(() => import('../views/pages/signIn/SignIn'));
-const SignUp = lazy(() => import('../views/pages/signup/SignUp'));
 const Discover = lazy(() => import('../views/pages/discover/Discover'));
 const Profile = lazy(() => import('../views/pages/profile/Profile'));
 const AdminDashboard = lazy(

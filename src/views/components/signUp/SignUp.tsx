@@ -1,4 +1,4 @@
-import ShoppingBagOutlinedIcon from '@mui/icons-material/ShoppingBagOutlined';
+import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
 import LoadingButton from '@mui/lab/LoadingButton';
 import {
     Avatar,
@@ -6,49 +6,63 @@ import {
     Checkbox,
     Container,
     CssBaseline,
-    FormControl,
     FormControlLabel,
-    FormLabel,
     Grid,
     Link,
-    Radio,
-    RadioGroup,
     TextField,
     Typography,
 } from '@mui/material';
 import { useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
+import { useDispatch } from 'react-redux';
 import { Link as DomLink } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import { useSignUpMutation } from '../../../app/api';
+import { setCredentials } from '../../../app/reducers/auth/authSlice';
+
 type Inputs = {
     email: string;
-    location: string;
     password: string;
     phone: string;
     name: string;
     ConfirmPassword: string;
-    hostelType: string;
 };
-const VendorSignup = () => {
+
+export default function SignUp() {
     const [show, setShow] = useState(false);
+    const dispatch = useDispatch();
+
+    const [SignUp, { isLoading }] = useSignUpMutation();
 
     const {
         register,
         handleSubmit,
         formState: { errors },
+        reset,
         watch,
     } = useForm<Inputs>();
     const password = watch('password');
 
-    const onSubmit: SubmitHandler<Inputs> = (forData) => {
-        console.log(forData);
+    const onSubmit: SubmitHandler<Inputs> = async (forData) => {
+        try {
+            const {
+                data: { token, ...user },
+            } = await SignUp(forData).unwrap();
+            dispatch(setCredentials({ user, token }));
+            reset();
+            toast.success('Account create successfully');
+        } catch (error: any) {
+            console.log(error?.data?.message);
+            toast.error(error?.data?.message);
+        }
     };
 
     return (
         <Container component="main" maxWidth="lg">
             <CssBaseline />
-
             <Grid container spacing={2}>
                 <Grid item display={{ xs: 'none', md: 'block' }} md={7} lg={8}>
+                    {' '}
                     <Box
                         component="img"
                         style={{ width: '100%' }}
@@ -56,7 +70,7 @@ const VendorSignup = () => {
                             marginTop: 20,
                         }}
                         alt="The house from the offer."
-                        src="https://i.ibb.co/HXKQyJy/shop2.jpg"
+                        src="https://i.ibb.co/h17mNQt/6596292.jpg"
                     />
                 </Grid>
                 <Grid item xs={12} md={5} lg={4}>
@@ -69,10 +83,10 @@ const VendorSignup = () => {
                         }}
                     >
                         <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-                            <ShoppingBagOutlinedIcon />
+                            <PersonOutlineOutlinedIcon />
                         </Avatar>
                         <Typography component="h1" variant="h5">
-                            Creatre Shop
+                            Create User
                         </Typography>
                         <Box
                             component="form"
@@ -87,25 +101,10 @@ const VendorSignup = () => {
                                 autoComplete="name"
                                 margin="normal"
                                 error={Boolean(errors.name)}
-                                label={errors.name ? 'Error' : 'Shop Name'}
+                                label={errors.name ? 'Error' : 'Name'}
                                 helperText={errors.name?.message}
                                 {...register('name', {
-                                    required: 'Shop name is required',
-                                })}
-                            />
-                            <TextField
-                                required
-                                autoFocus
-                                fullWidth
-                                autoComplete="location"
-                                margin="normal"
-                                error={Boolean(errors.name)}
-                                label={
-                                    errors.location ? 'Error' : 'Shop location'
-                                }
-                                helperText={errors.location?.message}
-                                {...register('location', {
-                                    required: 'Shop location is required',
+                                    required: 'Name is required',
                                 })}
                             />
                             <TextField
@@ -170,7 +169,8 @@ const VendorSignup = () => {
                                     helperText={errors.ConfirmPassword?.message}
                                     autoComplete="current-password"
                                     {...register('ConfirmPassword', {
-                                        required: 'Confirm your password!',
+                                        required:
+                                            'please confirm your password!',
                                         validate: (value) =>
                                             value === password ||
                                             "password don't match",
@@ -179,9 +179,6 @@ const VendorSignup = () => {
                             </Box>
 
                             <FormControlLabel
-                                sx={{
-                                    display: 'flex',
-                                }}
                                 control={
                                     <Checkbox
                                         value="remember"
@@ -191,12 +188,12 @@ const VendorSignup = () => {
                                 label="Show password"
                                 onClick={() => setShow(!show)}
                             />
-
                             <LoadingButton
                                 type="submit"
                                 fullWidth
                                 variant="contained"
                                 sx={{ mt: 3, mb: 2 }}
+                                loading={isLoading}
                             >
                                 Sign In
                             </LoadingButton>
@@ -208,7 +205,7 @@ const VendorSignup = () => {
                                 </Grid>
                                 <Grid item>
                                     <DomLink to="/login">
-                                        Already Have a Hostel? login
+                                        Already Have a Account? login
                                     </DomLink>
                                 </Grid>
                             </Grid>
@@ -218,6 +215,4 @@ const VendorSignup = () => {
             </Grid>
         </Container>
     );
-};
-
-export default VendorSignup;
+}
