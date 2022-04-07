@@ -28,7 +28,7 @@ export const protectedRoutes = [
     {
         path: 'profile',
         element: Profile,
-        role: ['user', 'admin', 'grandAdmin', 'moderator', 'vendor'],
+        role: ['user', 'admin', 'grandAdmin', 'moderator', 'vendor', 'pending'],
     },
     {
         path: 'dashboard',
