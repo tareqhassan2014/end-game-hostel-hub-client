@@ -1,5 +1,5 @@
 import { lazy } from 'react';
-import Cart from '../views/components/common/Cart';
+import Cart from '../views/components/common/cart/Cart';
 import AdminSignup from '../views/components/signUp/AdminSignup';
 import SignUp from '../views/components/signUp/SignUp';
 import VendorSignup from '../views/components/signUp/VendorSignup';

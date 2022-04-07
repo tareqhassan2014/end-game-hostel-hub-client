@@ -1,0 +1,193 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.custom_cart {
+    .container {
+        min-height: 100vh;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        background: #08001b;
+        // color: white;
+    }
+
+    .container .card {
+        position: relative;
+        width: 300px;
+        height: 400px;
+        background: #0c002b;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 30px;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+        overflow: hidden;
+        opacity: 0.8;
+        &:hover {
+            opacity: 1;
+        }
+        img {
+            width: 100%;
+        }
+    }
+
+    .container .card::before {
+        content: '';
+        position: absolute;
+        top: 2px;
+        left: 2px;
+        bottom: 2px;
+        width: 50%;
+        background: rgba(255, 255, 255, 0.1);
+        pointer-events: none;
+    }
+    .container .card .content {
+        padding: 30px;
+        text-align: center;
+    }
+
+    .container .card .content h2 {
+        position: absolute;
+        right: 30px;
+        font-size: 4em;
+        font-weight: 800;
+        color: #1779ff;
+        z-index: 1;
+        opacity: 0.1;
+        transition: 0.5s;
+    }
+
+    .container .card:hover .content h2 {
+        opacity: 1;
+        transform: translateY(-70px);
+    }
+
+    .container .card .content h3 {
+        position: relative;
+        font-size: 1.5em;
+        color: #fff;
+        z-index: 2;
+        opacity: 0.5;
+        letter-spacing: 1px;
+        transition: 0.5s;
+    }
+
+    .container .card .content p {
+        position: relative;
+        font-size: 1em;
+        color: #fff;
+        z-index: 2;
+        opacity: 0.5;
+        font-weight: 300;
+        letter-spacing: 1px;
+        transition: 0.5s;
+    }
+
+    .container .card:hover .content h3,
+    .container .card:hover .content p {
+        opacity: 1;
+    }
+    .container .card .content a {
+        display: inline-block;
+        margin-top: 15px;
+        padding: 8px 15px;
+        background: #fff;
+        color: #0c002b;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-weight: 600;
+        border-top-right-radius: 5px;
+        border-bottom-left-radius: 5px;
+    }
+
+    .container .card span {
+        transition: 0.5;
+        opacity: 0;
+    }
+    .container .card:hover span {
+        opacity: 1;
+    }
+
+    .container .card span:nth-child(1) {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: linear-gradient(to right, transparent, #1779ff);
+        animation: animate1 2s linear infinite;
+    }
+
+    @keyframes animate1 {
+        0% {
+            transform: translateX(-100%);
+        }
+        100% {
+            transform: translateX(100%);
+        }
+    }
+
+    .container .card span:nth-child(2) {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 3px;
+        height: 100%;
+        background: linear-gradient(to bottom, transparent, #1779ff);
+        animation: animate2 2s linear infinite;
+        animation-delay: 1s;
+    }
+
+    @keyframes animate2 {
+        0% {
+            transform: translateY(-100%);
+        }
+        100% {
+            transform: translateY(100%);
+        }
+    }
+
+    .container .card span:nth-child(3) {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: linear-gradient(to left, transparent, #1779ff);
+        animation: animate3 2s linear infinite;
+    }
+
+    @keyframes animate3 {
+        0% {
+            transform: translateX(100%);
+        }
+        100% {
+            transform: translateX(-100%);
+        }
+    }
+
+    .container .card span:nth-child(4) {
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        width: 3px;
+        height: 100%;
+        background: linear-gradient(to top, transparent, #1779ff);
+        animation: animate4 2s linear infinite;
+    }
+
+    @keyframes animate4 {
+        0% {
+            transform: translateY(100%);
+        }
+        100% {
+            transform: translateY(-100%);
+        }
+    }
+}
