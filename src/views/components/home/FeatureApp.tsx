@@ -17,7 +17,7 @@ const FeatureApp = () => {
     const images = [
         {
             label: 'Launch Screen',
-            desc: 'Hi there, you are welcome by Md. Mahmudul Hasan so lets start',
+            desc: 'Hi there, you are welcome by Md. Mahmudul Hasan so lets get started',
             goal: 'কম্পিউটার সায়েন্সে পড়ার সুযোগ পাওনি কিন্তু কম্পিউটার সায়েন্সের মেইন মেইন জিনিসগুলো ধরে ধরে শিখতে চাইলে এই কোর্সে জয়েন করো।🥊 ',
             imgPath: 'https://i.ibb.co/7zssLnd/launch-screen.png',
         },
@@ -29,7 +29,7 @@ const FeatureApp = () => {
         },
         {
             label: 'Sign-up Page',
-            desc: 'This is Extra opportunity for you because we want you to store your data',
+            desc: 'This is extra opportunity for you because we want you to store your data',
             goal: 'আমাকে বিশ্বাস করুন, আমি আমার জীবনের চেয়ে কোডিং বেশি পছন্দ করি এবং আমি এতে আমার সময় ব্যয় করি।🥊',
             imgPath: 'https://i.ibb.co/jL9YMgY/signup.png',
         },
@@ -82,6 +82,9 @@ const FeatureApp = () => {
                 paddingTop: { md: '68px', sm: '64px', xs: '48px' },
             }}
         >
+            <Typography variant="h1" sx={{ textAlign: 'center' }}>
+                Features
+            </Typography>
             <Grid container sx={{ justifyContent: 'space-between' }}>
                 <Grid item md={6} sm={12} xs={12}>
                     <Paper
@@ -139,6 +142,7 @@ const FeatureApp = () => {
                                             maxWidth: '100%',
                                             overflow: 'hidden',
                                             width: '100%',
+                                            borderRadius: '10px',
                                         }}
                                         src={step.imgPath}
                                         alt={step.label}
