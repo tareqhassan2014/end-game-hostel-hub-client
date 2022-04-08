@@ -17,26 +17,26 @@ const FeatureApp = () => {
     const images = [
         {
             label: 'Launch Screen',
-            desc: 'Hi there, you are welcome by Md. Mahmudul Hasan so lets get started',
-            goal: 'কম্পিউটার সায়েন্সে পড়ার সুযোগ পাওনি কিন্তু কম্পিউটার সায়েন্সের মেইন মেইন জিনিসগুলো ধরে ধরে শিখতে চাইলে এই কোর্সে জয়েন করো।🥊 ',
+            desc: 'Hi there, you are welcome by Md. Mahmudul Hasan',
+            goal: 'কম্পিউটার সায়েন্সের সুযোগ পাওনি কিন্তু কম্পিউটার সায়েন্সের মেইন মেইন জিনিসগুলো ধরে ধরে শিখতে চাইলে এই কোর্সে জয়েন করো।🥊 ',
             imgPath: 'https://i.ibb.co/7zssLnd/launch-screen.png',
         },
         {
             label: 'First Page',
-            goal: 'আনলিমিটেড হেল্প, গাইডলাইন; এমনকি গুগল মিট এ স্ক্রিনশেয়ার করে সমস্যা সমাধান করতে চাইলে; এই কোর্সে জয়েন করো।🚀',
+            goal: 'আনলিমিটেড হেল্প, গাইডলাইন; এমনকি গুগল মিট এ স্ক্রিনশেয়ার করে সমস্যা সমাধান করতে চাইলে; এই কোর্সে জয়েন করো।💡',
             desc: 'Here, you will see the welcome page and others information will be available on it',
             imgPath: 'https://i.ibb.co/cQpZH6m/welcome-page.png',
         },
         {
             label: 'Sign-up Page',
-            desc: 'This is extra opportunity for you because we want you to store your data',
-            goal: 'আমাকে বিশ্বাস করুন, আমি আমার জীবনের চেয়ে কোডিং বেশি পছন্দ করি এবং আমি এতে আমার সময় ব্যয় করি।🥊',
+            desc: 'This is for you because we want you to store your data',
+            goal: 'আমাকে বিশ্বাস করুন, আমি আমার জীবনের চেয়ে কোডিং বেশি পছন্দ করি এবং আমি এতে আমার সময় ব্যয় করি।🎓',
             imgPath: 'https://i.ibb.co/jL9YMgY/signup.png',
         },
         {
             label: 'Profile',
             desc: 'Do not lose your hope until capture your ambitions',
-            goal: 'লোকেদের জানাতে আপনার দুর্দান্ত প্রোফাইল তৈরি করুন যাতে তারা হিংসা অনুভব করে।🔥',
+            goal: 'লোকেদের জানাতে আপনার দুর্দান্ত প্রোফাইল তৈরি করুন যাতে তারা হিংসা অনুভব করে।💪',
             imgPath: 'https://i.ibb.co/4PTzZ3k/profile.png',
         },
         {
@@ -48,12 +48,12 @@ const FeatureApp = () => {
         {
             label: 'Filter',
             desc: 'If you are A Customer then you are able to filter your rooms',
-            goal: 'সঠিকভাবে তথ্য সংগ্রহ করে আপনার ইচ্ছানুযায়ী রুম পান কারণ এটি অত্যন্ত প্রয়োজনীয়।🔥',
+            goal: 'সঠিকভাবে তথ্য সংগ্রহ করে আপনার ইচ্ছানুযায়ী রুম পান কারণ এটি অত্যন্ত প্রয়োজনীয়।🍎',
             imgPath: 'https://i.ibb.co/K9rKk2J/filter.png',
         },
         {
             label: 'Payment',
-            goal: 'সর্বোত্তম পরিষেবা পাওয়ার পরে কোনো দ্বিধা ছাড়াই আমাদের অর্থ প্রদান করুন কারণ আমরা আপনার জন্য।🚀',
+            goal: 'সর্বোত্তম পরিষেবা পাওয়ার পরে কোনো দ্বিধা ছাড়াই আমাদের অর্থ প্রদান করুন কারণ আমরা আপনার জন্য।🕑',
             desc: 'The process of Payment has been displayed on it so here you are',
             imgPath: 'https://i.ibb.co/WWRKXTJ/payment.png',
         },
@@ -80,9 +80,13 @@ const FeatureApp = () => {
                 maxWidth: '100%',
                 flexGrow: 1,
                 paddingTop: { md: '68px', sm: '64px', xs: '48px' },
+                marginBottom: '40px',
             }}
         >
-            <Typography variant="h1" sx={{ textAlign: 'center' }}>
+            <Typography
+                variant="h3"
+                sx={{ textAlign: 'center', color: '#6A52E5', mb: 5 }}
+            >
                 Features
             </Typography>
             <Grid container sx={{ justifyContent: 'space-between' }}>
@@ -91,8 +95,11 @@ const FeatureApp = () => {
                         square
                         elevation={0}
                         sx={{
-                            height: 'auto',
-                            p: { md: 2, sm: 1, xs: 1 },
+                            height: { md: '420px' },
+                            width: 'auto',
+                            p: { md: 3, sm: 1, xs: 1 },
+                            mb: { sm: 2, xs: 2 },
+                            borderRadius: '10px',
                             bgcolor: 'background.default',
                         }}
                     >
@@ -114,17 +121,16 @@ const FeatureApp = () => {
                                 fontSize: 10,
                                 borderRadius: 2,
                                 '&:hover': {
-                                    backgroundColor: 'gray',
+                                    backgroundColor: '#6A52E5',
                                     color: 'smoke',
                                 },
                             }}
-                            size="small"
                         >
                             See More
                         </Button>
                     </Paper>
                 </Grid>
-                <Grid item md={5} sm={12} xs={12} sx={{ mr: 2 }}>
+                <Grid item md={5} sm={12} xs={12} sx={{ mr: { md: 2 } }}>
                     <AutoPlaySwipeableViews
                         axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
                         index={activeStep}
@@ -152,6 +158,10 @@ const FeatureApp = () => {
                         ))}
                     </AutoPlaySwipeableViews>
                     <MobileStepper
+                        sx={{
+                            borderBottomLeftRadius: '10px',
+                            borderBottomRightRadius: '10px',
+                        }}
                         steps={maxSteps}
                         position="static"
                         activeStep={activeStep}
@@ -160,28 +170,14 @@ const FeatureApp = () => {
                                 size="small"
                                 onClick={handleNext}
                                 disabled={activeStep === maxSteps - 1}
-                            >
-                                Next
-                                {theme.direction === 'rtl' ? (
-                                    <KeyboardArrowLeft />
-                                ) : (
-                                    <KeyboardArrowRight />
-                                )}
-                            </Button>
+                            ></Button>
                         }
                         backButton={
                             <Button
                                 size="small"
                                 onClick={handleBack}
                                 disabled={activeStep === 0}
-                            >
-                                {theme.direction === 'rtl' ? (
-                                    <KeyboardArrowRight />
-                                ) : (
-                                    <KeyboardArrowLeft />
-                                )}
-                                Previews
-                            </Button>
+                            ></Button>
                         }
                     />
                 </Grid>

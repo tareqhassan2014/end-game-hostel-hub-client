@@ -9,9 +9,6 @@ import Typography from '@mui/material/Typography';
 import React from 'react';
 import SwipeableViews from 'react-swipeable-views';
 import { autoPlay } from 'react-swipeable-views-utils';
-import b1 from './../../../assets/dubai-slider-screen-1.jpg';
-import b2 from './../../../assets/maldives-slider-img-1.jpg';
-import b3 from './../../../assets/sydney-slider-img-1.jpg';
 import './Banner.css';
 
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
@@ -71,7 +68,7 @@ const Banner = () => {
             sx={{
                 maxWidth: '100%',
                 flexGrow: 1,
-                paddingTop: { md: '68px', sm: '64px', xs: '48px' },
+                // paddingTop: { md: '68px', sm: '64px', xs: '48px' },
             }}
         >
             <AutoPlaySwipeableViews
