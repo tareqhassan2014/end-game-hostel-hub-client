@@ -68,7 +68,6 @@ const Banner = () => {
             sx={{
                 maxWidth: '100%',
                 flexGrow: 1,
-                // paddingTop: { md: '68px', sm: '64px', xs: '48px' },
             }}
         >
             <AutoPlaySwipeableViews
