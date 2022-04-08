@@ -50,7 +50,12 @@ const AllService = () => {
                     <Typography variant="h6" component="div" gutterBottom>
                         OUR SERVICES
                     </Typography>
-                    <Typography variant="h4" component="div" gutterBottom>
+                    <Typography
+                        variant="h3"
+                        sx={{ textAlign: 'center', color: '#6A52E5', mb: 5 }}
+                        component="div"
+                        gutterBottom
+                    >
                         Facilities & Service
                     </Typography>
                 </Box>
