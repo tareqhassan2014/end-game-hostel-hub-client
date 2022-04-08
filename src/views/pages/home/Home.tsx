@@ -1,8 +1,8 @@
 import { Box } from '@mui/system';
-import Banner from '../../components/banner/banner';
-import AllService from '../../components/home/AllService';
-import Raju from '../../components/home/Raju';
-import Sponsors from '../../components/home/Sponsors';
+import Banner from 'src/views/components/banner/banner';
+import AllService from 'src/views/components/home/AllService';
+import Raju from 'src/views/components/home/Raju';
+import Sponsors from 'src/views/components/home/Sponsors';
 
 function Home() {
     return (
