@@ -16,8 +16,9 @@ import {
 } from '@mui/material';
 import { styled } from '@mui/system';
 import { MouseEvent, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import useFirebase from 'src/hooks/firebase/useFirebase';
+import { logOut } from 'src/app/reducers/auth/authSlice';
 import useAuth from 'src/hooks/useAuth';
 import { useStyle } from 'src/theme/useStyle';
 
@@ -70,7 +71,7 @@ const settings = [
 export default function Header() {
     const navigate = useNavigate();
     const { user } = useAuth();
-    const { logout } = useFirebase();
+    const dispatch = useDispatch();
     const { toggleMode, mode } = useStyle();
 
     const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
@@ -291,7 +292,7 @@ export default function Header() {
                                             navigate(setting.link);
 
                                             if (setting.page === 'Logout') {
-                                                logout();
+                                                dispatch(logOut());
                                             }
                                         }}
                                     >

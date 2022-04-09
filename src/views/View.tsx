@@ -3,6 +3,7 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import useAuth from '../hooks/useAuth';
 import { openRoutes, protectedRoutes } from '../routes/routes';
 import PrivateRoute from '../utility/PrivateRoute';
+import Loading from './components/Lottie/Loading';
 
 const View = () => {
     const { user } = useAuth();
@@ -12,7 +13,7 @@ const View = () => {
     );
 
     return (
-        <Suspense fallback={<h1>Loading</h1>}>
+        <Suspense fallback={<Loading />}>
             <Routes>
                 <Route path="*" element={<Navigate to="/" />} />
                 {openRoutes.map((route, idx) => {

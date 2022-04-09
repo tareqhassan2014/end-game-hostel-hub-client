@@ -3,13 +3,10 @@ import {
     FacebookAuthProvider,
     getAuth,
     GoogleAuthProvider,
-    onAuthStateChanged,
     signInWithEmailAndPassword,
     signInWithPopup,
-    signOut,
     updateProfile,
 } from 'firebase/auth';
-import { useEffect } from 'react';
 import { toast } from 'react-toastify';
 import { useLoginMutation, useSignUpMutation } from '../../app/api';
 import { setCredentials } from '../../app/reducers/auth/authSlice';
@@ -177,37 +174,11 @@ const useFirebase = () => {
         }
     };
 
-    // OBSERVE A USER
-    useEffect(() => {
-        const unsubscribed = onAuthStateChanged(auth, (authUser) => {
-            if (authUser) {
-                console.log(authUser);
-            } else {
-                dispatch(setCredentials({ user, token: '' }));
-            }
-
-            return () => unsubscribed;
-        });
-    }, [auth, dispatch]);
-
-    // LogOut
-
-    const logout = () => {
-        signOut(auth)
-            .then(() => {
-                dispatch(setCredentials({ user, token: '' }));
-            })
-            .catch((error) => {
-                console.log(error);
-            });
-    };
-
     return {
         firebaseFacebook,
         SignInFirebase,
         firebaseGoogle,
         RegisterUser,
-        logout,
     };
 };
 
