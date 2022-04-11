@@ -1,3 +1,6 @@
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import DashboardIcon from '@mui/icons-material/Dashboard';
+import LogoutIcon from '@mui/icons-material/Logout';
 import MenuIcon from '@mui/icons-material/Menu';
 import {
     AppBar,
@@ -7,6 +10,7 @@ import {
     Container,
     FormControlLabel,
     IconButton,
+    ListItemIcon,
     Menu,
     MenuItem,
     Switch,
@@ -20,7 +24,7 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { logOut } from 'src/app/reducers/auth/authSlice';
 import useAuth from 'src/hooks/useAuth';
-import { useStyle } from 'src/theme/useStyle';
+import { useAppTheme } from 'src/theme/UseAppTheme';
 
 const pages = [
     {
@@ -53,26 +57,26 @@ const settings = [
     {
         page: 'Profile',
         link: '/profile',
+        icon: AccountCircleIcon,
     },
-    {
-        page: 'Account',
-        link: '/account',
-    },
+
     {
         page: 'Dashboard',
         link: '/dashboard',
+        icon: DashboardIcon,
     },
     {
         page: 'Logout',
         link: '/',
+        icon: LogoutIcon,
     },
 ];
 
 export default function Header() {
+    const dispatch = useDispatch();
     const navigate = useNavigate();
     const { user } = useAuth();
-    const dispatch = useDispatch();
-    const { toggleMode, mode } = useStyle();
+    const { toggleMode, mode } = useAppTheme();
 
     const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
     const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
@@ -284,21 +288,22 @@ export default function Header() {
                                 open={Boolean(anchorElUser)}
                                 onClose={handleCloseUserMenu}
                             >
-                                {settings.map((setting, key) => (
+                                {settings.map((item, key) => (
                                     <MenuItem
                                         key={key}
                                         onClick={() => {
                                             handleCloseUserMenu();
-                                            navigate(setting.link);
+                                            navigate(item.link);
 
-                                            if (setting.page === 'Logout') {
+                                            if (item.page === 'Logout') {
                                                 dispatch(logOut());
                                             }
                                         }}
                                     >
-                                        <Typography textAlign="center">
-                                            {setting.page}
-                                        </Typography>
+                                        <ListItemIcon>
+                                            <item.icon fontSize="small" />
+                                        </ListItemIcon>
+                                        {item.page}
                                     </MenuItem>
                                 ))}
                             </Menu>

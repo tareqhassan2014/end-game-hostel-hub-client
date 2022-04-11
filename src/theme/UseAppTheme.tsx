@@ -1,20 +1,44 @@
-import { createTheme, PaletteMode, ThemeProvider } from '@mui/material';
-import React, { createContext, useMemo, useState } from 'react';
+import {
+    createTheme,
+    PaletteMode,
+    ThemeProvider,
+    useMediaQuery,
+} from '@mui/material';
+import React, {
+    createContext,
+    useContext,
+    useEffect,
+    useMemo,
+    useState,
+} from 'react';
 
 interface colorMode {
     toggleMode: () => void;
     setPrimaryColor: (hue: number) => void;
     mode: 'light' | 'dark';
-    glassEffect: boolean;
-    setGlassEffect: React.Dispatch<React.SetStateAction<boolean>>;
+    primaryColorHue: number;
 }
 
 export const colorModeContext = createContext<colorMode>({} as colorMode);
 
-export const ColorContextProvider: React.FC = ({ children }) => {
+export const AppThemeProvider: React.FC = ({ children }) => {
     const [mode, setMode] = useState('light' as PaletteMode);
-    const [glassEffect, setGlassEffect] = useState(false);
     const [primaryColorHue, setPrimaryColorHue] = useState(250);
+    const deviceMode = useMediaQuery('(prefers-color-scheme: dark)');
+    const previousMode = localStorage.getItem('color-mood');
+
+    useEffect(() => {
+        if (previousMode) {
+            setMode(previousMode === 'dark' ? 'dark' : 'light');
+        }
+
+        if (!previousMode && deviceMode) {
+            setMode('dark');
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+
+    console.log(!previousMode, deviceMode);
 
     const colorMode = useMemo(
         () => ({
@@ -28,10 +52,9 @@ export const ColorContextProvider: React.FC = ({ children }) => {
                 setPrimaryColorHue(hue);
             },
             mode,
-            glassEffect,
-            setGlassEffect,
+            primaryColorHue,
         }),
-        [mode, glassEffect, setGlassEffect]
+        [mode, primaryColorHue]
     );
 
     const theme = useMemo(
@@ -45,13 +68,13 @@ export const ColorContextProvider: React.FC = ({ children }) => {
                     background: {
                         default:
                             mode === 'light'
-                                ? `hsl(${primaryColorHue}, 63%, 97%)`
-                                : '#121212',
+                                ? `hsl(${primaryColorHue}, 8%, 61%)`
+                                : `hsl(${primaryColorHue}, 50%, 4%)`,
 
                         paper:
                             mode === 'light'
-                                ? `hsl(${primaryColorHue}, 63%, 97%)`
-                                : '#121212',
+                                ? `hsl(${primaryColorHue}, 74%, 98%)`
+                                : `hsl(${primaryColorHue}, 50%, 10%)`,
                     },
                 },
             }),
@@ -63,4 +86,8 @@ export const ColorContextProvider: React.FC = ({ children }) => {
             <ThemeProvider theme={theme}>{children}</ThemeProvider>
         </colorModeContext.Provider>
     );
+};
+
+export const useAppTheme = () => {
+    return useContext(colorModeContext);
 };

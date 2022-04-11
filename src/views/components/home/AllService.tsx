@@ -1,3 +1,12 @@
+import ArrowRightAltOutlinedIcon from '@mui/icons-material/ArrowRightAltOutlined';
+import FeedbackIcon from '@mui/icons-material/Feedback';
+import HourglassBottomIcon from '@mui/icons-material/HourglassBottom';
+import LocalShippingIcon from '@mui/icons-material/LocalShipping';
+import MapsHomeWorkOutlinedIcon from '@mui/icons-material/MapsHomeWorkOutlined';
+import MiscellaneousServicesOutlinedIcon from '@mui/icons-material/MiscellaneousServicesOutlined';
+import SearchIcon from '@mui/icons-material/Search';
+import SellOutlinedIcon from '@mui/icons-material/SellOutlined';
+import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import {
     Avatar,
     Card,
@@ -9,16 +18,6 @@ import {
     Typography,
 } from '@mui/material';
 import { Box } from '@mui/system';
-import React from 'react';
-import ArrowRightAltOutlinedIcon from '@mui/icons-material/ArrowRightAltOutlined';
-import MiscellaneousServicesOutlinedIcon from '@mui/icons-material/MiscellaneousServicesOutlined';
-import MapsHomeWorkOutlinedIcon from '@mui/icons-material/MapsHomeWorkOutlined';
-import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
-import SellOutlinedIcon from '@mui/icons-material/SellOutlined';
-import SearchIcon from '@mui/icons-material/Search';
-import HourglassBottomIcon from '@mui/icons-material/HourglassBottom';
-import LocalShippingIcon from '@mui/icons-material/LocalShipping';
-import FeedbackIcon from '@mui/icons-material/Feedback';
 
 const AllService = () => {
     return (
@@ -44,7 +43,9 @@ const AllService = () => {
                         alignItems: 'center',
                     }}
                 >
-                    <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+                    <Avatar
+                        sx={{ m: 1, bgcolor: 'secondary.main', color: 'white' }}
+                    >
                         <MiscellaneousServicesOutlinedIcon />
                     </Avatar>
                     <Typography variant="h6" component="div" gutterBottom>
@@ -79,7 +80,11 @@ const AllService = () => {
                                     }}
                                 >
                                     <Avatar
-                                        sx={{ m: 1, bgcolor: 'primary.main' }}
+                                        sx={{
+                                            m: 1,
+                                            bgcolor: 'primary.main',
+                                            color: 'white',
+                                        }}
                                     >
                                         <SearchIcon />
                                     </Avatar>
@@ -128,7 +133,11 @@ const AllService = () => {
                                     }}
                                 >
                                     <Avatar
-                                        sx={{ m: 1, bgcolor: 'primary.main' }}
+                                        sx={{
+                                            m: 1,
+                                            bgcolor: 'primary.main',
+                                            color: 'white',
+                                        }}
                                     >
                                         <MapsHomeWorkOutlinedIcon />
                                     </Avatar>
@@ -177,7 +186,11 @@ const AllService = () => {
                                     }}
                                 >
                                     <Avatar
-                                        sx={{ m: 1, bgcolor: 'primary.main' }}
+                                        sx={{
+                                            m: 1,
+                                            bgcolor: 'primary.main',
+                                            color: 'white',
+                                        }}
                                     >
                                         <ShoppingCartOutlinedIcon />
                                     </Avatar>
@@ -226,7 +239,11 @@ const AllService = () => {
                                     }}
                                 >
                                     <Avatar
-                                        sx={{ m: 1, bgcolor: 'primary.main' }}
+                                        sx={{
+                                            m: 1,
+                                            bgcolor: 'primary.main',
+                                            color: 'white',
+                                        }}
                                     >
                                         <SellOutlinedIcon />
                                     </Avatar>
@@ -275,7 +292,11 @@ const AllService = () => {
                                     }}
                                 >
                                     <Avatar
-                                        sx={{ m: 1, bgcolor: 'primary.main' }}
+                                        sx={{
+                                            m: 1,
+                                            bgcolor: 'primary.main',
+                                            color: 'white',
+                                        }}
                                     >
                                         <MiscellaneousServicesOutlinedIcon />
                                     </Avatar>
@@ -324,7 +345,11 @@ const AllService = () => {
                                     }}
                                 >
                                     <Avatar
-                                        sx={{ m: 1, bgcolor: 'primary.main' }}
+                                        sx={{
+                                            m: 1,
+                                            bgcolor: 'primary.main',
+                                            color: 'white',
+                                        }}
                                     >
                                         <HourglassBottomIcon />
                                     </Avatar>
@@ -373,7 +398,11 @@ const AllService = () => {
                                     }}
                                 >
                                     <Avatar
-                                        sx={{ m: 1, bgcolor: 'primary.main' }}
+                                        sx={{
+                                            m: 1,
+                                            bgcolor: 'primary.main',
+                                            color: 'white',
+                                        }}
                                     >
                                         <LocalShippingIcon />
                                     </Avatar>
@@ -423,7 +452,11 @@ const AllService = () => {
                                     }}
                                 >
                                     <Avatar
-                                        sx={{ m: 1, bgcolor: 'primary.main' }}
+                                        sx={{
+                                            m: 1,
+                                            bgcolor: 'primary.main',
+                                            color: 'white',
+                                        }}
                                     >
                                         <FeedbackIcon />
                                     </Avatar>

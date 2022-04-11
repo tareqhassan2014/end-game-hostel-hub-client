@@ -1,5 +1,4 @@
-import { Box, Grid } from '@mui/material';
-import { Link } from 'react-router-dom';
+import { Grid, Paper } from '@mui/material';
 import SwiperCore, { Autoplay } from 'swiper';
 // Import Swiper styles
 import 'swiper/css';
@@ -35,56 +34,50 @@ const datas = [
 SwiperCore.use([Autoplay]);
 export default function Banners() {
     return (
-        <>
-            <Box sx={{ width: '100%', height: { xs: '96%', md: '30rem' } }}>
-                <Swiper
-                    loop={true}
-                    slidesPerView={'auto'}
-                    autoplay={{
-                        delay: 6000,
-                        disableOnInteraction: false,
-                    }}
-                    modules={[Autoplay]}
-                    className="mySwiper"
-                >
-                    {datas.map((data, index) => (
-                        <SwiperSlide key={index}>
-                            <Box
-                                sx={{
-                                    display: { md: 'flex' },
-                                    justifyContent: 'center',
-                                    alignItems: 'center',
-                                }}
-                            >
-                                <Grid container>
-                                    <Grid
-                                        md={6}
-                                        item
-                                        component={Link}
-                                        to="/contact"
-                                    >
-                                        <div>
-                                            <h1>Earn money</h1>
-                                            <p>
-                                                Register as a affiliate user and
-                                                earn unlimited from us.
-                                            </p>
-                                            <button>Contact Us</button>
-                                        </div>
-                                    </Grid>
-                                    <Grid
-                                        md={6}
-                                        item
-                                        sx={{ m: { mt: 0 }, height: '100%' }}
-                                    >
-                                        <data.lottie />
-                                    </Grid>
-                                </Grid>
-                            </Box>
-                        </SwiperSlide>
-                    ))}
-                </Swiper>
-            </Box>
-        </>
+        <Paper
+            sx={{
+                py: { md: 3, sm: 2, xs: 1 },
+                px: { md: 5, sm: 1, xs: 0.5 },
+            }}
+        >
+            <Swiper
+                loop={true}
+                slidesPerView={'auto'}
+                autoplay={{
+                    delay: 6000,
+                    disableOnInteraction: false,
+                }}
+                modules={[Autoplay]}
+            >
+                <SwiperSlide>
+                    <Grid container>
+                        <Grid md={6} xs={12} item>
+                            <div>
+                                <h1>Earn money</h1>
+                                <p>
+                                    Register as a affiliate user and earn
+                                    unlimited from us.
+                                </p>
+                                <button>Contact Us</button>
+                            </div>
+                        </Grid>
+                        <Grid
+                            md={6}
+                            xs={12}
+                            item
+                            sx={{
+                                height: {
+                                    md: 450,
+                                    sm: 350,
+                                    xs: 300,
+                                },
+                            }}
+                        >
+                            <BannerLottie3 />
+                        </Grid>
+                    </Grid>
+                </SwiperSlide>
+            </Swiper>
+        </Paper>
     );
 }

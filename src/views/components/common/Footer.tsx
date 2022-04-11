@@ -9,13 +9,13 @@ import {
     Typography,
 } from '@mui/material';
 import { styled } from '@mui/system';
-import visa from './../../../assets/visa.png';
+import visa from 'src/assets/visa.png';
+import { useAppTheme } from 'src/theme/UseAppTheme';
 
 const MyButton = styled(Button)({
     backgroundColor: '#43515a',
     color: 'white',
     padding: '5px 15px',
-
     margin: 2,
     fontSize: 10,
     borderRadius: 3,
@@ -26,8 +26,15 @@ const MyButton = styled(Button)({
 });
 
 const Footer = () => {
+    const { primaryColorHue } = useAppTheme();
     return (
-        <Box sx={{ bgcolor: '#2D363F', pb: 5, color: 'white' }}>
+        <Box
+            sx={{
+                bgcolor: `hsl(${primaryColorHue}, 50%, 4%)`,
+                pb: 5,
+                color: 'white',
+            }}
+        >
             <Container>
                 <Grid container>
                     <Grid item md={3} sm={6} xs={12} sx={{ my: 5 }}>
