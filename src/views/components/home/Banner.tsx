@@ -1,4 +1,4 @@
-import { Grid, Paper } from '@mui/material';
+import { Box, Grid } from '@mui/material';
 import SwiperCore, { Autoplay } from 'swiper';
 // Import Swiper styles
 import 'swiper/css';
@@ -34,7 +34,7 @@ const datas = [
 SwiperCore.use([Autoplay]);
 export default function Banners() {
     return (
-        <Paper
+        <Box
             sx={{
                 py: { md: 3, sm: 2, xs: 1 },
                 px: { md: 5, sm: 1, xs: 0.5 },
@@ -162,6 +162,6 @@ export default function Banners() {
                     </Grid>
                 </SwiperSlide>
             </Swiper>
-        </Paper>
+        </Box>
     );
 }
