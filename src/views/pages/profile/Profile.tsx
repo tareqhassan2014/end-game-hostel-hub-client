@@ -17,10 +17,10 @@ import CustomModal from './CustomModal';
 const Profile = () => {
     const { user } = useAuth();
     //modal
-    const [openBooking, setBookingOpen] = React.useState(false);
-    const handleBookingOpen = () => setBookingOpen(true);
-    const handleBookingClose = () => setBookingOpen(false);
-    console.log(handleBookingClose);
+    const [openModal, setModalOpen] = React.useState(false);
+    const handleModalOpen = () => setModalOpen(true);
+    const handleModalClose = () => setModalOpen(false);
+    console.log(handleModalClose);
     return (
         <>
             <Container sx={{ my: 5 }}>
@@ -105,10 +105,7 @@ const Profile = () => {
 
                         <Grid container sx={{ my: 3 }}>
                             <Grid item md={6} xs={12} sx={{ pr: 2 }}>
-                                <Paper
-                                    onClick={handleBookingOpen}
-                                    sx={{ pt: 3 }}
-                                >
+                                <Paper onClick={handleModalOpen} sx={{ pt: 3 }}>
                                     <Avatar
                                         sx={{
                                             bgcolor: 'primary.main',
@@ -130,10 +127,7 @@ const Profile = () => {
                                 </Paper>
                             </Grid>
                             <Grid item md={6} xs={12} sx={{ pl: 2 }}>
-                                <Paper
-                                    onClick={handleBookingOpen}
-                                    sx={{ pt: 3 }}
-                                >
+                                <Paper onClick={handleModalOpen} sx={{ pt: 3 }}>
                                     <Avatar
                                         sx={{
                                             bgcolor: 'primary.main',
@@ -159,8 +153,8 @@ const Profile = () => {
                 </Grid>
             </Container>
             <CustomModal
-                openBooking={openBooking}
-                handleBookingClose={handleBookingClose}
+                openModal={openModal}
+                handleModalClose={handleModalClose}
             ></CustomModal>
         </>
     );

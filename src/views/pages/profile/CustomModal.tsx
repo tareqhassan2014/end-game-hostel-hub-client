@@ -18,17 +18,17 @@ const style = {
 };
 
 interface Props {
-    openBooking: boolean;
-    handleBookingClose: () => void;
+    openModal: boolean;
+    handleModalClose: () => void;
 }
 
-const CustomModal = ({ openBooking, handleBookingClose }: Props) => {
+const CustomModal = ({ openModal, handleModalClose }: Props) => {
     const handleSubmit = (e: React.SyntheticEvent) => {
         e.preventDefault();
     };
 
-    const handleModalClose = () => {
-        handleBookingClose();
+    const handleClose = () => {
+        handleModalClose();
     };
 
     return (
@@ -36,15 +36,15 @@ const CustomModal = ({ openBooking, handleBookingClose }: Props) => {
             <Modal
                 aria-labelledby="transition-modal-title"
                 aria-describedby="transition-modal-description"
-                open={openBooking}
-                onClose={handleBookingClose}
+                open={openModal}
+                onClose={handleModalClose}
                 closeAfterTransition
                 BackdropComponent={Backdrop}
                 BackdropProps={{
                     timeout: 500,
                 }}
             >
-                <Fade in={openBooking}>
+                <Fade in={openModal}>
                     <Box sx={style}>
                         <Typography
                             id="transition-modal-title"
@@ -79,7 +79,7 @@ const CustomModal = ({ openBooking, handleBookingClose }: Props) => {
                                 variant="outlined"
                             />
                             <button type="submit">Submit</button>
-                            <button onClick={handleModalClose} type="submit">
+                            <button onClick={handleClose} type="submit">
                                 Close
                             </button>
                         </form>
