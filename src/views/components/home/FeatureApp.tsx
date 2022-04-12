@@ -58,7 +58,7 @@ const FeatureApp = () => {
             sx={{
                 py: { md: 3, sm: 2, xs: 1 },
                 px: { md: 5, sm: 1, xs: 0.5 },
-                bgColor: 'yellow',
+                background: 'lightBlue',
             }}
         >
             <Swiper
