@@ -7,8 +7,8 @@ function Home() {
     return (
         <>
             <Banner />
-            <FeatureApp />
             <AllService />
+            <FeatureApp />
             <Sponsors />
         </>
     );
