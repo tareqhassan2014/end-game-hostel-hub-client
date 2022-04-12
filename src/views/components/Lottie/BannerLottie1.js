@@ -5,6 +5,7 @@ const BannerLottie1 = () => {
         <lottie-player
             src="https://assets5.lottiefiles.com/packages/lf20_2gfeptkg.json"
             background="transparent"
+            style={{width:"inherit", height:"inherit"}}
             speed="1"
             loop
             autoplay

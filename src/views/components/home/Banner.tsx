@@ -12,6 +12,7 @@ import BannerLottie1 from '../Lottie/BannerLottie1';
 import BannerLottie2 from '../Lottie/BannerLottie2';
 import BannerLottie3 from '../Lottie/BannerLottie3';
 import BannerLottie4 from '../Lottie/BannerLottie4';
+import BannerLottie5 from '../Lottie/BannerLottie5';
 import BannerLottie6 from '../Lottie/BannerLottie6';
 import BannerLottie7 from '../Lottie/BannerLottie7';
 
@@ -31,6 +32,10 @@ const datas = [
     {
         name: 'Buy sell',
         lottie: BannerLottie4,
+    },
+    {
+        name: 'Buy sell',
+        lottie: BannerLottie5,
     },
     {
         name: 'Inner Environment',
@@ -122,6 +127,53 @@ export default function Banners() {
                         </Grid>
                     </Grid>
                 </SwiperSlide>
+                <SwiperSlide>
+                    <Grid container>
+                        <Grid
+                            md={6}
+                            xs={12}
+                            item
+                            sx={{
+                                height: {
+                                    md: 450,
+                                    sm: 350,
+                                    xs: 300,
+                                },
+                            }}
+                        >
+                            <BannerLottie6 />
+                        </Grid>
+                        <Grid md={6} xs={12} item>
+                            <Box sx={{ ml: { md: 2 } }}>
+                                <Typography
+                                    variant="h2"
+                                    sx={{
+                                        mt: { md: 4, sm: 2 },
+                                        fontSize: { xs: '32px' },
+                                    }}
+                                >
+                                    GET FAST DELIVERY
+                                </Typography>
+                                <Typography
+                                    variant="subtitle2"
+                                    sx={{
+                                        mt: { md: 2.5, xs: 1 },
+                                        mb: { md: 4, xs: 3 },
+                                    }}
+                                >
+                                    No more waiting! receive your items from the
+                                    delivery man timely. Get your exact quality
+                                    products without any kinds of scratch and
+                                    fracture. Make your delivery man satisfied
+                                    and be happy yourself.
+                                </Typography>
+                                <MyButton size="small">
+                                    Get Delivery Info
+                                </MyButton>
+                            </Box>
+                        </Grid>
+                    </Grid>
+                </SwiperSlide>
 
                 <SwiperSlide>
                     <Grid container>
@@ -130,7 +182,7 @@ export default function Banners() {
                                 <Typography
                                     variant="h2"
                                     sx={{
-                                        mt: { md: 4, sm: 2 },
+                                        mt: { md: 5, sm: 2 },
                                         fontSize: { xs: '32px' },
                                     }}
                                 >
@@ -165,41 +217,12 @@ export default function Banners() {
                                 },
                             }}
                         >
-                            <BannerLottie4 />
+                            <BannerLottie7 />
                         </Grid>
                     </Grid>
                 </SwiperSlide>
                 <SwiperSlide>
                     <Grid container>
-                        <Grid md={6} xs={12} item>
-                            <Box>
-                                <Typography
-                                    variant="h2"
-                                    sx={{
-                                        mt: { md: 4, sm: 2 },
-                                        fontSize: { xs: '32px' },
-                                    }}
-                                >
-                                    GET FAST DELIVERY
-                                </Typography>
-                                <Typography
-                                    variant="subtitle2"
-                                    sx={{
-                                        mt: { md: 2.5, xs: 1 },
-                                        mb: { md: 4, xs: 3 },
-                                    }}
-                                >
-                                    No more waiting! receive your items from the
-                                    delivery man timely. Get your exact quality
-                                    products without any kinds of scratch and
-                                    fracture. Make your delivery man satisfied
-                                    and be happy yourself.{' '}
-                                </Typography>
-                                <MyButton size="small">
-                                    Get Delivery Info
-                                </MyButton>
-                            </Box>
-                        </Grid>
                         <Grid
                             md={6}
                             xs={12}
@@ -212,7 +235,36 @@ export default function Banners() {
                                 },
                             }}
                         >
-                            <BannerLottie6 />
+                            <BannerLottie5 />
+                        </Grid>
+                        <Grid md={6} xs={12} item>
+                            <Box>
+                                <Typography
+                                    variant="h2"
+                                    sx={{
+                                        mt: { md: 5, sm: 2 },
+                                        fontSize: { xs: '32px' },
+                                    }}
+                                >
+                                    DASHBOARD FEATURES
+                                </Typography>
+                                <Typography
+                                    variant="subtitle2"
+                                    sx={{
+                                        mt: { md: 2.5, xs: 1 },
+                                        mb: { md: 4, xs: 3 },
+                                    }}
+                                >
+                                    The uniqueness of five different dashboards
+                                    are the main attraction for you. A numerous
+                                    analytical update defines different role
+                                    player&#39;s experience. So do not get late,
+                                    get our services and create your dashboard.
+                                </Typography>
+                                <MyButton size="small">
+                                    Get updated with dashboard
+                                </MyButton>
+                            </Box>
                         </Grid>
                     </Grid>
                 </SwiperSlide>
