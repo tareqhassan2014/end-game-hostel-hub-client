@@ -81,6 +81,7 @@ const FeatureApp = () => {
                 flexGrow: 1,
                 paddingTop: { md: '68px', sm: '64px', xs: '48px' },
                 marginBottom: '40px',
+                mx: 3,
             }}
         >
             <Typography
@@ -95,7 +96,7 @@ const FeatureApp = () => {
                         square
                         elevation={0}
                         sx={{
-                            height: { md: '420px' },
+                            height: { md: '444px' },
                             width: 'auto',
                             p: { md: 3, sm: 1, xs: 1 },
                             mb: { sm: 2, xs: 2 },
@@ -170,14 +171,27 @@ const FeatureApp = () => {
                                 size="small"
                                 onClick={handleNext}
                                 disabled={activeStep === maxSteps - 1}
-                            ></Button>
+                            >
+                                {' '}
+                                {theme.direction === 'rtl' ? (
+                                    <KeyboardArrowLeft />
+                                ) : (
+                                    <KeyboardArrowRight />
+                                )}
+                            </Button>
                         }
                         backButton={
                             <Button
                                 size="small"
                                 onClick={handleBack}
                                 disabled={activeStep === 0}
-                            ></Button>
+                            >
+                                {theme.direction === 'rtl' ? (
+                                    <KeyboardArrowRight />
+                                ) : (
+                                    <KeyboardArrowLeft />
+                                )}
+                            </Button>
                         }
                     />
                 </Grid>

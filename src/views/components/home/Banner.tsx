@@ -11,6 +11,9 @@ import BannerLottie1 from '../Lottie/BannerLottie1';
 import BannerLottie2 from '../Lottie/BannerLottie2';
 import BannerLottie3 from '../Lottie/BannerLottie3';
 import BannerLottie4 from '../Lottie/BannerLottie4';
+import BannerLottie5 from '../Lottie/BannerLottie5';
+import BannerLottie6 from '../Lottie/BannerLottie6';
+import BannerLottie7 from '../Lottie/BannerLottie7';
 
 const datas = [
     {
@@ -28,6 +31,14 @@ const datas = [
     {
         name: 'Buy sell',
         lottie: BannerLottie4,
+    },
+    {
+        name: 'Inner Environment',
+        lottie: BannerLottie6,
+    },
+    {
+        name: 'Inner Environment',
+        lottie: BannerLottie7,
     },
 ];
 
@@ -53,6 +64,31 @@ export default function Banners() {
                     <Grid container>
                         <Grid md={6} xs={12} item>
                             <div>
+                                <h1>Find A Hostel</h1>
+                                <p></p>
+                                <button>Contact Us</button>
+                            </div>
+                        </Grid>
+                        <Grid
+                            md={6}
+                            xs={12}
+                            item
+                            sx={{
+                                height: {
+                                    md: 450,
+                                    sm: 350,
+                                    xs: 300,
+                                },
+                            }}
+                        >
+                            <BannerLottie1 />
+                        </Grid>
+                    </Grid>
+                </SwiperSlide>
+                <SwiperSlide>
+                    <Grid container>
+                        <Grid md={6} xs={12} item>
+                            <div>
                                 <h1>Earn money</h1>
                                 <p>
                                     Register as a affiliate user and earn
@@ -73,7 +109,35 @@ export default function Banners() {
                                 },
                             }}
                         >
-                            <BannerLottie3 />
+                            <BannerLottie4 />
+                        </Grid>
+                    </Grid>
+                </SwiperSlide>
+                <SwiperSlide>
+                    <Grid container>
+                        <Grid md={6} xs={12} item>
+                            <div>
+                                <h1>Earn money</h1>
+                                <p>
+                                    Register as a affiliate user and earn
+                                    unlimited from us.
+                                </p>
+                                <button>Contact Us</button>
+                            </div>
+                        </Grid>
+                        <Grid
+                            md={6}
+                            xs={12}
+                            item
+                            sx={{
+                                height: {
+                                    md: 450,
+                                    sm: 350,
+                                    xs: 300,
+                                },
+                            }}
+                        >
+                            <BannerLottie7 />
                         </Grid>
                     </Grid>
                 </SwiperSlide>
