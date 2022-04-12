@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 import { Box, Button, Grid, Typography } from '@mui/material';
 import SwiperCore, { Autoplay } from 'swiper';
+// Typewriter-effect
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/free-mode';
@@ -82,11 +83,16 @@ export default function Banners() {
                 <SwiperSlide>
                     <Grid container>
                         <Grid md={6} xs={12} item>
-                            <Box>
+                            <Box
+                                sx={{
+                                    ml: { sm: 3, xs: 2 },
+                                    mb: { sm: 3, xs: 2 },
+                                }}
+                            >
                                 <Typography
                                     sx={{
-                                        mt: { md: 4, sm: 2 },
-                                        fontSize: { xs: '32px' },
+                                        mt: { md: 5, sm: 2 },
+                                        fontSize: { xs: '24px', sm: '32px' },
                                     }}
                                     variant="h2"
                                 >
@@ -117,7 +123,7 @@ export default function Banners() {
                             item
                             sx={{
                                 height: {
-                                    md: 450,
+                                    md: 430,
                                     sm: 350,
                                     xs: 300,
                                 },
@@ -135,8 +141,8 @@ export default function Banners() {
                             item
                             sx={{
                                 height: {
-                                    md: 450,
-                                    sm: 350,
+                                    md: 500,
+                                    sm: 400,
                                     xs: 300,
                                 },
                             }}
@@ -144,12 +150,17 @@ export default function Banners() {
                             <BannerLottie6 />
                         </Grid>
                         <Grid md={6} xs={12} item>
-                            <Box sx={{ ml: { md: 2 } }}>
+                            <Box
+                                sx={{
+                                    ml: { sm: 3, xs: 2 },
+                                    mt: { sm: 3, xs: 2 },
+                                }}
+                            >
                                 <Typography
                                     variant="h2"
                                     sx={{
-                                        mt: { md: 4, sm: 2 },
-                                        fontSize: { xs: '32px' },
+                                        mt: { md: 5, sm: 2 },
+                                        fontSize: { xs: '24px', sm: '32px' },
                                     }}
                                 >
                                     GET FAST DELIVERY
@@ -178,12 +189,17 @@ export default function Banners() {
                 <SwiperSlide>
                     <Grid container>
                         <Grid md={6} xs={12} item>
-                            <Box>
+                            <Box
+                                sx={{
+                                    ml: { sm: 3, xs: 2 },
+                                    mt: { sm: 3, xs: 2 },
+                                }}
+                            >
                                 <Typography
                                     variant="h2"
                                     sx={{
-                                        mt: { md: 5, sm: 2 },
-                                        fontSize: { xs: '32px' },
+                                        mt: { md: '60px', sm: 2 },
+                                        fontSize: { xs: '24px', sm: '32px' },
                                     }}
                                 >
                                     BUY & SELL
@@ -217,7 +233,7 @@ export default function Banners() {
                                 },
                             }}
                         >
-                            <BannerLottie7 />
+                            <BannerLottie4 />
                         </Grid>
                     </Grid>
                 </SwiperSlide>
@@ -229,8 +245,8 @@ export default function Banners() {
                             item
                             sx={{
                                 height: {
-                                    md: 450,
-                                    sm: 350,
+                                    md: 500,
+                                    sm: 400,
                                     xs: 300,
                                 },
                             }}
@@ -238,12 +254,17 @@ export default function Banners() {
                             <BannerLottie5 />
                         </Grid>
                         <Grid md={6} xs={12} item>
-                            <Box>
+                            <Box
+                                sx={{
+                                    ml: { sm: 3, xs: 2 },
+                                    mt: { sm: 3, xs: 2 },
+                                }}
+                            >
                                 <Typography
                                     variant="h2"
                                     sx={{
-                                        mt: { md: 5, sm: 2 },
-                                        fontSize: { xs: '32px' },
+                                        mt: { md: '53px', sm: 2 },
+                                        fontSize: { xs: '24px', sm: '32px' },
                                     }}
                                 >
                                     DASHBOARD FEATURES
