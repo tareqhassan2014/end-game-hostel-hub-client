@@ -73,7 +73,91 @@ export default function Banners() {
                                 },
                             }}
                         >
+                            <BannerLottie1 />
+                        </Grid>
+                    </Grid>
+                </SwiperSlide>
+                <SwiperSlide>
+                    <Grid container>
+                        <Grid md={6} xs={12} item>
+                            <div>
+                                <h1>Earn money</h1>
+                                <p>
+                                    Register as a affiliate user and earn
+                                    unlimited from us.
+                                </p>
+                                <button>Contact Us</button>
+                            </div>
+                        </Grid>
+                        <Grid
+                            md={6}
+                            xs={12}
+                            item
+                            sx={{
+                                height: {
+                                    md: 450,
+                                    sm: 350,
+                                    xs: 300,
+                                },
+                            }}
+                        >
+                            <BannerLottie2 />
+                        </Grid>
+                    </Grid>
+                </SwiperSlide>
+                <SwiperSlide>
+                    <Grid container>
+                        <Grid md={6} xs={12} item>
+                            <div>
+                                <h1>Earn money</h1>
+                                <p>
+                                    Register as a affiliate user and earn
+                                    unlimited from us.
+                                </p>
+                                <button>Contact Us</button>
+                            </div>
+                        </Grid>
+                        <Grid
+                            md={6}
+                            xs={12}
+                            item
+                            sx={{
+                                height: {
+                                    md: 450,
+                                    sm: 350,
+                                    xs: 300,
+                                },
+                            }}
+                        >
                             <BannerLottie3 />
+                        </Grid>
+                    </Grid>
+                </SwiperSlide>
+                <SwiperSlide>
+                    <Grid container>
+                        <Grid md={6} xs={12} item>
+                            <div>
+                                <h1>Earn money</h1>
+                                <p>
+                                    Register as a affiliate user and earn
+                                    unlimited from us.
+                                </p>
+                                <button>Contact Us</button>
+                            </div>
+                        </Grid>
+                        <Grid
+                            md={6}
+                            xs={12}
+                            item
+                            sx={{
+                                height: {
+                                    md: 450,
+                                    sm: 350,
+                                    xs: 300,
+                                },
+                            }}
+                        >
+                            <BannerLottie4 />
                         </Grid>
                     </Grid>
                 </SwiperSlide>

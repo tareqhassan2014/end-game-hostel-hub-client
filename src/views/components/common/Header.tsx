@@ -24,7 +24,6 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { logOut } from 'src/app/reducers/auth/authSlice';
 import useAuth from 'src/hooks/useAuth';
-import { useAppTheme } from 'src/theme/UseAppTheme';
 
 const pages = [
     {
@@ -76,7 +75,6 @@ export default function Header() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const { user } = useAuth();
-    const { toggleMode, mode } = useAppTheme();
 
     const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
     const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
@@ -242,11 +240,7 @@ export default function Header() {
                                 control={
                                     <MaterialUISwitch
                                         sx={{ m: 1 }}
-                                        checked={mode === 'dark' ? true : false}
-                                        onChange={toggleMode}
-                                        inputProps={{
-                                            'aria-label': 'controlled',
-                                        }}
+                                        checked={false}
                                     />
                                 }
                                 label=""

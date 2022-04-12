@@ -17,10 +17,12 @@ import {
 import storage from 'redux-persist/lib/storage';
 import api from './api';
 import authSlice from './reducers/auth/authSlice';
+import muiSlice from './reducers/mui/muiSlice';
 
 const rootReducer = combineReducers({
     [api.reducerPath]: api.reducer,
     auth: authSlice,
+    MaterialUIContext: muiSlice,
 });
 
 const persistConfig = {
