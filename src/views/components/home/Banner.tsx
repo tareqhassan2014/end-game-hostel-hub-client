@@ -85,7 +85,7 @@ export default function Banners() {
                                     }}
                                     variant="h2"
                                 >
-                                    Find A Hostel
+                                    FIND A HOSTEL
                                 </Typography>
                                 <Typography
                                     variant="subtitle2"
@@ -134,7 +134,7 @@ export default function Banners() {
                                         fontSize: { xs: '32px' },
                                     }}
                                 >
-                                    Buy & Sell
+                                    BUY & SELL
                                 </Typography>
                                 <Typography
                                     variant="subtitle2"
@@ -145,7 +145,7 @@ export default function Banners() {
                                 >
                                     Replace your products by purchasing and
                                     selling them to customers. Going through the
-                                    process, Make money as well as decorate your
+                                    process, make money as well as decorate your
                                     room with beautiful set-up of new products.
                                 </Typography>
                                 <MyButton size="small">
@@ -180,7 +180,7 @@ export default function Banners() {
                                         fontSize: { xs: '32px' },
                                     }}
                                 >
-                                    Get Fast Delivery
+                                    GET FAST DELIVERY
                                 </Typography>
                                 <Typography
                                     variant="subtitle2"
