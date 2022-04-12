@@ -76,6 +76,7 @@ const FeatureApp = () => {
                             <Grid md={6} xs={12} item>
                                 <div>
                                     <h1>{item.label}</h1>
+                                    <br />
                                     <p>{item.desc}</p>
                                 </div>
                             </Grid>
