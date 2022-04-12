@@ -1,4 +1,5 @@
-import { Box, Grid } from '@mui/material';
+import GetAppIcon from '@mui/icons-material/GetApp';
+import { Box, Button, Grid, Typography } from '@mui/material';
 import { Autoplay } from 'swiper';
 // Import Swiper styles
 import 'swiper/css';
@@ -75,9 +76,21 @@ const FeatureApp = () => {
                         <Grid container>
                             <Grid md={6} xs={12} item>
                                 <div>
-                                    <h1>{item.label}</h1>
-                                    <br />
-                                    <p>{item.desc}</p>
+                                    <Typography sx={{ pt: 3 }} variant="h2">
+                                        {item.label}
+                                    </Typography>
+
+                                    <Typography sx={{ pt: 5 }}>
+                                        {item.desc}
+                                    </Typography>
+
+                                    <Button
+                                        sx={{ mt: 5 }}
+                                        variant="contained"
+                                        color="inherit"
+                                    >
+                                        Try it out!<GetAppIcon></GetAppIcon>
+                                    </Button>
                                 </div>
                             </Grid>
                             <Grid
