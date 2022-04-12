@@ -102,7 +102,7 @@ export default function Banners() {
                                     get your chance.
                                 </Typography>
                                 <MyButton size="small">
-                                    GET IN TOUCH WITH US
+                                    Send us your queries
                                 </MyButton>
                             </Box>
                         </Grid>
