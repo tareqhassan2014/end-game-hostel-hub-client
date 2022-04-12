@@ -4,7 +4,7 @@ const BannerLottie7 = () => {
     return (
         <div>
             <lottie-player
-                src="https://assets4.lottiefiles.com/packages/lf20_mcvtkrvc.json"
+                src="https://assets2.lottiefiles.com/packages/lf20_vivylat3.json"
                 style={{ width: 'inherit', height: 'inherit' }}
                 background="transparent"
                 speed="1"

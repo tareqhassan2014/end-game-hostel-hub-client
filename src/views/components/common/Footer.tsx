@@ -10,7 +10,6 @@ import {
 } from '@mui/material';
 import { styled } from '@mui/system';
 import visa from 'src/assets/visa.png';
-import { useAppTheme } from 'src/theme/UseAppTheme';
 
 const MyButton = styled(Button)({
     backgroundColor: '#43515a',
@@ -26,13 +25,10 @@ const MyButton = styled(Button)({
 });
 
 const Footer = () => {
-    const { primaryColorHue } = useAppTheme();
     return (
         <Box
             sx={{
-                bgcolor: `hsl(${primaryColorHue}, 50%, 4%)`,
                 pb: 5,
-                color: 'white',
             }}
         >
             <Container>

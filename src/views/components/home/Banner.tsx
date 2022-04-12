@@ -1,4 +1,5 @@
-import { Grid, Paper } from '@mui/material';
+import styled from '@emotion/styled';
+import { Box, Button, Grid, Typography } from '@mui/material';
 import SwiperCore, { Autoplay } from 'swiper';
 // Import Swiper styles
 import 'swiper/css';
@@ -11,7 +12,6 @@ import BannerLottie1 from '../Lottie/BannerLottie1';
 import BannerLottie2 from '../Lottie/BannerLottie2';
 import BannerLottie3 from '../Lottie/BannerLottie3';
 import BannerLottie4 from '../Lottie/BannerLottie4';
-import BannerLottie5 from '../Lottie/BannerLottie5';
 import BannerLottie6 from '../Lottie/BannerLottie6';
 import BannerLottie7 from '../Lottie/BannerLottie7';
 
@@ -42,10 +42,24 @@ const datas = [
     },
 ];
 
+const MyButton = styled(Button)({
+    backgroundColor: '#5d3f6a',
+    color: 'white',
+    padding: '5px 15px',
+    margin: 2,
+    marginTop: '30px',
+    fontSize: 10,
+    borderRadius: 3,
+    '&:hover': {
+        backgroundColor: '#2ab7ca',
+        color: 'white',
+    },
+});
+
 SwiperCore.use([Autoplay]);
 export default function Banners() {
     return (
-        <Paper
+        <Box
             sx={{
                 py: { md: 3, sm: 2, xs: 1 },
                 px: { md: 5, sm: 1, xs: 0.5 },
@@ -63,11 +77,34 @@ export default function Banners() {
                 <SwiperSlide>
                     <Grid container>
                         <Grid md={6} xs={12} item>
-                            <div>
-                                <h1>Find A Hostel</h1>
-                                <p></p>
-                                <button>Contact Us</button>
-                            </div>
+                            <Box>
+                                <Typography
+                                    sx={{
+                                        mt: { md: 4, sm: 2 },
+                                        fontSize: { xs: '32px' },
+                                    }}
+                                    variant="h2"
+                                >
+                                    Find A Hostel
+                                </Typography>
+                                <Typography
+                                    variant="subtitle2"
+                                    sx={{
+                                        mt: { md: 2.5, xs: 1 },
+                                        mb: { md: 4, xs: 3 },
+                                        textAlign: { xm: 'justify' },
+                                    }}
+                                >
+                                    You can live like royalty in elegant hostels
+                                    or find a bargain at hostels right in the
+                                    city center. If so then we have created for
+                                    you a wonderful environment. Come fast and
+                                    get your chance.
+                                </Typography>
+                                <MyButton size="small">
+                                    GET IN TOUCH WITH US
+                                </MyButton>
+                            </Box>
                         </Grid>
                         <Grid
                             md={6}
@@ -85,17 +122,36 @@ export default function Banners() {
                         </Grid>
                     </Grid>
                 </SwiperSlide>
+
                 <SwiperSlide>
                     <Grid container>
                         <Grid md={6} xs={12} item>
-                            <div>
-                                <h1>Earn money</h1>
-                                <p>
-                                    Register as a affiliate user and earn
-                                    unlimited from us.
-                                </p>
-                                <button>Contact Us</button>
-                            </div>
+                            <Box>
+                                <Typography
+                                    variant="h2"
+                                    sx={{
+                                        mt: { md: 4, sm: 2 },
+                                        fontSize: { xs: '32px' },
+                                    }}
+                                >
+                                    Buy & Sell
+                                </Typography>
+                                <Typography
+                                    variant="subtitle2"
+                                    sx={{
+                                        mt: { md: 2.5, xs: 1 },
+                                        mb: { md: 4, xs: 3 },
+                                    }}
+                                >
+                                    Replace your products by purchasing and
+                                    selling them to customers. Going through the
+                                    process, Make money as well as decorate your
+                                    room with beautiful set-up of new products.
+                                </Typography>
+                                <MyButton size="small">
+                                    Request for the deal
+                                </MyButton>
+                            </Box>
                         </Grid>
                         <Grid
                             md={6}
@@ -116,14 +172,33 @@ export default function Banners() {
                 <SwiperSlide>
                     <Grid container>
                         <Grid md={6} xs={12} item>
-                            <div>
-                                <h1>Earn money</h1>
-                                <p>
-                                    Register as a affiliate user and earn
-                                    unlimited from us.
-                                </p>
-                                <button>Contact Us</button>
-                            </div>
+                            <Box>
+                                <Typography
+                                    variant="h2"
+                                    sx={{
+                                        mt: { md: 4, sm: 2 },
+                                        fontSize: { xs: '32px' },
+                                    }}
+                                >
+                                    Get Fast Delivery
+                                </Typography>
+                                <Typography
+                                    variant="subtitle2"
+                                    sx={{
+                                        mt: { md: 2.5, xs: 1 },
+                                        mb: { md: 4, xs: 3 },
+                                    }}
+                                >
+                                    No more waiting! receive your items from the
+                                    delivery man timely. Get your exact quality
+                                    products without any kinds of scratch and
+                                    fracture. Make your delivery man satisfied
+                                    and be happy yourself.{' '}
+                                </Typography>
+                                <MyButton size="small">
+                                    Get Delivery Info
+                                </MyButton>
+                            </Box>
                         </Grid>
                         <Grid
                             md={6}
@@ -137,11 +212,11 @@ export default function Banners() {
                                 },
                             }}
                         >
-                            <BannerLottie7 />
+                            <BannerLottie6 />
                         </Grid>
                     </Grid>
                 </SwiperSlide>
             </Swiper>
-        </Paper>
+        </Box>
     );
 }

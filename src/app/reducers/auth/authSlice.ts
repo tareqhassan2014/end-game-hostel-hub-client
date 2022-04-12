@@ -35,7 +35,7 @@ const initialState = {
 } as UsersState;
 
 export const authSlice = createSlice({
-    name: 'auth',
+    name: 'MUIContext',
     initialState,
     reducers: {
         setCredentials: (
