@@ -1,5 +1,3 @@
-import React from 'react';
-
 const BannerLottie1 = () => {
     return (
         <lottie-player

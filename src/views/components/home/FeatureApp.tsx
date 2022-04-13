@@ -1,7 +1,6 @@
 import GetAppIcon from '@mui/icons-material/GetApp';
 import { Box, Button, Grid, Typography } from '@mui/material';
 import { Autoplay } from 'swiper';
-// Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/free-mode';
 import 'swiper/css/navigation';

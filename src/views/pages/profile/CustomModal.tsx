@@ -3,7 +3,6 @@ import Backdrop from '@mui/material/Backdrop';
 import Box from '@mui/material/Box';
 import Fade from '@mui/material/Fade';
 import Modal from '@mui/material/Modal';
-import * as React from 'react';
 
 const style = {
     position: 'absolute',

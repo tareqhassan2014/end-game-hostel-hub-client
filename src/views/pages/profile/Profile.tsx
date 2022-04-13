@@ -10,14 +10,14 @@ import {
     TextField,
     Typography,
 } from '@mui/material';
-import * as React from 'react';
+import { useState } from 'react';
 import useAuth from '../../../hooks/useAuth';
 import CustomModal from './CustomModal';
 
 const Profile = () => {
     const { user } = useAuth();
     //modal
-    const [openModal, setModalOpen] = React.useState(false);
+    const [openModal, setModalOpen] = useState(false);
     const handleModalOpen = () => setModalOpen(true);
     const handleModalClose = () => setModalOpen(false);
     console.log(handleModalClose);

@@ -11,5 +11,4 @@ const BannerLottie2 = () => {
         />
     );
 };
-
 export default BannerLottie2;

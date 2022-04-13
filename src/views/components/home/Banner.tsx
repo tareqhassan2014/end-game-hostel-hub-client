@@ -1,8 +1,6 @@
 import styled from '@emotion/styled';
 import { Box, Button, Grid, Typography } from '@mui/material';
 import SwiperCore, { Autoplay } from 'swiper';
-// Typewriter-effect
-// Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/free-mode';
 import 'swiper/css/navigation';

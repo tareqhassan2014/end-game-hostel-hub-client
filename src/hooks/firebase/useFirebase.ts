@@ -15,16 +15,6 @@ import { InitializeFirebase } from './firebase.init';
 
 InitializeFirebase();
 
-const user = {
-    name: '',
-    email: '',
-    status: '',
-    role: '',
-    _id: '',
-    img: '',
-    phone: '',
-};
-
 const useFirebase = () => {
     //auth
     const auth = getAuth();
