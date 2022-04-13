@@ -144,6 +144,7 @@ export default function Banners() {
                                     md: 500,
                                     sm: 400,
                                     xs: 300,
+                                    pb: { sm: 5, xs: 5 },
                                 },
                             }}
                         >
