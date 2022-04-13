@@ -89,7 +89,7 @@ const FeatureApp = () => {
 
                                     <Typography
                                         sx={{ pt: 5 }}
-                                        style={{ color: 'black' }}
+                                        style={{ color: 'white' }}
                                     >
                                         {item.des}
                                     </Typography>
