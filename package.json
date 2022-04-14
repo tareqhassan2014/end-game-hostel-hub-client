@@ -28,6 +28,7 @@
         "react-github-btn": "^1.2.2",
         "react-hook-form": "^7.28.1",
         "react-material-ui-carousel": "^3.3.3",
+        "react-perfect-scrollbar": "^1.5.8",
         "react-redux": "^7.2.6",
         "react-router-dom": "^6.2.2",
         "react-scripts": "5.0.0",
