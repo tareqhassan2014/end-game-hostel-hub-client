@@ -10,47 +10,13 @@ import 'swiper/css/thumbs';
 import { Swiper, SwiperSlide } from 'swiper/react';
 // typeit
 import TypeIt from 'typeit-react';
-// icon
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+// lottie-component
 import BannerLottie1 from '../Lottie/BannerLottie1';
-import BannerLottie2 from '../Lottie/BannerLottie2';
-import BannerLottie3 from '../Lottie/BannerLottie3';
 import BannerLottie4 from '../Lottie/BannerLottie4';
 import BannerLottie5 from '../Lottie/BannerLottie5';
 import BannerLottie6 from '../Lottie/BannerLottie6';
-import BannerLottie7 from '../Lottie/BannerLottie7';
-import { ArrowBack } from '@mui/icons-material';
-
-const datas = [
-    {
-        name: 'Hostel Management',
-        lottie: BannerLottie1,
-    },
-    {
-        name: 'Find A Hostel',
-        lottie: BannerLottie2,
-    },
-    {
-        name: 'Shop',
-        lottie: BannerLottie3,
-    },
-    {
-        name: 'Buy sell',
-        lottie: BannerLottie4,
-    },
-    {
-        name: 'Buy sell',
-        lottie: BannerLottie5,
-    },
-    {
-        name: 'Inner Environment',
-        lottie: BannerLottie6,
-    },
-    {
-        name: 'Inner Environment',
-        lottie: BannerLottie7,
-    },
-];
+// css
+import './Banner.css';
 
 const MyButton = styled(Button)({
     backgroundColor: '#5d3f6a',
@@ -101,7 +67,15 @@ export default function Banners() {
                                     }}
                                     variant="h2"
                                 >
-                                    FIND A HOSTEL
+                                    <TypeIt
+                                        options={{
+                                            strings: ['FIND A HOSTEL'],
+                                            speed: 1,
+                                            waitUntilVisible: true,
+                                            loop: true,
+                                            cursor: false,
+                                        }}
+                                    />
                                 </Typography>
                                 <Typography
                                     variant="subtitle2"
@@ -117,43 +91,9 @@ export default function Banners() {
                                     you a wonderful environment. Come fast and
                                     get your chance.
                                 </Typography>
-
-                                <Box
-                                    sx={{
-                                        display: { md: 'flex' },
-                                        alignItems: 'center',
-                                        justifyContent: 'space-between',
-                                    }}
-                                >
-                                    <MyButton size="small">
-                                        Send us your queries
-                                    </MyButton>
-
-                                    <Typography
-                                        variant="h5"
-                                        sx={{
-                                            height: '20px',
-                                            mt: { md: 3, sm: 2, xs: 2 },
-                                            fontSize: {
-                                                md: 'inherit',
-                                                sm: 'medium',
-                                                xs: 'small',
-                                            },
-                                        }}
-                                    >
-                                        <TypeIt
-                                            options={{
-                                                strings: [
-                                                    'Tell us your desires!',
-                                                ],
-                                                speed: 1,
-                                                waitUntilVisible: true,
-                                                loop: true,
-                                                cursor: false,
-                                            }}
-                                        />
-                                    </Typography>
-                                </Box>
+                                <MyButton size="small">
+                                    Send us your queries
+                                </MyButton>
                             </Box>
                         </Grid>
                         <Grid
@@ -218,43 +158,9 @@ export default function Banners() {
                                     fracture. Make your delivery man satisfied
                                     and be happy yourself.
                                 </Typography>
-
-                                <Box
-                                    sx={{
-                                        display: { md: 'flex' },
-                                        alignItems: 'center',
-                                        justifyContent: 'space-between',
-                                    }}
-                                >
-                                    <MyButton size="small">
-                                        Get Delivery Info
-                                    </MyButton>
-
-                                    <Typography
-                                        variant="h5"
-                                        sx={{
-                                            height: '20px',
-                                            mt: { md: 3, sm: 2, xs: 2 },
-                                            fontSize: {
-                                                md: 'inherit',
-                                                sm: 'medium',
-                                                xs: 'small',
-                                            },
-                                        }}
-                                    >
-                                        <TypeIt
-                                            options={{
-                                                strings: [
-                                                    'Hit the deliveryman!',
-                                                ],
-                                                speed: 1,
-                                                waitUntilVisible: true,
-                                                loop: true,
-                                                cursor: false,
-                                            }}
-                                        />
-                                    </Typography>
-                                </Box>
+                                <MyButton size="small">
+                                    Get Delivery Info
+                                </MyButton>
                             </Box>
                         </Grid>
                     </Grid>
@@ -304,45 +210,9 @@ export default function Banners() {
                                     player&#39;s experience. So do not get late,
                                     get our services and create your dashboard.
                                 </Typography>
-                                {/* <MyButton size="small">
+                                <MyButton size="small">
                                     Get updated with dashboard
-                                </MyButton> */}
-                                <Box
-                                    sx={{
-                                        display: { md: 'flex' },
-                                        alignItems: 'center',
-                                        justifyContent: 'space-between',
-                                    }}
-                                >
-                                    <MyButton size="small">
-                                        Get updated with dashboard
-                                    </MyButton>
-
-                                    <Typography
-                                        variant="h5"
-                                        sx={{
-                                            height: '20px',
-                                            mt: { md: 3, sm: 2, xs: 2 },
-                                            fontSize: {
-                                                md: 'inherit',
-                                                sm: 'medium',
-                                                xs: 'small',
-                                            },
-                                        }}
-                                    >
-                                        <TypeIt
-                                            options={{
-                                                strings: [
-                                                    'Create your dashboard!',
-                                                ],
-                                                speed: 1,
-                                                waitUntilVisible: true,
-                                                loop: true,
-                                                cursor: false,
-                                            }}
-                                        />
-                                    </Typography>
-                                </Box>
+                                </MyButton>
                             </Box>
                         </Grid>
                     </Grid>
@@ -358,13 +228,21 @@ export default function Banners() {
                                 }}
                             >
                                 <Typography
-                                    variant="h2"
                                     sx={{
-                                        mt: { md: '60px', sm: 2 },
+                                        mt: { md: 5, sm: 2 },
                                         fontSize: { xs: '24px', sm: '32px' },
                                     }}
+                                    variant="h2"
                                 >
-                                    BUY & SELL
+                                    <TypeIt
+                                        options={{
+                                            strings: ['BUY AND SELL'],
+                                            speed: 1,
+                                            waitUntilVisible: true,
+                                            loop: true,
+                                            cursor: false,
+                                        }}
+                                    />
                                 </Typography>
                                 <Typography
                                     variant="subtitle2"
@@ -378,40 +256,9 @@ export default function Banners() {
                                     process, make money as well as decorate your
                                     room with beautiful set-up of new products.
                                 </Typography>
-
-                                <Box
-                                    sx={{
-                                        display: { md: 'flex' },
-                                        alignItems: 'center',
-                                        justifyContent: 'space-between',
-                                    }}
-                                >
-                                    <MyButton size="small">
-                                        Request for the deal
-                                    </MyButton>
-                                    <Typography
-                                        variant="h5"
-                                        sx={{
-                                            height: '20px',
-                                            mt: { md: 3, sm: 2, xs: 2 },
-                                            fontSize: {
-                                                md: 'inherit',
-                                                sm: 'medium',
-                                                xs: 'small',
-                                            },
-                                        }}
-                                    >
-                                        <TypeIt
-                                            options={{
-                                                strings: ['Send your request!'],
-                                                speed: 1,
-                                                waitUntilVisible: true,
-                                                loop: true,
-                                                cursor: false,
-                                            }}
-                                        />
-                                    </Typography>
-                                </Box>
+                                <MyButton size="small">
+                                    Request for the deal
+                                </MyButton>
                             </Box>
                         </Grid>
                         <Grid

@@ -1,0 +1,9 @@
+.banner {
+    background-image: url('./../../../assets/images/hostel-banner.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+    padding: 150px 0;
+}
