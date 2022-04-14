@@ -5,3 +5,6 @@ Scrum Start:10.30 AM. Please Join Before 5 Minutes.
 https://meet.google.com/rcj-jvii-rgp
 
 // readonly accessToken: string;
+
+<!-- export declare interface User extends UserInfo {
+    readonly accessToken: string; -->
