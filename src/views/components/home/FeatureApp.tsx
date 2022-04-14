@@ -9,56 +9,60 @@ import 'swiper/css/thumbs';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 const FeatureApp = () => {
+    const myStyle = {
+        backgroundImage:
+            "url('https://i.ibb.co/SBsYjnc/background-1409125-960-720.png')",
+        height: '500px',
+        marginTop: '70px',
+        fontSize: '50px',
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
+    };
+
     const data = [
         {
-            label: 'Launch Screen',
-            desc: 'Wanna try our App? Grab this opportunity and browse comfortably.',
-            goal: 'কম্পিউটার সায়েন্সের সুযোগ পাওনি কিন্তু কম্পিউটার সায়েন্সের মেইন মেইন জিনিসগুলো ধরে ধরে শিখতে চাইলে এই কোর্সে জয়েন করো।🥊 ',
+            title: 'Launch Screen',
+            des: 'Wanna try our App? Grab this opportunity and browse comfortably.📲',
             img: 'https://i.ibb.co/jzfQ5rM/launch-Screen.png',
         },
         {
-            label: 'First Page',
-            goal: 'আনলিমিটেড হেল্প, গাইডলাইন; এমনকি গুগল মিট এ স্ক্রিনশেয়ার করে সমস্যা সমাধান করতে চাইলে; এই কোর্সে জয়েন করো।💡',
-            desc: 'Planning to manage your Hostel? Try us to enjoy hassle-free management.',
+            title: 'First Page',
+            des: 'Planning to manage your Hostel? Try us to enjoy hassle-free management.📜',
             img: 'https://i.ibb.co/xYzLvrZ/first-Page.png',
         },
         {
-            label: 'Sign-up Page',
-            desc: 'Need a secured and reliable data management? Explore our Authentication Feature. ',
-            goal: 'আমাকে বিশ্বাস করুন, আমি আমার জীবনের চেয়ে কোডিং বেশি পছন্দ করি এবং আমি এতে আমার সময় ব্যয় করি।🎓',
+            title: 'Sign-up Page',
+            des: 'Need a secured and reliable data management? Explore our Authentication Feature.🗳',
             img: 'https://i.ibb.co/gDWhgpM/signup.png',
         },
         {
-            label: 'Profile',
-            desc: 'Keep your Profile aesthetic looked with our Hostel Hub App.',
-            goal: 'লোকেদের জানাতে আপনার দুর্দান্ত প্রোফাইল তৈরি করুন যাতে তারা হিংসা অনুভব করে।💪',
+            title: 'Profile',
+            des: 'Keep your Profile aesthetic looked with our Hostel Hub App.🗄',
             img: 'https://i.ibb.co/pjfD7bK/profile.png',
         },
         {
-            label: 'Dashboard',
-            desc: 'We offer our Dashboard with cool interface and various amazing features.',
-            goal: 'আমাদের সাথে যোগাযোগ করে আপনার ড্যাশবোর্ড তৈরি করুন কারণ আপনার জন্য অফার চলছে।🚀',
+            title: 'Dashboard',
+            des: 'We offer our Dashboard with cool interface and various amazing features.📊',
             img: 'https://i.ibb.co/KLWzy3k/dashboard.png',
         },
         {
-            label: 'Filter',
-            desc: 'Why not save time using our efficient searching option with Filter?🕑',
-            goal: 'সঠিকভাবে তথ্য সংগ্রহ করে আপনার ইচ্ছানুযায়ী রুম পান কারণ এটি অত্যন্ত প্রয়োজনীয়।',
+            title: 'Filter',
+            des: 'Why not save time using our efficient searching option with Filter?🕑',
             img: 'https://i.ibb.co/mbnKdCp/filter.png',
         },
         {
-            label: 'Payment',
-            goal: 'Facing issues with payment? Try us with a range of different Payment Gateway.',
-            desc: 'The process of Payment has been displayed on it so here you are',
+            title: 'Payment',
+            des: 'Facing issues with payment? Try us with a range of different Payment Gateway.💳',
             img: 'https://i.ibb.co/wQHLBqk/transaction.png',
         },
     ];
     return (
         <Box
+            style={myStyle}
             sx={{
                 py: { md: 3, sm: 2, xs: 1 },
                 px: { md: 5, sm: 1, xs: 0.5 },
-                background: 'lightBlue',
+                // background: 'lightBlue',
             }}
         >
             <Swiper
@@ -75,18 +79,26 @@ const FeatureApp = () => {
                         <Grid container>
                             <Grid md={6} xs={12} item>
                                 <div>
-                                    <Typography sx={{ pt: 3 }} variant="h2">
-                                        {item.label}
+                                    <Typography
+                                        sx={{ pt: 3 }}
+                                        style={{ color: 'lightBlue' }}
+                                        variant="h2"
+                                    >
+                                        {item.title}
                                     </Typography>
 
-                                    <Typography sx={{ pt: 5 }}>
-                                        {item.desc}
+                                    <Typography
+                                        sx={{ pt: 5 }}
+                                        style={{ color: 'white' }}
+                                    >
+                                        {item.des}
                                     </Typography>
 
                                     <Button
-                                        sx={{ mt: 5 }}
+                                        sx={{ mt: 7 }}
                                         variant="contained"
-                                        color="inherit"
+                                        color="secondary"
+                                        style={{ color: 'white' }}
                                     >
                                         Try it out!<GetAppIcon></GetAppIcon>
                                     </Button>
