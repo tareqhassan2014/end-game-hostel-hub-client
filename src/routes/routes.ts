@@ -1,4 +1,5 @@
 import { lazy } from 'react';
+import DashboardLayout from 'src/views/DashboardLayout';
 import Cart from '../views/components/common/cart/Cart';
 import AdminSignup from '../views/components/signUp/AdminSignup';
 import VendorSignup from '../views/components/signUp/VendorSignup';
@@ -52,7 +53,7 @@ export const protectedRoutes = [
     },
     {
         path: 'dashboard',
-        element: AdminDashboard,
+        element: DashboardLayout,
         role: ['admin'],
     },
 ];
