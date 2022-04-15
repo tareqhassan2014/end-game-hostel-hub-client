@@ -189,13 +189,21 @@ export default function Banners() {
                                 }}
                             >
                                 <Typography
-                                    variant="h2"
                                     sx={{
-                                        mt: { md: '53px', sm: 2 },
+                                        mt: { md: 5, sm: 2 },
                                         fontSize: { xs: '24px', sm: '32px' },
                                     }}
+                                    variant="h2"
                                 >
-                                    DASHBOARD FEATURES
+                                    <TypeIt
+                                        options={{
+                                            strings: ['DASHBOARD FEATURES'],
+                                            speed: 1,
+                                            waitUntilVisible: true,
+                                            loop: true,
+                                            cursor: false,
+                                        }}
+                                    />
                                 </Typography>
                                 <Typography
                                     variant="subtitle2"
@@ -228,21 +236,13 @@ export default function Banners() {
                                 }}
                             >
                                 <Typography
+                                    variant="h2"
                                     sx={{
                                         mt: { md: 5, sm: 2 },
                                         fontSize: { xs: '24px', sm: '32px' },
                                     }}
-                                    variant="h2"
                                 >
-                                    <TypeIt
-                                        options={{
-                                            strings: ['BUY AND SELL'],
-                                            speed: 1,
-                                            waitUntilVisible: true,
-                                            loop: true,
-                                            cursor: false,
-                                        }}
-                                    />
+                                    BUY & SELL
                                 </Typography>
                                 <Typography
                                     variant="subtitle2"
