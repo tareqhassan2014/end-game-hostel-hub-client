@@ -53,6 +53,14 @@ const pages = [
         page: 'Search',
         link: '/search-hostel',
     },
+    {
+        page: 'Search Old items',
+        link: '/Search-Old-Items',
+    },
+    {
+        page: 'Search Groceries',
+        link: '/Search-Groceries',
+    },
 ];
 
 const settings = [

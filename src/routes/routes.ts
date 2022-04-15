@@ -1,6 +1,8 @@
 import { lazy } from 'react';
 import DashboardLayout from 'src/views/DashboardLayout';
+import SearchGroceries from 'src/views/pages/SearchGroceries/SearchGroceries';
 import SearchItem from 'src/views/pages/SearchItem/SearchItem';
+import SearchOldItems from 'src/views/pages/SearchOldItems/SearchOldItems';
 import Cart from '../views/components/common/cart/Cart';
 import AdminSignup from '../views/components/signUp/AdminSignup';
 import VendorSignup from '../views/components/signUp/VendorSignup';
@@ -95,5 +97,13 @@ export const openRoutes = [
     {
         path: '/search-hostel',
         element: SearchItem,
+    },
+    {
+        path: '/Search-Old-Items',
+        element: SearchOldItems,
+    },
+    {
+        path: '/Search-Groceries',
+        element: SearchGroceries,
     },
 ];

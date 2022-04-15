@@ -22,7 +22,7 @@ import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import React from 'react';
 
-const SearchItem = () => {
+const SearchGroceries = () => {
     const allHostel: Array<number> = [1, 2, 3, 4, 5, 6, 7, 8, 9];
     return (
         <Box sx={{ mt: 5, width: '100%', overflow: 'hidden' }}>
@@ -49,8 +49,8 @@ const SearchItem = () => {
                     </IconButton>
                     <InputBase
                         sx={{ ml: 1, flex: 1 }}
-                        placeholder="Search Hostel "
-                        inputProps={{ 'aria-label': 'Search Hostel' }}
+                        placeholder="Search Groceries "
+                        inputProps={{ 'aria-label': 'Search Groceries' }}
                     />
                     <IconButton
                         type="submit"
@@ -121,7 +121,7 @@ const SearchItem = () => {
                             <Divider />
                             <FormControl>
                                 <FormLabel id="demo-radio-buttons-group-label">
-                                    Environment
+                                    Envirounment
                                 </FormLabel>
                                 <RadioGroup
                                     aria-labelledby="demo-radio-buttons-group-label"
@@ -229,4 +229,4 @@ const SearchItem = () => {
     );
 };
 
-export default SearchItem;
+export default SearchGroceries;
