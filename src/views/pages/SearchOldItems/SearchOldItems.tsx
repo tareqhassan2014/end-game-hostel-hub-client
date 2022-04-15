@@ -93,7 +93,7 @@ const SearchOldItems = () => {
                             </Box>
                             <FormControl>
                                 <FormLabel id="demo-radio-buttons-group-label">
-                                    Meal Quality
+                                    Items Quality
                                 </FormLabel>
                                 <RadioGroup
                                     aria-labelledby="demo-radio-buttons-group-label"
@@ -120,7 +120,7 @@ const SearchOldItems = () => {
                             <Divider />
                             <FormControl>
                                 <FormLabel id="demo-radio-buttons-group-label">
-                                    Envirounment
+                                    Environment
                                 </FormLabel>
                                 <RadioGroup
                                     aria-labelledby="demo-radio-buttons-group-label"
@@ -147,7 +147,7 @@ const SearchOldItems = () => {
                             <Divider />
                             <FormControl>
                                 <FormLabel id="demo-radio-buttons-group-label">
-                                    Room Quality
+                                    Most Viewed
                                 </FormLabel>
                                 <RadioGroup
                                     aria-labelledby="demo-radio-buttons-group-label"
@@ -190,7 +190,7 @@ const SearchOldItems = () => {
                                         <CardMedia
                                             component="img"
                                             height="140"
-                                            image="https://media.istockphoto.com/photos/dormitory-room-in-the-modern-hostel-picture-id910999556?b=1&k=20&m=910999556&s=170667a&w=0&h=8Ppqwt74V-aaXr4vN2iu5XOv87H0nhJh64am-0bYPLc="
+                                            image="https://m.media-amazon.com/images/I/41RYmMyL0bL._AC_SY780_.jpg"
                                             alt="green iguana"
                                         />
                                         <CardContent>
@@ -210,9 +210,7 @@ const SearchOldItems = () => {
                                             </Typography>
                                         </CardContent>
                                         <CardActions>
-                                            <Button size="small">
-                                                Booking
-                                            </Button>
+                                            <Button size="small">Book</Button>
                                             <Button size="small">
                                                 Details
                                             </Button>

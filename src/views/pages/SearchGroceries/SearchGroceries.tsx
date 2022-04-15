@@ -94,7 +94,7 @@ const SearchGroceries = () => {
                             </Box>
                             <FormControl>
                                 <FormLabel id="demo-radio-buttons-group-label">
-                                    Meal Quality
+                                    Calculation
                                 </FormLabel>
                                 <RadioGroup
                                     aria-labelledby="demo-radio-buttons-group-label"
@@ -121,7 +121,7 @@ const SearchGroceries = () => {
                             <Divider />
                             <FormControl>
                                 <FormLabel id="demo-radio-buttons-group-label">
-                                    Envirounment
+                                    Environment
                                 </FormLabel>
                                 <RadioGroup
                                     aria-labelledby="demo-radio-buttons-group-label"
@@ -148,7 +148,7 @@ const SearchGroceries = () => {
                             <Divider />
                             <FormControl>
                                 <FormLabel id="demo-radio-buttons-group-label">
-                                    Room Quality
+                                    Food Quality
                                 </FormLabel>
                                 <RadioGroup
                                     aria-labelledby="demo-radio-buttons-group-label"
@@ -191,7 +191,7 @@ const SearchGroceries = () => {
                                         <CardMedia
                                             component="img"
                                             height="140"
-                                            image="https://media.istockphoto.com/photos/dormitory-room-in-the-modern-hostel-picture-id910999556?b=1&k=20&m=910999556&s=170667a&w=0&h=8Ppqwt74V-aaXr4vN2iu5XOv87H0nhJh64am-0bYPLc="
+                                            image="https://media.istockphoto.com/photos/balanced-diet-organic-healthy-food-clean-eating-selection-including-picture-id931193062?k=20&m=931193062&s=612x612&w=0&h=UU8kSPOYlSFhWAnvF0rQ114m930L987fBOMipZskPWM="
                                             alt="green iguana"
                                         />
                                         <CardContent>
@@ -211,9 +211,7 @@ const SearchGroceries = () => {
                                             </Typography>
                                         </CardContent>
                                         <CardActions>
-                                            <Button size="small">
-                                                Booking
-                                            </Button>
+                                            <Button size="small">Book</Button>
                                             <Button size="small">
                                                 Details
                                             </Button>
