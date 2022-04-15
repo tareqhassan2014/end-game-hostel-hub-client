@@ -99,11 +99,11 @@ export const openRoutes = [
         element: SearchItem,
     },
     {
-        path: '/Search-Old-Items',
+        path: '/search-old-items',
         element: SearchOldItems,
     },
     {
-        path: '/Search-Groceries',
+        path: '/search-groceries',
         element: SearchGroceries,
     },
 ];
