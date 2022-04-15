@@ -42,19 +42,33 @@ const Footer = () => {
                             sx={{
                                 my: 2,
                                 pr: 14,
-                                fontSize: 12,
+                                fontSize: 13,
                                 color: '#b2c3cb',
                             }}
                         >
                             1234 Somewhere Rd.Estronpark, TN 00018 United
                             States.
                         </Typography>
-                        <Typography sx={{ display: 'flex' }} gutterBottom>
+                        <Typography
+                            variant="subtitle2"
+                            sx={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                fontSize: { md: 18, sm: 16 },
+                            }}
+                            gutterBottom
+                        >
                             <EmailIcon sx={{ mr: 1 }} />
                             sales@example.com
                         </Typography>
                         <Typography
-                            sx={{ display: 'flex', fontSize: 20, my: 2 }}
+                            variant="subtitle2"
+                            sx={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                fontSize: { md: 18, sm: 16 },
+                                my: 2,
+                            }}
                             gutterBottom
                         >
                             <LocalPhoneIcon sx={{ mr: 1 }} />
