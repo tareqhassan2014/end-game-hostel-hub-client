@@ -49,6 +49,10 @@ const pages = [
         page: 'Dashboard',
         link: '/dashboard',
     },
+    {
+        page: 'Search',
+        link: '/search-hostel',
+    },
 ];
 
 const settings = [
