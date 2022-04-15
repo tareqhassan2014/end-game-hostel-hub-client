@@ -46,6 +46,10 @@ const pages = [
         link: '/cart',
     },
     {
+        page: 'PostAvailableSit',
+        link: '/postAvailableSit',
+    },
+    {
         page: 'Dashboard',
         link: '/dashboard',
     },

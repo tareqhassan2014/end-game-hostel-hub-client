@@ -1,5 +1,6 @@
 import { lazy } from 'react';
 import DashboardLayout from 'src/views/DashboardLayout';
+import PostAvailableSit from 'src/views/pages/PostAvailableSit/PostAvailableSit';
 import SearchGroceries from 'src/views/pages/SearchGroceries/SearchGroceries';
 import SearchItem from 'src/views/pages/SearchItem/SearchItem';
 import SearchOldItems from 'src/views/pages/SearchOldItems/SearchOldItems';
@@ -85,6 +86,10 @@ export const openRoutes = [
     {
         path: '/cart',
         element: Cart,
+    },
+    {
+        path: '/postAvailableSit',
+        element: PostAvailableSit,
     },
     {
         path: '/admin-signup',
