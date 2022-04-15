@@ -94,7 +94,7 @@ const SearchItem = () => {
                             </Box>
                             <FormControl>
                                 <FormLabel id="demo-radio-buttons-group-label">
-                                    Meal Quality
+                                    Room Quality
                                 </FormLabel>
                                 <RadioGroup
                                     aria-labelledby="demo-radio-buttons-group-label"
@@ -211,9 +211,7 @@ const SearchItem = () => {
                                             </Typography>
                                         </CardContent>
                                         <CardActions>
-                                            <Button size="small">
-                                                Booking
-                                            </Button>
+                                            <Button size="small">Book</Button>
                                             <Button size="small">
                                                 Details
                                             </Button>

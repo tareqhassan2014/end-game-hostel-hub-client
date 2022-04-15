@@ -59,11 +59,11 @@ const pages = [
     },
     {
         page: 'OldItems',
-        link: '/Search-Old-Items',
+        link: '/search-old-items',
     },
     {
         page: 'Groceries',
-        link: '/Search-Groceries',
+        link: '/search-groceries',
     },
 ];
 
