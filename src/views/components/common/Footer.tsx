@@ -149,18 +149,34 @@ const Footer = () => {
                     </Grid>
                 </Grid>
                 <Divider />
-                <Grid container sx={{ mt: 1 }}>
-                    <Grid item md={6} sm={6} xs={12}>
+                <Grid
+                    container
+                    sx={{
+                        mt: 1,
+                    }}
+                >
+                    <Grid
+                        item
+                        md={12}
+                        sm={12}
+                        xs={12}
+                        sx={{
+                            alignItems: { md: 'center', sm: 'center' },
+                            display: { md: 'flex', sm: 'flex' },
+                            justifyContent: {
+                                md: 'space-between',
+                                sm: 'space-between',
+                            },
+                        }}
+                    >
                         <Typography variant="body2">
                             © Copyright 2022 Hostel Hub - All Right Reserved.
                         </Typography>
-                    </Grid>
-                    <Grid item md={6} sm={6} xs={12}>
                         <Box
                             component="img"
                             src={visa}
                             alt="visa"
-                            sx={{ height: 50, width: 100 }}
+                            sx={{ height: 45, width: 85 }}
                         />
                     </Grid>
                 </Grid>

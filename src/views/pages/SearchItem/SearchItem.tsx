@@ -94,7 +94,7 @@ const SearchItem = () => {
                             </Box>
                             <FormControl>
                                 <FormLabel id="demo-radio-buttons-group-label">
-                                    Room Quality
+                                    Rooms Quality
                                 </FormLabel>
                                 <RadioGroup
                                     aria-labelledby="demo-radio-buttons-group-label"
