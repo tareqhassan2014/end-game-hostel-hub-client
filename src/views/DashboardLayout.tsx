@@ -3,6 +3,7 @@ import { Box, styled, useTheme } from '@mui/system';
 import React from 'react';
 import Scrollbar from 'react-perfect-scrollbar';
 import { Outlet } from 'react-router-dom';
+import DashboardHeader from './components/dashboard/common/DashboardHeader';
 import SideNav from './components/dashboard/common/SideNav';
 
 const Layout1Root = styled(Box)(({ theme }) => ({
@@ -61,7 +62,7 @@ const DashboardLayout = () => {
         <Layout1Root className={layoutClasses}>
             <SideNav />
             <LayoutContainer>
-                <div>TopBar</div>
+                <DashboardHeader />
                 <ContentBox>
                     <Box flexGrow={1} position="relative">
                         <Outlet />

@@ -1,5 +1,6 @@
 import { lazy } from 'react';
 import DashboardLayout from 'src/views/DashboardLayout';
+import SearchItem from 'src/views/pages/SearchItem/SearchItem';
 import Cart from '../views/components/common/cart/Cart';
 import AdminSignup from '../views/components/signUp/AdminSignup';
 import VendorSignup from '../views/components/signUp/VendorSignup';
@@ -90,5 +91,9 @@ export const openRoutes = [
     {
         path: '/vendor-signup',
         element: VendorSignup,
+    },
+    {
+        path: '/search-hostel',
+        element: SearchItem,
     },
 ];
