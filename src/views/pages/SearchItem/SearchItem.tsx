@@ -211,9 +211,7 @@ const SearchItem = () => {
                                             </Typography>
                                         </CardContent>
                                         <CardActions>
-                                            <Button size="small">
-                                                Booking
-                                            </Button>
+                                            <Button size="small">Book</Button>
                                             <Button size="small">
                                                 Details
                                             </Button>
