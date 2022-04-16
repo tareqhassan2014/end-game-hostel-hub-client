@@ -38,10 +38,6 @@ const pages = [
         link: '/postAvailableSit',
     },
     {
-        page: 'Dashboard',
-        link: '/dashboard',
-    },
-    {
         page: 'Search',
         link: '/search-hostel',
     },
