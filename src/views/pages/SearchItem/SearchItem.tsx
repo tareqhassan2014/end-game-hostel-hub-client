@@ -74,7 +74,6 @@ const SearchItem = () => {
                             sx={{
                                 boxShadow: 2,
                                 p: 3,
-
                                 mt: 2,
                                 borderRadius: 3,
                                 height: 'auto',

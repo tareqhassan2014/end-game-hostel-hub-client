@@ -68,15 +68,15 @@ const SearchOldItems = () => {
                 }}
             >
                 <Grid container spacing={2}>
-                    <Grid xs={2}>
+                    <Grid md={2} sm={2} xs={12}>
                         <Box
                             sx={{
                                 boxShadow: 2,
                                 p: 3,
-
                                 mt: 2,
                                 borderRadius: 3,
                                 height: 'auto',
+                                minWidth: { sm: '150px' },
                             }}
                         >
                             <Box>
@@ -173,20 +173,29 @@ const SearchOldItems = () => {
                             </FormControl>
                         </Box>
                     </Grid>
-                    <Grid xs={9}>
+                    <Grid md={9} sm={10} xs={12}>
                         <Grid
+                            container
+                            spacing={2}
                             sx={{
                                 p: 3,
                                 m: 1,
                                 borderRadius: 3,
                                 height: 'auto',
                             }}
-                            container
-                            spacing={2}
                         >
                             {allHostel.map((hostel, index) => (
-                                <Grid key={index} item xs={4}>
-                                    <Card sx={{ maxWidth: 345 }}>
+                                <Grid key={index} item md={4} sm={12} xs={12}>
+                                    <Card
+                                        sx={{
+                                            maxWidth: {
+                                                md: '345px',
+                                                sm: '75%',
+                                                xs: '100%',
+                                            },
+                                            ml: { md: '0px', sm: 3 },
+                                        }}
+                                    >
                                         <CardMedia
                                             component="img"
                                             height="140"

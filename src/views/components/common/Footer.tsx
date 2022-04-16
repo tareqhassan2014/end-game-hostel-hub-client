@@ -75,32 +75,41 @@ const Footer = () => {
                             +01944981668
                         </Typography>
                     </Grid>
-                    <Grid
-                        item
-                        md={3}
-                        sm={6}
-                        xs={12}
-                        sx={{ color: '#9bb8cc', my: 5 }}
-                    >
+                    <Grid item md={3} sm={6} xs={12} sx={{ my: 5 }}>
                         <Typography
                             variant="subtitle1"
                             sx={{ mb: 5, color: 'white' }}
                         >
                             Travel Destinations
                         </Typography>
-                        <Typography gutterBottom sx={{ fontSize: 13 }}>
+                        <Typography
+                            gutterBottom
+                            sx={{ fontSize: 13, color: '#9bb8cc' }}
+                        >
                             United Arab Amritas
                         </Typography>
-                        <Typography gutterBottom sx={{ fontSize: 13 }}>
+                        <Typography
+                            gutterBottom
+                            sx={{ fontSize: 13, color: '#9bb8cc' }}
+                        >
                             United Kingdom
                         </Typography>
-                        <Typography gutterBottom sx={{ fontSize: 13 }}>
+                        <Typography
+                            gutterBottom
+                            sx={{ fontSize: 13, color: '#9bb8cc' }}
+                        >
                             Australia
                         </Typography>
-                        <Typography gutterBottom sx={{ fontSize: 13 }}>
+                        <Typography
+                            gutterBottom
+                            sx={{ fontSize: 13, color: '#9bb8cc' }}
+                        >
                             Maldives
                         </Typography>
-                        <Typography gutterBottom sx={{ fontSize: 13 }}>
+                        <Typography
+                            gutterBottom
+                            sx={{ fontSize: 13, color: '#9bb8cc' }}
+                        >
                             Turkey
                         </Typography>
                     </Grid>
