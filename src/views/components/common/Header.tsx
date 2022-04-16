@@ -30,18 +30,6 @@ const pages = [
         link: '/',
     },
     {
-        page: 'Contact',
-        link: '/contact',
-    },
-    {
-        page: 'VendorSignup',
-        link: '/vendor-signup',
-    },
-    {
-        page: 'Admin-signup',
-        link: '/admin-signup',
-    },
-    {
         page: 'Cart',
         link: '/cart',
     },
@@ -58,10 +46,9 @@ const pages = [
         link: '/search-hostel',
     },
     {
-        page: 'About Team',
-        link: '/about-team',
+        page: 'OldItems',
+        link: '/search-old-items',
     },
-    { page: 'OldItems', link: '/search-old-items' },
     {
         page: 'Groceries',
         link: '/search-groceries',
