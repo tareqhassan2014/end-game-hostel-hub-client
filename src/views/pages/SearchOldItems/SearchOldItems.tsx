@@ -64,19 +64,19 @@ const SearchOldItems = () => {
                 sx={{
                     display: 'flex',
                     justifyContent: 'center',
-                    mx: 8,
+                    mx: { xs: 1, md: 3, lg: 5 },
                 }}
             >
                 <Grid container spacing={2}>
-                    <Grid md={2} sm={2} xs={12}>
+                    <Grid xs={3} lg={2}>
                         <Box
                             sx={{
                                 boxShadow: 2,
                                 p: 3,
-                                mt: 2,
+
+                                mt: 4,
                                 borderRadius: 3,
                                 height: 'auto',
-                                minWidth: { sm: '150px' },
                             }}
                         >
                             <Box>
@@ -173,29 +173,20 @@ const SearchOldItems = () => {
                             </FormControl>
                         </Box>
                     </Grid>
-                    <Grid md={9} sm={10} xs={12}>
+                    <Grid xs={8} lg={9}>
                         <Grid
                             container
                             spacing={2}
                             sx={{
-                                p: 3,
+                                p: { xs: 1, md: 2, lg: 3 },
                                 m: 1,
                                 borderRadius: 3,
                                 height: 'auto',
                             }}
                         >
                             {allHostel.map((hostel, index) => (
-                                <Grid key={index} item md={4} sm={12} xs={12}>
-                                    <Card
-                                        sx={{
-                                            maxWidth: {
-                                                md: '345px',
-                                                sm: '75%',
-                                                xs: '100%',
-                                            },
-                                            ml: { md: '0px', sm: 3 },
-                                        }}
-                                    >
+                                <Grid key={index} item xs={12} md={6} lg={4}>
+                                    <Card sx={{ maxWidth: 345 }}>
                                         <CardMedia
                                             component="img"
                                             height="140"
