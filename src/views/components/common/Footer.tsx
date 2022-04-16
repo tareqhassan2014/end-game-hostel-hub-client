@@ -42,51 +42,74 @@ const Footer = () => {
                             sx={{
                                 my: 2,
                                 pr: 14,
-                                fontSize: 12,
+                                fontSize: 13,
                                 color: '#b2c3cb',
                             }}
                         >
                             1234 Somewhere Rd.Estronpark, TN 00018 United
                             States.
                         </Typography>
-                        <Typography sx={{ display: 'flex' }} gutterBottom>
+                        <Typography
+                            variant="subtitle2"
+                            sx={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                fontSize: { md: 18, sm: 16 },
+                            }}
+                            gutterBottom
+                        >
                             <EmailIcon sx={{ mr: 1 }} />
                             sales@example.com
                         </Typography>
                         <Typography
-                            sx={{ display: 'flex', fontSize: 20, my: 2 }}
+                            variant="subtitle2"
+                            sx={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                fontSize: { md: 18, sm: 16 },
+                                my: 2,
+                            }}
                             gutterBottom
                         >
                             <LocalPhoneIcon sx={{ mr: 1 }} />
                             +01944981668
                         </Typography>
                     </Grid>
-                    <Grid
-                        item
-                        md={3}
-                        sm={6}
-                        xs={12}
-                        sx={{ color: '#9bb8cc', my: 5 }}
-                    >
+                    <Grid item md={3} sm={6} xs={12} sx={{ my: 5 }}>
                         <Typography
                             variant="subtitle1"
                             sx={{ mb: 5, color: 'white' }}
                         >
                             Travel Destinations
                         </Typography>
-                        <Typography gutterBottom sx={{ fontSize: 13 }}>
+                        <Typography
+                            gutterBottom
+                            sx={{ fontSize: 13, color: '#9bb8cc' }}
+                        >
                             United Arab Amritas
                         </Typography>
-                        <Typography gutterBottom sx={{ fontSize: 13 }}>
+                        <Typography
+                            gutterBottom
+                            sx={{ fontSize: 13, color: '#9bb8cc' }}
+                        >
                             United Kingdom
                         </Typography>
-                        <Typography gutterBottom sx={{ fontSize: 13 }}>
+                        <Typography
+                            gutterBottom
+                            sx={{ fontSize: 13, color: '#9bb8cc' }}
+                        >
                             Australia
                         </Typography>
-                        <Typography gutterBottom sx={{ fontSize: 13 }}>
+                        <Typography
+                            gutterBottom
+                            sx={{ fontSize: 13, color: '#9bb8cc' }}
+                        >
                             Maldives
                         </Typography>
-                        <Typography gutterBottom sx={{ fontSize: 13 }}>
+                        <Typography
+                            gutterBottom
+                            sx={{ fontSize: 13, color: '#9bb8cc' }}
+                        >
                             Turkey
                         </Typography>
                     </Grid>
@@ -149,18 +172,34 @@ const Footer = () => {
                     </Grid>
                 </Grid>
                 <Divider />
-                <Grid container sx={{ mt: 1 }}>
-                    <Grid item md={6} sm={6} xs={12}>
+                <Grid
+                    container
+                    sx={{
+                        mt: 1,
+                    }}
+                >
+                    <Grid
+                        item
+                        md={12}
+                        sm={12}
+                        xs={12}
+                        sx={{
+                            alignItems: { md: 'center', sm: 'center' },
+                            display: { md: 'flex', sm: 'flex' },
+                            justifyContent: {
+                                md: 'space-between',
+                                sm: 'space-between',
+                            },
+                        }}
+                    >
                         <Typography variant="body2">
                             © Copyright 2022 Hostel Hub - All Right Reserved.
                         </Typography>
-                    </Grid>
-                    <Grid item md={6} sm={6} xs={12}>
                         <Box
                             component="img"
                             src={visa}
                             alt="visa"
-                            sx={{ height: 50, width: 100 }}
+                            sx={{ height: 45, width: 85 }}
                         />
                     </Grid>
                 </Grid>

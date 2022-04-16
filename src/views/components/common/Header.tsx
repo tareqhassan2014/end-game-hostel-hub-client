@@ -46,6 +46,10 @@ const pages = [
         link: '/cart',
     },
     {
+        page: 'PostAvailableSit',
+        link: '/postAvailableSit',
+    },
+    {
         page: 'Dashboard',
         link: '/dashboard',
     },
@@ -56,6 +60,11 @@ const pages = [
     {
         page: 'About Team',
         link: '/about-team',
+    },
+    { page: 'OldItems', link: '/search-old-items' },
+    {
+        page: 'Groceries',
+        link: '/search-groceries',
     },
 ];
 

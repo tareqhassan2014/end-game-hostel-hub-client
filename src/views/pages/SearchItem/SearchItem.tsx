@@ -6,11 +6,7 @@ import InputBase from '@mui/material/InputBase';
 import IconButton from '@mui/material/IconButton';
 import SearchIcon from '@mui/icons-material/Search';
 import HomeIcon from '@mui/icons-material/Home';
-import Radio from '@mui/material/Radio';
-import RadioGroup from '@mui/material/RadioGroup';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import FormControl from '@mui/material/FormControl';
-import FormLabel from '@mui/material/FormLabel';
+
 import {
     Button,
     Card,
@@ -18,6 +14,11 @@ import {
     CardContent,
     CardMedia,
     Divider,
+    FormControl,
+    FormControlLabel,
+    FormLabel,
+    Radio,
+    RadioGroup,
     Rating,
     Slider,
     Typography,
@@ -129,7 +130,7 @@ const SearchItem = () => {
                             </Box>
                             <FormControl>
                                 <FormLabel id="demo-radio-buttons-group-label">
-                                    Meal Quality
+                                    Rooms Quality
                                 </FormLabel>
                                 <RadioGroup
                                     aria-labelledby="demo-radio-buttons-group-label"

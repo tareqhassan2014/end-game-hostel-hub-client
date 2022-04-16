@@ -24,19 +24,22 @@
         justify-content: center;
         align-items: center;
         flex-wrap: wrap;
-        background: #08001b;
-        // color: white;
+
+        // background: #08001b;
+        color: black;
     }
 
     .container .card {
         position: relative;
         width: 300px;
         height: 400px;
-        background: #0c002b;
+        // background: #0c002b;
+        background: white;
         display: flex;
         justify-content: center;
         align-items: center;
         margin: 30px;
+        border-radius: 5px;
         box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
         overflow: hidden;
         opacity: 0.8;
@@ -45,6 +48,7 @@
         }
         img {
             width: 100%;
+            border-radius: 5px;
         }
     }
 
@@ -59,14 +63,14 @@
         pointer-events: none;
     }
     .container .card .content {
-        padding: 30px;
+        padding: 10px;
         text-align: center;
     }
 
     .container .card .content h2 {
         position: absolute;
         right: 30px;
-        font-size: 4em;
+        font-size: 3em;
         font-weight: 800;
         color: #1779ff;
         z-index: 1;
@@ -76,13 +80,13 @@
 
     .container .card:hover .content h2 {
         opacity: 1;
-        transform: translateY(-70px);
+        transform: translateY(-60px);
     }
 
     .container .card .content h3 {
         position: relative;
         font-size: 1.5em;
-        color: #fff;
+        color: black;
         z-index: 2;
         opacity: 0.5;
         letter-spacing: 1px;
@@ -92,7 +96,7 @@
     .container .card .content p {
         position: relative;
         font-size: 1em;
-        color: #fff;
+        color: black;
         z-index: 2;
         opacity: 0.5;
         font-weight: 300;
@@ -108,13 +112,20 @@
         display: inline-block;
         margin-top: 15px;
         padding: 8px 15px;
-        background: #fff;
+
         color: #0c002b;
         text-decoration: none;
         text-transform: uppercase;
         font-weight: 600;
         border-top-right-radius: 5px;
         border-bottom-left-radius: 5px;
+        border: 1px solid black;
+        &:hover {
+            background: #1779ff;
+            color: white;
+            transition: 0.5s;
+            border: 1px solid #1779ff;
+        }
     }
 
     .container .card span {
