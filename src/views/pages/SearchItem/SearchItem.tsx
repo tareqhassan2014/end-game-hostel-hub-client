@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
@@ -18,12 +18,41 @@ import {
     CardContent,
     CardMedia,
     Divider,
+    Rating,
     Slider,
     Typography,
 } from '@mui/material';
-
+interface hostelData {
+    id: number;
+    first_name: string;
+    email: string;
+    gender: string;
+    photo: string;
+    city: string;
+    rating: number;
+    price: number;
+}
 const SearchItem = () => {
-    const allHostel: Array<number> = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+    const [allHostel, SetAllHostel] = useState<hostelData[]>([]);
+    const [matchItem, SetmatchItem] = useState<hostelData[]>([]);
+
+    useEffect(() => {
+        fetch('/MOCK_DATA.JSON')
+            .then((res) => res.json())
+            .then((data) => {
+                SetAllHostel(data);
+                SetmatchItem(data);
+            });
+    }, []);
+
+    const changeSearch = (e: any) => {
+        const searchText = e.target.value;
+        const matchProductToSearch = allHostel.filter((hostel) =>
+            hostel.city.toLowerCase().includes(searchText.toLowerCase())
+        );
+        SetmatchItem(matchProductToSearch);
+    };
+
     return (
         <Box sx={{ mt: 5, width: '100%', overflow: 'hidden' }}>
             <Box
@@ -49,8 +78,11 @@ const SearchItem = () => {
                     </IconButton>
                     <InputBase
                         sx={{ ml: 1, flex: 1 }}
-                        placeholder="Search Hostel "
-                        inputProps={{ 'aria-label': 'Search Hostel' }}
+                        placeholder="Search Hostel By Location "
+                        inputProps={{
+                            'aria-label': 'Search Hostel By Location',
+                        }}
+                        onChange={changeSearch}
                     />
                     <IconButton
                         type="submit"
@@ -65,17 +97,17 @@ const SearchItem = () => {
                 sx={{
                     display: 'flex',
                     justifyContent: 'center',
-                    mx: 8,
+                    mx: { xs: 1, md: 3, lg: 5 },
                 }}
             >
                 <Grid container spacing={2}>
-                    <Grid xs={2}>
+                    <Grid item xs={3} lg={2}>
                         <Box
                             sx={{
                                 boxShadow: 2,
                                 p: 3,
 
-                                mt: 2,
+                                mt: 4,
                                 borderRadius: 3,
                                 height: 'auto',
                             }}
@@ -86,9 +118,12 @@ const SearchItem = () => {
                                         Price Range
                                     </FormLabel>
                                     <Slider
-                                        defaultValue={50}
-                                        aria-label="Default"
+                                        defaultValue={1000}
+                                        aria-label="Price"
                                         valueLabelDisplay="auto"
+                                        step={100}
+                                        min={500}
+                                        max={2500}
                                     />
                                 </FormControl>
                             </Box>
@@ -121,27 +156,22 @@ const SearchItem = () => {
                             <Divider />
                             <FormControl>
                                 <FormLabel id="demo-radio-buttons-group-label">
-                                    Envirounment
+                                    Type
                                 </FormLabel>
                                 <RadioGroup
                                     aria-labelledby="demo-radio-buttons-group-label"
-                                    defaultValue="High"
+                                    defaultValue="male"
                                     name="radio-buttons-group"
                                 >
                                     <FormControlLabel
-                                        value="High"
+                                        value="male"
                                         control={<Radio />}
-                                        label="High"
+                                        label="Male"
                                     />
                                     <FormControlLabel
-                                        value="Mid"
+                                        value="female"
                                         control={<Radio />}
-                                        label="Mid"
-                                    />
-                                    <FormControlLabel
-                                        value="Low"
-                                        control={<Radio />}
-                                        label="Low"
+                                        label="Female"
                                     />
                                 </RadioGroup>
                             </FormControl>
@@ -174,10 +204,10 @@ const SearchItem = () => {
                             </FormControl>
                         </Box>
                     </Grid>
-                    <Grid xs={9}>
+                    <Grid item xs={8} lg={9}>
                         <Grid
                             sx={{
-                                p: 3,
+                                p: { xs: 1, md: 2, lg: 3 },
                                 m: 1,
                                 borderRadius: 3,
                                 height: 'auto',
@@ -185,42 +215,80 @@ const SearchItem = () => {
                             container
                             spacing={2}
                         >
-                            {allHostel.map((hostel, index) => (
-                                <Grid key={index} item xs={4}>
-                                    <Card sx={{ maxWidth: 345 }}>
-                                        <CardMedia
-                                            component="img"
-                                            height="140"
-                                            image="https://media.istockphoto.com/photos/dormitory-room-in-the-modern-hostel-picture-id910999556?b=1&k=20&m=910999556&s=170667a&w=0&h=8Ppqwt74V-aaXr4vN2iu5XOv87H0nhJh64am-0bYPLc="
-                                            alt="green iguana"
-                                        />
-                                        <CardContent>
-                                            <Typography
-                                                gutterBottom
-                                                variant="h5"
-                                                component="div"
-                                            >
-                                                Hostel Hub
-                                            </Typography>
-                                            <Typography
-                                                variant="body2"
-                                                color="text.secondary"
-                                            >
-                                                Lizards are a widespread group
-                                                of squamate reptiles,
-                                            </Typography>
-                                        </CardContent>
-                                        <CardActions>
-                                            <Button size="small">
-                                                Booking
-                                            </Button>
-                                            <Button size="small">
-                                                Details
-                                            </Button>
-                                        </CardActions>
-                                    </Card>
-                                </Grid>
-                            ))}
+                            {matchItem.length !== 0 ? (
+                                matchItem.map((hostel, index) => (
+                                    <Grid
+                                        key={index}
+                                        item
+                                        xs={12}
+                                        md={6}
+                                        lg={4}
+                                    >
+                                        <Card sx={{ maxWidth: 345 }}>
+                                            <CardMedia
+                                                component="img"
+                                                height="140"
+                                                image="https://media.istockphoto.com/photos/dormitory-room-in-the-modern-hostel-picture-id910999556?b=1&k=20&m=910999556&s=170667a&w=0&h=8Ppqwt74V-aaXr4vN2iu5XOv87H0nhJh64am-0bYPLc="
+                                                alt="green iguana"
+                                            />
+                                            <CardContent>
+                                                <Typography
+                                                    gutterBottom
+                                                    variant="h5"
+                                                    component="div"
+                                                >
+                                                    {hostel.first_name}
+                                                </Typography>
+                                                <Typography
+                                                    variant="body2"
+                                                    color="text.secondary"
+                                                >
+                                                    Price: {hostel.price} BDT
+                                                </Typography>
+                                                <Typography
+                                                    variant="body2"
+                                                    color="text.secondary"
+                                                >
+                                                    Type: {hostel.gender} Hostel
+                                                </Typography>
+                                                <Typography
+                                                    variant="body2"
+                                                    color="text.secondary"
+                                                >
+                                                    Location: {hostel.city}
+                                                </Typography>
+
+                                                <Rating
+                                                    name="Rating"
+                                                    value={hostel.rating}
+                                                    readOnly
+                                                />
+                                            </CardContent>
+                                            <CardActions>
+                                                <Button size="small">
+                                                    Booking
+                                                </Button>
+                                                <Button size="small">
+                                                    Details
+                                                </Button>
+                                            </CardActions>
+                                        </Card>
+                                    </Grid>
+                                ))
+                            ) : (
+                                <Typography
+                                    variant="h2"
+                                    sx={{
+                                        textAlign: 'center',
+                                        color: '#6A52E5',
+                                        mb: 5,
+                                    }}
+                                    component="div"
+                                    gutterBottom
+                                >
+                                    Hostel Not Found
+                                </Typography>
+                            )}
                         </Grid>
                     </Grid>
                 </Grid>

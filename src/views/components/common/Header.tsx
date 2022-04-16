@@ -53,6 +53,10 @@ const pages = [
         page: 'Search',
         link: '/search-hostel',
     },
+    {
+        page: 'About Team',
+        link: '/about-team',
+    },
 ];
 
 const settings = [
