@@ -23,6 +23,7 @@ import { useNavigate } from 'react-router-dom';
 import { logOut } from 'src/app/reducers/auth/authSlice';
 import pxToRem from 'src/assets/my-theme/functions/pxToRem';
 import useAuth from 'src/hooks/useAuth';
+import logo from '../../../assets/images/navLogo.png';
 
 const pages = [
     {
@@ -129,10 +130,17 @@ export default function Header(props: Props) {
                                     sx={{
                                         mr: 2,
                                         display: { xs: 'none', md: 'flex' },
-                                        width: '30px',
+                                        width: '100px',
                                     }}
                                 >
-                                    logo
+                                    <img
+                                        style={{
+                                            width: '100px',
+                                            objectFit: 'contain',
+                                        }}
+                                        src={logo}
+                                        alt=""
+                                    />
                                 </Box>
 
                                 <Box
