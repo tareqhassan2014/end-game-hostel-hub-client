@@ -7,11 +7,14 @@
     align-items: center;
     .form {
         width: 400px;
+        text-align: center;
 
         form {
             width: 100%;
             display: flex;
             flex-direction: column;
+            h3 {
+            }
             input {
                 height: 40px;
                 margin-top: 10px;
