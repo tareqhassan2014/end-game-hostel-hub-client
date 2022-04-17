@@ -1,3 +1,6 @@
+body {
+    font-family: 'Poppins', sans-serif;
+}
 .availableSit {
     margin-top: 50px;
     min-height: 70vh;
@@ -9,19 +12,67 @@
         width: 400px;
         text-align: center;
 
+        padding: 20px;
+        border-radius: 5px;
+        background: white;
+        box-shadow: 0 5px 50px rgba(128, 128, 128, 0.15);
+
+        h3 {
+            color: #7f3dff;
+            text-transform: uppercase;
+        }
+
         form {
             width: 100%;
             display: flex;
             flex-direction: column;
-            h3 {
-            }
+
             input {
                 height: 40px;
                 margin-top: 10px;
+                border: 1px solid black;
+                border-radius: 3px;
+                padding-left: 2px;
+                letter-spacing: 0.5px;
+
+                &:hover {
+                    border: 1px solid #7f3dff;
+                    transition: 0.3s;
+                }
+                &:focus {
+                    border: 1px solid #7f3dff;
+                    outline: none;
+                }
+                &:nth-child(7) {
+                    border: 0;
+                    height: 26px;
+                }
+                &:nth-child(8) {
+                    border: 1px solid #7f3dff;
+                    background: none;
+                    letter-spacing: 2px;
+                    font-weight: bold;
+                    &:hover {
+                        background-color: #7f3dff;
+                        color: white;
+                        letter-spacing: 3px;
+                        transition: 0.7s;
+                    }
+                }
             }
             select {
                 height: 40px;
                 margin-top: 10px;
+                border: 1px solid rgb(81, 79, 79);
+                border-radius: 3px;
+                &:hover {
+                    border: 1px solid #7f3dff;
+                    transition: 0.3s;
+                }
+                &:focus {
+                    border: 1px solid #7f3dff;
+                    outline: none;
+                }
             }
         }
     }
