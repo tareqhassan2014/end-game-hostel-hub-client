@@ -1,28 +1,23 @@
-import React, { useEffect, useState } from 'react';
-import Box from '@mui/material/Box';
-import Grid from '@mui/material/Grid';
-import Paper from '@mui/material/Paper';
-import InputBase from '@mui/material/InputBase';
-import IconButton from '@mui/material/IconButton';
-import SearchIcon from '@mui/icons-material/Search';
 import HomeIcon from '@mui/icons-material/Home';
-
+import SearchIcon from '@mui/icons-material/Search';
 import {
-    Button,
-    Card,
-    CardActions,
-    CardContent,
-    CardMedia,
     Divider,
     FormControl,
     FormControlLabel,
     FormLabel,
     Radio,
     RadioGroup,
-    Rating,
     Slider,
     Typography,
 } from '@mui/material';
+import Box from '@mui/material/Box';
+import Grid from '@mui/material/Grid';
+import IconButton from '@mui/material/IconButton';
+import InputBase from '@mui/material/InputBase';
+import Paper from '@mui/material/Paper';
+import React, { useEffect, useState } from 'react';
+import Cart from 'src/views/components/common/cart/Cart';
+
 interface hostelData {
     id: number;
     first_name: string;
@@ -237,55 +232,15 @@ const SearchItem = () => {
                                         md={6}
                                         lg={4}
                                     >
-                                        <Card sx={{ maxWidth: 345 }}>
-                                            <CardMedia
-                                                component="img"
-                                                height="140"
-                                                image="https://media.istockphoto.com/photos/dormitory-room-in-the-modern-hostel-picture-id910999556?b=1&k=20&m=910999556&s=170667a&w=0&h=8Ppqwt74V-aaXr4vN2iu5XOv87H0nhJh64am-0bYPLc="
-                                                alt="green iguana"
-                                            />
-                                            <CardContent>
-                                                <Typography
-                                                    gutterBottom
-                                                    variant="h5"
-                                                    component="div"
-                                                >
-                                                    {hostel.first_name}
-                                                </Typography>
-                                                <Typography
-                                                    variant="body2"
-                                                    color="text.secondary"
-                                                >
-                                                    Price: {hostel.price} BDT
-                                                </Typography>
-                                                <Typography
-                                                    variant="body2"
-                                                    color="text.secondary"
-                                                >
-                                                    Type: {hostel.gender} Hostel
-                                                </Typography>
-                                                <Typography
-                                                    variant="body2"
-                                                    color="text.secondary"
-                                                >
-                                                    Location: {hostel.city}
-                                                </Typography>
-
-                                                <Rating
-                                                    name="Rating"
-                                                    value={hostel.rating}
-                                                    readOnly
-                                                />
-                                            </CardContent>
-                                            <CardActions>
-                                                <Button size="small">
-                                                    Booking
-                                                </Button>
-                                                <Button size="small">
-                                                    Details
-                                                </Button>
-                                            </CardActions>
-                                        </Card>
+                                        <Cart
+                                            key={index}
+                                            img="https://media.istockphoto.com/photos/dormitory-room-in-the-modern-hostel-picture-id910999556?b=1&k=20&m=910999556&s=170667a&w=0&h=8Ppqwt74V-aaXr4vN2iu5XOv87H0nhJh64am-0bYPLc="
+                                            title={hostel.first_name}
+                                            price={hostel.price}
+                                            gender={hostel.gender}
+                                            location={hostel.city}
+                                            rating={hostel.rating}
+                                        />
                                     </Grid>
                                 ))
                             ) : (
