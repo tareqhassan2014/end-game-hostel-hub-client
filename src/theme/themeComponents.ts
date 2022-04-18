@@ -1,0 +1,97 @@
+import appBar from './components/appBar';
+import avatar from './components/avatar';
+import breadcrumbs from './components/breadcrumbs';
+import button from './components/button';
+import buttonBase from './components/buttonBase';
+import card from './components/card/card';
+import cardContent from './components/card/cardContent';
+import cardMedia from './components/card/cardMedia';
+import dialog from './components/dialog/dialog';
+import dialogActions from './components/dialog/dialogActions';
+import dialogContent from './components/dialog/dialogContent';
+import dialogContentText from './components/dialog/dialogContentText';
+import dialogTitle from './components/dialog/dialogTitle';
+import divider from './components/divider';
+import autocomplete from './components/form/autocomplete';
+import checkbox from './components/form/checkbox';
+import formControlLabel from './components/form/formControlLabel';
+import input from './components/form/input';
+import inputLabel from './components/form/inputLabel';
+import inputOutlined from './components/form/inputOutlined';
+import radio from './components/form/radio';
+import select from './components/form/select';
+import switchButton from './components/form/switchButton';
+import icon from './components/icon';
+import linearProgress from './components/linearProgress';
+import link from './components/link';
+import list from './components/list/list';
+import listItem from './components/list/listItem';
+import listItemText from './components/list/listItemText';
+import menu from './components/menu/menu';
+import menuItem from './components/menu/menuItem';
+import popover from './components/popover';
+import sidenav from './components/sidenav';
+import slider from './components/slider';
+import step from './components/stepper/step';
+import stepConnector from './components/stepper/stepConnector';
+import stepIcon from './components/stepper/stepIcon';
+import stepLabel from './components/stepper/stepLabel';
+import stepper from './components/stepper/stepper';
+import svgIcon from './components/svgIcon';
+import tableCell from './components/table/tableCell';
+import tableContainer from './components/table/tableContainer';
+import tableHead from './components/table/tableHead';
+import tab from './components/tabs/tab';
+import tabs from './components/tabs/tabs';
+import tooltip from './components/tooltip';
+
+const themeComponents = {
+    MuiButton: { ...button },
+    MuiDrawer: { ...sidenav },
+    MuiList: { ...list },
+    MuiListItem: { ...listItem },
+    MuiListItemText: { ...listItemText },
+    MuiCard: { ...card },
+    MuiCardMedia: { ...cardMedia },
+    MuiCardContent: { ...cardContent },
+    MuiInput: { ...input },
+    MuiInputLabel: { ...inputLabel },
+    MuiOutlinedInput: { ...inputOutlined },
+    MuiMenu: { ...menu },
+    MuiMenuItem: { ...menuItem },
+    MuiSwitch: { ...switchButton },
+    MuiDivider: { ...divider },
+    MuiTableContainer: { ...tableContainer },
+    MuiTableHead: { ...tableHead },
+    MuiTableCell: { ...tableCell },
+    MuiLinearProgress: { ...linearProgress },
+    MuiBreadcrumbs: { ...breadcrumbs },
+    MuiSlider: { ...slider },
+    MuiAvatar: { ...avatar },
+    MuiTooltip: { ...tooltip },
+    MuiAppBar: { ...appBar },
+    MuiTabs: { ...tabs },
+    MuiTab: { ...tab },
+    MuiStepper: { ...stepper },
+    MuiStep: { ...step },
+    MuiStepConnector: { ...stepConnector },
+    MuiStepLabel: { ...stepLabel },
+    MuiStepIcon: { ...stepIcon },
+    MuiSelect: { ...select },
+    MuiFormControlLabel: { ...formControlLabel },
+    MuiCheckbox: { ...checkbox },
+    MuiRadio: { ...radio },
+    MuiAutocomplete: { ...autocomplete },
+    MuiPopover: { ...popover },
+    MuiButtonBase: { ...buttonBase },
+    MuiIcon: { ...icon },
+    MuiSvgIcon: { ...svgIcon },
+    MuiLink: { ...link },
+    MuiDialog: { ...dialog },
+    MuiDialogTitle: { ...dialogTitle },
+    MuiDialogContent: { ...dialogContent },
+    MuiDialogContentText: { ...dialogContentText },
+    MuiDialogActions: { ...dialogActions },
+};
+
+export default themeComponents;
