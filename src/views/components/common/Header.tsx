@@ -21,7 +21,6 @@ import { cloneElement, MouseEvent, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { logOut } from 'src/app/reducers/auth/authSlice';
-import pxToRem from 'src/assets/my-theme/functions/pxToRem';
 import useAuth from 'src/hooks/useAuth';
 
 const pages = [
@@ -117,8 +116,7 @@ export default function Header(props: Props) {
             <ElevationScroll {...props}>
                 <AppBar
                     sx={{
-                        backdropFilter: `saturate(200%) blur(${pxToRem(30)})`,
-                        bgcolor: 'white',
+                        backdropFilter: `saturate(200%) blur(1.875 rem)`,
                         py: 0.5,
                     }}
                 >
