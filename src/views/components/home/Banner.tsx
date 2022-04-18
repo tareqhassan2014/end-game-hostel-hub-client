@@ -38,7 +38,7 @@ export default function Banners() {
     return (
         <Box
             sx={{
-                py: { md: 3, sm: 2, xs: 1 },
+                py: { md: 4, sm: 2, xs: 1 },
                 px: { md: 5, sm: 1, xs: 0.5 },
             }}
         >
@@ -65,6 +65,7 @@ export default function Banners() {
                                         mt: { md: 5, sm: 2 },
                                         fontSize: { xs: '24px', sm: '32px' },
                                     }}
+                                    style={{ color: '#5d3f6a' }}
                                     variant="h2"
                                 >
                                     <TypeIt
@@ -144,6 +145,7 @@ export default function Banners() {
                                         mt: { md: 5, sm: 2 },
                                         fontSize: { xs: '24px', sm: '32px' },
                                     }}
+                                    style={{ color: '#5d3f6a' }}
                                 >
                                     GET FAST DELIVERY
                                 </Typography>
@@ -151,7 +153,7 @@ export default function Banners() {
                                     variant="subtitle2"
                                     sx={{
                                         mt: { md: 2.5, xs: 1 },
-                                        mb: { md: 4, xs: 3 },
+                                        mb: { md: 5, xs: 3 },
                                     }}
                                 >
                                     No more waiting! receive your items from the
@@ -196,6 +198,7 @@ export default function Banners() {
                                         mt: { md: 5, sm: 2 },
                                         fontSize: { xs: '24px', sm: '32px' },
                                     }}
+                                    style={{ color: '#5d3f6a' }}
                                     variant="h2"
                                 >
                                     <TypeIt
@@ -211,8 +214,8 @@ export default function Banners() {
                                 <Typography
                                     variant="subtitle2"
                                     sx={{
-                                        mt: { md: 2.5, xs: 1 },
-                                        mb: { md: 4, xs: 3 },
+                                        mt: { md: 2.5, sm: 1.5, xs: 1 },
+                                        mb: { md: 5, sm: 2, xs: 3 },
                                     }}
                                 >
                                     The uniqueness of five different dashboards
@@ -244,6 +247,7 @@ export default function Banners() {
                                         mt: { md: 5, sm: 2 },
                                         fontSize: { xs: '24px', sm: '32px' },
                                     }}
+                                    style={{ color: '#5d3f6a' }}
                                 >
                                     BUY & SELL
                                 </Typography>
