@@ -22,38 +22,38 @@ const FeatureApp = () => {
 
     const data = [
         {
-            title: 'Launch Screen',
-            des: 'Wanna try our App? Grab this opportunity and browse comfortably.📲',
+            title: 'LAUNCH SCREEN',
+            des: 'Wanna try our App? Grab this opportunity and browse comfortably 📲',
             img: 'https://i.ibb.co/jzfQ5rM/launch-Screen.png',
         },
         {
-            title: 'First Page',
-            des: 'Planning to manage your Hostel? Try us to enjoy hassle-free management.📜',
+            title: 'FIRST PAGE',
+            des: 'Planning to manage your Hostel? Try us to enjoy hassle-free management 📜',
             img: 'https://i.ibb.co/xYzLvrZ/first-Page.png',
         },
         {
-            title: 'Sign-up Page',
-            des: 'Need a secured and reliable data management? Explore our Authentication Feature.🗳',
+            title: 'SIGN-UP PAGE',
+            des: 'Need a secured and reliable data management? Explore our Authentication Feature 🗳',
             img: 'https://i.ibb.co/gDWhgpM/signup.png',
         },
         {
-            title: 'Profile',
-            des: 'Keep your Profile aesthetic looked with our Hostel Hub App.🗄',
+            title: 'PROFILE',
+            des: 'Keep your Profile aesthetic looked with our Hostel Hub App 🗄',
             img: 'https://i.ibb.co/pjfD7bK/profile.png',
         },
         {
-            title: 'Dashboard',
-            des: 'We offer our Dashboard with cool interface and various amazing features.📊',
+            title: 'DASHBOARD',
+            des: 'We offer our Dashboard with cool interface and various amazing features 📊',
             img: 'https://i.ibb.co/KLWzy3k/dashboard.png',
         },
         {
-            title: 'Filter',
-            des: 'Why not save time using our efficient searching option with Filter?🕑',
+            title: 'FILTER',
+            des: 'Why not save time using our efficient searching option with Filter? 🕑',
             img: 'https://i.ibb.co/mbnKdCp/filter.png',
         },
         {
-            title: 'Payment',
-            des: 'Facing issues with payment? Try us with a range of different Payment Gateway.💳',
+            title: 'PAYMENT',
+            des: 'Facing issues with payment? Try us with a range of different Payment Gateway method💳',
             img: 'https://i.ibb.co/wQHLBqk/transaction.png',
         },
     ];
@@ -61,8 +61,8 @@ const FeatureApp = () => {
         <Box
             style={myStyle}
             sx={{
-                py: { md: 3, sm: 2, xs: 1 },
-                px: { md: 5, sm: 1, xs: 0.5 },
+                py: { md: 5, sm: 2, xs: 1 },
+                px: { md: 3, sm: 1, xs: 0.5 },
                 // background: 'lightBlue',
             }}
         >
@@ -79,9 +79,24 @@ const FeatureApp = () => {
                     <SwiperSlide key={key}>
                         <Grid container>
                             <Grid md={6} sm={6} xs={12} item>
-                                <Box sx={{ ml: 2 }}>
+                                <Box
+                                    sx={{
+                                        ml: 2,
+                                        minWidth: {
+                                            md: 'auto',
+                                            sm: '500px',
+                                            xs: 'auto',
+                                        },
+                                    }}
+                                >
                                     <Typography
-                                        sx={{ pt: 3 }}
+                                        sx={{
+                                            pt: 3,
+                                            fontSize: {
+                                                xs: '24px',
+                                                sm: '32px',
+                                            },
+                                        }}
                                         style={{ color: 'lightBlue' }}
                                         variant="h2"
                                     >
@@ -89,6 +104,7 @@ const FeatureApp = () => {
                                     </Typography>
 
                                     <Typography
+                                        variant="subtitle2"
                                         sx={{ pt: 5 }}
                                         style={{ color: 'white' }}
                                     >
@@ -123,7 +139,7 @@ const FeatureApp = () => {
                                     sx={{
                                         height: {
                                             lg: '100%',
-                                            md: '88%',
+                                            md: '90%',
                                             sm: '100%',
                                         },
                                         width: '100%',
