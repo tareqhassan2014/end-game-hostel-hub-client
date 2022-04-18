@@ -1,12 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import Box from '@mui/material/Box';
-import Grid from '@mui/material/Grid';
-import Paper from '@mui/material/Paper';
-import InputBase from '@mui/material/InputBase';
-import IconButton from '@mui/material/IconButton';
-import SearchIcon from '@mui/icons-material/Search';
 import HomeIcon from '@mui/icons-material/Home';
-
+import SearchIcon from '@mui/icons-material/Search';
 import {
     Button,
     Card,
@@ -23,6 +16,13 @@ import {
     Slider,
     Typography,
 } from '@mui/material';
+import Box from '@mui/material/Box';
+import Grid from '@mui/material/Grid';
+import IconButton from '@mui/material/IconButton';
+import InputBase from '@mui/material/InputBase';
+import Paper from '@mui/material/Paper';
+import React, { useEffect, useState } from 'react';
+
 interface hostelData {
     id: number;
     first_name: string;
@@ -36,6 +36,8 @@ interface hostelData {
 const SearchItem = () => {
     const [allHostel, SetAllHostel] = useState<hostelData[]>([]);
     const [matchItem, SetmatchItem] = useState<hostelData[]>([]);
+    const [price, setPrice] = useState<number>(1000);
+    const [gender, setGender] = useState<string>('Male');
 
     useEffect(() => {
         fetch('/MOCK_DATA.JSON')
@@ -46,10 +48,19 @@ const SearchItem = () => {
             });
     }, []);
 
+    const priceChange = (event: Event, newValue: number | number[]) => {
+        setPrice(newValue as number);
+    };
+    const handleRadioChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setGender((event.target as HTMLInputElement).value);
+    };
     const changeSearch = (e: any) => {
         const searchText = e.target.value;
-        const matchProductToSearch = allHostel.filter((hostel) =>
-            hostel.city.toLowerCase().includes(searchText.toLowerCase())
+        const matchProductToSearch = allHostel.filter(
+            (hostel) =>
+                hostel.city.toLowerCase().includes(searchText.toLowerCase()) &&
+                hostel.price <= price &&
+                hostel.gender === gender
         );
         SetmatchItem(matchProductToSearch);
     };
@@ -120,11 +131,11 @@ const SearchItem = () => {
                                     </FormLabel>
                                     <Slider
                                         defaultValue={1000}
-                                        aria-label="Price"
-                                        valueLabelDisplay="auto"
                                         step={100}
                                         min={500}
                                         max={2500}
+                                        valueLabelDisplay="auto"
+                                        onChange={priceChange}
                                     />
                                 </FormControl>
                             </Box>
@@ -161,16 +172,17 @@ const SearchItem = () => {
                                 </FormLabel>
                                 <RadioGroup
                                     aria-labelledby="demo-radio-buttons-group-label"
-                                    defaultValue="male"
+                                    defaultValue="Male"
                                     name="radio-buttons-group"
+                                    onChange={handleRadioChange}
                                 >
                                     <FormControlLabel
-                                        value="male"
+                                        value="Male"
                                         control={<Radio />}
                                         label="Male"
                                     />
                                     <FormControlLabel
-                                        value="female"
+                                        value="Female"
                                         control={<Radio />}
                                         label="Female"
                                     />

@@ -195,6 +195,7 @@ const SearchGroceries = () => {
                                                 xs: '100%',
                                             },
                                             ml: { md: '0px', sm: 3 },
+                                            p: 2,
                                         }}
                                     >
                                         <CardMedia
@@ -220,7 +221,15 @@ const SearchGroceries = () => {
                                             </Typography>
                                         </CardContent>
                                         <CardActions>
-                                            <Button size="small">Book</Button>
+                                            <Button
+                                                size="small"
+                                                variant="contained"
+                                                sx={{
+                                                    color: 'white !important',
+                                                }}
+                                            >
+                                                buy now
+                                            </Button>
                                             <Button size="small">
                                                 Details
                                             </Button>

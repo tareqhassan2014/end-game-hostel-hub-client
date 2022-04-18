@@ -23,23 +23,12 @@ import { useNavigate } from 'react-router-dom';
 import { logOut } from 'src/app/reducers/auth/authSlice';
 import pxToRem from 'src/assets/my-theme/functions/pxToRem';
 import useAuth from 'src/hooks/useAuth';
+import logo from '../../../assets/images/navLogo.png';
 
 const pages = [
     {
         page: 'Home',
         link: '/',
-    },
-    {
-        page: 'Contact',
-        link: '/contact',
-    },
-    {
-        page: 'VendorSignup',
-        link: '/vendor-signup',
-    },
-    {
-        page: 'Admin-signup',
-        link: '/admin-signup',
     },
     {
         page: 'Cart',
@@ -50,18 +39,13 @@ const pages = [
         link: '/postAvailableSit',
     },
     {
-        page: 'Dashboard',
-        link: '/dashboard',
-    },
-    {
         page: 'Search',
         link: '/search-hostel',
     },
     {
-        page: 'About Team',
-        link: '/about-team',
+        page: 'OldItems',
+        link: '/search-old-items',
     },
-    { page: 'OldItems', link: '/search-old-items' },
     {
         page: 'Groceries',
         link: '/search-groceries',
@@ -146,10 +130,17 @@ export default function Header(props: Props) {
                                     sx={{
                                         mr: 2,
                                         display: { xs: 'none', md: 'flex' },
-                                        width: '30px',
+                                        width: '100px',
                                     }}
                                 >
-                                    logo
+                                    <img
+                                        style={{
+                                            width: '100px',
+                                            objectFit: 'contain',
+                                        }}
+                                        src={logo}
+                                        alt=""
+                                    />
                                 </Box>
 
                                 <Box
