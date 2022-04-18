@@ -17,7 +17,6 @@ export const themeAndLayoutSlice = createSlice({
     reducers: {
         toggleColorMode: (state) => {
             state.mode = state.mode === 'light' ? 'dark' : 'light';
-            console.log(state.mode);
         },
         toggleFullSideBar: (state) => {
             state.fullSideBar = !state.fullSideBar;
