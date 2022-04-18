@@ -18,18 +18,20 @@ import storage from 'redux-persist/lib/storage';
 import api from './api';
 import authSlice from './reducers/auth/authSlice';
 import muiSlice from './reducers/mui/muiSlice';
+import themeAndLayout from './reducers/theme/themeAndLayout';
 
 const rootReducer = combineReducers({
     [api.reducerPath]: api.reducer,
     auth: authSlice,
     MaterialUIContext: muiSlice,
+    theme: themeAndLayout,
 });
 
 const persistConfig = {
     key: 'hostel-hub',
     version: 1,
     storage,
-    whitelist: ['auth'],
+    whitelist: ['auth', 'theme'],
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

@@ -15,7 +15,7 @@ const ContentBox = styled(Box)(() => ({
     height: '100%',
     display: 'flex',
     overflowY: 'auto',
-    overflowX: 'hidden',
+    OverflowX: 'hidden',
     flexDirection: 'column',
     justifyContent: 'space-between',
 }));
