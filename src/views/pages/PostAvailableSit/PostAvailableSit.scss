@@ -49,12 +49,14 @@ body {
                 }
                 &:nth-child(8) {
                     border: 1px solid #7f3dff;
-                    background: none;
+                    color: white;
                     letter-spacing: 2px;
                     font-weight: bold;
+                    background-color: #7f3dff;
+                    cursor: pointer;
                     &:hover {
-                        background-color: #7f3dff;
-                        color: white;
+                        background-color: #5b25c8;
+
                         letter-spacing: 3px;
                         transition: 0.7s;
                     }
