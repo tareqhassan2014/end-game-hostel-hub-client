@@ -12,8 +12,9 @@ const FeatureApp = () => {
     const myStyle = {
         backgroundImage:
             "url('https://i.ibb.co/SBsYjnc/background-1409125-960-720.png')",
-        height: '500px',
+        height: '90%',
         marginTop: '70px',
+        paddingTop: '30px',
         fontSize: '50px',
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
@@ -77,8 +78,8 @@ const FeatureApp = () => {
                 {data.map((item, key) => (
                     <SwiperSlide key={key}>
                         <Grid container>
-                            <Grid md={6} xs={12} item>
-                                <div>
+                            <Grid md={6} sm={6} xs={12} item>
+                                <Box sx={{ ml: 2 }}>
                                     <Typography
                                         sx={{ pt: 3 }}
                                         style={{ color: 'lightBlue' }}
@@ -100,24 +101,33 @@ const FeatureApp = () => {
                                         color="secondary"
                                         style={{ color: 'white' }}
                                     >
-                                        Try it out!<GetAppIcon></GetAppIcon>
+                                        Try it out! <GetAppIcon></GetAppIcon>
                                     </Button>
-                                </div>
+                                </Box>
                             </Grid>
                             <Grid
                                 md={6}
+                                sm={12}
                                 xs={12}
                                 item
                                 sx={{
                                     height: {
-                                        md: 450,
-                                        sm: 350,
+                                        lg: 400,
+                                        md: 400,
+                                        sm: 375,
                                         xs: 300,
                                     },
                                 }}
                             >
                                 <Box
-                                    sx={{ height: '100%' }}
+                                    sx={{
+                                        height: {
+                                            lg: '100%',
+                                            md: '88%',
+                                            sm: '100%',
+                                        },
+                                        width: '100%',
+                                    }}
                                     component="img"
                                     src={item.img}
                                     alt=""
