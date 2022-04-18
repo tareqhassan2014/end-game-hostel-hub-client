@@ -70,7 +70,13 @@ const AllService = () => {
             >
                 <Grid container spacing={3}>
                     <Grid item xs={12} sm={6} md={4} lg={3}>
-                        <Card sx={{ maxWidth: '100%' }}>
+                        <Card
+                            sx={{
+                                maxWidth: '100%',
+                                minHeight: '300px',
+                                borderRadius: 1,
+                            }}
+                        >
                             <CardContent>
                                 <Box
                                     sx={{
@@ -123,7 +129,13 @@ const AllService = () => {
                         </Card>
                     </Grid>
                     <Grid item xs={12} sm={6} md={4} lg={3}>
-                        <Card sx={{ maxWidth: '100%' }}>
+                        <Card
+                            sx={{
+                                maxWidth: '100%',
+                                minHeight: '300px',
+                                borderRadius: 1,
+                            }}
+                        >
                             <CardContent>
                                 <Box
                                     sx={{
@@ -176,7 +188,13 @@ const AllService = () => {
                         </Card>
                     </Grid>
                     <Grid item xs={12} sm={6} md={4} lg={3}>
-                        <Card sx={{ maxWidth: '100%' }}>
+                        <Card
+                            sx={{
+                                maxWidth: '100%',
+                                minHeight: '300px',
+                                borderRadius: 1,
+                            }}
+                        >
                             <CardContent>
                                 <Box
                                     sx={{
@@ -229,7 +247,13 @@ const AllService = () => {
                         </Card>
                     </Grid>
                     <Grid item xs={12} sm={6} md={4} lg={3}>
-                        <Card sx={{ maxWidth: '100%' }}>
+                        <Card
+                            sx={{
+                                maxWidth: '100%',
+                                minHeight: '300px',
+                                borderRadius: 1,
+                            }}
+                        >
                             <CardContent>
                                 <Box
                                     sx={{
@@ -282,7 +306,13 @@ const AllService = () => {
                         </Card>
                     </Grid>
                     <Grid item xs={12} sm={6} md={4} lg={3}>
-                        <Card sx={{ maxWidth: '100%' }}>
+                        <Card
+                            sx={{
+                                maxWidth: '100%',
+                                minHeight: '300px',
+                                borderRadius: 1,
+                            }}
+                        >
                             <CardContent>
                                 <Box
                                     sx={{
@@ -335,7 +365,13 @@ const AllService = () => {
                         </Card>
                     </Grid>
                     <Grid item xs={12} sm={6} md={4} lg={3}>
-                        <Card sx={{ maxWidth: '100%' }}>
+                        <Card
+                            sx={{
+                                maxWidth: '100%',
+                                minHeight: '300px',
+                                borderRadius: 1,
+                            }}
+                        >
                             <CardContent>
                                 <Box
                                     sx={{
@@ -388,7 +424,13 @@ const AllService = () => {
                         </Card>
                     </Grid>
                     <Grid item xs={12} sm={6} md={4} lg={3}>
-                        <Card sx={{ maxWidth: '100%' }}>
+                        <Card
+                            sx={{
+                                maxWidth: '100%',
+                                minHeight: '300px',
+                                borderRadius: 1,
+                            }}
+                        >
                             <CardContent>
                                 <Box
                                     sx={{
@@ -442,7 +484,13 @@ const AllService = () => {
                     </Grid>
 
                     <Grid item xs={12} sm={6} md={4} lg={3}>
-                        <Card sx={{ maxWidth: '100%' }}>
+                        <Card
+                            sx={{
+                                maxWidth: '100%',
+                                minHeight: '300px',
+                                borderRadius: 1,
+                            }}
+                        >
                             <CardContent>
                                 <Box
                                     sx={{

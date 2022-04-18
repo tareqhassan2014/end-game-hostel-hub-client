@@ -8,7 +8,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/thumbs';
 import { Swiper, SwiperSlide } from 'swiper/react';
-// typeit
+// type-it
 import TypeIt from 'typeit-react';
 // lottie-component
 import BannerLottie1 from '../Lottie/BannerLottie1';
@@ -53,7 +53,7 @@ export default function Banners() {
             >
                 <SwiperSlide>
                     <Grid container>
-                        <Grid md={6} xs={12} item>
+                        <Grid md={6} sm={12} xs={12} item>
                             <Box
                                 sx={{
                                     ml: { sm: 3, xs: 2 },
@@ -98,6 +98,7 @@ export default function Banners() {
                         </Grid>
                         <Grid
                             md={6}
+                            sm={12}
                             xs={12}
                             item
                             sx={{
@@ -116,6 +117,7 @@ export default function Banners() {
                     <Grid container>
                         <Grid
                             md={6}
+                            sm={12}
                             xs={12}
                             item
                             sx={{
@@ -129,7 +131,7 @@ export default function Banners() {
                         >
                             <BannerLottie6 />
                         </Grid>
-                        <Grid md={6} xs={12} item>
+                        <Grid md={6} sm={12} xs={12} item>
                             <Box
                                 sx={{
                                     ml: { sm: 3, xs: 2 },
@@ -169,6 +171,7 @@ export default function Banners() {
                     <Grid container>
                         <Grid
                             md={6}
+                            sm={12}
                             xs={12}
                             item
                             sx={{
@@ -181,7 +184,7 @@ export default function Banners() {
                         >
                             <BannerLottie5 />
                         </Grid>
-                        <Grid md={6} xs={12} item>
+                        <Grid md={6} sm={12} xs={12} item>
                             <Box
                                 sx={{
                                     ml: { sm: 3, xs: 2 },
@@ -228,7 +231,7 @@ export default function Banners() {
 
                 <SwiperSlide>
                     <Grid container>
-                        <Grid md={6} xs={12} item>
+                        <Grid md={6} sm={12} xs={12} item>
                             <Box
                                 sx={{
                                     ml: { sm: 3, xs: 2 },
@@ -263,6 +266,7 @@ export default function Banners() {
                         </Grid>
                         <Grid
                             md={6}
+                            sm={12}
                             xs={12}
                             item
                             sx={{

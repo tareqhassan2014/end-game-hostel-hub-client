@@ -1,12 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import Box from '@mui/material/Box';
-import Grid from '@mui/material/Grid';
-import Paper from '@mui/material/Paper';
-import InputBase from '@mui/material/InputBase';
-import IconButton from '@mui/material/IconButton';
-import SearchIcon from '@mui/icons-material/Search';
 import HomeIcon from '@mui/icons-material/Home';
-
+import SearchIcon from '@mui/icons-material/Search';
 import {
     Button,
     Card,
@@ -23,6 +16,13 @@ import {
     Slider,
     Typography,
 } from '@mui/material';
+import Box from '@mui/material/Box';
+import Grid from '@mui/material/Grid';
+import IconButton from '@mui/material/IconButton';
+import InputBase from '@mui/material/InputBase';
+import Paper from '@mui/material/Paper';
+import React, { useEffect, useState } from 'react';
+
 interface hostelData {
     id: number;
     first_name: string;
