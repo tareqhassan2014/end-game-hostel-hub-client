@@ -1,11 +1,11 @@
 import { lazy } from 'react';
+import Table from 'src/views/components/dashboard/common/Table';
 import DashboardLayout from 'src/views/DashboardLayout';
 import AboutOurTeam from 'src/views/pages/AboutOurTeam/AboutOurTeam';
 import PostAvailableSit from 'src/views/pages/PostAvailableSit/PostAvailableSit';
 import SearchGroceries from 'src/views/pages/SearchGroceries/SearchGroceries';
 import SearchItem from 'src/views/pages/SearchItem/SearchItem';
 import SearchOldItems from 'src/views/pages/SearchOldItems/SearchOldItems';
-import Cart from '../views/components/common/cart/Cart';
 import AdminSignup from '../views/components/signUp/AdminSignup';
 import VendorSignup from '../views/components/signUp/VendorSignup';
 import SignUp from '../views/pages/signup/SignUp';
@@ -85,10 +85,6 @@ export const openRoutes = [
         element: Discover,
     },
     {
-        path: '/cart',
-        element: Cart,
-    },
-    {
         path: '/postAvailableSit',
         element: PostAvailableSit,
     },
@@ -115,5 +111,9 @@ export const openRoutes = [
     {
         path: '/search-groceries',
         element: SearchGroceries,
+    },
+    {
+        path: '/userData',
+        element: Table,
     },
 ];

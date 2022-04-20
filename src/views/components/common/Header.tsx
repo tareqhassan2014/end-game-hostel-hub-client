@@ -1,4 +1,6 @@
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import Brightness4Icon from '@mui/icons-material/Brightness4';
+import Brightness7Icon from '@mui/icons-material/Brightness7';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import LogoutIcon from '@mui/icons-material/Logout';
 import MenuIcon from '@mui/icons-material/Menu';
@@ -21,8 +23,10 @@ import { cloneElement, MouseEvent, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { logOut } from 'src/app/reducers/auth/authSlice';
-import pxToRem from 'src/assets/my-theme/functions/pxToRem';
+import { toggleColorMode } from 'src/app/reducers/theme/themeAndLayout';
 import useAuth from 'src/hooks/useAuth';
+import useThemeAndLayout from 'src/hooks/useThemeAndLayout';
+import logo from '../../../assets/images/navLogo.png';
 
 const pages = [
     {
@@ -38,10 +42,6 @@ const pages = [
         link: '/postAvailableSit',
     },
     {
-        page: 'Dashboard',
-        link: '/dashboard',
-    },
-    {
         page: 'Search',
         link: '/search-hostel',
     },
@@ -52,6 +52,10 @@ const pages = [
     {
         page: 'Groceries',
         link: '/search-groceries',
+    },
+    {
+        page: 'TableData',
+        link: '/userData',
     },
 ];
 
@@ -80,6 +84,9 @@ interface Props {
 }
 
 function ElevationScroll(props: Props) {
+    const {
+        themeAndLayout: { mode },
+    } = useThemeAndLayout();
     const { children, window } = props;
 
     const trigger = useScrollTrigger({
@@ -97,6 +104,9 @@ export default function Header(props: Props) {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const { user } = useAuth();
+    const {
+        themeAndLayout: { mode },
+    } = useThemeAndLayout();
 
     const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
     const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
@@ -121,8 +131,7 @@ export default function Header(props: Props) {
             <ElevationScroll {...props}>
                 <AppBar
                     sx={{
-                        backdropFilter: `saturate(200%) blur(${pxToRem(30)})`,
-                        bgcolor: 'white',
+                        backdropFilter: `saturate(200%) blur(1.875 rem)`,
                         py: 0.5,
                     }}
                 >
@@ -133,10 +142,17 @@ export default function Header(props: Props) {
                                     sx={{
                                         mr: 2,
                                         display: { xs: 'none', md: 'flex' },
-                                        width: '30px',
+                                        width: '100px',
                                     }}
                                 >
-                                    logo
+                                    <img
+                                        style={{
+                                            width: '100px',
+                                            objectFit: 'contain',
+                                        }}
+                                        src={logo}
+                                        alt=""
+                                    />
                                 </Box>
 
                                 <Box
@@ -215,6 +231,18 @@ export default function Header(props: Props) {
                                         </Button>
                                     ))}
                                 </Box>
+
+                                <IconButton
+                                    sx={{ ml: 1 }}
+                                    onClick={() => dispatch(toggleColorMode())}
+                                    color="inherit"
+                                >
+                                    {mode === 'dark' ? (
+                                        <Brightness7Icon />
+                                    ) : (
+                                        <Brightness4Icon />
+                                    )}
+                                </IconButton>
 
                                 {user.email ? (
                                     <Tooltip title="Open settings">

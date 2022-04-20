@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
-import CssBaseline from '@mui/material/CssBaseline';
+
 import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
 import ArrowRightAltOutlinedIcon from '@mui/icons-material/ArrowRightAltOutlined';
@@ -14,13 +14,13 @@ import InputBase from '@mui/material/InputBase';
 
 import SearchIcon from '@mui/icons-material/Search';
 import HomeIcon from '@mui/icons-material/Home';
-
 import {
     Button,
     Card,
     CardActions,
     CardContent,
     CardMedia,
+    CssBaseline,
     Divider,
     FormControl,
     FormControlLabel,
@@ -195,6 +195,7 @@ function SearchItem(props: any) {
                     // height: { sm: '40px', md: '50px' },
                     width: { sm: '100%' },
                     // ml: { sm: `${drawerWidth}px` },
+                    backgroundColor: 'transparent',
                 }}
             >
                 <Toolbar>
@@ -443,7 +444,10 @@ function SearchItem(props: any) {
                                             <Card sx={{ maxWidth: '100%' }}>
                                                 <CardMedia
                                                     component="img"
-                                                    width="auto"
+                                                    sx={{
+                                                        maxWidth: '90%',
+                                                        width: 'auto',
+                                                    }}
                                                     image="https://media.istockphoto.com/photos/dormitory-room-in-the-modern-hostel-picture-id910999556?b=1&k=20&m=910999556&s=170667a&w=0&h=8Ppqwt74V-aaXr4vN2iu5XOv87H0nhJh64am-0bYPLc="
                                                     alt="green iguana"
                                                 />

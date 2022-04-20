@@ -8,7 +8,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/thumbs';
 import { Swiper, SwiperSlide } from 'swiper/react';
-// typeit
+// type-it
 import TypeIt from 'typeit-react';
 // lottie-component
 import BannerLottie1 from '../Lottie/BannerLottie1';
@@ -38,7 +38,8 @@ export default function Banners() {
     return (
         <Box
             sx={{
-                py: { md: 3, sm: 2, xs: 1 },
+                mt: { xs: 3 },
+                py: { md: 4, sm: 2, xs: 1 },
                 px: { md: 5, sm: 1, xs: 0.5 },
             }}
         >
@@ -53,7 +54,7 @@ export default function Banners() {
             >
                 <SwiperSlide>
                     <Grid container>
-                        <Grid md={6} xs={12} item>
+                        <Grid md={6} sm={12} xs={12} item>
                             <Box
                                 sx={{
                                     ml: { sm: 3, xs: 2 },
@@ -65,6 +66,7 @@ export default function Banners() {
                                         mt: { md: 5, sm: 2 },
                                         fontSize: { xs: '24px', sm: '32px' },
                                     }}
+                                    style={{ color: '#5d3f6a' }}
                                     variant="h2"
                                 >
                                     <TypeIt
@@ -98,6 +100,7 @@ export default function Banners() {
                         </Grid>
                         <Grid
                             md={6}
+                            sm={12}
                             xs={12}
                             item
                             sx={{
@@ -116,6 +119,7 @@ export default function Banners() {
                     <Grid container>
                         <Grid
                             md={6}
+                            sm={12}
                             xs={12}
                             item
                             sx={{
@@ -129,7 +133,7 @@ export default function Banners() {
                         >
                             <BannerLottie6 />
                         </Grid>
-                        <Grid md={6} xs={12} item>
+                        <Grid md={6} sm={12} xs={12} item>
                             <Box
                                 sx={{
                                     ml: { sm: 3, xs: 2 },
@@ -142,6 +146,7 @@ export default function Banners() {
                                         mt: { md: 5, sm: 2 },
                                         fontSize: { xs: '24px', sm: '32px' },
                                     }}
+                                    style={{ color: '#5d3f6a' }}
                                 >
                                     GET FAST DELIVERY
                                 </Typography>
@@ -149,7 +154,7 @@ export default function Banners() {
                                     variant="subtitle2"
                                     sx={{
                                         mt: { md: 2.5, xs: 1 },
-                                        mb: { md: 4, xs: 3 },
+                                        mb: { md: 5, xs: 3 },
                                     }}
                                 >
                                     No more waiting! receive your items from the
@@ -169,6 +174,7 @@ export default function Banners() {
                     <Grid container>
                         <Grid
                             md={6}
+                            sm={12}
                             xs={12}
                             item
                             sx={{
@@ -181,7 +187,7 @@ export default function Banners() {
                         >
                             <BannerLottie5 />
                         </Grid>
-                        <Grid md={6} xs={12} item>
+                        <Grid md={6} sm={12} xs={12} item>
                             <Box
                                 sx={{
                                     ml: { sm: 3, xs: 2 },
@@ -193,6 +199,7 @@ export default function Banners() {
                                         mt: { md: 5, sm: 2 },
                                         fontSize: { xs: '24px', sm: '32px' },
                                     }}
+                                    style={{ color: '#5d3f6a' }}
                                     variant="h2"
                                 >
                                     <TypeIt
@@ -208,8 +215,8 @@ export default function Banners() {
                                 <Typography
                                     variant="subtitle2"
                                     sx={{
-                                        mt: { md: 2.5, xs: 1 },
-                                        mb: { md: 4, xs: 3 },
+                                        mt: { md: 2.5, sm: 1.5, xs: 1 },
+                                        mb: { md: 5, sm: 2, xs: 3 },
                                     }}
                                 >
                                     The uniqueness of five different dashboards
@@ -228,7 +235,7 @@ export default function Banners() {
 
                 <SwiperSlide>
                     <Grid container>
-                        <Grid md={6} xs={12} item>
+                        <Grid md={6} sm={12} xs={12} item>
                             <Box
                                 sx={{
                                     ml: { sm: 3, xs: 2 },
@@ -241,6 +248,7 @@ export default function Banners() {
                                         mt: { md: 5, sm: 2 },
                                         fontSize: { xs: '24px', sm: '32px' },
                                     }}
+                                    style={{ color: '#5d3f6a' }}
                                 >
                                     BUY & SELL
                                 </Typography>
@@ -263,6 +271,7 @@ export default function Banners() {
                         </Grid>
                         <Grid
                             md={6}
+                            sm={12}
                             xs={12}
                             item
                             sx={{

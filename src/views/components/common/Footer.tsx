@@ -8,6 +8,7 @@ import {
     Grid,
     Typography,
 } from '@mui/material';
+import { blueGrey } from '@mui/material/colors';
 import { styled } from '@mui/system';
 import visa from 'src/assets/visa.png';
 
@@ -29,12 +30,16 @@ const Footer = () => {
         <Box
             sx={{
                 pb: 5,
+                bgcolor: blueGrey[900],
             }}
         >
             <Container>
                 <Grid container>
                     <Grid item md={3} sm={6} xs={12} sx={{ my: 5 }}>
-                        <Typography variant="subtitle1" sx={{ mb: 5 }}>
+                        <Typography
+                            variant="subtitle1"
+                            sx={{ mb: 5, color: 'white' }}
+                        >
                             Address & Contact
                         </Typography>
                         <Typography
@@ -55,6 +60,7 @@ const Footer = () => {
                                 display: 'flex',
                                 alignItems: 'center',
                                 fontSize: { md: 18, sm: 16 },
+                                color: 'white',
                             }}
                             gutterBottom
                         >
@@ -68,6 +74,7 @@ const Footer = () => {
                                 alignItems: 'center',
                                 fontSize: { md: 18, sm: 16 },
                                 my: 2,
+                                color: 'white',
                             }}
                             gutterBottom
                         >
@@ -192,7 +199,7 @@ const Footer = () => {
                             },
                         }}
                     >
-                        <Typography variant="body2">
+                        <Typography variant="body2" sx={{ color: 'white' }}>
                             © Copyright 2022 Hostel Hub - All Right Reserved.
                         </Typography>
                         <Box

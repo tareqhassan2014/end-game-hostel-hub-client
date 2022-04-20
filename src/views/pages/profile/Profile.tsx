@@ -5,6 +5,7 @@ import {
     Avatar,
     Button,
     Container,
+    CssBaseline,
     Grid,
     Paper,
     TextField,
@@ -24,6 +25,7 @@ const Profile = () => {
     return (
         <>
             <Container sx={{ my: 5 }}>
+                <CssBaseline />
                 <Grid container justifyContent="center">
                     <Grid
                         item
