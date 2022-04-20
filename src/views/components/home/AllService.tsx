@@ -210,7 +210,7 @@ const AllService = () => {
                                 >
                                     Lorem ipsum dolor sit amet consectetur
                                     adipisicing elit. Voluptas nemo velit
-                                    repudiandae impedit nihil hic aliquam?
+                                    aliquam?
                                 </Typography>
                             </CardContent>
                             <CardActions
@@ -263,7 +263,7 @@ const AllService = () => {
                                 >
                                     Lorem ipsum dolor amet consectetur adipisic
                                     elit. Voluptas nemo velit repudiandae
-                                    impedit nihil hic aliquam?
+                                    aliquam?
                                 </Typography>
                             </CardContent>
                             <CardActions
@@ -369,7 +369,7 @@ const AllService = () => {
                                 >
                                     Lorem ipsum dolor sit amet consectetur,
                                     adipisicing elit. Iusto suscipit perferendis
-                                    deleniti modi velit tempora quam.
+                                    tempora quam.
                                 </Typography>
                             </CardContent>
                             <CardActions
@@ -421,8 +421,8 @@ const AllService = () => {
                                     color="text.secondary"
                                 >
                                     Lorem, ipsum dolor sit amet consectetur
-                                    adipisicing elit. Sequi laborum reiciendis
-                                    earum in corporis veritatis?
+                                    adipisicing elit. Lorem earum in corporis
+                                    veritatis?
                                 </Typography>
                             </CardContent>
                             <CardActions
@@ -475,8 +475,8 @@ const AllService = () => {
                                     color="text.secondary"
                                 >
                                     Lorem ipsum dolor sit amet consectetur
-                                    adipisicing elit. Nam recusandae deleniti
-                                    veniam facilis ab possimus sequi.
+                                    adipisicing elit. Nam recusandae ab possimus
+                                    sequi.
                                 </Typography>
                             </CardContent>
                             <CardActions
