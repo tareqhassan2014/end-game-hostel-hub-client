@@ -57,6 +57,10 @@ const pages = [
         page: 'TableData',
         link: '/userData',
     },
+    {
+        page: 'ChartData',
+        link: '/userChart',
+    },
 ];
 
 const settings = [

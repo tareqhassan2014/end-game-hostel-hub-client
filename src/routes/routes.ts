@@ -1,4 +1,5 @@
 import { lazy } from 'react';
+import { Chart } from 'src/views/components/dashboard/common/Chart';
 import Table from 'src/views/components/dashboard/common/Table';
 import DashboardLayout from 'src/views/DashboardLayout';
 import AboutOurTeam from 'src/views/pages/AboutOurTeam/AboutOurTeam';
@@ -115,5 +116,9 @@ export const openRoutes = [
     {
         path: '/userData',
         element: Table,
+    },
+    {
+        path: '/userChart',
+        element: Chart,
     },
 ];
