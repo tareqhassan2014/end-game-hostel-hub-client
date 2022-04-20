@@ -1,6 +1,6 @@
+import * as React from 'react';
 import { Box } from '@mui/material';
 import { DataGrid, GridColDef, GridValueGetterParams } from '@mui/x-data-grid';
-import * as React from 'react';
 
 const columns: GridColDef[] = [
     { field: 'id', headerName: 'ID', width: 70 },
