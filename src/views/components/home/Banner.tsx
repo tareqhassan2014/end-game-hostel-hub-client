@@ -38,6 +38,7 @@ export default function Banners() {
     return (
         <Box
             sx={{
+                mt: { xs: 3 },
                 py: { md: 4, sm: 2, xs: 1 },
                 px: { md: 5, sm: 1, xs: 0.5 },
             }}

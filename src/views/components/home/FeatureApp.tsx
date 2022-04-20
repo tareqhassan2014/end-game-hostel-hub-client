@@ -133,6 +133,7 @@ const FeatureApp = () => {
                                         sm: 375,
                                         xs: 300,
                                     },
+                                    mt: { xs: 3 },
                                 }}
                             >
                                 <Box
@@ -146,7 +147,7 @@ const FeatureApp = () => {
                                     }}
                                     component="img"
                                     src={item.img}
-                                    alt=""
+                                    alt="feature-image"
                                 />
                             </Grid>
                         </Grid>

@@ -53,6 +53,10 @@ const pages = [
         page: 'Groceries',
         link: '/search-groceries',
     },
+    {
+        page: 'TableData',
+        link: '/userData',
+    },
 ];
 
 const settings = [

@@ -1,4 +1,5 @@
 import { lazy } from 'react';
+import Table from 'src/views/components/dashboard/common/Table';
 import DashboardLayout from 'src/views/DashboardLayout';
 import AboutOurTeam from 'src/views/pages/AboutOurTeam/AboutOurTeam';
 import PostAvailableSit from 'src/views/pages/PostAvailableSit/PostAvailableSit';
@@ -110,5 +111,9 @@ export const openRoutes = [
     {
         path: '/search-groceries',
         element: SearchGroceries,
+    },
+    {
+        path: '/userData',
+        element: Table,
     },
 ];
