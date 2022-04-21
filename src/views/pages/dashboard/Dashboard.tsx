@@ -33,9 +33,8 @@ const LayoutContainer = styled(Box)(({ width }: { width: number }) => ({
 }));
 
 const Dashboard = () => {
-    const { sideNavWidth } = useThemeAndLayout();
-
     const { user } = useAuth();
+    const { sideNavWidth } = useThemeAndLayout();
 
     const proRoutes = dashboardRoutes.filter((router) =>
         router.role.includes(user.role || 'user')
