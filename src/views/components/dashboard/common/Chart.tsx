@@ -124,7 +124,7 @@ export const Chart = () => {
             />
             <StackedBarChart
                 xType="time"
-                yComplement={(value) => `R$ ${value},00`}
+                yComplement={(value: string | number) => `R$ ${value},00`}
                 title="Custo por manutenção"
                 toolboxTooltip={{ saveAsImage: 'save' }}
                 colors={['#30D2D6', '#9F88FB', '#C5F3C2', '#F09B1B']}

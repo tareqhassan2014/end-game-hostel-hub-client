@@ -2050,7 +2050,7 @@
 
 "@mui/x-data-grid@^5.9.0":
   version "5.9.0"
-  resolved "https://registry.npmjs.org/@mui/x-data-grid/-/x-data-grid-5.9.0.tgz"
+  resolved "https://registry.yarnpkg.com/@mui/x-data-grid/-/x-data-grid-5.9.0.tgz#2f9801dcc662d40ef66ae5b1cc1fe24b48242fc8"
   integrity sha512-RTRGtj5N/Y6Oe41mhcdQM93PtDves2wwMPfabRlstvCSB3m6608JikepeP7txDMV50x7yEYDHgDVSY3cQul0xQ==
   dependencies:
     "@mui/utils" "^5.6.0"
