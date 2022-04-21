@@ -4,17 +4,17 @@ import Header from './components/common/Header';
 import View from './View';
 
 const TheLayout = () => {
-    const ShowDashboard = !useLocation().pathname.includes('/dashboard');
+    const hideDashboard = !useLocation().pathname.includes('/dashboard');
 
     return (
         <>
-            {ShowDashboard && (
+            {hideDashboard && (
                 <Header>
                     <></>
                 </Header>
             )}
             <View />
-            {ShowDashboard && <Footer />}
+            {hideDashboard && <Footer />}
         </>
     );
 };
