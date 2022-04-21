@@ -16,14 +16,13 @@ import {
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import api from './api';
-import authSlice from './reducers/auth/authSlice';
-import muiSlice from './reducers/mui/muiSlice';
-import themeAndLayout from './reducers/theme/themeAndLayout';
+import authSlice from './slices/auth/authSlice';
+import themeAndLayout from './slices/theme/themeAndLayout';
 
 const rootReducer = combineReducers({
     [api.reducerPath]: api.reducer,
     auth: authSlice,
-    MaterialUIContext: muiSlice,
+
     theme: themeAndLayout,
 });
 

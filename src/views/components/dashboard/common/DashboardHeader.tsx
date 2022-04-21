@@ -2,7 +2,7 @@ import { Icon, IconButton, Menu, MenuItem } from '@mui/material';
 import { Box, styled } from '@mui/system';
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { logOut } from 'src/app/reducers/auth/authSlice';
+import { logOut } from 'src/app/slices/auth/authSlice';
 import useAuth from 'src/hooks/useAuth';
 
 const StyledIconButton = styled(IconButton)(({ theme }) => ({

@@ -22,8 +22,8 @@ import { Box } from '@mui/system';
 import { cloneElement, MouseEvent, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { logOut } from 'src/app/reducers/auth/authSlice';
-import { toggleColorMode } from 'src/app/reducers/theme/themeAndLayout';
+import { logOut } from 'src/app/slices/auth/authSlice';
+import { toggleColorMode } from 'src/app/slices/theme/themeAndLayout';
 import useAuth from 'src/hooks/useAuth';
 import useThemeAndLayout from 'src/hooks/useThemeAndLayout';
 import logo from '../../../assets/images/navLogo.png';
@@ -88,9 +88,6 @@ interface Props {
 }
 
 function ElevationScroll(props: Props) {
-    const {
-        themeAndLayout: { mode },
-    } = useThemeAndLayout();
     const { children, window } = props;
 
     const trigger = useScrollTrigger({
@@ -108,9 +105,7 @@ export default function Header(props: Props) {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const { user } = useAuth();
-    const {
-        themeAndLayout: { mode },
-    } = useThemeAndLayout();
+    const { mode } = useThemeAndLayout();
 
     const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
     const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);

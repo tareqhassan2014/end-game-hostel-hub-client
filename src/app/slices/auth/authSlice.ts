@@ -53,13 +53,13 @@ export const authSlice = createSlice({
             state.token = '';
         },
     },
-    extraReducers: (builder) => {
-        // Add reducers for additional action types here, and handle loading state as needed
-        builder.addCase(googleLogin.fulfilled, (state, action) => {
-            // Add user to the state array
-            // state.user = action.payload.user;
-        });
-    },
+    // extraReducers: (builder) => {
+    //     // Add reducers for additional action types here, and handle loading state as needed
+    //     builder.addCase(googleLogin.fulfilled, (state, action) => {
+    //         // Add user to the state array
+    //         // state.user = action.payload.user;
+    //     });
+    // },
 });
 
 // First, create the thunk

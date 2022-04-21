@@ -9,7 +9,7 @@ import {
 } from 'firebase/auth';
 import { toast } from 'react-toastify';
 import { useLoginMutation, useSignUpMutation } from '../../app/api';
-import { setCredentials } from '../../app/reducers/auth/authSlice';
+import { setCredentials } from '../../app/slices/auth/authSlice';
 import { useAppDispatch } from './../hooks';
 import { InitializeFirebase } from './firebase.init';
 

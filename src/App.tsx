@@ -8,9 +8,7 @@ import themeComponents from './theme/themeComponents';
 import TheLayout from './views/TheLayout';
 
 function App() {
-    const {
-        themeAndLayout: { mode },
-    } = useThemeAndLayout();
+    const { mode } = useThemeAndLayout();
 
     const getDesignTokens = (mode: PaletteMode) => ({
         palette: {
