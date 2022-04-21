@@ -6,3 +6,15 @@ https://meet.google.com/rcj-jvii-rgp
 
 <!-- export declare interface User extends UserInfo {
     readonly accessToken: string; -->
+
+<!-- admin email: testadmin@test.com
+admin password: testadmin
+
+user email: testuser@test.com
+user password: testuser
+
+vendor email: testvendor@test.com
+vendor password: testvendor
+
+moderator email: testmoderator@test.com
+moderator password: testmoderator -->
