@@ -1,23 +1,22 @@
-import { Icon, IconButton, Menu, MenuItem } from '@mui/material';
+import { Icon, IconButton } from '@mui/material';
 import { Box, styled } from '@mui/system';
-import React from 'react';
 import { useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
 import { toggleFullSideBar } from 'src/app/slices/theme/themeSlice';
 import useThemeAndLayout from 'src/hooks/useThemeAndLayout';
+import AvatarMenu from './MatxMenu';
 
 const StyledIconButton = styled(IconButton)(({ theme }) => ({
     color: theme.palette.text.primary,
 }));
 
-const TopbarRoot = styled('div')(() => ({
+const TopBarRoot = styled('div')(() => ({
     top: 0,
     zIndex: 96,
     transition: 'all 0.3s ease',
     height: 50,
 }));
 
-const TopbarContainer = styled(Box)(({ theme }) => ({
+const TopBarContainer = styled(Box)(({ theme }) => ({
     padding: '8px',
     paddingLeft: 18,
     paddingRight: 20,
@@ -33,22 +32,6 @@ const TopbarContainer = styled(Box)(({ theme }) => ({
     [theme.breakpoints.down('xs')]: {
         paddingLeft: 14,
         paddingRight: 16,
-    },
-}));
-
-const StyledItem = styled(MenuItem)(({ theme }) => ({
-    display: 'flex',
-    alignItems: 'center',
-    minWidth: 185,
-    '& a': {
-        width: '100%',
-        display: 'flex',
-        alignItems: 'center',
-        textDecoration: 'none',
-    },
-    '& span': {
-        marginRight: '10px',
-        color: theme.palette.text.primary,
     },
 }));
 
@@ -76,8 +59,8 @@ const DashboardHeader = () => {
     };
 
     return (
-        <TopbarRoot>
-            <TopbarContainer>
+        <TopBarRoot>
+            <TopBarContainer>
                 <Box display="flex">
                     <StyledIconButton onClick={handleSidenavToggle}>
                         <Icon sx={{ color: 'white' }}>menu</Icon>
@@ -98,37 +81,10 @@ const DashboardHeader = () => {
                     </IconBox>
                 </Box>
                 <Box display="flex" alignItems="center">
-                    <Menu
-                        id="fade-menu"
-                        MenuListProps={{
-                            'aria-labelledby': 'fade-button',
-                        }}
-                        open={false}
-                    >
-                        <StyledItem>
-                            <Link to="/">
-                                <Icon> home </Icon>
-                                <span> Home </span>
-                            </Link>
-                        </StyledItem>
-                        <StyledItem>
-                            <Link to="/page-layouts/user-profile">
-                                <Icon> person </Icon>
-                                <span> Profile </span>
-                            </Link>
-                        </StyledItem>
-                        <StyledItem>
-                            <Icon> settings </Icon>
-                            <span> Settings </span>
-                        </StyledItem>
-                        <StyledItem>
-                            <Icon> power_settings_new </Icon>
-                            <span> Logout </span>
-                        </StyledItem>
-                    </Menu>
+                    <AvatarMenu />
                 </Box>
-            </TopbarContainer>
-        </TopbarRoot>
+            </TopBarContainer>
+        </TopBarRoot>
     );
 };
 
