@@ -1,7 +1,7 @@
 import { Box } from '@mui/system';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import logo from 'src/assets/images/navLogo.png';
+import logo from 'src/assets/images/logos/brandLogo.png';
 import useThemeAndLayout from 'src/hooks/useThemeAndLayout';
 
 const Brand: React.FC = ({ children }) => {

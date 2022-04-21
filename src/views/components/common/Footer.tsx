@@ -10,7 +10,7 @@ import {
 } from '@mui/material';
 import { blueGrey } from '@mui/material/colors';
 import { styled } from '@mui/system';
-import visa from 'src/assets/visa.png';
+import visaCard from 'src/assets/images/logos/visaCard.png';
 
 const MyButton = styled(Button)({
     backgroundColor: '#43515a',
@@ -204,7 +204,7 @@ const Footer = () => {
                         </Typography>
                         <Box
                             component="img"
-                            src={visa}
+                            src={visaCard}
                             alt="visa"
                             sx={{ height: 45, width: 85 }}
                         />

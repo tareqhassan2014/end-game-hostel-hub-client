@@ -24,9 +24,9 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { logOut } from 'src/app/slices/auth/authSlice';
 import { toggleColorMode } from 'src/app/slices/theme/themeSlice';
+import logo from 'src/assets/images/logos/brandLogo.png';
 import useAuth from 'src/hooks/useAuth';
 import useThemeAndLayout from 'src/hooks/useThemeAndLayout';
-import logo from '../../../assets/images/navLogo.png';
 
 const pages = [
     {
