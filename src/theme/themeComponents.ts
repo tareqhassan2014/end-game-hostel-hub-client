@@ -20,8 +20,6 @@ import inputLabel from './components/form/inputLabel';
 import inputOutlined from './components/form/inputOutlined';
 import radio from './components/form/radio';
 import select from './components/form/select';
-import switchButton from './components/form/switchButton';
-import icon from './components/icon';
 import linearProgress from './components/linearProgress';
 import link from './components/link';
 import list from './components/list/list';
@@ -37,7 +35,6 @@ import stepConnector from './components/stepper/stepConnector';
 import stepIcon from './components/stepper/stepIcon';
 import stepLabel from './components/stepper/stepLabel';
 import stepper from './components/stepper/stepper';
-import svgIcon from './components/svgIcon';
 import tableCell from './components/table/tableCell';
 import tableContainer from './components/table/tableContainer';
 import tableHead from './components/table/tableHead';
@@ -59,7 +56,6 @@ const themeComponents = {
     MuiOutlinedInput: { ...inputOutlined },
     MuiMenu: { ...menu },
     MuiMenuItem: { ...menuItem },
-    MuiSwitch: { ...switchButton },
     MuiDivider: { ...divider },
     MuiTableContainer: { ...tableContainer },
     MuiTableHead: { ...tableHead },
@@ -84,8 +80,6 @@ const themeComponents = {
     MuiAutocomplete: { ...autocomplete },
     MuiPopover: { ...popover },
     MuiButtonBase: { ...buttonBase },
-    MuiIcon: { ...icon },
-    MuiSvgIcon: { ...svgIcon },
     MuiLink: { ...link },
     MuiDialog: { ...dialog },
     MuiDialogTitle: { ...dialogTitle },

@@ -8,7 +8,7 @@ import Loading from './components/Lottie/Loading';
 const View = () => {
     const { user } = useAuth();
 
-    const filteredRouters = protectedRoutes.filter((router) =>
+    const proRoutes = protectedRoutes.filter((router) =>
         router.role.includes(user.role || 'user')
     );
 
@@ -16,29 +16,29 @@ const View = () => {
         <Suspense fallback={<Loading />}>
             <Routes>
                 <Route path="*" element={<Navigate to="/" />} />
-                {openRoutes.map((route, idx) => {
+                {openRoutes.map((route, idex) => {
                     return (
                         route.element && (
                             <Route
-                                key={idx}
+                                key={idex}
                                 path={route.path}
                                 element={<route.element />}
                             />
                         )
                     );
                 })}
-                {filteredRouters.map((route, idx) => {
+                {proRoutes.map((route, idex) => {
                     return (
                         route.element && (
                             <Route
                                 path="/*"
-                                key={idx}
+                                key={idex}
                                 element={<PrivateRoute />}
                             >
                                 <Route
                                     path={route.path}
                                     element={<route.element />}
-                                />
+                                ></Route>
                             </Route>
                         )
                     );

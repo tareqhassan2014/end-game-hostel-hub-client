@@ -1,7 +1,6 @@
 import { lazy } from 'react';
 import { Chart } from 'src/views/components/dashboard/common/Chart';
 import Table from 'src/views/components/dashboard/common/Table';
-import DashboardLayout from 'src/views/DashboardLayout';
 import AboutOurTeam from 'src/views/pages/AboutOurTeam/AboutOurTeam';
 import PostAvailableSit from 'src/views/pages/PostAvailableSit/PostAvailableSit';
 import SearchGroceries from 'src/views/pages/SearchGroceries/SearchGroceries';
@@ -15,21 +14,7 @@ const Home = lazy(() => import('../views/pages/home/Home'));
 const SignIn = lazy(() => import('../views/pages/signIn/SignIn'));
 const Discover = lazy(() => import('../views/pages/discover/Discover'));
 const Profile = lazy(() => import('../views/pages/profile/Profile'));
-const AdminDashboard = lazy(
-    () => import('../views/pages/dashboards/AdminDashboard')
-);
-const UserDashboard = lazy(
-    () => import('../views/pages/dashboards/UserDashboard')
-);
-const moderatorDashboard = lazy(
-    () => import('../views/pages/dashboards/moderatorDashboard')
-);
-const vendorDashboard = lazy(
-    () => import('../views/pages/dashboards/vendorDashboard')
-);
-const grandAdminDashboard = lazy(
-    () => import('../views/pages/dashboards/grandAdminDashboard')
-);
+const Dashboard = lazy(() => import('../views/pages/dashboard/Dashboard'));
 
 export const protectedRoutes = [
     {
@@ -38,29 +23,9 @@ export const protectedRoutes = [
         role: ['user', 'admin', 'grandAdmin', 'moderator', 'vendor', 'pending'],
     },
     {
-        path: 'dashboard',
-        element: UserDashboard,
-        role: ['user'],
-    },
-    {
-        path: 'dashboard',
-        element: grandAdminDashboard,
-        role: ['grandAdmin'],
-    },
-    {
-        path: 'dashboard',
-        element: moderatorDashboard,
-        role: ['moderator'],
-    },
-    {
-        path: 'dashboard',
-        element: vendorDashboard,
-        role: ['vendor'],
-    },
-    {
-        path: 'dashboard',
-        element: DashboardLayout,
-        role: ['admin'],
+        path: 'dashboard/*',
+        element: Dashboard,
+        role: ['user', 'admin', 'grandAdmin', 'moderator', 'vendor', 'pending'],
     },
 ];
 

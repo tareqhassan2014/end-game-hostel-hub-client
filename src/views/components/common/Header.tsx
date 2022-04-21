@@ -34,8 +34,8 @@ const pages = [
         link: '/',
     },
     {
-        page: 'Cart',
-        link: '/cart',
+        page: 'Dashboard',
+        link: '/dashboard',
     },
     {
         page: 'PostAvailableSit',
