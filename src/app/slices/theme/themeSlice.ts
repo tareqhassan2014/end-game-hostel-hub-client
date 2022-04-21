@@ -1,25 +1,25 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { RootState } from '../../store';
+import { RootState } from 'src/app/store';
 
 interface StateType {
     mode: string;
-    fullSideBar: boolean;
+    sideNavWidth: number;
 }
 
 const initialState = {
     mode: '',
-    fullSideBar: true,
+    sideNavWidth: 260,
 } as StateType;
 
-export const themeAndLayoutSlice = createSlice({
+const themeSlice = createSlice({
     name: 'theme',
     initialState,
     reducers: {
         toggleColorMode: (state) => {
             state.mode = state.mode === 'light' ? 'dark' : 'light';
         },
-        toggleFullSideBar: (state) => {
-            state.fullSideBar = !state.fullSideBar;
+        toggleFullSideBar: (state, action: PayloadAction<number>) => {
+            state.sideNavWidth = action.payload;
         },
         setColorMode: (state, action: PayloadAction<string>) => {
             state.mode = action.payload;
@@ -27,8 +27,8 @@ export const themeAndLayoutSlice = createSlice({
     },
 });
 
-export default themeAndLayoutSlice.reducer;
+export default themeSlice.reducer;
 export const { toggleColorMode, toggleFullSideBar, setColorMode } =
-    themeAndLayoutSlice.actions;
+    themeSlice.actions;
 
-export const selectCurrentThemeAndLayout = (state: RootState) => state.theme;
+export const selectCurrentTheme = (state: RootState) => state.theme;

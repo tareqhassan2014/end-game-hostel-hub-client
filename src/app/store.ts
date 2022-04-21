@@ -17,13 +17,12 @@ import {
 import storage from 'redux-persist/lib/storage';
 import api from './api';
 import authSlice from './slices/auth/authSlice';
-import themeAndLayout from './slices/theme/themeAndLayout';
+import themeSlice from './slices/theme/themeSlice';
 
 const rootReducer = combineReducers({
     [api.reducerPath]: api.reducer,
     auth: authSlice,
-
-    theme: themeAndLayout,
+    theme: themeSlice,
 });
 
 const persistConfig = {

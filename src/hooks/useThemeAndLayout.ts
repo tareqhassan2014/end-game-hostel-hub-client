@@ -1,9 +1,9 @@
 import { useMemo } from 'react';
-import { selectCurrentThemeAndLayout } from '../app/slices/theme/themeAndLayout';
+import { selectCurrentTheme } from 'src/app/slices/theme/themeSlice';
 import { useAppSelector } from './hooks';
 
 const useThemeAndLayout = () => {
-    const themeAndLayout = useAppSelector(selectCurrentThemeAndLayout);
+    const themeAndLayout = useAppSelector(selectCurrentTheme);
     return useMemo(() => themeAndLayout, [themeAndLayout]);
 };
 
