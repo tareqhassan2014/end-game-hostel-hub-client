@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux';
 import { toggleFullSideBar } from 'src/app/slices/theme/themeSlice';
 import useAuth from 'src/hooks/useAuth';
 import AdminVerticalNav from './AdminDashboard/AdminVerticalNav';
+import UserVerticalNav from './UserDashboard/UserVerticalNav';
 
 const StyledScrollBar = styled(Scrollbar)(() => ({
     paddingLeft: '1rem',
@@ -35,6 +36,7 @@ const Sidenav: React.FC = ({ children }) => {
             <StyledScrollBar options={{ suppressScrollX: true }}>
                 {children}
                 {user.role === 'admin' && <AdminVerticalNav />}
+                {user.role === 'user' && <UserVerticalNav />}
             </StyledScrollBar>
 
             <SideNavMobile onClick={() => dispatch(toggleFullSideBar(0))} />
