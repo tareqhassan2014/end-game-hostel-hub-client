@@ -2,6 +2,8 @@ import AdminBill from 'src/views/components/dashboard/AdminDashboard/AdminBill/A
 import AdminDefault from 'src/views/components/dashboard/AdminDashboard/AdminDefault/AdminDefault';
 import AdminProfile from 'src/views/components/dashboard/AdminDashboard/AdminProfile/AdminProfile';
 import ManageModerator from 'src/views/components/dashboard/AdminDashboard/ManageModerator/ManageModerator';
+import ModeratorDefault from 'src/views/components/dashboard/moderatorDashboard/ModeratorDefault';
+import ModeratorProfile from 'src/views/components/dashboard/moderatorDashboard/ModeratorProfile';
 import UserMeal from 'src/views/components/dashboard/UserDashboard/UserMeal';
 
 export const dashboardRoutes = [
@@ -34,5 +36,20 @@ export const dashboardRoutes = [
         path: 'meal',
         element: UserMeal,
         role: ['user'],
+    },
+    {
+        path: '*',
+        element: ModeratorDefault,
+        role: ['moderator'],
+    },
+    {
+        path: 'default',
+        element: ModeratorDefault,
+        role: ['moderator'],
+    },
+    {
+        path: 'profile',
+        element: ModeratorProfile,
+        role: ['moderator'],
     },
 ];
