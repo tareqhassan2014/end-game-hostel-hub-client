@@ -5,6 +5,8 @@ import ManageModerator from 'src/views/components/dashboard/AdminDashboard/Manag
 import ModeratorDefault from 'src/views/components/dashboard/moderatorDashboard/ModeratorDefault';
 import ModeratorProfile from 'src/views/components/dashboard/moderatorDashboard/ModeratorProfile';
 import UserMeal from 'src/views/components/dashboard/UserDashboard/UserMeal';
+import VendorDefault from 'src/views/components/dashboard/vendorDashboard/VendorDefault';
+import VendorProductManage from 'src/views/components/dashboard/vendorDashboard/VendorProductManage';
 
 export const dashboardRoutes = [
     {
@@ -51,5 +53,20 @@ export const dashboardRoutes = [
         path: 'profile',
         element: ModeratorProfile,
         role: ['moderator'],
+    },
+    {
+        path: '*',
+        element: VendorDefault,
+        role: ['vendor'],
+    },
+    {
+        path: 'default',
+        element: VendorDefault,
+        role: ['vendor'],
+    },
+    {
+        path: 'product',
+        element: VendorProductManage,
+        role: ['vendor'],
     },
 ];
