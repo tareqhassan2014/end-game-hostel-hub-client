@@ -61,7 +61,7 @@ const AdminVerticalNav = () => {
                 <ListItemIcon>
                     <PersonIcon sx={{ color: 'white' }} />
                 </ListItemIcon>
-                <ListItemText primary="Proline" />
+                <ListItemText primary="Profile" />
             </ListItemButton>
             <ListItemButton sx={{ borderRadius: 4 }} onClick={handleClick}>
                 <ListItemIcon>
