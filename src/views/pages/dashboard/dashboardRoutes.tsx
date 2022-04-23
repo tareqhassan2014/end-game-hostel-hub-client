@@ -3,10 +3,11 @@ import AdminDefault from 'src/views/components/dashboard/AdminDashboard/AdminDef
 import AdminProfile from 'src/views/components/dashboard/AdminDashboard/AdminProfile/AdminProfile';
 import ManageModerator from 'src/views/components/dashboard/AdminDashboard/ManageModerator/ManageModerator';
 import ModeratorDefault from 'src/views/components/dashboard/moderatorDashboard/ModeratorDefault';
-import ModeratorProfile from 'src/views/components/dashboard/moderatorDashboard/ModeratorProfile';
+import ModeratorProfile from 'src/views/components/dashboard/UserDashboard/UserProfile';
 import UserMeal from 'src/views/components/dashboard/UserDashboard/UserMeal';
-import VendorDefault from 'src/views/components/dashboard/vendorDashboard/VendorDefault';
+import UserDefault from 'src/views/components/dashboard/UserDashboard/UserDefault';
 import VendorProductManage from 'src/views/components/dashboard/vendorDashboard/VendorProductManage';
+import UserProfile from 'src/views/components/dashboard/UserDashboard/UserProfile';
 
 export const dashboardRoutes = [
     {
@@ -30,15 +31,26 @@ export const dashboardRoutes = [
         role: ['admin'],
     },
     {
-        path: 'moderator',
-        element: ManageModerator,
-        role: ['admin'],
+        path: '*',
+        element: UserDefault,
+        role: ['user'],
+    },
+    {
+        path: 'default',
+        element: UserDefault,
+        role: ['user'],
+    },
+    {
+        path: 'profile',
+        element: UserProfile,
+        role: ['user'],
     },
     {
         path: 'meal',
         element: UserMeal,
         role: ['user'],
     },
+
     {
         path: '*',
         element: ModeratorDefault,
@@ -49,19 +61,25 @@ export const dashboardRoutes = [
         element: ModeratorDefault,
         role: ['moderator'],
     },
+
     {
         path: 'profile',
         element: ModeratorProfile,
         role: ['moderator'],
     },
     {
+        path: 'moderator',
+        element: ManageModerator,
+        role: ['admin'],
+    },
+    {
         path: '*',
-        element: VendorDefault,
+        element: UserDefault,
         role: ['vendor'],
     },
     {
         path: 'default',
-        element: VendorDefault,
+        element: UserDefault,
         role: ['vendor'],
     },
     {
