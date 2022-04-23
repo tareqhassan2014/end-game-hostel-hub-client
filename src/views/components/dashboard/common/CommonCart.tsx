@@ -1,5 +1,4 @@
 import { Box, Paper, Typography } from '@mui/material';
-import Grid from '@mui/material/Grid';
 import React from 'react';
 
 interface Props {
@@ -10,41 +9,21 @@ interface Props {
 
 const CommonCart = ({ icon, title, text }: Props) => {
     return (
-        <Box
-            sx={{
-                display: 'flex',
-                flexWrap: 'wrap',
-                '& > :not(style)': {
-                    m: 1,
-                    width: 300,
-                    height: 128,
-                },
-            }}
-        >
-            <Paper
+        <Paper elevation={2} sx={{ p: 2 }}>
+            <Box
                 sx={{
+                    height: '100%',
                     display: 'flex',
-                    height: '100px',
                     alignItems: 'center',
                 }}
-                elevation={2}
             >
-                <Grid container spacing={2}>
-                    <Grid
-                        sx={{ fontSize: '30px', padding: '10px' }}
-                        item
-                        xs={4}
-                    >
-                        {icon}
-                    </Grid>
-                    <Grid item xs={8}>
-                        <Typography>{title}</Typography>
-
-                        <Typography>{text}</Typography>
-                    </Grid>
-                </Grid>
-            </Paper>
-        </Box>
+                {icon}
+                <Box sx={{ ml: 4 }}>
+                    <Typography variant="h4">{title}</Typography>
+                    <Typography variant="subtitle2">{text}</Typography>
+                </Box>
+            </Box>
+        </Paper>
     );
 };
 

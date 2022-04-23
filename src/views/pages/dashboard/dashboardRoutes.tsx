@@ -3,11 +3,15 @@ import AdminDefault from 'src/views/components/dashboard/AdminDashboard/AdminDef
 import AdminProfile from 'src/views/components/dashboard/AdminDashboard/AdminProfile/AdminProfile';
 import ManageModerator from 'src/views/components/dashboard/AdminDashboard/ManageModerator/ManageModerator';
 import ModeratorDefault from 'src/views/components/dashboard/moderatorDashboard/ModeratorDefault';
-import ModeratorProfile from 'src/views/components/dashboard/UserDashboard/UserProfile';
-import UserMeal from 'src/views/components/dashboard/UserDashboard/UserMeal';
 import UserDefault from 'src/views/components/dashboard/UserDashboard/UserDefault';
+import UserMeal from 'src/views/components/dashboard/UserDashboard/UserMeal';
+import {
+    default as ModeratorProfile,
+    default as UserProfile,
+} from 'src/views/components/dashboard/UserDashboard/UserProfile';
+import AddProduct from 'src/views/components/dashboard/vendorDashboard/AddProduct';
+import VendorDefault from 'src/views/components/dashboard/vendorDashboard/VendorDefault';
 import VendorProductManage from 'src/views/components/dashboard/vendorDashboard/VendorProductManage';
-import UserProfile from 'src/views/components/dashboard/UserDashboard/UserProfile';
 
 export const dashboardRoutes = [
     {
@@ -74,7 +78,12 @@ export const dashboardRoutes = [
     },
     {
         path: '*',
-        element: UserDefault,
+        element: VendorDefault,
+        role: ['vendor'],
+    },
+    {
+        path: 'addProduct',
+        element: AddProduct,
         role: ['vendor'],
     },
     {
