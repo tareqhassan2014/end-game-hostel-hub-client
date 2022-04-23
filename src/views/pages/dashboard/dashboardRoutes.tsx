@@ -54,7 +54,6 @@ export const dashboardRoutes = [
         element: UserMeal,
         role: ['user'],
     },
-
     {
         path: '*',
         element: ModeratorDefault,
