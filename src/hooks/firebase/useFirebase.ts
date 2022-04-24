@@ -21,6 +21,7 @@ const useFirebase = () => {
     const dispatch = useAppDispatch();
     const [signUp] = useSignUpMutation();
     const [signIn] = useLoginMutation();
+    console.log();
 
     // REGISTER WITH EMAIL AND PASSWORD
     const RegisterUser = async (

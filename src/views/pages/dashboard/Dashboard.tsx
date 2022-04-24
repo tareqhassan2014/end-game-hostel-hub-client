@@ -42,7 +42,7 @@ const Dashboard = () => {
 
     return (
         <Layout1Root>
-            {sideNavWidth && <LayoutSidenav />}
+            {sideNavWidth !== 0 && <LayoutSidenav />}
 
             <LayoutContainer width={sideNavWidth}>
                 <ContentBox>

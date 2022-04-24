@@ -22,6 +22,7 @@
         "chart.js": "^3.7.1",
         "chroma-js": "^2.4.2",
         "d3": "^7.4.4",
+        "faker": "^6.6.6",
         "firebase": "^9.6.10",
         "node-sass": "^7.0.1",
         "prop-types": "^15.8.1",
@@ -70,6 +71,7 @@
         ]
     },
     "devDependencies": {
+        "@faker-js/faker": "^6.2.0",
         "@types/chroma-js": "^2.1.3",
         "@types/react-swipeable-views": "^0.13.1",
         "@types/react-swipeable-views-utils": "^0.13.3",
