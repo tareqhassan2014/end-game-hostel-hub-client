@@ -1,66 +1,100 @@
-import Paper from '@mui/material/Paper';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
+import { Box } from '@mui/material';
+import { DataGrid, GridColDef, GridValueGetterParams } from '@mui/x-data-grid';
 import * as React from 'react';
 
-function createData(
-    name: string,
-    calories: number,
-    fat: number,
-    carbs: number,
-    protein: number
-) {
-    return { name, calories, fat, carbs, protein };
-}
+const columns: GridColDef[] = [
+    { field: 'id', headerName: 'ID', width: 70 },
+    { field: 'Email', headerName: 'Product ID', width: 130 },
+    { field: 'Phone', headerName: 'Phone', width: 130 },
 
-const rows = [
-    createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-    createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-    createData('Eclair', 262, 16.0, 24, 6.0),
-    createData('Cupcake', 305, 3.7, 67, 4.3),
-    createData('Gingerbread', 356, 16.0, 49, 3.9),
+    {
+        field: 'productId',
+        headerName: 'Product ID',
+        type: 'string',
+        width: 90,
+    },
+
+    {
+        field: 'age',
+        headerName: 'Age',
+        type: 'number',
+        width: 90,
+    },
+
+    {
+        field: 'fullName',
+        headerName: 'Full name',
+        description: 'This column has a value getter and is not sortable.',
+        sortable: false,
+        width: 200,
+        valueGetter: (params: GridValueGetterParams) =>
+            `${params.row.firstName || ''} ${params.row.lastName || ''}`,
+    },
 ];
 
-export default function ManageOrder() {
+const rows = [
+    { id: 1, lastName: 'Snow', firstName: 'Jon', gender: 'male', age: 35 },
+    {
+        id: 2,
+        lastName: 'Lannister',
+        firstName: 'Cersei',
+        gender: 'male',
+        age: 42,
+    },
+    {
+        id: 3,
+        lastName: 'Lannister',
+        firstName: 'Jaime',
+        gender: 'female',
+        age: 45,
+    },
+    { id: 4, lastName: 'Stark', firstName: 'Arya', gender: 'male', age: 16 },
+    {
+        id: 5,
+        lastName: 'Targaryen',
+        firstName: 'Daenerys',
+        gender: 'female',
+        age: 25,
+    },
+    {
+        id: 6,
+        lastName: 'Melisandre',
+        firstName: 'Smith',
+        gender: 'male',
+        age: 150,
+    },
+    {
+        id: 7,
+        lastName: 'Clifford',
+        firstName: 'Ferrara',
+        gender: 'female',
+        age: 44,
+    },
+    {
+        id: 8,
+        lastName: 'Frances',
+        firstName: 'Rossini',
+        gender: 'male',
+        age: 36,
+    },
+    { id: 9, lastName: 'Roxie', firstName: 'Harvey', gender: 'male', age: 65 },
+];
+
+const ManageOrder = () => {
     return (
-        <TableContainer component={Paper}>
-            <Table sx={{ minWidth: 650 }} aria-label="simple table">
-                <TableHead>
-                    <TableRow>
-                        <TableCell
-                            sx={{ fontWeight: 'bold', color: '#989595' }}
-                            align="center"
-                        >
-                            Sr No
-                        </TableCell>
-                    </TableRow>
-                </TableHead>
-                <TableBody>
-                    {rows.map((row, index) => (
-                        <TableRow
-                            key={row.name}
-                            sx={{
-                                '&:last-child td, &:last-child th': {
-                                    border: 0,
-                                },
-                            }}
-                        >
-                            <TableCell
-                                component="th"
-                                sx={{ color: '#666666' }}
-                                scope="row"
-                                align="left"
-                            >
-                                {index + 1}
-                            </TableCell>
-                        </TableRow>
-                    ))}
-                </TableBody>
-            </Table>
-        </TableContainer>
+        <Box
+            sx={{ width: { lg: '100%', md: '100%', sm: '100%', xs: '100%' } }}
+            style={{ height: '100%' }}
+        >
+            <DataGrid
+                rows={rows}
+                columns={columns}
+                pageSize={10}
+                rowsPerPageOptions={[1]}
+                checkboxSelection
+            />
+        </Box>
     );
-}
+};
+
+export default ManageOrder;

@@ -1,6 +1,6 @@
-import React from 'react';
 import SearchIcon from '@mui/icons-material/Search';
 import { Box, Container } from '@mui/material';
+import React from 'react';
 import CommonCart from '../common/CommonCart';
 import LineChart from './LineChart';
 
@@ -31,17 +31,20 @@ const UserDefault = () => {
                         icon={<SearchIcon />}
                         title="Title goes here"
                         text="Description goes to here"
+                        color="#fff"
                     />
 
                     <CommonCart
                         icon={<SearchIcon />}
                         title="Title goes here"
                         text="Description goes to here"
+                        color="#fff"
                     />
                     <CommonCart
                         icon={<SearchIcon />}
                         title="Title goes here"
                         text="Description goes to here"
+                        color="#fff"
                     />
                 </Box>
             </Box>
