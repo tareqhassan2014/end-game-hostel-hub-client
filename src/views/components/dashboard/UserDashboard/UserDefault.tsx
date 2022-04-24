@@ -45,7 +45,9 @@ const UserDefault = () => {
                     />
                 </Box>
             </Box>
-            <LineChart />
+            <Box>
+                <LineChart />
+            </Box>
         </Container>
     );
 };
