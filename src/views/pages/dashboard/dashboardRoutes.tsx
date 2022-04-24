@@ -90,9 +90,4 @@ export const dashboardRoutes = [
         element: ManageOrder,
         role: ['vendor'],
     },
-    {
-        path: 'default',
-        element: VendorDefault,
-        role: ['vendor'],
-    },
 ];

@@ -3,6 +3,7 @@ import CheckRoundedIcon from '@mui/icons-material/CheckRounded';
 import SsidChartRoundedIcon from '@mui/icons-material/SsidChartRounded';
 import { Box, Grid, Paper, Typography } from '@mui/material';
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { LineChart } from './LineChart';
 import { PieChart } from './PieChart';
 
@@ -13,6 +14,7 @@ const VendorDefault = () => {
             total: 58,
             icon: CallReceivedRoundedIcon,
             color: ['#EC407A', '#D81B60'],
+            link: 'product',
         },
         {
             name: 'Confirm Order',
@@ -31,55 +33,69 @@ const VendorDefault = () => {
 
     return (
         <Box>
-            <Box sx={{ width: '90%', mt: '15px', mx: 'auto' }}>
+            <Box
+                sx={{
+                    width: '90%',
+                    mt: '15px',
+                    mx: 'auto',
+                }}
+            >
                 <Grid container spacing={2}>
                     {smallCartData.map((meal, index) => (
                         <Grid key={index} item xs={12} sm={6} lg={4}>
-                            <Paper
-                                elevation={2}
-                                sx={{
-                                    p: 2,
-                                    mt: '20px',
-                                    borderRadius: 1,
-                                    background: `linear-gradient(195deg, ${meal.color[0]}, ${meal.color[1]} )`,
-                                    color: 'white',
-                                }}
-                            >
-                                <Box
+                            <Link to={`${meal.link}`}>
+                                <Paper
+                                    elevation={2}
                                     sx={{
-                                        display: 'flex',
-                                        alignItems: 'flex-start',
-                                        width: '90%',
-                                        mx: 'auto',
+                                        p: 2,
+                                        mt: '20px',
+                                        borderRadius: 1,
+                                        background: `linear-gradient(195deg, ${meal.color[0]}, ${meal.color[1]} )`,
+                                        color: 'white',
                                     }}
                                 >
                                     <Box
                                         sx={{
-                                            background: `linear-gradient(195deg, ${meal.color[0]}, ${meal.color[1]} )`,
-                                            py: '10px',
-                                            px: '10px',
-                                            borderRadius: 2,
-                                            mt: '-35px',
+                                            display: 'flex',
+                                            alignItems: 'flex-start',
+                                            width: '90%',
+                                            mx: 'auto',
                                         }}
                                     >
-                                        <meal.icon
+                                        <Box
                                             sx={{
-                                                height: '2em',
-                                                width: '2em',
+                                                background: `linear-gradient(195deg, ${meal.color[0]}, ${meal.color[1]} )`,
+                                                py: '10px',
+                                                px: '10px',
+                                                borderRadius: 2,
+                                                mt: '-35px',
                                             }}
-                                            style={{ fill: '#ffffff' }}
-                                        />
+                                        >
+                                            <meal.icon
+                                                sx={{
+                                                    height: '2em',
+                                                    width: '2em',
+                                                }}
+                                                style={{ fill: '#ffffff' }}
+                                            />
+                                        </Box>
+                                        <Box sx={{ ml: 2, width: '100%' }}>
+                                            <Typography
+                                                align="right"
+                                                variant="h3"
+                                            >
+                                                {meal.total}
+                                            </Typography>
+                                            <Typography
+                                                align="right"
+                                                variant="h6"
+                                            >
+                                                {meal.name}
+                                            </Typography>
+                                        </Box>
                                     </Box>
-                                    <Box sx={{ ml: 2, width: '100%' }}>
-                                        <Typography align="right" variant="h3">
-                                            {meal.total}
-                                        </Typography>
-                                        <Typography align="right" variant="h6">
-                                            {meal.name}
-                                        </Typography>
-                                    </Box>
-                                </Box>
-                            </Paper>
+                                </Paper>
+                            </Link>
                         </Grid>
                     ))}
                 </Grid>
@@ -87,7 +103,7 @@ const VendorDefault = () => {
 
             <Box sx={{ width: '90%', mx: 'auto' }}>
                 <Grid container spacing={2}>
-                    <Grid sx={{ mt: 4 }} item xs={12} md={8}>
+                    <Grid sx={{ mt: 2 }} item xs={12} md={8}>
                         <LineChart />
                     </Grid>
                     <Grid item xs={12} md={4}>

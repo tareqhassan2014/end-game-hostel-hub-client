@@ -47,18 +47,18 @@ export function PieChart() {
                                 label: '# of votes',
                                 data: [33, 33, 33],
                                 backgroundColor: [
-                                    'rgba(205, 16, 57, 0.2)',
-                                    'rgba(2, 185, 115, 0.2)',
-                                    'rgba(86, 224, 255, 0.2)',
+                                    '#E22E6D',
+                                    '#4CA750',
+                                    '#2881EB',
                                 ],
-                                borderColor: [
-                                    'rgba(255, 99, 132, 1)',
-                                    'rgba(54, 162, 235, 1)',
-                                    'rgba(255, 206, 86, 1)',
-                                    // 'rgba(75, 192, 192, 1)',
-                                    // 'rgba(153, 102, 255, 1)',
-                                    // 'rgba(255, 159, 64, 1)',
-                                ],
+                                // borderColor: [
+                                //     '#E22E6D',
+                                //     '#4CA750',
+                                //     '#2881EB',
+                                //     // 'rgba(75, 192, 192, 1)',
+                                //     // 'rgba(153, 102, 255, 1)',
+                                //     // 'rgba(255, 159, 64, 1)',
+                                // ],
                                 borderWidth: 1,
                             },
                             // {
@@ -73,6 +73,16 @@ export function PieChart() {
                     width={600}
                     options={{
                         maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                position: 'bottom' as const,
+                            },
+                            title: {
+                                display: true,
+                                // text: 'Chart.js Bar Chart',
+                            },
+                        },
+
                         // scales: {
                         //     yAxes: [
                         //         {

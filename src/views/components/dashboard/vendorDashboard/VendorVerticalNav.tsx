@@ -47,7 +47,7 @@ const VendorVerticalNav = () => {
         >
             <ListItemButton
                 sx={{ borderRadius: 4 }}
-                onClick={() => navigate('/dashboard/default')}
+                onClick={() => navigate('/dashboard')}
             >
                 <ListItemIcon>
                     <HomeIcon sx={{ color: 'white' }} />
