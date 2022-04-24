@@ -62,7 +62,7 @@ export default function Banners() {
                 loop={true}
                 slidesPerView={'auto'}
                 autoplay={{
-                    delay: 9000000,
+                    delay: 8000,
                     disableOnInteraction: false,
                 }}
                 modules={[Autoplay]}
@@ -156,7 +156,8 @@ export default function Banners() {
                             xs={12}
                             item
                             sx={{
-                                display: 'flex',
+                                // display: 'flex',
+                                height: '100%',
                                 mb: { md: 0, sm: 4, xs: 4 },
                             }}
                         >
