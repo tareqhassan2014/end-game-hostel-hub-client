@@ -37,12 +37,6 @@ export default function ManageOrder() {
                         >
                             Sr No
                         </TableCell>
-                        <TableCell
-                            sx={{ fontWeight: 'bold', color: '#989595' }}
-                            align="left"
-                        >
-                            Name
-                        </TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
@@ -62,14 +56,6 @@ export default function ManageOrder() {
                                 align="left"
                             >
                                 {index + 1}
-                            </TableCell>
-                            <TableCell
-                                component="th"
-                                sx={{ color: '#666666' }}
-                                scope="row"
-                                align="left"
-                            >
-                                Rashidul
                             </TableCell>
                         </TableRow>
                     ))}
