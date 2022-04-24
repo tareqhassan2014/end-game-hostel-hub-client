@@ -11,7 +11,7 @@ import {
 } from 'src/views/components/dashboard/UserDashboard/UserProfile';
 import AddProduct from 'src/views/components/dashboard/vendorDashboard/AddProduct';
 import VendorDefault from 'src/views/components/dashboard/vendorDashboard/VendorDefault';
-import VendorProductManage from 'src/views/components/dashboard/vendorDashboard/VendorProductManage';
+import ManageOrder from 'src/views/components/dashboard/vendorDashboard/ManageOrder';
 
 export const dashboardRoutes = [
     {
@@ -93,7 +93,7 @@ export const dashboardRoutes = [
     },
     {
         path: 'product',
-        element: VendorProductManage,
+        element: ManageOrder,
         role: ['vendor'],
     },
 ];
