@@ -61,14 +61,14 @@ const data = {
         {
             label: 'Meal Rate',
             data: labels.map((meal) => meal.MealRate),
-            borderColor: 'rgb(255, 99, 132)',
-            backgroundColor: 'rgba(255, 99, 132, 0.5)',
+            borderColor: 'rgba(162, 59, 210)',
+            backgroundColor: 'rgba(162, 59, 210, .2)',
         },
         {
             label: 'Total Meal',
             data: labels.map((meal) => meal.TotalMeal),
-            borderColor: 'rgb(53, 162, 235)',
-            backgroundColor: 'rgba(53, 162, 235, 0.5)',
+            borderColor: 'rgba(24, 163, 56)',
+            backgroundColor: 'rgba(24, 163, 56, 0.5)',
         },
     ],
 };

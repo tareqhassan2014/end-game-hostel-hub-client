@@ -86,14 +86,14 @@ const UserBarChart = () => {
             {
                 label: 'Total Cost',
                 data: labels.map((day) => day.cost),
-                backgroundColor: 'rgb(53, 162, 235)',
+                backgroundColor: 'rgba(57, 162, 117)',
                 stack: 'Stack 1',
             },
 
             {
                 label: 'Meal Rate',
                 data: labels.map((day) => day.rate),
-                backgroundColor: 'rgb(255, 99, 132)',
+                backgroundColor: 'rgb(143, 58, 132)',
                 stack: 'Stack 2',
             },
         ],
