@@ -87,7 +87,7 @@ const VendorDefault = () => {
 
             <Box sx={{ width: '90%', mx: 'auto' }}>
                 <Grid container spacing={2}>
-                    <Grid item xs={12} md={8}>
+                    <Grid sx={{ mt: 4 }} item xs={12} md={8}>
                         <LineChart />
                     </Grid>
                     <Grid item xs={12} md={4}>
