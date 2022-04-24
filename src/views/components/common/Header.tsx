@@ -21,7 +21,7 @@ import {
 import { Box } from '@mui/system';
 import { cloneElement, MouseEvent, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { logOut } from 'src/app/slices/auth/authSlice';
 import { toggleColorMode } from 'src/app/slices/theme/themeSlice';
 import logo from 'src/assets/images/logos/brandLogo.png';
@@ -144,14 +144,16 @@ export default function Header(props: Props) {
                                         width: '100px',
                                     }}
                                 >
-                                    <img
-                                        style={{
-                                            width: '100px',
-                                            objectFit: 'contain',
-                                        }}
-                                        src={logo}
-                                        alt=""
-                                    />
+                                    <Link to="/">
+                                        <img
+                                            style={{
+                                                width: '100px',
+                                                objectFit: 'contain',
+                                            }}
+                                            src={logo}
+                                            alt=""
+                                        />
+                                    </Link>
                                 </Box>
 
                                 <Box
