@@ -1,12 +1,8 @@
-import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
-import ExpandLess from '@mui/icons-material/ExpandLess';
-import ExpandMore from '@mui/icons-material/ExpandMore';
+import AddCircleRoundedIcon from '@mui/icons-material/AddCircleRounded';
 import HomeIcon from '@mui/icons-material/Home';
-import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
 import PersonIcon from '@mui/icons-material/Person';
-import SettingsIcon from '@mui/icons-material/Settings';
+import TaskAltIcon from '@mui/icons-material/TaskAlt';
 import { useMediaQuery } from '@mui/material';
-import Collapse from '@mui/material/Collapse';
 import List from '@mui/material/List';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
@@ -54,6 +50,7 @@ const VendorVerticalNav = () => {
                 </ListItemIcon>
                 <ListItemText primary="Home" />
             </ListItemButton>
+
             <ListItemButton
                 sx={{ borderRadius: 4 }}
                 onClick={() => navigate('/dashboard/profile')}
@@ -61,16 +58,37 @@ const VendorVerticalNav = () => {
                 <ListItemIcon>
                     <PersonIcon sx={{ color: 'white' }} />
                 </ListItemIcon>
-                <ListItemText primary="Proline" />
+                <ListItemText primary="Profile" />
             </ListItemButton>
-            <ListItemButton sx={{ borderRadius: 4 }} onClick={handleClick}>
+
+            <ListItemButton
+                sx={{ borderRadius: 4 }}
+                onClick={() => navigate('/dashboard/addProduct')}
+            >
+                <ListItemIcon>
+                    <AddCircleRoundedIcon sx={{ color: 'white' }} />
+                </ListItemIcon>
+                <ListItemText primary="Add Product" />
+            </ListItemButton>
+
+            <ListItemButton
+                sx={{ borderRadius: 4 }}
+                onClick={() => navigate('/dashboard/product')}
+            >
+                <ListItemIcon>
+                    <TaskAltIcon sx={{ color: 'white' }} />
+                </ListItemIcon>
+                <ListItemText primary="Manage Order" />
+            </ListItemButton>
+
+            {/* <ListItemButton sx={{ borderRadius: 4 }} onClick={handleClick}>
                 <ListItemIcon>
                     <SettingsIcon sx={{ color: 'white' }} />
                 </ListItemIcon>
                 <ListItemText primary="Manage" />
                 {open ? <ExpandLess /> : <ExpandMore />}
-            </ListItemButton>
-            <Collapse in={open} timeout="auto" unmountOnExit>
+            </ListItemButton> */}
+            {/* <Collapse in={open} timeout="auto" unmountOnExit>
                 <List component="div" disablePadding>
                     <ListItemButton
                         sx={{
@@ -109,7 +127,7 @@ const VendorVerticalNav = () => {
                         <ListItemText primary={open ? 'Manage Bill' : ''} />
                     </ListItemButton>
                 </List>
-            </Collapse>
+            </Collapse> */}
         </List>
     );
 };
