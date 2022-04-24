@@ -82,7 +82,19 @@ const VendorVerticalNav = () => {
                         <ListItemIcon>
                             <ManageAccountsIcon sx={{ color: 'white' }} />
                         </ListItemIcon>
-                        <ListItemText primary="Product" />
+                        <ListItemText primary="Manage Order" />
+                    </ListItemButton>
+                    <ListItemButton
+                        sx={{
+                            pl: sideNavWidth === 80 ? 2 : 4,
+                            borderRadius: 4,
+                        }}
+                        onClick={() => navigate('/dashboard/addProduct')}
+                    >
+                        <ListItemIcon>
+                            <ManageAccountsIcon sx={{ color: 'white' }} />
+                        </ListItemIcon>
+                        <ListItemText primary="Add Product" />
                     </ListItemButton>
                     <ListItemButton
                         sx={{

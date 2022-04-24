@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import { Box, Button, Grid, Typography } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 // swiper css
 import SwiperCore, { Autoplay } from 'swiper';
 import 'swiper/css';
@@ -8,8 +9,6 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/thumbs';
 import { Swiper, SwiperSlide } from 'swiper/react';
-// type-it
-import TypeIt from 'typeit-react';
 // lottie-component
 import BannerLottie1 from '../Lottie/BannerLottie1';
 import BannerLottie4 from '../Lottie/BannerLottie4';
@@ -35,67 +34,100 @@ const MyButton = styled(Button)({
 
 SwiperCore.use([Autoplay]);
 export default function Banners() {
+    const navigate = useNavigate();
+
+    const handleFindHostelButton = () => {
+        navigate('/search-hostel');
+    };
+    const handleDashboardButton = () => {
+        navigate('/dashboard');
+    };
+    const handleDeliveryButton = () => {
+        navigate('/dashboard/profile');
+    };
+    const handleDealButton = () => {
+        navigate('/search-old-items');
+    };
+
     return (
         <Box
             sx={{
-                mt: { xs: 3 },
-                py: { md: 4, sm: 2, xs: 1 },
+                py: { md: '60px', sm: 2, xs: 1 },
                 px: { md: 5, sm: 1, xs: 0.5 },
+                background: 'linear-gradient(to right, #1e3c72, #2a5298)',
+                color: 'white',
             }}
         >
             <Swiper
                 loop={true}
                 slidesPerView={'auto'}
                 autoplay={{
-                    delay: 7000,
+                    delay: 9000000,
                     disableOnInteraction: false,
                 }}
                 modules={[Autoplay]}
             >
                 <SwiperSlide>
-                    <Grid container>
+                    <Grid
+                        container
+                        style={{
+                            display: 'flex',
+                            alignItems: 'center',
+                        }}
+                    >
                         <Grid md={6} sm={12} xs={12} item>
                             <Box
                                 sx={{
-                                    ml: { sm: 3, xs: 2 },
-                                    mb: { sm: 3, xs: 2 },
+                                    p: { sm: 5, xs: 0, md: 0 },
+                                    mt: { sm: 5, xs: 5 },
+                                    mx: { sm: 3, xs: 2 },
+                                    mb: { md: 0, sm: 4, xs: 4 },
                                 }}
                             >
                                 <Typography
                                     sx={{
                                         mt: { md: 5, sm: 2 },
-                                        fontSize: { xs: '24px', sm: '32px' },
+                                        fontSize: {
+                                            md: '46px',
+                                            xs: '24px',
+                                            sm: '32px',
+                                        },
+                                        fontWeight: '700',
+                                        lineHeight: '1.2',
+                                        fontFamily: 'Poppins, sans-serif',
                                     }}
-                                    style={{ color: '#5d3f6a' }}
-                                    variant="h2"
                                 >
-                                    <TypeIt
-                                        options={{
-                                            strings: ['FIND A HOSTEL'],
-                                            speed: 1,
-                                            waitUntilVisible: true,
-                                            loop: true,
-                                            cursor: false,
-                                        }}
-                                    />
+                                    Get a betterment environment for hostel life
                                 </Typography>
                                 <Typography
                                     variant="subtitle2"
                                     sx={{
-                                        mt: { md: 2.5, xs: 1 },
+                                        pt: { md: 2 },
+                                        pb: { md: 1 },
+                                        mt: { md: 2.5, xs: 3 },
                                         mb: { md: 4, xs: 3 },
                                         textAlign: { xm: 'justify' },
+                                        fontSize: {
+                                            md: '16px',
+                                            // xs: '24px',
+                                            // sm: '32px',
+                                        },
+                                        fontWeight: 'normal',
+                                        lineHeight: '24px',
+                                        fontFamily: 'Poppins, sans-serif',
                                     }}
                                 >
                                     You can live like royalty in elegant hostels
                                     or find a bargain at hostels right in the
-                                    city center. If so then we have created for
-                                    you a wonderful environment. Come fast and
-                                    get your chance.
+                                    city center. Come fast and get your chance.
                                 </Typography>
-                                <MyButton size="small">
-                                    Send us your queries
-                                </MyButton>
+                                <button
+                                    onClick={handleFindHostelButton}
+                                    className="button-62"
+                                    role="button"
+                                >
+                                    Find Available Hostel
+                                </button>
                             </Box>
                         </Grid>
                         <Grid
@@ -104,85 +136,28 @@ export default function Banners() {
                             xs={12}
                             item
                             sx={{
-                                height: {
-                                    md: 430,
-                                    sm: 350,
-                                    xs: 300,
-                                },
+                                mb: { md: 0, sm: 4, xs: 4 },
+                                height: { md: 430, sm: 350, xs: 300 },
                             }}
                         >
                             <BannerLottie1 />
                         </Grid>
                     </Grid>
                 </SwiperSlide>
+
                 <SwiperSlide>
-                    <Grid container>
+                    <Grid
+                        container
+                        style={{ display: 'flex', alignItems: 'center' }}
+                    >
                         <Grid
                             md={6}
                             sm={12}
                             xs={12}
                             item
                             sx={{
-                                height: {
-                                    md: 500,
-                                    sm: 400,
-                                    xs: 300,
-                                    pb: { sm: 5, xs: 5 },
-                                },
-                            }}
-                        >
-                            <BannerLottie6 />
-                        </Grid>
-                        <Grid md={6} sm={12} xs={12} item>
-                            <Box
-                                sx={{
-                                    ml: { sm: 3, xs: 2 },
-                                    mt: { sm: 3, xs: 2 },
-                                }}
-                            >
-                                <Typography
-                                    variant="h2"
-                                    sx={{
-                                        mt: { md: 5, sm: 2 },
-                                        fontSize: { xs: '24px', sm: '32px' },
-                                    }}
-                                    style={{ color: '#5d3f6a' }}
-                                >
-                                    GET FAST DELIVERY
-                                </Typography>
-                                <Typography
-                                    variant="subtitle2"
-                                    sx={{
-                                        mt: { md: 2.5, xs: 1 },
-                                        mb: { md: 5, xs: 3 },
-                                    }}
-                                >
-                                    No more waiting! receive your items from the
-                                    delivery man timely. Get your exact quality
-                                    products without any kinds of scratch and
-                                    fracture. Make your delivery man satisfied
-                                    and be happy yourself.
-                                </Typography>
-                                <MyButton size="small">
-                                    Get Delivery Info
-                                </MyButton>
-                            </Box>
-                        </Grid>
-                    </Grid>
-                </SwiperSlide>
-                <SwiperSlide>
-                    <Grid container>
-                        <Grid
-                            md={6}
-                            sm={12}
-                            xs={12}
-                            item
-                            sx={{
-                                height: {
-                                    md: 500,
-                                    sm: 400,
-                                    xs: 300,
-                                },
+                                display: 'flex',
+                                mb: { md: 0, sm: 4, xs: 4 },
                             }}
                         >
                             <BannerLottie5 />
@@ -190,83 +165,198 @@ export default function Banners() {
                         <Grid md={6} sm={12} xs={12} item>
                             <Box
                                 sx={{
-                                    ml: { sm: 3, xs: 2 },
-                                    mt: { sm: 3, xs: 2 },
+                                    p: { sm: 5, xs: 0, md: 0 },
+                                    mt: { sm: 5, xs: 5 },
+                                    mx: { sm: 3, xs: 2 },
+                                    mb: { md: 0, sm: 4, xs: 4 },
                                 }}
                             >
                                 <Typography
                                     sx={{
                                         mt: { md: 5, sm: 2 },
-                                        fontSize: { xs: '24px', sm: '32px' },
+                                        fontSize: {
+                                            md: '46px',
+                                            xs: '24px',
+                                            sm: '32px',
+                                        },
+                                        fontWeight: '700',
+                                        lineHeight: '1.2',
+                                        fontFamily: 'Poppins, sans-serif',
                                     }}
-                                    style={{ color: '#5d3f6a' }}
-                                    variant="h2"
                                 >
-                                    <TypeIt
-                                        options={{
-                                            strings: ['DASHBOARD FEATURES'],
-                                            speed: 1,
-                                            waitUntilVisible: true,
-                                            loop: true,
-                                            cursor: false,
-                                        }}
-                                    />
+                                    Five different unique dashboards are the
+                                    main attraction
                                 </Typography>
                                 <Typography
                                     variant="subtitle2"
                                     sx={{
-                                        mt: { md: 2.5, sm: 1.5, xs: 1 },
-                                        mb: { md: 5, sm: 2, xs: 3 },
+                                        pt: { md: 2 },
+                                        pb: { md: 1 },
+                                        mt: { md: 2.5, xs: 3 },
+                                        mb: { md: 4, xs: 3 },
+                                        textAlign: { xm: 'justify' },
+                                        fontSize: {
+                                            md: '16px',
+                                            // xs: '24px',
+                                            // sm: '32px',
+                                        },
+                                        fontWeight: 'normal',
+                                        lineHeight: '24px',
+                                        fontFamily: 'Poppins, sans-serif',
                                     }}
                                 >
-                                    The uniqueness of five different dashboards
-                                    are the main attraction for you. A numerous
-                                    analytical update defines different role
-                                    player&#39;s experience. So do not get late,
-                                    get our services and create your dashboard.
+                                    A numerous analytical update defines
+                                    different role player&#39;s experience.get
+                                    our services and create your dashboard.
                                 </Typography>
-                                <MyButton size="small">
-                                    Get updated with dashboard
-                                </MyButton>
+                                <button
+                                    onClick={handleDashboardButton}
+                                    className="button-62"
+                                    role="button"
+                                >
+                                    Create Your Dashboard
+                                </button>
+                            </Box>
+                        </Grid>
+                    </Grid>
+                </SwiperSlide>
+                <SwiperSlide>
+                    <Grid
+                        container
+                        style={{ display: 'flex', alignItems: 'center' }}
+                    >
+                        <Grid
+                            md={6}
+                            sm={12}
+                            xs={12}
+                            item
+                            sx={{
+                                display: 'flex',
+                                mb: { md: 0, sm: 4, xs: 4 },
+                            }}
+                        >
+                            <BannerLottie6 />
+                        </Grid>
+                        <Grid md={6} sm={12} xs={12} item>
+                            <Box
+                                sx={{
+                                    p: { sm: 5, xs: 0, md: 0 },
+                                    mt: { sm: 5, xs: 0 },
+                                    mx: { sm: 3, xs: 4 },
+                                    mb: { md: 0, sm: 4, xs: 4 },
+                                }}
+                            >
+                                <Typography
+                                    sx={{
+                                        mt: { md: 5, sm: 0, sx: 0 },
+                                        fontSize: {
+                                            md: '46px',
+                                            xs: '24px',
+                                            sm: '32px',
+                                        },
+                                        fontWeight: '700',
+                                        lineHeight: '1.2',
+                                        fontFamily: 'Poppins, sans-serif',
+                                    }}
+                                >
+                                    Receive your delivery items from the
+                                    delivery man timely
+                                </Typography>
+                                <Typography
+                                    sx={{
+                                        pt: { md: 2 },
+                                        pb: { md: 1 },
+                                        mt: { md: 2.5, xs: 3 },
+                                        mb: { md: 4, xs: 3 },
+                                        textAlign: { xm: 'justify' },
+                                        fontSize: {
+                                            md: '16px',
+                                            // xs: '24px',
+                                            // sm: '32px',
+                                        },
+                                        fontWeight: 'normal',
+                                        lineHeight: '24px',
+                                        fontFamily: 'Poppins, sans-serif',
+                                    }}
+                                >
+                                    Get your exact quality products without any
+                                    kinds of scratch and fracture. Make your
+                                    delivery man satisfied and be happy
+                                    yourself.
+                                </Typography>
+                                <button
+                                    onClick={handleDeliveryButton}
+                                    className="button-62"
+                                    role="button"
+                                >
+                                    Get Delivery Info
+                                </button>
                             </Box>
                         </Grid>
                     </Grid>
                 </SwiperSlide>
 
                 <SwiperSlide>
-                    <Grid container>
+                    <Grid
+                        container
+                        style={{
+                            display: 'flex',
+                            alignItems: 'center',
+                        }}
+                    >
                         <Grid md={6} sm={12} xs={12} item>
                             <Box
                                 sx={{
-                                    ml: { sm: 3, xs: 2 },
-                                    mt: { sm: 3, xs: 2 },
+                                    p: { sm: 5, xs: 0, md: 2 },
+                                    mt: { sm: 5, xs: 5, md: 0 },
+                                    mx: { sm: 3, xs: 2 },
+                                    mb: { md: 0, sm: 4, xs: 4 },
                                 }}
                             >
                                 <Typography
-                                    variant="h2"
                                     sx={{
                                         mt: { md: 5, sm: 2 },
-                                        fontSize: { xs: '24px', sm: '32px' },
+                                        fontSize: {
+                                            md: '46px',
+                                            xs: '24px',
+                                            sm: '32px',
+                                        },
+                                        fontWeight: '700',
+                                        lineHeight: '1.2',
+                                        fontFamily: 'Poppins, sans-serif',
                                     }}
-                                    style={{ color: '#5d3f6a' }}
                                 >
-                                    BUY & SELL
+                                    Buy and sell your products with good price.
                                 </Typography>
                                 <Typography
                                     variant="subtitle2"
                                     sx={{
-                                        mt: { md: 2.5, xs: 1 },
+                                        pt: { md: 2 },
+                                        pb: { md: 1 },
+                                        mt: { md: 2.5, xs: 3 },
                                         mb: { md: 4, xs: 3 },
+                                        textAlign: { xm: 'justify' },
+                                        fontSize: {
+                                            md: '16px',
+                                            // xs: '24px',
+                                            // sm: '32px',
+                                        },
+                                        fontWeight: 'normal',
+                                        lineHeight: '24px',
+                                        fontFamily: 'Poppins, sans-serif',
                                     }}
                                 >
                                     Replace your products by purchasing and
-                                    selling them to customers. Going through the
-                                    process, make money as well as decorate your
-                                    room with beautiful set-up of new products.
+                                    selling them. make money and decorate your
+                                    rooms with super new set-up
                                 </Typography>
-                                <MyButton size="small">
-                                    Request for the deal
-                                </MyButton>
+                                <button
+                                    onClick={handleDealButton}
+                                    className="button-62"
+                                    role="button"
+                                >
+                                    Deal With Your Need
+                                </button>
                             </Box>
                         </Grid>
                         <Grid
@@ -275,11 +365,8 @@ export default function Banners() {
                             xs={12}
                             item
                             sx={{
-                                height: {
-                                    md: 450,
-                                    sm: 350,
-                                    xs: 300,
-                                },
+                                mb: { md: 0, sm: 4, xs: 2 },
+                                height: { md: 450, sm: 350, xs: 300 },
                             }}
                         >
                             <BannerLottie4 />

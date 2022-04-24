@@ -113,6 +113,7 @@ const AllService = () => {
                                     through this website
                                 </Typography>
                             </CardContent>
+
                             <CardActions
                                 sx={{
                                     display: 'flex',
@@ -128,6 +129,7 @@ const AllService = () => {
                             </CardActions>
                         </Card>
                     </Grid>
+
                     <Grid item xs={12} sm={6} md={4} lg={3}>
                         <Card
                             sx={{

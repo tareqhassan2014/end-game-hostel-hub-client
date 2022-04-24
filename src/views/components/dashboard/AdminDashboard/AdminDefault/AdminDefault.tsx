@@ -14,19 +14,21 @@ const AdminDefault = () => {
             name: 'Available Sit',
             total: 8,
             icon: HotelIcon,
-            color: ['#66BB6A', '#43A047'],
+
+            color: ['#EC407A', '#D81B60'],
         },
         {
             name: 'Total Due',
             total: 3700,
             icon: AttachMoneyIcon,
-            color: ['#49a3f1', '#1A73E8'],
+
+            color: ['#66BB6A', '#43A047'],
         },
         {
             name: 'Total Cost',
             total: 28000,
             icon: MonetizationOnIcon,
-            color: ['#EC407A', '#D81B60'],
+            color: ['#49a3f1', '#1A73E8'],
         },
     ];
 
