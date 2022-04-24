@@ -23,7 +23,7 @@ const VendorDefault = () => {
         },
         {
             name: 'Sell Rate',
-            total: '280%',
+            total: '20%',
             icon: SsidChartRoundedIcon,
             color: ['#49a3f1', '#1A73E8'],
         },
