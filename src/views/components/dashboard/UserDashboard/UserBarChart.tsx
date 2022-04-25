@@ -24,7 +24,7 @@ const UserBarChart = () => {
         plugins: {
             title: {
                 display: true,
-                text: 'Last 7 Days Total Meal Cost & Meal Rate',
+                text: 'Last 7 Days Total Bills  & Bills Rate',
             },
         },
         responsive: true,
@@ -45,38 +45,38 @@ const UserBarChart = () => {
     const labels = [
         {
             day: 'Sat',
-            cost: 1200,
-            rate: 85,
+            cost: 1300,
+            rate: 95,
         },
         {
             day: 'Sun',
-            cost: 1570,
-            rate: 70,
+            cost: 1470,
+            rate: 50,
         },
         {
             day: 'Mon',
-            cost: 900,
-            rate: 75,
+            cost: 1000,
+            rate: 85,
         },
         {
             day: 'Thu',
-            cost: 1100,
-            rate: 90,
+            cost: 800,
+            rate: 70,
         },
         {
             day: 'Wed',
-            cost: 1470,
-            rate: 65,
+            cost: 1170,
+            rate: 90,
         },
         {
             day: 'Thu',
-            cost: 1600,
-            rate: 100,
+            cost: 1700,
+            rate: 120,
         },
         {
             day: 'Fri',
-            cost: 1900,
-            rate: 85,
+            cost: 1950,
+            rate: 75,
         },
     ];
 
@@ -84,14 +84,14 @@ const UserBarChart = () => {
         labels: labels.map((day) => day.day),
         datasets: [
             {
-                label: 'Total Cost',
+                label: 'Total Expenses',
                 data: labels.map((day) => day.cost),
                 backgroundColor: 'rgba(57, 162, 117)',
                 stack: 'Stack 1',
             },
 
             {
-                label: 'Meal Rate',
+                label: 'Bills Rate',
                 data: labels.map((day) => day.rate),
                 backgroundColor: 'rgb(143, 58, 132)',
                 stack: 'Stack 2',
