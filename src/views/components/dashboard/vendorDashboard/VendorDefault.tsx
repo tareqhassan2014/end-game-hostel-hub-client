@@ -27,7 +27,7 @@ const VendorDefault = () => {
             name: 'Sell Rate',
             total: '20%',
             icon: SsidChartRoundedIcon,
-            link: 'dashboard',
+
             color: ['#49a3f1', '#1A73E8'],
         },
     ];

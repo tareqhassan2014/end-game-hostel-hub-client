@@ -17,14 +17,9 @@ const columns: GridColDef[] = [
         description: 'This column has a value getter and is not sortable.',
         sortable: false,
         width: 100,
-        valueGetter: (params: GridValueGetterParams) => `Pending`,
+        valueGetter: (params: GridValueGetterParams) => `Confirmed`,
     },
-    {
-        field: 'confirm',
-        headerName: 'Confirm',
-        type: 'number',
-        width: 90,
-    },
+
     {
         field: 'delete',
         headerName: 'Remove',
@@ -39,7 +34,7 @@ const rows = [
         lastName: '+8801736919983',
         firstName: 'rashidulislam.official1@gmail.com',
         age: 'Pay $66',
-        confirm: 'Approve',
+
         delete: 'X',
     },
     {
@@ -47,7 +42,7 @@ const rows = [
         lastName: '+8801736919983',
         firstName: 'rashidulislam.official1@gmail.com',
         age: 'Pay $66',
-        confirm: 'Approve',
+
         delete: 'X',
     },
     {
@@ -55,7 +50,7 @@ const rows = [
         lastName: '+8801736919983',
         firstName: 'rashidulislam.official1@gmail.com',
         age: 'Pay $66',
-        confirm: 'Approve',
+
         delete: 'X',
     },
     {
@@ -63,7 +58,7 @@ const rows = [
         lastName: '+8801736919983',
         firstName: 'rashidulislam.official1@gmail.com',
         age: 'Pay $66',
-        confirm: 'Approve',
+
         delete: 'X',
     },
     {
@@ -71,7 +66,7 @@ const rows = [
         lastName: '+8801736919983',
         firstName: 'rashidulislam.official1@gmail.com',
         age: 'Pay $66',
-        confirm: 'Approve',
+
         delete: 'X',
     },
     {
@@ -79,7 +74,7 @@ const rows = [
         lastName: '+8801736919983',
         firstName: 'rashidulislam.official1@gmail.com',
         age: 'Pay $66',
-        confirm: 'Approve',
+
         delete: 'X',
     },
     {
@@ -87,7 +82,7 @@ const rows = [
         lastName: '+8801736919983',
         firstName: 'rashidulislam.official1@gmail.com',
         age: 'Pay $66',
-        confirm: 'Approve',
+
         delete: 'X',
     },
     {
@@ -95,7 +90,7 @@ const rows = [
         lastName: '+8801736919983',
         firstName: 'rashidulislam.official1@gmail.com',
         age: 'Pay $66',
-        confirm: 'Approve',
+
         delete: 'X',
     },
     {
@@ -103,7 +98,7 @@ const rows = [
         lastName: '+8801736919983',
         firstName: 'rashidulislam.official1@gmail.com',
         age: 'Pay $66',
-        confirm: 'Approve',
+
         delete: 'X',
     },
     {
@@ -111,7 +106,7 @@ const rows = [
         lastName: '+8801736919983',
         firstName: 'rashidulislam.official1@gmail.com',
         age: 'Pay $66',
-        confirm: 'Approve',
+
         delete: 'X',
     },
 ];
