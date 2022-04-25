@@ -41,6 +41,10 @@ const pages = [
         page: 'Discover',
         link: '/discover',
     },
+    {
+        page: 'ProductDetails',
+        link: '/productDetails',
+    },
 ];
 
 const settings = [
