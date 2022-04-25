@@ -2,6 +2,7 @@ const BannerLottie1 = () => {
     return (
         <lottie-player
             src="https://assets5.lottiefiles.com/packages/lf20_2gfeptkg.json"
+            // src="https://assets5.lottiefiles.com/packages/lf20_6jpqb5mu.json"
             background="transparent"
             speed="1"
             loop
