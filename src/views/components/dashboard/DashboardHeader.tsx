@@ -3,7 +3,7 @@ import { Box, styled } from '@mui/system';
 import { useDispatch } from 'react-redux';
 import { toggleFullSideBar } from 'src/app/slices/theme/themeSlice';
 import useThemeAndLayout from 'src/hooks/useThemeAndLayout';
-import AvatarMenu from './MatxMenu';
+import AvatarMenu from './AvatarMenu';
 
 const StyledIconButton = styled(IconButton)(({ theme }) => ({
     color: theme.palette.text.primary,
