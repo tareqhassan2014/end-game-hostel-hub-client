@@ -72,7 +72,7 @@ const UserVerticalNav = () => {
             </ListItemButton>
             <Collapse in={open} timeout="auto" unmountOnExit>
                 <List component="div" disablePadding>
-                    <ListItemButton
+                    {/* <ListItemButton
                         sx={{
                             pl: sideNavWidth === 80 ? 2 : 4,
                             borderRadius: 4,
@@ -83,7 +83,7 @@ const UserVerticalNav = () => {
                             <ManageAccountsIcon sx={{ color: 'white' }} />
                         </ListItemIcon>
                         <ListItemText primary="Meal" />
-                    </ListItemButton>
+                    </ListItemButton> */}
                     <ListItemButton
                         sx={{
                             pl: sideNavWidth === 80 ? 2 : 4,

@@ -3,6 +3,7 @@ import AdminDefault from 'src/views/components/dashboard/AdminDashboard/AdminDef
 import AdminProfile from 'src/views/components/dashboard/AdminDashboard/AdminProfile/AdminProfile';
 import ManageModerator from 'src/views/components/dashboard/AdminDashboard/ManageModerator/ManageModerator';
 import ModeratorDefault from 'src/views/components/dashboard/moderatorDashboard/ModeratorDefault';
+import UserBills from 'src/views/components/dashboard/UserDashboard/UserBills';
 import UserDefault from 'src/views/components/dashboard/UserDashboard/UserDefault';
 import UserMeal from 'src/views/components/dashboard/UserDashboard/UserMeal';
 import {
@@ -52,6 +53,11 @@ export const dashboardRoutes = [
     {
         path: 'meal',
         element: UserMeal,
+        role: ['user'],
+    },
+    {
+        path: 'bills',
+        element: UserBills,
         role: ['user'],
     },
     {

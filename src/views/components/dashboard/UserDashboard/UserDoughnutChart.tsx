@@ -1,8 +1,10 @@
 import React from 'react';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
-import { Pie } from 'react-chartjs-2';
-const UserPiChart = () => {
-    ChartJS.register(ArcElement, Tooltip, Legend);
+import { Doughnut } from 'react-chartjs-2';
+
+ChartJS.register(ArcElement, Tooltip, Legend);
+
+const UserDoughnutChart = () => {
     const labels = [
         {
             name: 'Chicken',
@@ -35,26 +37,26 @@ const UserPiChart = () => {
         },
     ];
 
-    const myLabel = labels.map((item) => item.name);
+    const myLabels = labels.map((label) => label.name);
+    const myLabels2 = labels.map((label) => label.percentage);
 
     const data = {
-        labels: [...myLabel],
-
+        labels: [...myLabels],
         datasets: [
             {
                 label: '# of Votes',
-                data: labels.map((item) => item.percentage),
+                data: [...myLabels2],
                 backgroundColor: [
-                    'rgba(9, 147, 196)',
-                    'rgba(0, 199, 18)',
-                    'rgba(76, 35, 133)',
-                    'rgba(36, 66, 208)',
-                    'rgba(70, 211, 162)',
-                    'rgba(167, 41, 55)',
+                    'rgba(9, 147, 196, .6)',
+                    'rgba(0, 199, 18, .6)',
+                    'rgba(76, 35, 133, .6)',
+                    'rgba(36, 66, 208, .6)',
+                    'rgba(70, 211, 162, .6)',
+                    'rgba(167, 41, 55, .6)',
                 ],
                 borderColor: [
                     'rgba(9, 147, 196, 1)',
-                    '	 rgba(0, 199, 18, 0.76)',
+                    'rgba(0, 199, 18, 1)',
                     'rgba(76, 35, 133, 1)',
                     'rgba(36, 66, 208, 1)',
                     'rgba(70, 211, 162, 1)',
@@ -65,7 +67,7 @@ const UserPiChart = () => {
         ],
     };
 
-    return <Pie data={data} height={20} />;
+    return <Doughnut data={data} />;
 };
 
-export default UserPiChart;
+export default UserDoughnutChart;

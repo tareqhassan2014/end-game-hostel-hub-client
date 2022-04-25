@@ -64,6 +64,6 @@
     "editor.minimap.enabled": false,
     "workbench.editor.untitled.hint": "hidden",
     "javascript.updateImportsOnFileMove.enabled": "always",
-    "window.zoomLevel": 0,
+    "window.zoomLevel": 1,
     "cSpell.words": ["Configurator", "Roboto", "Sidenav", "Swiper"]
 }

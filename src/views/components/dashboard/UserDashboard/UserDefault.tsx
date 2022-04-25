@@ -10,6 +10,7 @@ import { Divider } from '@mui/material';
 import UserLineChart from './UserLineChart';
 import UserBarChart from './UserBarChart';
 import UserPiChart from './UserPiChart';
+import UserDoughnutChart from './UserDoughnutChart';
 
 const UserDefault = () => {
     const smallCartData = [
@@ -111,11 +112,12 @@ const UserDefault = () => {
                 <Grid container spacing={2}>
                     <Grid item xs={12} md={7}>
                         <UserLineChart />
-                        <UserBarChart />
+                        {/* <UserBarChart /> */}
                     </Grid>
                     <Grid item xs={12} md={5}>
                         <Box sx={{ width: '90%', mx: 'auto', mt: '15px' }}>
-                            <UserPiChart />
+                            {/* <UserPiChart /> */}
+                            <UserDoughnutChart />
                         </Box>
                     </Grid>
                 </Grid>

@@ -1,7 +1,12 @@
 import React from 'react';
+import UserDefault from './UserDefault';
 
 const UserProfile = () => {
-    return <div>User Profile</div>;
+    return (
+        <div>
+            <UserDefault></UserDefault>
+        </div>
+    );
 };
 
 export default UserProfile;

@@ -36,7 +36,7 @@ const options = {
         },
         title: {
             display: true,
-            text: 'Last 12 Months Total Expenses And Total Meals',
+            text: 'Last 12 Months Total Expenses And Total Bills',
         },
     },
 };
