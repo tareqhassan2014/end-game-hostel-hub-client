@@ -6,32 +6,32 @@ const UserPiChart = () => {
     const labels = [
         {
             name: 'Chicken',
-            percentange: 30,
+            percentage: 30,
         },
 
         {
             name: 'Beef',
-            percentange: 10,
+            percentage: 10,
         },
 
         {
             name: 'Mutton',
-            percentange: 10,
+            percentage: 10,
         },
 
         {
             name: 'Fish',
-            percentange: 30,
+            percentage: 30,
         },
 
         {
             name: 'Dall',
-            percentange: 5,
+            percentage: 5,
         },
 
         {
             name: 'Others',
-            percentange: 15,
+            percentage: 15,
         },
     ];
 
@@ -43,7 +43,7 @@ const UserPiChart = () => {
         datasets: [
             {
                 label: '# of Votes',
-                data: labels.map((item) => item.percentange),
+                data: labels.map((item) => item.percentage),
                 backgroundColor: [
                     'rgba(9, 147, 196)',
                     ' rgba(0, 199, 18)',
