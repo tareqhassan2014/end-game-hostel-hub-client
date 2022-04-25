@@ -178,15 +178,15 @@ export default function SignUp() {
                         </Grid>
                     </Grid>
                     <Grid container>
-                        <Grid sm={12} md={12}>
+                        <Grid md={6}>
                             <button
                                 style={{
                                     margin: '5px auto',
                                     display: 'flex',
                                     justifyContent: 'space-between',
                                     alignItems: 'center',
-                                    borderRadius: '70px',
-                                    width: '70%',
+                                    borderRadius: '3px',
+                                    width: '100px',
                                     height: '30px',
                                     cursor: 'pointer',
                                     outline: 'none',
@@ -198,23 +198,23 @@ export default function SignUp() {
                                 <span
                                     style={{
                                         fontSize: '10px',
-                                        marginRight: '50px',
+                                        marginRight: '10px',
                                         fontWeight: 'bold',
                                     }}
                                 >
-                                    Continue with Google
+                                    Google
                                 </span>
                             </button>{' '}
                         </Grid>
-                        <Grid sm={12} md={12}>
+                        <Grid md={6}>
                             <button
                                 style={{
                                     margin: '0 auto',
                                     display: 'flex',
                                     justifyContent: 'space-between',
                                     alignItems: 'center',
-                                    borderRadius: '70px',
-                                    width: '70%',
+                                    borderRadius: '3px',
+                                    width: '100px',
                                     height: '30px',
                                     cursor: 'pointer',
                                     outline: 'none',
@@ -226,11 +226,11 @@ export default function SignUp() {
                                 <span
                                     style={{
                                         fontSize: '10px',
-                                        marginRight: '50px',
+                                        marginRight: '10px',
                                         fontWeight: 'bold',
                                     }}
                                 >
-                                    Continue with facebook
+                                    Facebook
                                 </span>
                             </button>{' '}
                         </Grid>
