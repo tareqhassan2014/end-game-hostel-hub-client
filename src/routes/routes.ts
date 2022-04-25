@@ -1,5 +1,6 @@
 import { lazy } from 'react';
 import AboutOurTeam from 'src/views/pages/AboutOurTeam/AboutOurTeam';
+import ProductDetails from 'src/views/pages/discover/ProductDetails';
 import SearchGroceries from 'src/views/pages/SearchGroceries/SearchGroceries';
 import SearchItem from 'src/views/pages/SearchItem/SearchItem';
 import SearchOldItems from 'src/views/pages/SearchOldItems/SearchOldItems';
@@ -44,6 +45,10 @@ export const openRoutes = [
     {
         path: '/discover',
         element: Discover,
+    },
+    {
+        path: '/productDetails',
+        element: ProductDetails,
     },
     {
         path: '/search-hostel',
