@@ -74,7 +74,7 @@ export default function SignUp() {
                     component="form"
                     onSubmit={handleSubmit(onSubmit)}
                     noValidate
-                    sx={{ mt: 1 }}
+                    sx={{ mt: 1, width: '320px' }}
                 >
                     <TextField
                         required
@@ -145,7 +145,7 @@ export default function SignUp() {
                     </Box>
 
                     <FormControlLabel
-                        sx={{ mt: 0 }}
+                        sx={{ mt: -2 }}
                         control={<Checkbox value="remember" color="primary" />}
                         label="Show password"
                         onClick={() => setShow(!show)}
@@ -178,7 +178,14 @@ export default function SignUp() {
                         </Grid>
                     </Grid>
                     <Grid container>
-                        <Grid md={6}>
+                        <Box
+                            sx={{
+                                width: '310px',
+                                display: 'flex',
+                                justifyContent: 'space-between',
+                                marginTop: '20px',
+                            }}
+                        >
                             <button
                                 style={{
                                     margin: '5px auto',
@@ -186,54 +193,52 @@ export default function SignUp() {
                                     justifyContent: 'space-between',
                                     alignItems: 'center',
                                     borderRadius: '3px',
-                                    width: '100px',
+                                    width: '140px',
                                     height: '30px',
                                     cursor: 'pointer',
                                     outline: 'none',
-                                    border: '1px solid lightgray',
+                                    border: 'none',
                                 }}
                                 onClick={firebaseGoogle}
                             >
                                 <img width="20px" src={google} alt="" />
                                 <span
                                     style={{
-                                        fontSize: '10px',
-                                        marginRight: '10px',
+                                        fontSize: '13px',
+                                        marginRight: '30px',
                                         fontWeight: 'bold',
                                     }}
                                 >
                                     Google
                                 </span>
-                            </button>{' '}
-                        </Grid>
-                        <Grid md={6}>
+                            </button>
                             <button
                                 style={{
-                                    margin: '0 auto',
+                                    margin: '5px auto',
                                     display: 'flex',
                                     justifyContent: 'space-between',
                                     alignItems: 'center',
                                     borderRadius: '3px',
-                                    width: '100px',
+                                    width: '140px',
                                     height: '30px',
                                     cursor: 'pointer',
                                     outline: 'none',
-                                    border: '1px solid lightgray',
+                                    border: 'none',
                                 }}
                                 onClick={firebaseFacebook}
                             >
                                 <img width="20px" src={facebook} alt="" />
                                 <span
                                     style={{
-                                        fontSize: '10px',
-                                        marginRight: '10px',
+                                        fontSize: '13px',
+                                        marginRight: '30px',
                                         fontWeight: 'bold',
                                     }}
                                 >
                                     Facebook
                                 </span>
-                            </button>{' '}
-                        </Grid>
+                            </button>
+                        </Box>
                     </Grid>
                 </Box>
             </Box>

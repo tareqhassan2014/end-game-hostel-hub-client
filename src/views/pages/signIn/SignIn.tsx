@@ -56,7 +56,7 @@ export default function SignIn() {
             <Box
                 sx={{
                     marginTop: 5,
-                    marginBottom: 5,
+                    marginBottom: 8,
                     display: 'flex',
                     flexDirection: 'column',
                     alignItems: 'center',
@@ -65,14 +65,18 @@ export default function SignIn() {
                 <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
                     <LockOutlinedIcon />
                 </Avatar>
-                <Typography component="h1" variant="h5">
+                <Typography
+                    component="h1"
+                    sx={{ fontWeight: 'bold' }}
+                    variant="h5"
+                >
                     Sign In
                 </Typography>
                 <Box
                     component="form"
                     onSubmit={handleSubmit(onSubmit)}
                     noValidate
-                    sx={{ mt: 1 }}
+                    sx={{ mt: 0, width: '310px' }}
                 >
                     <TextField
                         required
@@ -141,7 +145,14 @@ export default function SignIn() {
                     </Grid>
 
                     <Grid container>
-                        <Grid md={6}>
+                        <Box
+                            sx={{
+                                width: '310px',
+                                display: 'flex',
+                                justifyContent: 'space-between',
+                                marginTop: '20px',
+                            }}
+                        >
                             <button
                                 style={{
                                     margin: '5px auto',
@@ -149,54 +160,52 @@ export default function SignIn() {
                                     justifyContent: 'space-between',
                                     alignItems: 'center',
                                     borderRadius: '3px',
-                                    width: '100px',
+                                    width: '140px',
                                     height: '30px',
                                     cursor: 'pointer',
                                     outline: 'none',
-                                    border: '1px solid lightgray',
+                                    border: 'none',
                                 }}
                                 onClick={firebaseGoogle}
                             >
                                 <img width="20px" src={google} alt="" />
                                 <span
                                     style={{
-                                        fontSize: '10px',
-                                        marginRight: '10px',
+                                        fontSize: '13px',
+                                        marginRight: '30px',
                                         fontWeight: 'bold',
                                     }}
                                 >
                                     Google
                                 </span>
-                            </button>{' '}
-                        </Grid>
-                        <Grid md={6}>
+                            </button>
                             <button
                                 style={{
-                                    margin: '0 auto',
+                                    margin: '5px auto',
                                     display: 'flex',
                                     justifyContent: 'space-between',
                                     alignItems: 'center',
                                     borderRadius: '3px',
-                                    width: '100px',
+                                    width: '140px',
                                     height: '30px',
                                     cursor: 'pointer',
                                     outline: 'none',
-                                    border: '1px solid lightgray',
+                                    border: 'none',
                                 }}
                                 onClick={firebaseFacebook}
                             >
                                 <img width="20px" src={facebook} alt="" />
                                 <span
                                     style={{
-                                        fontSize: '10px',
-                                        marginRight: '10px',
+                                        fontSize: '13px',
+                                        marginRight: '30px',
                                         fontWeight: 'bold',
                                     }}
                                 >
                                     Facebook
                                 </span>
-                            </button>{' '}
-                        </Grid>
+                            </button>
+                        </Box>
                     </Grid>
                 </Box>
             </Box>
