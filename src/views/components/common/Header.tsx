@@ -38,28 +38,8 @@ const pages = [
         link: '/dashboard',
     },
     {
-        page: 'PostAvailableSit',
-        link: '/postAvailableSit',
-    },
-    {
-        page: 'Search',
-        link: '/search-hostel',
-    },
-    {
-        page: 'OldItems',
-        link: '/search-old-items',
-    },
-    {
-        page: 'Groceries',
-        link: '/search-groceries',
-    },
-    {
-        page: 'TableData',
-        link: '/userData',
-    },
-    {
-        page: 'ChartData',
-        link: '/userChart',
+        page: 'Discover',
+        link: '/discover',
     },
 ];
 

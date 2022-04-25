@@ -1,7 +1,9 @@
 import { Avatar, Hidden, Icon, Menu, MenuItem } from '@mui/material';
 import { Box, styled } from '@mui/system';
 import React, { Fragment } from 'react';
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { logOut } from 'src/app/slices/auth/authSlice';
 import useAuth from 'src/hooks/useAuth';
 
 const MenuButton = styled(Box)(({ theme }) => ({
@@ -40,6 +42,7 @@ const StyledItem = styled(MenuItem)(({ theme }) => ({
 }));
 
 const AvatarMenu: React.FC = (props) => {
+    const dispatch = useDispatch();
     const { user } = useAuth();
     const children = React.Children.toArray(props.children);
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -99,7 +102,7 @@ const AvatarMenu: React.FC = (props) => {
                     <Icon> settings </Icon>
                     <span> Settings </span>
                 </StyledItem>
-                <StyledItem>
+                <StyledItem onClick={() => dispatch(logOut())}>
                     <Icon> power_settings_new </Icon>
                     <span> Logout </span>
                 </StyledItem>

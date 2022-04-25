@@ -1,13 +1,8 @@
 import { lazy } from 'react';
-import { Chart } from 'src/views/components/dashboard/common/Chart';
-import Table from 'src/views/components/dashboard/common/Table';
 import AboutOurTeam from 'src/views/pages/AboutOurTeam/AboutOurTeam';
-import PostAvailableSit from 'src/views/pages/PostAvailableSit/PostAvailableSit';
 import SearchGroceries from 'src/views/pages/SearchGroceries/SearchGroceries';
 import SearchItem from 'src/views/pages/SearchItem/SearchItem';
 import SearchOldItems from 'src/views/pages/SearchOldItems/SearchOldItems';
-import AdminSignup from '../views/components/signUp/AdminSignup';
-import VendorSignup from '../views/components/signUp/VendorSignup';
 import SignUp from '../views/pages/signup/SignUp';
 
 const Home = lazy(() => import('../views/pages/home/Home'));
@@ -51,18 +46,6 @@ export const openRoutes = [
         element: Discover,
     },
     {
-        path: '/postAvailableSit',
-        element: PostAvailableSit,
-    },
-    {
-        path: '/admin-signup',
-        element: AdminSignup,
-    },
-    {
-        path: '/vendor-signup',
-        element: VendorSignup,
-    },
-    {
         path: '/search-hostel',
         element: SearchItem,
     },
@@ -79,11 +62,7 @@ export const openRoutes = [
         element: SearchGroceries,
     },
     {
-        path: '/userData',
-        element: Table,
-    },
-    {
-        path: '/userChart',
-        element: Chart,
+        path: 'discover',
+        element: Discover,
     },
 ];
