@@ -10,7 +10,10 @@ import {
     default as UserProfile,
 } from 'src/views/components/dashboard/UserDashboard/UserProfile';
 import AddProduct from 'src/views/components/dashboard/vendorDashboard/AddProduct';
+import ConfirmOrder from 'src/views/components/dashboard/vendorDashboard/ConfirmOrder';
 import ManageOrder from 'src/views/components/dashboard/vendorDashboard/ManageOrder';
+import ManageProduct from 'src/views/components/dashboard/vendorDashboard/ManageProduct';
+import PendingOrder from 'src/views/components/dashboard/vendorDashboard/PendingOrder';
 import VendorDefault from 'src/views/components/dashboard/vendorDashboard/VendorDefault';
 
 export const dashboardRoutes = [
@@ -81,6 +84,16 @@ export const dashboardRoutes = [
         role: ['vendor'],
     },
     {
+        path: 'pendingOrder',
+        element: PendingOrder,
+        role: ['vendor'],
+    },
+    {
+        path: 'confirmOrder',
+        element: ConfirmOrder,
+        role: ['vendor'],
+    },
+    {
         path: 'addProduct',
         element: AddProduct,
         role: ['vendor'],
@@ -88,6 +101,11 @@ export const dashboardRoutes = [
     {
         path: 'product',
         element: ManageOrder,
+        role: ['vendor'],
+    },
+    {
+        path: 'manageProduct',
+        element: ManageProduct,
         role: ['vendor'],
     },
 ];
