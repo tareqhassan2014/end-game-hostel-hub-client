@@ -3,7 +3,6 @@ import LoadingButton from '@mui/lab/LoadingButton';
 import {
     Avatar,
     Box,
-    Button,
     Checkbox,
     Container,
     CssBaseline,
@@ -18,6 +17,8 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import { Link as DomLink } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { useSignUpMutation } from '../../../app/api';
+import google from '../../../assets/images/1534129544.svg';
+import facebook from '../../../assets/images/facebook-svgrepo-com.svg';
 import useFirebase from '../../../hooks/firebase/useFirebase';
 
 type Inputs = {
@@ -56,7 +57,8 @@ export default function SignUp() {
             <CssBaseline />
             <Box
                 sx={{
-                    marginTop: 8,
+                    marginTop: 5,
+                    marginBottom: 5,
                     display: 'flex',
                     flexDirection: 'column',
                     alignItems: 'center',
@@ -143,6 +145,7 @@ export default function SignUp() {
                     </Box>
 
                     <FormControlLabel
+                        sx={{ mt: 0 }}
                         control={<Checkbox value="remember" color="primary" />}
                         label="Show password"
                         onClick={() => setShow(!show)}
@@ -151,7 +154,7 @@ export default function SignUp() {
                         type="submit"
                         fullWidth
                         variant="contained"
-                        sx={{ mt: 3, mb: 2 }}
+                        sx={{ mt: 1, mb: 1 }}
                         loading={isLoading}
                     >
                         Sign In
@@ -159,21 +162,77 @@ export default function SignUp() {
                     <Grid container>
                         <Grid item xs>
                             <Link href="#" variant="body2">
-                                Forgot password?
+                                {/* Forgot password? */}
                             </Link>
                         </Grid>
                         <Grid item>
-                            <DomLink to="/login">
+                            <DomLink
+                                style={{
+                                    textDecoration: 'none',
+                                    fontSize: '13px',
+                                }}
+                                to="/login"
+                            >
                                 Already Have a Account? login
                             </DomLink>
                         </Grid>
                     </Grid>
                     <Grid container>
-                        <Grid item>
-                            <Button onClick={firebaseGoogle}>Google</Button>
+                        <Grid sm={12} md={12}>
+                            <button
+                                style={{
+                                    margin: '5px auto',
+                                    display: 'flex',
+                                    justifyContent: 'space-between',
+                                    alignItems: 'center',
+                                    borderRadius: '70px',
+                                    width: '70%',
+                                    height: '30px',
+                                    cursor: 'pointer',
+                                    outline: 'none',
+                                    border: '1px solid lightgray',
+                                }}
+                                onClick={firebaseGoogle}
+                            >
+                                <img width="20px" src={google} alt="" />
+                                <span
+                                    style={{
+                                        fontSize: '10px',
+                                        marginRight: '50px',
+                                        fontWeight: 'bold',
+                                    }}
+                                >
+                                    Continue with Google
+                                </span>
+                            </button>{' '}
                         </Grid>
-                        <Grid item>
-                            <Button onClick={firebaseFacebook}>Facebook</Button>
+                        <Grid sm={12} md={12}>
+                            <button
+                                style={{
+                                    margin: '0 auto',
+                                    display: 'flex',
+                                    justifyContent: 'space-between',
+                                    alignItems: 'center',
+                                    borderRadius: '70px',
+                                    width: '70%',
+                                    height: '30px',
+                                    cursor: 'pointer',
+                                    outline: 'none',
+                                    border: '1px solid lightgray',
+                                }}
+                                onClick={firebaseFacebook}
+                            >
+                                <img width="20px" src={facebook} alt="" />
+                                <span
+                                    style={{
+                                        fontSize: '10px',
+                                        marginRight: '50px',
+                                        fontWeight: 'bold',
+                                    }}
+                                >
+                                    Continue with facebook
+                                </span>
+                            </button>{' '}
                         </Grid>
                     </Grid>
                 </Box>
