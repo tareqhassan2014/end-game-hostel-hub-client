@@ -1,6 +1,6 @@
 import GetAppIcon from '@mui/icons-material/GetApp';
 import { Box, Button, Grid, Typography } from '@mui/material';
-import { Autoplay } from 'swiper';
+import SwiperCore, { Autoplay } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/free-mode';
 import 'swiper/css/navigation';
@@ -9,6 +9,7 @@ import 'swiper/css/thumbs';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 const FeatureApp = () => {
+    SwiperCore.use([Autoplay]);
     const myStyle = {
         backgroundImage:
             "url('https://i.ibb.co/SBsYjnc/background-1409125-960-720.png')",
