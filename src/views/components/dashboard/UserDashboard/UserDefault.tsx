@@ -1,6 +1,9 @@
 import React from 'react';
 import { Box, Grid, Paper, Typography } from '@mui/material';
 import FastfoodIcon from '@mui/icons-material/Fastfood';
+import RamenDiningIcon from '@mui/icons-material/RamenDining';
+import BrunchDiningIcon from '@mui/icons-material/BrunchDining';
+import AccountBalanceWalletIcon from '@mui/icons-material/AccountBalanceWallet';
 import LunchDiningIcon from '@mui/icons-material/LunchDining';
 import DinnerDiningIcon from '@mui/icons-material/DinnerDining';
 import { Divider } from '@mui/material';
@@ -11,25 +14,25 @@ import UserPiChart from './UserPiChart';
 const UserDefault = () => {
     const smallCartData = [
         {
-            name: 'Morning Total Meal',
+            name: 'Current Month Meals',
             total: 21,
-            icon: FastfoodIcon,
+            icon: RamenDiningIcon,
             color: ['#FF0099', '#3b8d99'],
-            difarence: 5,
+            difference: 8,
         },
         {
-            name: 'Mid Day Total Meal',
+            name: 'Last Month Meals',
             total: 18,
-            icon: LunchDiningIcon,
+            icon: BrunchDiningIcon,
             color: ['#4286f4', '#373B44'],
-            difarence: 5,
+            difference: 6,
         },
         {
-            name: 'Night Total Meal',
+            name: 'Last Month Bills',
             total: 27,
-            icon: DinnerDiningIcon,
+            icon: AccountBalanceWalletIcon,
             color: ['#2193b0', '#6dd5ed'],
-            difarence: 5,
+            difference: 3,
         },
     ];
 
@@ -93,7 +96,7 @@ const UserDefault = () => {
                                             }}
                                         >
                                             {' '}
-                                            {meal.difarence}%
+                                            {meal.difference}%
                                         </span>{' '}
                                         Than Last Day
                                     </Typography>
