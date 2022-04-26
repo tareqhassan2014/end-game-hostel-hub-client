@@ -3,13 +3,11 @@ import AdminDefault from 'src/views/components/dashboard/AdminDashboard/AdminDef
 import AdminProfile from 'src/views/components/dashboard/AdminDashboard/AdminProfile/AdminProfile';
 import ManageModerator from 'src/views/components/dashboard/AdminDashboard/ManageModerator/ManageModerator';
 import ModeratorDefault from 'src/views/components/dashboard/moderatorDashboard/ModeratorDefault';
+import Profile from 'src/views/components/dashboard/profile/Profile';
 import UserBills from 'src/views/components/dashboard/UserDashboard/UserBills';
 import UserDefault from 'src/views/components/dashboard/UserDashboard/UserDefault';
 import UserMeal from 'src/views/components/dashboard/UserDashboard/UserMeal';
-import {
-    default as ModeratorProfile,
-    default as UserProfile,
-} from 'src/views/components/dashboard/UserDashboard/UserProfile';
+import { default as ModeratorProfile } from 'src/views/components/dashboard/UserDashboard/UserProfile';
 import AddProduct from 'src/views/components/dashboard/vendorDashboard/AddProduct';
 import ConfirmOrder from 'src/views/components/dashboard/vendorDashboard/ConfirmOrder';
 import ManageOrder from 'src/views/components/dashboard/vendorDashboard/ManageOrder';
@@ -50,8 +48,8 @@ export const dashboardRoutes = [
     },
     {
         path: 'profile',
-        element: UserProfile,
-        role: ['user'],
+        element: Profile,
+        role: ['user', 'admin', 'grandAdmin', 'moderator', 'vendor', 'member'],
     },
     {
         path: 'meal',

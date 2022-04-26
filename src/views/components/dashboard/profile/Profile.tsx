@@ -1,18 +1,15 @@
 import AutoFixHighIcon from '@mui/icons-material/AutoFixHigh';
-import LocalGroceryStoreIcon from '@mui/icons-material/LocalGroceryStore';
-import MapsHomeWorkIcon from '@mui/icons-material/MapsHomeWork';
 import {
     Avatar,
     Button,
     Container,
     CssBaseline,
     Grid,
-    Paper,
     TextField,
     Typography,
 } from '@mui/material';
 import { useState } from 'react';
-import useAuth from '../../../hooks/useAuth';
+import useAuth from '../../../../hooks/useAuth';
 import CustomModal from './CustomModal';
 
 const Profile = () => {
@@ -105,7 +102,7 @@ const Profile = () => {
                             value={user.email}
                         />
 
-                        <Grid container sx={{ my: 3 }}>
+                        {/* <Grid container sx={{ my: 3 }}>
                             <Grid item md={6} xs={12} sx={{ pr: 2 }}>
                                 <Paper onClick={handleModalOpen} sx={{ pt: 3 }}>
                                     <Avatar
@@ -150,7 +147,7 @@ const Profile = () => {
                                     </Typography>
                                 </Paper>
                             </Grid>
-                        </Grid>
+                        </Grid> */}
                     </Grid>
                 </Grid>
             </Container>

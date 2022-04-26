@@ -9,7 +9,9 @@ import SignUp from '../views/pages/signup/SignUp';
 const Home = lazy(() => import('../views/pages/home/Home'));
 const SignIn = lazy(() => import('../views/pages/signIn/SignIn'));
 const Discover = lazy(() => import('../views/pages/discover/Discover'));
-const Profile = lazy(() => import('../views/pages/profile/Profile'));
+const Profile = lazy(
+    () => import('../views/components/dashboard/profile/Profile')
+);
 const Dashboard = lazy(() => import('../views/pages/dashboard/Dashboard'));
 
 export const protectedRoutes = [
