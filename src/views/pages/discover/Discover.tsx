@@ -11,83 +11,86 @@ import {
     Typography,
 } from '@mui/material';
 import { Box } from '@mui/system';
+import { useNavigate } from 'react-router-dom';
 
 const items = [
     {
         name: 'Hostel Name',
         price: 100,
-        location: 'Barir Pisona',
+        location: 'daulotpout, Khulna',
         rating: 5,
     },
     {
         name: 'Hostel Name',
         price: 100,
-        location: 'Barir Pisona',
+        location: 'daulotpout, Khulna',
         rating: 5,
     },
     {
         name: 'Hostel Name',
         price: 100,
-        location: 'Barir Pisona',
+        location: 'daulotpout, Khulna',
         rating: 5,
     },
     {
         name: 'Hostel Name',
         price: 100,
-        location: 'Barir Pisona',
+        location: 'daulotpout, Khulna',
         rating: 5,
     },
     {
         name: 'Hostel Name',
         price: 100,
-        location: 'Barir Pisona',
+        location: 'daulotpout, Khulna',
         rating: 5,
     },
     {
         name: 'Hostel Name',
         price: 100,
-        location: 'Barir Pisona',
+        location: 'daulotpout, Khulna',
         rating: 5,
     },
     {
         name: 'Hostel Name',
         price: 100,
-        location: 'Barir Pisona',
+        location: 'daulotpout, Khulna',
         rating: 5,
     },
     {
         name: 'Hostel Name',
         price: 100,
-        location: 'Barir Pisona',
+        location: 'daulotpout, Khulna',
         rating: 5,
     },
     {
         name: 'Hostel Name',
         price: 100,
-        location: 'Barir Pisona',
+        location: 'daulotpout, Khulna',
         rating: 5,
     },
     {
         name: 'Hostel Name',
         price: 100,
-        location: 'Barir Pisona',
+        location: 'daulotpout, Khulna',
         rating: 5,
     },
     {
         name: 'Hostel Name',
         price: 100,
-        location: 'Barir Pisona',
+        location: 'daulotpout, Khulna',
         rating: 5,
     },
     {
         name: 'Hostel Name',
         price: 100,
-        location: 'Barir Pisona',
+        location: 'daulotpout, Khulna',
         rating: 5,
     },
 ];
 
 const Discover = () => {
+    const navigate = useNavigate();
+
     return (
         <div>
             <Container sx={{ my: 5 }}>
@@ -111,7 +114,12 @@ const Discover = () => {
                 <Box
                     sx={{ display: 'flex', justifyContent: 'flex-end', mb: 1 }}
                 >
-                    <Button size="small">see more</Button>
+                    <Button
+                        size="small"
+                        onClick={() => navigate('/search-hostel')}
+                    >
+                        see more
+                    </Button>
                 </Box>
                 <Grid
                     sx={{
@@ -205,7 +213,12 @@ const Discover = () => {
                 <Box
                     sx={{ display: 'flex', justifyContent: 'flex-end', mb: 1 }}
                 >
-                    <Button size="small">see more</Button>
+                    <Button
+                        size="small"
+                        onClick={() => navigate('/search-old-items')}
+                    >
+                        see more
+                    </Button>
                 </Box>
                 <Grid
                     sx={{
@@ -269,7 +282,13 @@ const Discover = () => {
                                     <Button variant="outlined" size="small">
                                         Booking
                                     </Button>
-                                    <Button variant="outlined" size="small">
+                                    <Button
+                                        variant="outlined"
+                                        size="small"
+                                        onClick={() =>
+                                            navigate(`/product/${index}`)
+                                        }
+                                    >
                                         Details
                                     </Button>
                                 </CardActions>
@@ -299,7 +318,12 @@ const Discover = () => {
                 <Box
                     sx={{ display: 'flex', justifyContent: 'flex-end', mb: 1 }}
                 >
-                    <Button size="small">see more</Button>
+                    <Button
+                        size="small"
+                        onClick={() => navigate('/search-groceries')}
+                    >
+                        see more
+                    </Button>
                 </Box>
                 <Grid
                     sx={{

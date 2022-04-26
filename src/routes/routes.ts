@@ -47,7 +47,7 @@ export const openRoutes = [
         element: Discover,
     },
     {
-        path: '/productDetails',
+        path: '/product/:id',
         element: ProductDetails,
     },
     {
