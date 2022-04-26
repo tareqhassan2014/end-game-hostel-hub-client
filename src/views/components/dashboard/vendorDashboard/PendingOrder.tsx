@@ -116,7 +116,7 @@ const rows = [
     },
 ];
 
-export default function ManageOrder() {
+export default function PendingOrder() {
     return (
         <div style={{ height: '100%', width: '100%' }}>
             <DataGrid

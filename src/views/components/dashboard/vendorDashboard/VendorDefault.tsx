@@ -14,19 +14,20 @@ const VendorDefault = () => {
             total: 58,
             icon: CallReceivedRoundedIcon,
             color: ['#EC407A', '#D81B60'],
-            link: 'product',
+            link: 'pendingOrder',
         },
         {
             name: 'Confirm Order',
             total: 370,
             icon: CheckRoundedIcon,
-
+            link: 'confirmOrder',
             color: ['#66BB6A', '#43A047'],
         },
         {
             name: 'Sell Rate',
             total: '20%',
             icon: SsidChartRoundedIcon,
+
             color: ['#49a3f1', '#1A73E8'],
         },
     ];

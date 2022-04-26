@@ -80,6 +80,15 @@ const VendorVerticalNav = () => {
                 </ListItemIcon>
                 <ListItemText primary="Manage Order" />
             </ListItemButton>
+            <ListItemButton
+                sx={{ borderRadius: 4 }}
+                onClick={() => navigate('/dashboard/manageProduct')}
+            >
+                <ListItemIcon>
+                    <TaskAltIcon sx={{ color: 'white' }} />
+                </ListItemIcon>
+                <ListItemText primary="Manage Product" />
+            </ListItemButton>
 
             {/* <ListItemButton sx={{ borderRadius: 4 }} onClick={handleClick}>
                 <ListItemIcon>
