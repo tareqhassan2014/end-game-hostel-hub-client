@@ -46,7 +46,7 @@ const pages = [
 const settings = [
     {
         page: 'Profile',
-        link: '/profile',
+        link: 'dashboard/profile',
         icon: AccountCircleIcon,
     },
 

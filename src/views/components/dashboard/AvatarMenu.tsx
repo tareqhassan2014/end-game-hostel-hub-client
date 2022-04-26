@@ -93,7 +93,7 @@ const AvatarMenu: React.FC = (props) => {
                     </Link>
                 </StyledItem>
                 <StyledItem onClick={handleClose}>
-                    <Link to="/page-layouts/user-profile">
+                    <Link to="/dashboard/profile">
                         <Icon> person </Icon>
                         <span> Profile </span>
                     </Link>

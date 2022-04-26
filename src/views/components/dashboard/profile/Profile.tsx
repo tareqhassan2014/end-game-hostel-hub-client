@@ -18,7 +18,7 @@ const Profile = () => {
     const [openModal, setModalOpen] = useState(false);
     const handleModalOpen = () => setModalOpen(true);
     const handleModalClose = () => setModalOpen(false);
-    console.log(handleModalClose);
+
     return (
         <>
             <Container sx={{ my: 5 }}>
@@ -53,14 +53,15 @@ const Profile = () => {
                         </Button>
 
                         <Button
+                            onClick={handleModalOpen}
                             startIcon={<AutoFixHighIcon />}
                             sx={{ textTransform: 'capitalize' }}
                         >
                             Edit
                         </Button>
                     </Grid>
-                    <Grid item md={8} sm={12}>
-                        <Typography variant="h3">My Profile</Typography>
+                    <Grid item md={6} sm={12}>
+                        <Typography variant="h4">My Profile</Typography>
                         <Grid container>
                             <Grid item md={6} xs={12} sx={{ pr: 3 }}>
                                 <TextField
@@ -154,6 +155,10 @@ const Profile = () => {
             <CustomModal
                 openModal={openModal}
                 handleModalClose={handleModalClose}
+                name={user.name}
+                email={user.email}
+                img={user.img}
+                phone={user.phone}
             ></CustomModal>
         </>
     );

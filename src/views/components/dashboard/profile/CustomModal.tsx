@@ -1,8 +1,10 @@
-import { TextField, Typography } from '@mui/material';
+import { Typography } from '@mui/material';
 import Backdrop from '@mui/material/Backdrop';
 import Box from '@mui/material/Box';
 import Fade from '@mui/material/Fade';
 import Modal from '@mui/material/Modal';
+import { useForm } from 'react-hook-form';
+import logo from '../../../../assets/images/logos/brandLogo.png';
 
 const style = {
     position: 'absolute',
@@ -17,17 +19,31 @@ const style = {
 };
 
 interface Props {
+    name: string;
+    email: string;
+    phone: string;
+    img: string;
     openModal: boolean;
+
     handleModalClose: () => void;
 }
 
-const CustomModal = ({ openModal, handleModalClose }: Props) => {
-    const handleSubmit = (e: React.SyntheticEvent) => {
-        e.preventDefault();
-    };
-
+const CustomModal = ({
+    openModal,
+    handleModalClose,
+    name,
+    email,
+    phone,
+    img,
+}: Props) => {
     const handleClose = () => {
         handleModalClose();
+    };
+
+    //react hook call
+    const { register, handleSubmit } = useForm();
+    const onSubmit = (data: any) => {
+        console.log(data);
     };
 
     return (
@@ -49,37 +65,81 @@ const CustomModal = ({ openModal, handleModalClose }: Props) => {
                             id="transition-modal-title"
                             variant="h6"
                             component="h2"
+                            sx={{ mb: 1 }}
                         >
-                            Hostel Hub
+                            <img width="75px" src={logo} alt="" />
                         </Typography>
-                        <form onSubmit={handleSubmit}>
-                            <TextField
-                                sx={{ width: '100%', mb: '10px' }}
-                                id="outlined-basic"
-                                label="Your Name"
-                                variant="outlined"
+                        <form onSubmit={handleSubmit(onSubmit)}>
+                            <span
+                                style={{ fontSize: '12px', fontWeight: 'bold' }}
+                            >
+                                Name
+                            </span>
+                            <br />
+                            <input
+                                style={{
+                                    height: '40px',
+                                    width: '100%',
+                                    marginBottom: '10px',
+                                }}
+                                {...register('name')}
+                                defaultValue={name}
                             />
-                            <TextField
-                                sx={{ width: '100%', mb: '10px' }}
-                                id="outlined-basic"
-                                label="Your Name"
-                                variant="outlined"
+                            <span
+                                style={{ fontSize: '12px', fontWeight: 'bold' }}
+                            >
+                                Email
+                            </span>
+                            <input
+                                style={{
+                                    height: '40px',
+                                    width: '100%',
+                                    marginBottom: '10px',
+                                }}
+                                {...register('email')}
+                                defaultValue={email}
                             />
-                            <TextField
-                                sx={{ width: '100%', mb: '10px' }}
-                                id="outlined-basic"
-                                label="Your Name"
-                                variant="outlined"
+                            <span
+                                style={{ fontSize: '12px', fontWeight: 'bold' }}
+                            >
+                                Phone
+                            </span>
+                            <input
+                                style={{
+                                    height: '40px',
+                                    width: '100%',
+                                    marginBottom: '16px',
+                                }}
+                                {...register('phone')}
+                                defaultValue={phone ? phone : '017777777'}
                             />
-                            <TextField
-                                sx={{ width: '100%', mb: '10px' }}
-                                id="outlined-basic"
-                                label="Your Name"
-                                variant="outlined"
-                            />
-                            <button type="submit">Submit</button>
-                            <button onClick={handleClose} type="submit">
-                                Close
+
+                            <br />
+                            <button
+                                style={{
+                                    padding: '8px 14px',
+                                    color: 'white',
+                                    backgroundColor: '#4556B7',
+                                    border: 'none',
+                                    borderRadius: '4px',
+                                    marginRight: '5px',
+                                }}
+                                type="submit"
+                            >
+                                Update
+                            </button>
+                            <button
+                                onClick={handleClose}
+                                style={{
+                                    padding: '8px 14px',
+                                    color: 'white',
+                                    backgroundColor: '#c61f10',
+                                    border: 'none',
+                                    borderRadius: '4px',
+                                }}
+                                type="submit"
+                            >
+                                Cancel
                             </button>
                         </form>
                     </Box>
