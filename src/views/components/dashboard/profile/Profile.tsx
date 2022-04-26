@@ -14,6 +14,7 @@ import CustomModal from './CustomModal';
 
 const Profile = () => {
     const { user } = useAuth();
+    console.log(user);
     //modal
     const [openModal, setModalOpen] = useState(false);
     const handleModalOpen = () => setModalOpen(true);
@@ -66,7 +67,7 @@ const Profile = () => {
                             <Grid item md={6} xs={12} sx={{ pr: 3 }}>
                                 <TextField
                                     fullWidth
-                                    label="Name"
+                                    label="First Name"
                                     margin="normal"
                                     value={user.name}
                                 />
@@ -82,9 +83,9 @@ const Profile = () => {
                             <Grid item md={6} xs={12} sx={{ pr: 3 }}>
                                 <TextField
                                     fullWidth
-                                    label="Time Zone"
+                                    label="Address"
                                     margin="normal"
-                                    value={'+6 GMT'}
+                                    value={'Address'}
                                 />
                             </Grid>
                             <Grid item md={6} xs={12}>
@@ -92,7 +93,7 @@ const Profile = () => {
                                     fullWidth
                                     label="Phone"
                                     margin="normal"
-                                    value={user.phone || '+880-000-111-333'}
+                                    value={user.phone || 'Phone Number'}
                                 />
                             </Grid>
                         </Grid>
