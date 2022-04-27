@@ -7,7 +7,7 @@ https://meet.google.com/rcj-jvii-rgp
 Live site: https://hostel-hub-7d3bf.web.app/
 
 <!-- export declare interface User extends UserInfo {
-    readonly accessToken: string; -->
+    c; -->
 
 <!-- admin email: testadmin@test.com
 admin password: testadmin

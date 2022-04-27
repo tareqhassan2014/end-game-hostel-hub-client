@@ -84,3 +84,17 @@ body {
         }
     }
 }
+
+//searchbar
+.searchBar {
+    width: 600px;
+    &:focus {
+        border: none;
+        outline: none;
+    }
+}
+@media (max-width: 700px) {
+    .searchBar {
+        width: 100%;
+    }
+}
