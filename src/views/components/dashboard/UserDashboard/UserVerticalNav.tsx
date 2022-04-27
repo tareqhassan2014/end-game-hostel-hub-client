@@ -63,7 +63,19 @@ const UserVerticalNav = () => {
                 </ListItemIcon>
                 <ListItemText primary="Profile" />
             </ListItemButton>
-            <ListItemButton sx={{ borderRadius: 4 }} onClick={handleClick}>
+            <ListItemButton
+                sx={{
+                    pl: sideNavWidth === 80 ? 2 : 4,
+                    borderRadius: 4,
+                }}
+                onClick={() => navigate('/dashboard/bills')}
+            >
+                <ListItemIcon>
+                    <AttachMoneyIcon sx={{ color: 'white' }} />
+                </ListItemIcon>
+                <ListItemText primary={open ? 'Manage Bill' : ''} />
+            </ListItemButton>
+            {/* <ListItemButton sx={{ borderRadius: 4 }} onClick={handleClick}>
                 <ListItemIcon>
                     <SettingsIcon sx={{ color: 'white' }} />
                 </ListItemIcon>
@@ -72,7 +84,7 @@ const UserVerticalNav = () => {
             </ListItemButton>
             <Collapse in={open} timeout="auto" unmountOnExit>
                 <List component="div" disablePadding>
-                    {/* <ListItemButton
+                    <ListItemButton
                         sx={{
                             pl: sideNavWidth === 80 ? 2 : 4,
                             borderRadius: 4,
@@ -83,21 +95,10 @@ const UserVerticalNav = () => {
                             <ManageAccountsIcon sx={{ color: 'white' }} />
                         </ListItemIcon>
                         <ListItemText primary="Meal" />
-                    </ListItemButton> */}
-                    <ListItemButton
-                        sx={{
-                            pl: sideNavWidth === 80 ? 2 : 4,
-                            borderRadius: 4,
-                        }}
-                        onClick={() => navigate('/dashboard/bills')}
-                    >
-                        <ListItemIcon>
-                            <AttachMoneyIcon sx={{ color: 'white' }} />
-                        </ListItemIcon>
-                        <ListItemText primary={open ? 'Manage Bill' : ''} />
                     </ListItemButton>
+                    
                 </List>
-            </Collapse>
+            </Collapse> */}
         </List>
     );
 };
