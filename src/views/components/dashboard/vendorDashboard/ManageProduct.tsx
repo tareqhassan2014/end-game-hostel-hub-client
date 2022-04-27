@@ -49,7 +49,7 @@ function ManageProduct() {
                                 textAlign: 'center',
                             }}
                         >
-                            Update
+                            Update/Remove
                         </Th>
                         <Th
                             style={{
