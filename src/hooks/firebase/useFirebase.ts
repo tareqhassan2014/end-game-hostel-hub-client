@@ -87,13 +87,19 @@ const useFirebase = () => {
                 token: user.accessToken,
             }).unwrap();
             if (newUser) {
-                toast.success('Account create successfully');
+                toast.success('Successfully Login');
                 dispatch(
                     setCredentials({
                         user: newUser,
                         token: user.accessToken,
                     })
                 );
+            }
+
+            if (newUser.role === 'admin') {
+                console.log('admin user', newUser);
+            } else if (newUser.role === 'vendor') {
+                console.log('vendor user', newUser);
             }
         } catch (error: any) {
             console.log(error.message);
@@ -128,6 +134,12 @@ const useFirebase = () => {
                     token: accessToken,
                 })
             );
+
+            if (user.role === 'admin') {
+                console.log('admin user', user);
+            } else if (user.role === 'vendor') {
+                console.log('vendor user', user);
+            }
         } catch (error: any) {
             console.log(error.message);
         }

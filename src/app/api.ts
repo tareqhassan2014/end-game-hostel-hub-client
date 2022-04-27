@@ -8,6 +8,13 @@ interface SignUpRequest {
     phone: string | null;
 }
 
+interface addProductRequest {
+    price: number;
+    name: string;
+    category: string;
+    url: string;
+}
+
 interface LoginRequest {
     token: string;
 }
@@ -107,6 +114,14 @@ const api = createApi({
             }),
         }),
 
+        addProduct: builder.mutation<AuthResponse, addProductRequest>({
+            query: (credentials) => ({
+                url: credentials.url,
+                method: 'POST',
+                body: credentials,
+            }),
+        }),
+
         getHostel: builder.query<HostelResponse, string>({
             query: (query) => ({
                 url: query,
@@ -122,6 +137,7 @@ export const {
     useCreateStoreMutation,
     useCreateHostelMutation,
     useGetHostelQuery,
+    useAddProductMutation,
 } = api;
 
 export default api;
