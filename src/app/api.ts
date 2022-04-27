@@ -30,6 +30,13 @@ interface CreateStoreRequest {
     url: string;
 }
 
+interface CreateHostelRequest {
+    hostelName: string;
+    address: string;
+    totalSit: number;
+    url: string;
+}
+
 const baseUrl = process.env.REACT_APP_BASE_URL;
 
 const baseQuery = fetchBaseQuery({
@@ -72,10 +79,22 @@ const api = createApi({
                 body: credentials,
             }),
         }),
+
+        createHostel: builder.mutation<AuthResponse, CreateHostelRequest>({
+            query: (credentials) => ({
+                url: credentials.url,
+                method: 'POST',
+                body: credentials,
+            }),
+        }),
     }),
 });
 
-export const { useLoginMutation, useSignUpMutation, useCreateStoreMutation } =
-    api;
+export const {
+    useLoginMutation,
+    useSignUpMutation,
+    useCreateStoreMutation,
+    useCreateHostelMutation,
+} = api;
 
 export default api;

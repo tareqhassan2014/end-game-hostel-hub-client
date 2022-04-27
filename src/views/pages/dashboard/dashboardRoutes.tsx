@@ -4,6 +4,7 @@ import AdminProfile from 'src/views/components/dashboard/AdminDashboard/AdminPro
 import ManageModerator from 'src/views/components/dashboard/AdminDashboard/ManageModerator/ManageModerator';
 import ModeratorDefault from 'src/views/components/dashboard/moderatorDashboard/ModeratorDefault';
 import Profile from 'src/views/components/dashboard/profile/Profile';
+import CreateHostel from 'src/views/components/dashboard/UserDashboard/CreateHostel';
 import CreateStore from 'src/views/components/dashboard/UserDashboard/CreateStore';
 import UserBills from 'src/views/components/dashboard/UserDashboard/UserBills';
 import UserDefault from 'src/views/components/dashboard/UserDashboard/UserDefault';
@@ -65,6 +66,11 @@ export const dashboardRoutes = [
     {
         path: 'store',
         element: CreateStore,
+        role: ['user'],
+    },
+    {
+        path: 'hostel',
+        element: CreateHostel,
         role: ['user'],
     },
     {

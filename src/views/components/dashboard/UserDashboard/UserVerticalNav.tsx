@@ -15,10 +15,6 @@ const UserVerticalNav = () => {
     const [open, setOpen] = useState(false);
     const navigate = useNavigate();
 
-    const handleClick = () => {
-        setOpen(!open);
-    };
-
     useEffect(() => {
         if (sideNavWidth < 260) {
             setOpen(false);
@@ -66,6 +62,15 @@ const UserVerticalNav = () => {
                     <AddBusinessIcon sx={{ color: 'white' }} />
                 </ListItemIcon>
                 <ListItemText primary="Create Store" />
+            </ListItemButton>
+            <ListItemButton
+                sx={{ borderRadius: 4 }}
+                onClick={() => navigate('/dashboard/hostel')}
+            >
+                <ListItemIcon>
+                    <HomeIcon sx={{ color: 'white' }} />
+                </ListItemIcon>
+                <ListItemText primary="Create Hostel" />
             </ListItemButton>
         </List>
     );
