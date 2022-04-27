@@ -3,11 +3,21 @@ import { Box, styled } from '@mui/system';
 import { useDispatch } from 'react-redux';
 import { toggleFullSideBar } from 'src/app/slices/theme/themeSlice';
 import useThemeAndLayout from 'src/hooks/useThemeAndLayout';
+import '../../pages/PostAvailableSit/PostAvailableSit.scss';
 import AvatarMenu from './AvatarMenu';
 
 const StyledIconButton = styled(IconButton)(({ theme }) => ({
     color: theme.palette.text.primary,
 }));
+
+const location = window.location;
+console.log(location);
+
+// pathname: "/dashboard/manageProduct"
+const manageProductRoute = '/dashboard/manageProduct';
+const productRoute = '/dashboard/product';
+const pendingOrderRoute = '/dashboard/pendingOrder';
+const confirmOrderRoute = '/dashboard/confirmOrder';
 
 const TopBarRoot = styled('div')(() => ({
     top: 0,
@@ -65,7 +75,6 @@ const DashboardHeader = () => {
                     <StyledIconButton onClick={handleSidenavToggle}>
                         <Icon sx={{ color: 'white' }}>menu</Icon>
                     </StyledIconButton>
-
                     <IconBox>
                         <StyledIconButton>
                             <Icon sx={{ color: 'white' }}>mail_outline</Icon>
@@ -79,6 +88,37 @@ const DashboardHeader = () => {
                             <Icon sx={{ color: 'white' }}>star_outline</Icon>
                         </StyledIconButton>
                     </IconBox>
+                    {location.pathname === productRoute ||
+                    location.pathname === manageProductRoute ||
+                    location.pathname === pendingOrderRoute ||
+                    location.pathname === confirmOrderRoute ? (
+                        <input
+                            className="searchBar"
+                            style={{
+                                marginLeft: '10%',
+
+                                borderRadius: '3px',
+                                border: 'none',
+                            }}
+                            type="text"
+                        />
+                    ) : (
+                        ''
+                    )}
+
+                    {/* {location.href ===
+                        `http://localhost:3000/dashboard/product` && (
+                        <input
+                            className="searchBar"
+                            style={{
+                                marginLeft: '10%',
+
+                                borderRadius: '3px',
+                                border: 'none',
+                            }}
+                            type="text"
+                        />
+                    )} */}
                 </Box>
                 <Box display="flex" alignItems="center">
                     <AvatarMenu />
