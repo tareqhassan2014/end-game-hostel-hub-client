@@ -7,15 +7,17 @@ import {
     signInWithPopup,
     updateProfile,
 } from 'firebase/auth';
+import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { useLoginMutation, useSignUpMutation } from '../../app/api';
 import { setCredentials } from '../../app/slices/auth/authSlice';
-import { useAppDispatch } from './../hooks';
+import { useAppDispatch } from '../hooks';
 import { InitializeFirebase } from './firebase.init';
 
 InitializeFirebase();
 
 const useFirebase = () => {
+    const navigate = useNavigate();
     //auth
     const auth = getAuth();
     const dispatch = useAppDispatch();
@@ -54,6 +56,8 @@ const useFirebase = () => {
                     token: user.accessToken,
                 })
             );
+
+            navigate('/dashboard');
         } catch (error) {
             console.log(error);
         }
@@ -96,6 +100,8 @@ const useFirebase = () => {
                 );
             }
 
+            navigate('/dashboard');
+
             if (newUser.role === 'admin') {
                 console.log('admin user', newUser);
             } else if (newUser.role === 'vendor') {
@@ -134,6 +140,8 @@ const useFirebase = () => {
                     token: accessToken,
                 })
             );
+
+            navigate('/dashboard');
 
             if (user.role === 'admin') {
                 console.log('admin user', user);
