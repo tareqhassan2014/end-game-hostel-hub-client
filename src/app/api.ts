@@ -24,6 +24,12 @@ interface AuthResponse {
     };
 }
 
+interface CreateStoreRequest {
+    storeName: string;
+    address: string;
+    url: string;
+}
+
 const baseUrl = process.env.REACT_APP_BASE_URL;
 
 const baseQuery = fetchBaseQuery({
@@ -58,9 +64,18 @@ const api = createApi({
                 body: credentials,
             }),
         }),
+
+        createStore: builder.mutation<AuthResponse, CreateStoreRequest>({
+            query: (credentials) => ({
+                url: credentials.url,
+                method: 'POST',
+                body: credentials,
+            }),
+        }),
     }),
 });
 
-export const { useLoginMutation, useSignUpMutation } = api;
+export const { useLoginMutation, useSignUpMutation, useCreateStoreMutation } =
+    api;
 
 export default api;

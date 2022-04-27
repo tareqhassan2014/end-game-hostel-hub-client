@@ -4,7 +4,7 @@ import Tooltip from '@mui/material/Tooltip';
 import React, { useState } from 'react';
 import { Table, Tbody, Td, Th, Thead, Tr } from 'react-super-responsive-table';
 import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css';
-import img from '../../../../assets/images/logos/mastercard.png';
+import img from 'src/assets/images/logos/mastercard.png';
 import UpdateModal from './UpdateModal';
 
 export default function ManageProduct() {
