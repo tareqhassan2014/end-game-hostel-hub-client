@@ -7,8 +7,7 @@ import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css';
 import img from '../../../../assets/images/logos/mastercard.png';
 import UpdateModal from './UpdateModal';
 
-function ManageProduct({ product }: { product: any }) {
-    console.log(name);
+function ManageProduct() {
     //handle modal  start
     const [openModal, setModalOpen] = useState(false);
     const handleModalOpen = () => setModalOpen(true);
@@ -69,9 +68,7 @@ function ManageProduct({ product }: { product: any }) {
                                 textAlign: 'center',
                                 border: '1px solid lightgray',
                             }}
-                        >
-                            {product?.name}
-                        </Td>
+                        ></Td>
                         <Td
                             style={{
                                 textAlign: 'center',
