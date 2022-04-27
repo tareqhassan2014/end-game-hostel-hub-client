@@ -37,6 +37,25 @@ interface CreateHostelRequest {
     url: string;
 }
 
+interface hostelData {
+    address: string;
+    admin: object;
+    banner: string;
+    createdAt: string;
+    estimation: string;
+    hostelName: string;
+    member: [];
+    request: [];
+    status: string;
+    thumbnail: string;
+    totalSit: number;
+    _id: string;
+}
+
+interface HostelResponse {
+    data: { data: [hostelData] };
+}
+
 const baseUrl = process.env.REACT_APP_BASE_URL;
 
 const baseQuery = fetchBaseQuery({
@@ -87,6 +106,13 @@ const api = createApi({
                 body: credentials,
             }),
         }),
+
+        getHostel: builder.query<HostelResponse, string>({
+            query: (query) => ({
+                url: query,
+                method: 'GET',
+            }),
+        }),
     }),
 });
 
@@ -95,6 +121,7 @@ export const {
     useSignUpMutation,
     useCreateStoreMutation,
     useCreateHostelMutation,
+    useGetHostelQuery,
 } = api;
 
 export default api;

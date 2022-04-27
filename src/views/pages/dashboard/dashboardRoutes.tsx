@@ -1,5 +1,6 @@
 import AdminBill from 'src/views/components/dashboard/AdminDashboard/AdminBill/AdminBill';
 import AdminDefault from 'src/views/components/dashboard/AdminDashboard/AdminDefault/AdminDefault';
+import AdminHostel from 'src/views/components/dashboard/AdminDashboard/AdminHostel';
 import AdminProfile from 'src/views/components/dashboard/AdminDashboard/AdminProfile/AdminProfile';
 import ManageModerator from 'src/views/components/dashboard/AdminDashboard/ManageModerator/ManageModerator';
 import ModeratorDefault from 'src/views/components/dashboard/moderatorDashboard/ModeratorDefault';
@@ -36,6 +37,11 @@ export const dashboardRoutes = [
     {
         path: 'bills',
         element: AdminBill,
+        role: ['admin'],
+    },
+    {
+        path: 'hostel',
+        element: AdminHostel,
         role: ['admin'],
     },
     {

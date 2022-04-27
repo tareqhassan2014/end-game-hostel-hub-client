@@ -5,7 +5,6 @@ import HomeIcon from '@mui/icons-material/Home';
 import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
 import PersonIcon from '@mui/icons-material/Person';
 import SettingsIcon from '@mui/icons-material/Settings';
-import { useMediaQuery } from '@mui/material';
 import Collapse from '@mui/material/Collapse';
 import List from '@mui/material/List';
 import ListItemButton from '@mui/material/ListItemButton';
@@ -29,10 +28,6 @@ const AdminVerticalNav = () => {
             setOpen(false);
         }
     }, [sideNavWidth]);
-
-    const matches = useMediaQuery('(min-width:600px)');
-
-    console.log(matches);
 
     return (
         <List
@@ -95,6 +90,18 @@ const AdminVerticalNav = () => {
                             <AttachMoneyIcon sx={{ color: 'white' }} />
                         </ListItemIcon>
                         <ListItemText primary={open ? 'Manage Bill' : ''} />
+                    </ListItemButton>
+                    <ListItemButton
+                        sx={{
+                            pl: sideNavWidth === 80 ? 2 : 4,
+                            borderRadius: 4,
+                        }}
+                        onClick={() => navigate('/dashboard/hostel')}
+                    >
+                        <ListItemIcon>
+                            <AttachMoneyIcon sx={{ color: 'white' }} />
+                        </ListItemIcon>
+                        <ListItemText primary={open ? 'Manage Hostel' : ''} />
                     </ListItemButton>
                 </List>
             </Collapse>
