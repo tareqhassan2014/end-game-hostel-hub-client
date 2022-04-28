@@ -10,7 +10,7 @@ import {
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { useLoginMutation, useSignUpMutation } from '../../app/api';
-import { setCredentials } from '../../app/slices/auth/authSlice';
+import { setCredentials, setStore } from '../../app/slices/auth/authSlice';
 import { useAppDispatch } from '../hooks';
 import { InitializeFirebase } from './firebase.init';
 
@@ -23,7 +23,6 @@ const useFirebase = () => {
     const dispatch = useAppDispatch();
     const [signUp] = useSignUpMutation();
     const [signIn] = useLoginMutation();
-    console.log();
 
     // REGISTER WITH EMAIL AND PASSWORD
     const RegisterUser = async (
@@ -105,7 +104,8 @@ const useFirebase = () => {
             if (newUser.role === 'admin') {
                 console.log('admin user', newUser);
             } else if (newUser.role === 'vendor') {
-                console.log('vendor user', newUser);
+                console.log('vendor user', newUser.store[0]);
+                dispatch(setStore(newUser.store[0]));
             }
         } catch (error: any) {
             console.log(error.message);
@@ -141,13 +141,13 @@ const useFirebase = () => {
                 })
             );
 
-            navigate('/dashboard');
-
             if (user.role === 'admin') {
                 console.log('admin user', user);
             } else if (user.role === 'vendor') {
                 console.log('vendor user', user);
             }
+            console.log('user', user);
+            navigate('/dashboard');
         } catch (error: any) {
             console.log(error.message);
         }

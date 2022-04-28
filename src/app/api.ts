@@ -8,6 +8,16 @@ interface SignUpRequest {
     phone: string | null;
 }
 
+interface IStore {
+    address: string;
+    banner: string;
+    createdAt: string;
+    _id: string;
+    status: string;
+    storeName: string;
+    thumbnail: string;
+}
+
 interface addProductRequest {
     price: number;
     name: string;
@@ -28,6 +38,7 @@ interface AuthResponse {
         status: string;
         img: string;
         phone: string;
+        store: [IStore];
     };
 }
 
