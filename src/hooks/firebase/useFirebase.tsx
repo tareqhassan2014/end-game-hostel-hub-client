@@ -7,21 +7,22 @@ import {
     signInWithPopup,
     updateProfile,
 } from 'firebase/auth';
+import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { useLoginMutation, useSignUpMutation } from '../../app/api';
-import { setCredentials } from '../../app/slices/auth/authSlice';
-import { useAppDispatch } from './../hooks';
+import { setCredentials, setStore } from '../../app/slices/auth/authSlice';
+import { useAppDispatch } from '../hooks';
 import { InitializeFirebase } from './firebase.init';
 
 InitializeFirebase();
 
 const useFirebase = () => {
+    const navigate = useNavigate();
     //auth
     const auth = getAuth();
     const dispatch = useAppDispatch();
     const [signUp] = useSignUpMutation();
     const [signIn] = useLoginMutation();
-    console.log();
 
     // REGISTER WITH EMAIL AND PASSWORD
     const RegisterUser = async (
@@ -54,6 +55,8 @@ const useFirebase = () => {
                     token: user.accessToken,
                 })
             );
+
+            navigate('/dashboard');
         } catch (error) {
             console.log(error);
         }
@@ -87,13 +90,22 @@ const useFirebase = () => {
                 token: user.accessToken,
             }).unwrap();
             if (newUser) {
-                toast.success('Account create successfully');
+                toast.success('Successfully Login');
                 dispatch(
                     setCredentials({
                         user: newUser,
                         token: user.accessToken,
                     })
                 );
+            }
+
+            navigate('/dashboard');
+
+            if (newUser.role === 'admin') {
+                console.log('admin user', newUser);
+            } else if (newUser.role === 'vendor') {
+                console.log('vendor user', newUser.store[0]);
+                dispatch(setStore(newUser.store[0]));
             }
         } catch (error: any) {
             console.log(error.message);
@@ -128,6 +140,14 @@ const useFirebase = () => {
                     token: accessToken,
                 })
             );
+
+            if (user.role === 'admin') {
+                console.log('admin user', user);
+            } else if (user.role === 'vendor') {
+                console.log('vendor user', user);
+            }
+            console.log('user', user);
+            navigate('/dashboard');
         } catch (error: any) {
             console.log(error.message);
         }

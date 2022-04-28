@@ -8,8 +8,9 @@ import 'swiper/css/pagination';
 import 'swiper/css/thumbs';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
+SwiperCore.use([Autoplay]);
+
 const FeatureApp = () => {
-    SwiperCore.use([Autoplay]);
     const myStyle = {
         backgroundImage:
             "url('https://i.ibb.co/SBsYjnc/background-1409125-960-720.png')",

@@ -1,55 +1,126 @@
-import React from 'react';
-import { useForm } from 'react-hook-form';
-import '../../../pages/PostAvailableSit/PostAvailableSit.scss';
+import LoadingButton from '@mui/lab/LoadingButton';
+import {
+    Box,
+    Container,
+    CssBaseline,
+    TextField,
+    Typography,
+} from '@mui/material';
+import { SubmitHandler, useForm } from 'react-hook-form';
+import { toast } from 'react-toastify';
+import { useAddProductMutation } from 'src/app/api';
+import useAuth from 'src/hooks/useAuth';
 
-const AddProduct = () => {
-    const { register, handleSubmit } = useForm();
-    const onSubmit = (data: any) => {
-        console.log(data);
-    };
-    return (
-        <>
-            <div className="availableSit">
-                <div className="form">
-                    <h3>Add Product</h3>
-                    <form onSubmit={handleSubmit(onSubmit)}>
-                        <input {...register('title')} placeholder="Name" />
-                        <input
-                            {...register('subtitle')}
-                            placeholder="Short Description"
-                        />
-                        <select {...register('categories')} required>
-                            <option value="">Categories</option>
-                            <option value="Electronic">Electronic</option>
-                            <option value="Furniture">Furniture</option>
-                        </select>
-                        <select {...register('brand')} required>
-                            <option value="">Brand</option>
-                            <option value="single-bed">Apple</option>
-                            <option value="double-bed">Samsung</option>
-                        </select>
-                        <input
-                            {...register('feature')}
-                            placeholder="Features"
-                        />
-
-                        <input
-                            type="number"
-                            {...register('price')}
-                            placeholder="Price"
-                            required
-                        />
-                        <input
-                            type="file"
-                            {...register('img')}
-                            placeholder="Product Image"
-                        />
-                        <input value="Add" type="submit" />
-                    </form>
-                </div>
-            </div>
-        </>
-    );
+type Inputs = {
+    price: number;
+    name: string;
+    category: string;
 };
 
-export default AddProduct;
+export default function CreateHostel() {
+    const { user } = useAuth();
+
+    const [addProduct, { isLoading, data, isSuccess, isError }] =
+        useAddProductMutation();
+
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+        reset,
+    } = useForm<Inputs>();
+
+    const onSubmit: SubmitHandler<Inputs> = async (formData) => {
+        try {
+            const url = `store/${user._id}/product`;
+
+            const productData = { ...formData, url };
+
+            const data = await addProduct(productData).unwrap();
+
+            console.log('====================================');
+            console.log(data);
+            console.log('====================================');
+
+            reset();
+            toast.success('Create Hostel successfully');
+        } catch (error: any) {
+            console.log(error?.data?.message);
+            toast.error(error?.data?.message);
+        }
+    };
+
+    return (
+        <Container component="main" maxWidth="xs">
+            <CssBaseline />
+            <Box
+                sx={{
+                    marginTop: 8,
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                }}
+            >
+                <Typography component="h1" variant="h5">
+                    Add Product
+                </Typography>
+                <Box
+                    component="form"
+                    onSubmit={handleSubmit(onSubmit)}
+                    noValidate
+                    sx={{ mt: 1 }}
+                >
+                    <TextField
+                        required
+                        autoFocus
+                        fullWidth
+                        margin="normal"
+                        error={Boolean(errors.name)}
+                        label={errors.name ? 'Error' : 'Product Name'}
+                        helperText={errors.name?.message}
+                        {...register('name', {
+                            required: 'Name is required',
+                        })}
+                    />
+                    <TextField
+                        fullWidth
+                        required
+                        margin="normal"
+                        error={Boolean(errors.category)}
+                        label={errors.category ? 'Error' : 'category'}
+                        helperText={errors.category?.message}
+                        autoComplete="category"
+                        {...register('category', {
+                            required: 'category is required',
+                        })}
+                    />
+
+                    <TextField
+                        fullWidth
+                        required
+                        type="number"
+                        margin="normal"
+                        error={Boolean(errors.price)}
+                        label={errors.price ? 'Error' : 'price'}
+                        helperText={errors.price?.message}
+                        autoComplete="price"
+                        {...register('price', {
+                            required: 'price is required',
+                            valueAsNumber: true,
+                        })}
+                    />
+
+                    <LoadingButton
+                        type="submit"
+                        fullWidth
+                        variant="contained"
+                        sx={{ mt: 3, mb: 2 }}
+                        loading={isLoading}
+                    >
+                        Add Product
+                    </LoadingButton>
+                </Box>
+            </Box>
+        </Container>
+    );
+}

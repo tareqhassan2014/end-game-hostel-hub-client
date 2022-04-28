@@ -1,16 +1,32 @@
 import { Grid } from '@mui/material';
+import Typography from '@mui/material/Typography';
 import { Box } from '@mui/system';
-import React from 'react';
+import React, { useState } from 'react';
 import { useGetHostelQuery } from 'src/app/api';
 import useAuth from 'src/hooks/useAuth';
-import Typography from '@mui/material/Typography';
+
+const initialState = {
+    address: '',
+    admin: {},
+    banner: '',
+    createdAt: '',
+    estimation: '',
+    hostelName: '',
+    member: [],
+    request: [],
+    status: '',
+    thumbnail: '',
+    totalSit: 0,
+    _id: '',
+};
 
 const AdminHostel = () => {
     const { user } = useAuth();
+    const [hostel, setHostel] = useState(initialState);
     const url = `auth/${user._id}/hostel`;
     const { data, isLoading, isError, isSuccess, isFetching } =
         useGetHostelQuery(url);
-    // console.log(data?.data.data[0].thumbnail);
+    data && setHostel(data.data.data[0]);
     return (
         <Box>
             {data && (
@@ -19,7 +35,7 @@ const AdminHostel = () => {
                         <Box
                             sx={{ width: '100%' }}
                             component="img"
-                            src={data.data.data[0].banner}
+                            src={hostel.banner}
                         />
                         <Box
                             sx={{
@@ -36,20 +52,20 @@ const AdminHostel = () => {
                     <Grid container sx={{ mx: '10px', my: '10px' }} spacing={2}>
                         <Grid item xs={12} md={7}>
                             <Typography variant="h3">
-                                {data.data.data[0].hostelName}
+                                {hostel.hostelName}
                             </Typography>
 
                             <Typography variant="h6">
-                                {data.data.data[0].address}{' '}
+                                {hostel.address}{' '}
                             </Typography>
                         </Grid>
                         <Grid item xs={12} md={5}>
                             <Typography variant="h6">
-                                Estimation: {data.data.data[0].estimation}
+                                Estimation: {hostel.estimation}
                             </Typography>
 
                             <Typography variant="h6">
-                                Total Sit: {data.data.data[0].totalSit}{' '}
+                                Total Sit: {hostel.totalSit}{' '}
                             </Typography>
                         </Grid>
                     </Grid>

@@ -11,7 +11,6 @@ const StyledIconButton = styled(IconButton)(({ theme }) => ({
 }));
 
 const location = window.location;
-console.log(location);
 
 // pathname
 const manageProductRoute = '/dashboard/manageProduct';

@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../../store';
 
 interface IUser {
@@ -12,6 +12,16 @@ interface IUser {
     phone: string;
 }
 
+interface IStore {
+    address: string;
+    banner: string;
+    createdAt: string;
+    _id: string;
+    status: string;
+    storeName: string;
+    thumbnail: string;
+}
+
 const user = {
     name: '',
     email: '',
@@ -22,16 +32,28 @@ const user = {
     phone: '',
 };
 
+const store = {
+    address: '',
+    banner: '',
+    createdAt: '',
+    _id: '',
+    status: '',
+    storeName: '',
+    thumbnail: '',
+};
+
 interface UsersState {
     user: IUser;
     loading: 'idle' | 'pending' | 'succeeded' | 'failed';
     token: string;
+    store: IStore;
 }
 
 const initialState = {
     user,
     token: '',
     loading: 'idle',
+    store: store,
 } as UsersState;
 
 export const authSlice = createSlice({
@@ -48,34 +70,18 @@ export const authSlice = createSlice({
             state.token = token;
         },
 
+        setStore: (state, { payload: store }: PayloadAction<IStore>) => {
+            state.store = store;
+        },
+
         logOut: (state) => {
             state.user = user;
             state.token = '';
+            state.store = store;
         },
     },
-    // extraReducers: (builder) => {
-    //     // Add reducers for additional action types here, and handle loading state as needed
-    //     builder.addCase(googleLogin.fulfilled, (state, action) => {
-    //         // Add user to the state array
-    //         // state.user = action.payload.user;
-    //     });
-    // },
 });
 
-// First, create the thunk
-export const googleLogin = createAsyncThunk('users/googleLogin', async () => {
-    const user = {
-        name: 'tareq',
-        email: 'tareqhassan@gmail.com',
-        status: '',
-        role: '',
-        _id: '',
-        img: '',
-    };
-
-    return user;
-});
-
-export const { setCredentials, logOut } = authSlice.actions;
+export const { setCredentials, logOut, setStore } = authSlice.actions;
 export default authSlice.reducer;
 export const selectCurrentUser = (state: RootState) => state.auth.user;
