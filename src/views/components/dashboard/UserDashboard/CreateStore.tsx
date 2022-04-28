@@ -6,10 +6,13 @@ import {
     TextField,
     Typography,
 } from '@mui/material';
+import { useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
+import { useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
 import { useCreateStoreMutation } from 'src/app/api';
 import useAuth from 'src/hooks/useAuth';
+import AlertModal from './AlertModal';
 
 type Inputs = {
     address: string;
@@ -18,6 +21,12 @@ type Inputs = {
 
 export default function CreateStore() {
     const { user } = useAuth();
+    const dispatch = useDispatch();
+    //handle modal  start
+    const [openModal, setModalOpen] = useState(false);
+    const handleModalOpen = () => setModalOpen(true);
+    const handleModalClose = () => setModalOpen(false);
+    //handle modal end
 
     const [createStore, { isLoading, data, isSuccess, isError }] =
         useCreateStoreMutation();
@@ -41,7 +50,13 @@ export default function CreateStore() {
             console.log('====================================');
 
             reset();
-            toast.success('Account Store successfully');
+            // {
+            //     isSuccess && handleModalOpen();
+            // }
+            toast.success(
+                'Store created successfully and your role upgraded to vendor'
+            );
+            // dispatch(logOut());
         } catch (error: any) {
             console.log(error?.data?.message);
             toast.error(error?.data?.message);
@@ -104,6 +119,10 @@ export default function CreateStore() {
                     </LoadingButton>
                 </Box>
             </Box>
+            <AlertModal
+                openModal={openModal}
+                handleModalClose={handleModalClose}
+            />
         </Container>
     );
 }

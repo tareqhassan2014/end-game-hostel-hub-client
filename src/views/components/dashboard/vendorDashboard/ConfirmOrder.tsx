@@ -5,7 +5,7 @@ import React, { useState } from 'react';
 import { Table, Tbody, Td, Th, Thead, Tr } from 'react-super-responsive-table';
 import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css';
 import img from 'src/assets/images/logos/mastercard.png';
-import UpdateModal from './UpdateModal';
+import AlertModal from '../UserDashboard/AlertModal';
 
 export default function ManageProduct() {
     const [openModal, setModalOpen] = useState(false);
@@ -143,10 +143,10 @@ export default function ManageProduct() {
                 </Tbody>
             </Table>
 
-            <UpdateModal
+            <AlertModal
                 openModal={openModal}
                 handleModalClose={handleModalClose}
-            ></UpdateModal>
+            ></AlertModal>
         </>
     );
 }

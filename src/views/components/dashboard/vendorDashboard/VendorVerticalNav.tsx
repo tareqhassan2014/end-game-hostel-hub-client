@@ -73,7 +73,7 @@ const VendorVerticalNav = () => {
 
             <ListItemButton
                 sx={{ borderRadius: 4 }}
-                onClick={() => navigate('/dashboard/product')}
+                onClick={() => navigate('/dashboard/manageOrder')}
             >
                 <ListItemIcon>
                     <TaskAltIcon sx={{ color: 'white' }} />
@@ -88,6 +88,15 @@ const VendorVerticalNav = () => {
                     <TaskAltIcon sx={{ color: 'white' }} />
                 </ListItemIcon>
                 <ListItemText primary="Manage Product" />
+            </ListItemButton>
+            <ListItemButton
+                sx={{ borderRadius: 4 }}
+                onClick={() => navigate('/dashboard/store')}
+            >
+                <ListItemIcon>
+                    <TaskAltIcon sx={{ color: 'white' }} />
+                </ListItemIcon>
+                <ListItemText primary="Store" />
             </ListItemButton>
 
             {/* <ListItemButton sx={{ borderRadius: 4 }} onClick={handleClick}>

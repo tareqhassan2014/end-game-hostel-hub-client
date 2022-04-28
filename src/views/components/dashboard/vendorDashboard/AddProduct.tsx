@@ -4,7 +4,9 @@ import '../../../pages/PostAvailableSit/PostAvailableSit.scss';
 
 const AddProduct = () => {
     const { register, handleSubmit } = useForm();
-    const onSubmit = (data: any) => console.log(data);
+    const onSubmit = (data: any) => {
+        console.log(data);
+    };
     return (
         <>
             <div className="availableSit">
