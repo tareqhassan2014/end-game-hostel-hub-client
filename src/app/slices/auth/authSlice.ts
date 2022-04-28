@@ -77,6 +77,7 @@ export const authSlice = createSlice({
         logOut: (state) => {
             state.user = user;
             state.token = '';
+            state.store = store;
         },
     },
 });
