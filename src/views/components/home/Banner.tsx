@@ -62,7 +62,7 @@ const bannerItem = [
         lottie: 'https://assets4.lottiefiles.com/packages/lf20_n5hsffgz.json',
     },
     {
-        title: 'Buy and sell your products with good price.',
+        title: 'Buy and sell your products with good price',
         description:
             ' Replace your products by purchasing and selling them. make money and decorate your rooms with super new set-up',
         button: 'Deal With Your Need',
