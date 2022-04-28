@@ -104,9 +104,9 @@ const useFirebase = () => {
             if (newUser.role === 'admin') {
                 console.log('admin user', newUser);
             } else if (newUser.role === 'vendor') {
-                console.log('vendor user', newUser.store[0]);
                 dispatch(setStore(newUser.store[0]));
             }
+            console.log('vendor user', newUser);
         } catch (error: any) {
             console.log(error.message);
         }
