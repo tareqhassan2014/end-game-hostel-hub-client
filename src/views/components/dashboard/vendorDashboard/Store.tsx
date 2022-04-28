@@ -21,19 +21,32 @@ const background = {
 };
 
 const Store = () => {
-    const { store } = useAuth();
-    console.log(store);
-
+    const { store, user } = useAuth();
+    console.log(user);
     return (
         <div className="store">
             <div className="profile">
-                <div className="left" style={background}>
-                    <img width="200px" src={data.thumbnail} alt="" />
+                <div
+                    className="left"
+                    style={{
+                        background: `url(${store.banner})`,
+                        backgroundRepeat: 'no-repeat',
+                        backgroundPosition: 'center center',
+                        backgroundSize: 'cover',
+                        height: '180px',
+                        width: '100%',
+                    }}
+                >
+                    <img width="200px" src={store.thumbnail} alt="" />
                 </div>
                 <div className="right">
-                    <h5>Store Name: {data.storeName}</h5>
-                    <h5>Address: {data.address}</h5>
-                    <h5>Role: {data.vendor}</h5>
+                    <h6>Email: {user.email}</h6>
+                    <h5>Name: {user.name}</h5>
+
+                    <h5>Store Name: {store.storeName}</h5>
+                    <h5>Address: {store.address}</h5>
+                    <h5>Status: {store.status}</h5>
+                    {/* <h5>Role: {store}</h5> */}
                 </div>
             </div>
         </div>
