@@ -22,6 +22,18 @@ interface IStore {
     thumbnail: string;
 }
 
+interface IHostel {
+    address: string;
+    banner: string;
+    createdAt: string;
+    estimation: string;
+    hostelName: string;
+    status: string;
+    thumbnail: string;
+    totalSit: number;
+    _id: string;
+}
+
 const user = {
     name: '',
     email: '',
@@ -42,11 +54,24 @@ const store = {
     thumbnail: '',
 };
 
+const hostel = {
+    address: '',
+    banner: '',
+    createdAt: '',
+    estimation: '',
+    hostelName: '',
+    status: '',
+    thumbnail: '',
+    totalSit: 0,
+    _id: '',
+};
+
 interface UsersState {
     user: IUser;
     loading: 'idle' | 'pending' | 'succeeded' | 'failed';
     token: string;
     store: IStore;
+    hostel: IHostel;
 }
 
 const initialState = {
@@ -54,6 +79,7 @@ const initialState = {
     token: '',
     loading: 'idle',
     store: store,
+    hostel: hostel,
 } as UsersState;
 
 export const authSlice = createSlice({
@@ -74,14 +100,20 @@ export const authSlice = createSlice({
             state.store = store;
         },
 
+        setHostel: (state, { payload: hostel }: PayloadAction<IHostel>) => {
+            state.hostel = hostel;
+        },
+
         logOut: (state) => {
             state.user = user;
             state.token = '';
             state.store = store;
+            state.hostel = hostel;
         },
     },
 });
 
-export const { setCredentials, logOut, setStore } = authSlice.actions;
+export const { setCredentials, logOut, setStore, setHostel } =
+    authSlice.actions;
 export default authSlice.reducer;
 export const selectCurrentUser = (state: RootState) => state.auth.user;
