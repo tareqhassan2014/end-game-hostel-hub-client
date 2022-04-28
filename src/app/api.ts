@@ -29,6 +29,18 @@ interface LoginRequest {
     token: string;
 }
 
+interface IHostel {
+    address: string;
+    banner: string;
+    createdAt: string;
+    estimation: string;
+    hostelName: string;
+    status: string;
+    thumbnail: string;
+    totalSit: number;
+    _id: string;
+}
+
 interface AuthResponse {
     user: {
         name: string;
@@ -39,6 +51,7 @@ interface AuthResponse {
         img: string;
         phone: string;
         store: [IStore];
+        hostel: [IHostel];
     };
 }
 
