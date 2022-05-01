@@ -41,12 +41,13 @@ export default function CreateHostel() {
             await createHostel(hostelData).unwrap();
             const sweetData = Swal.fire(
                 'Hostel Created successfully!!',
-                'you will be logout automatically and you will enjoy a admin dashboard ',
+                'you will be logout automatically and you can enjoy admin dashboard ',
                 'success'
             );
             dispatch(logOut());
         } catch (error: any) {
             Swal.fire({
+                showConfirmButton: false,
                 icon: 'error',
                 title: 'Oops...',
                 text: `${error.message}`,
