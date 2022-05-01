@@ -8,6 +8,16 @@ interface SignUpRequest {
     phone: string | null;
 }
 
+interface IStore {
+    address: string;
+    banner: string;
+    createdAt: string;
+    _id: string;
+    status: string;
+    storeName: string;
+    thumbnail: string;
+}
+
 interface addProductRequest {
     price: number;
     name: string;
@@ -19,6 +29,18 @@ interface LoginRequest {
     token: string;
 }
 
+interface IHostel {
+    address: string;
+    banner: string;
+    createdAt: string;
+    estimation: string;
+    hostelName: string;
+    status: string;
+    thumbnail: string;
+    totalSit: number;
+    _id: string;
+}
+
 interface AuthResponse {
     user: {
         name: string;
@@ -28,6 +50,8 @@ interface AuthResponse {
         status: string;
         img: string;
         phone: string;
+        store: [IStore];
+        hostel: [IHostel];
     };
 }
 

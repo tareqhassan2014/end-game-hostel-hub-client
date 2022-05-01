@@ -16,6 +16,7 @@ import ConfirmOrder from 'src/views/components/dashboard/vendorDashboard/Confirm
 import ManageOrder from 'src/views/components/dashboard/vendorDashboard/ManageOrder';
 import ManageProduct from 'src/views/components/dashboard/vendorDashboard/ManageProduct';
 import PendingOrder from 'src/views/components/dashboard/vendorDashboard/PendingOrder';
+import Store from 'src/views/components/dashboard/vendorDashboard/Store';
 import VendorDefault from 'src/views/components/dashboard/vendorDashboard/VendorDefault';
 
 export const dashboardRoutes = [
@@ -100,6 +101,8 @@ export const dashboardRoutes = [
         element: ManageModerator,
         role: ['admin'],
     },
+
+    //vendor Route start
     {
         path: '*',
         element: VendorDefault,
@@ -121,7 +124,7 @@ export const dashboardRoutes = [
         role: ['vendor'],
     },
     {
-        path: 'product',
+        path: 'manageOrder',
         element: ManageOrder,
         role: ['vendor'],
     },
@@ -130,4 +133,10 @@ export const dashboardRoutes = [
         element: ManageProduct,
         role: ['vendor'],
     },
+    {
+        path: 'store',
+        element: Store,
+        role: ['vendor'],
+    },
+    //vendor Route end
 ];

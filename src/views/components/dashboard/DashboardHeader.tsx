@@ -12,9 +12,9 @@ const StyledIconButton = styled(IconButton)(({ theme }) => ({
 
 const location = window.location;
 
-// pathname: "/dashboard/manageProduct"
+// pathname
 const manageProductRoute = '/dashboard/manageProduct';
-const productRoute = '/dashboard/product';
+const manageOrderRoute = '/dashboard/manageOrder';
 const pendingOrderRoute = '/dashboard/pendingOrder';
 const confirmOrderRoute = '/dashboard/confirmOrder';
 
@@ -87,7 +87,7 @@ const DashboardHeader = () => {
                             <Icon sx={{ color: 'white' }}>star_outline</Icon>
                         </StyledIconButton>
                     </IconBox>
-                    {location.pathname === productRoute ||
+                    {location.pathname === manageOrderRoute ||
                     location.pathname === manageProductRoute ||
                     location.pathname === pendingOrderRoute ||
                     location.pathname === confirmOrderRoute ? (
@@ -123,6 +123,7 @@ const DashboardHeader = () => {
                     <AvatarMenu />
                 </Box>
             </TopBarContainer>
+            <Box sx={{ display: 'none' }}></Box>
         </TopBarRoot>
     );
 };

@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { Table, Tbody, Td, Th, Thead, Tr } from 'react-super-responsive-table';
 import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css';
 import img from '../../../../assets/images/logos/mastercard.png';
-import UpdateModal from './UpdateModal';
+import AlertModal from '../UserDashboard/AlertModal';
 
 export default function ManageOrder() {
     const [openModal, setModalOpen] = useState(false);
@@ -16,22 +16,61 @@ export default function ManageOrder() {
             <Table>
                 <Thead style={{ background: '#4556B7' }}>
                     <Tr>
-                        <Th style={{ color: 'white', textAlign: 'center' }}>
+                        <Th
+                            style={{
+                                color: 'white',
+                                textAlign: 'center',
+                            }}
+                        >
                             ID
                         </Th>
-                        <Th style={{ color: 'white', textAlign: 'center' }}>
+                        <Th
+                            style={{
+                                color: 'white',
+                                textAlign: 'center',
+                            }}
+                        >
                             IMAGE
                         </Th>
-                        <Th style={{ color: 'white', textAlign: 'center' }}>
-                            NAME
+                        <Th
+                            style={{
+                                color: 'white',
+                                textAlign: 'center',
+                            }}
+                        >
+                            Product NAME
                         </Th>
-                        <Th style={{ color: 'white', textAlign: 'center' }}>
-                            Payment
+                        <Th
+                            style={{
+                                color: 'white',
+                                textAlign: 'center',
+                            }}
+                        >
+                            email
                         </Th>
-                        <Th style={{ color: 'white', textAlign: 'center' }}>
+
+                        <Th
+                            style={{
+                                color: 'white',
+                                textAlign: 'center',
+                            }}
+                        >
+                            Phone
+                        </Th>
+                        <Th
+                            style={{
+                                color: 'white',
+                                textAlign: 'center',
+                            }}
+                        >
                             Status
                         </Th>
-                        <Th style={{ color: 'white', textAlign: 'center' }}>
+                        <Th
+                            style={{
+                                color: 'white',
+                                textAlign: 'center',
+                            }}
+                        >
                             Remove
                         </Th>
                     </Tr>
@@ -44,7 +83,7 @@ export default function ManageOrder() {
                                 border: '1px solid lightgray',
                             }}
                         >
-                            0980284024820
+                            1213131313131
                         </Td>
                         <Td
                             style={{
@@ -60,26 +99,37 @@ export default function ManageOrder() {
                                 border: '1px solid lightgray',
                             }}
                         >
-                            Apple Mac book
+                            {' '}
+                            Apple Macbook
                         </Td>
                         <Td
-                            onClick={handleModalOpen}
                             style={{
                                 textAlign: 'center',
                                 border: '1px solid lightgray',
                             }}
                         >
-                            <button>Pay: $99</button>
+                            {' '}
+                            rony@rony.com
                         </Td>
                         <Td
-                            onClick={handleModalOpen}
                             style={{
                                 textAlign: 'center',
                                 border: '1px solid lightgray',
                             }}
                         >
-                            <button>Pending</button>
+                            {' '}
+                            017777777777
                         </Td>
+                        <Td
+                            style={{
+                                textAlign: 'center',
+                                border: '1px solid lightgray',
+                            }}
+                        >
+                            {' '}
+                            Pendings
+                        </Td>
+
                         <Td
                             style={{
                                 textAlign: 'center',
@@ -97,10 +147,10 @@ export default function ManageOrder() {
                 </Tbody>
             </Table>
 
-            <UpdateModal
+            <AlertModal
                 openModal={openModal}
                 handleModalClose={handleModalClose}
-            ></UpdateModal>
+            ></AlertModal>
         </>
     );
 }

@@ -4,7 +4,7 @@ import { useAppSelector } from './hooks';
 
 const useAuth = () => {
     const user = useAppSelector(selectCurrentUser);
-    return useMemo(() => ({ user }), [user]);
+    return useMemo(() => ({ ...user }), [user]);
 };
 
 export default useAuth;

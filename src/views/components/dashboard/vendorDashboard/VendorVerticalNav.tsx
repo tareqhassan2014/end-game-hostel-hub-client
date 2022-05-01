@@ -2,7 +2,6 @@ import AddCircleRoundedIcon from '@mui/icons-material/AddCircleRounded';
 import HomeIcon from '@mui/icons-material/Home';
 import PersonIcon from '@mui/icons-material/Person';
 import TaskAltIcon from '@mui/icons-material/TaskAlt';
-import { useMediaQuery } from '@mui/material';
 import List from '@mui/material/List';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
@@ -25,10 +24,6 @@ const VendorVerticalNav = () => {
             setOpen(false);
         }
     }, [sideNavWidth]);
-
-    const matches = useMediaQuery('(min-width:600px)');
-
-    console.log(matches);
 
     return (
         <List
@@ -73,7 +68,7 @@ const VendorVerticalNav = () => {
 
             <ListItemButton
                 sx={{ borderRadius: 4 }}
-                onClick={() => navigate('/dashboard/product')}
+                onClick={() => navigate('/dashboard/manageOrder')}
             >
                 <ListItemIcon>
                     <TaskAltIcon sx={{ color: 'white' }} />
@@ -88,6 +83,15 @@ const VendorVerticalNav = () => {
                     <TaskAltIcon sx={{ color: 'white' }} />
                 </ListItemIcon>
                 <ListItemText primary="Manage Product" />
+            </ListItemButton>
+            <ListItemButton
+                sx={{ borderRadius: 4 }}
+                onClick={() => navigate('/dashboard/store')}
+            >
+                <ListItemIcon>
+                    <TaskAltIcon sx={{ color: 'white' }} />
+                </ListItemIcon>
+                <ListItemText primary="Store" />
             </ListItemButton>
 
             {/* <ListItemButton sx={{ borderRadius: 4 }} onClick={handleClick}>
