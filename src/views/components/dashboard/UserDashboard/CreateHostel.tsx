@@ -13,6 +13,7 @@ import { useCreateHostelMutation } from 'src/app/api';
 import { logOut } from 'src/app/slices/auth/authSlice';
 import { useAppDispatch } from 'src/hooks/hooks';
 import useAuth from 'src/hooks/useAuth';
+import Swal from 'sweetalert2';
 
 type Inputs = {
     address: string;
@@ -38,15 +39,18 @@ export default function CreateHostel() {
             const url = `auth/${user._id}/hostel`;
             const hostelData = { ...formData, url };
             await createHostel(hostelData).unwrap();
-
-            dispatch(logOut());
-
-            toast.success(
-                'Hostel Created successfully!!, you will be logout automatically and you will enjoy a admin dashboard '
+            const sweetData = Swal.fire(
+                'Hostel Created successfully!!',
+                'you will be logout automatically and you will enjoy a admin dashboard ',
+                'success'
             );
+            dispatch(logOut());
         } catch (error: any) {
-            toast.error(error?.data?.message);
-            console.log(error?.data?.message);
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: `${error.message}`,
+            });
         }
     };
 
