@@ -39,7 +39,7 @@ export default function CreateHostel() {
             const url = `auth/${user._id}/hostel`;
             const hostelData = { ...formData, url };
             await createHostel(hostelData).unwrap();
-            const sweetData = Swal.fire(
+            Swal.fire(
                 'Hostel Created successfully!!',
                 'you will be logout automatically and you can enjoy admin dashboard ',
                 'success'
