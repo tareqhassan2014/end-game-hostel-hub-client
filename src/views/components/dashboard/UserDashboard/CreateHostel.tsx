@@ -9,6 +9,8 @@ import {
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 import { useCreateHostelMutation } from 'src/app/api';
+import { logOut } from 'src/app/slices/auth/authSlice';
+import { useAppDispatch } from 'src/hooks/hooks';
 import useAuth from 'src/hooks/useAuth';
 
 type Inputs = {
@@ -19,6 +21,7 @@ type Inputs = {
 
 export default function CreateHostel() {
     const { user } = useAuth();
+    const dispatch = useAppDispatch();
 
     const [createHostel, { isLoading, data, isSuccess, isError }] =
         useCreateHostelMutation();
@@ -27,22 +30,22 @@ export default function CreateHostel() {
         register,
         handleSubmit,
         formState: { errors },
-        reset,
     } = useForm<Inputs>();
 
     const onSubmit: SubmitHandler<Inputs> = async (formData) => {
-        const url = `auth/${user._id}/hostel`;
-
-        const hostelData = { ...formData, url };
-
         try {
-            const data = await createHostel(hostelData).unwrap();
+            const url = `auth/${user._id}/hostel`;
+            const hostelData = { ...formData, url };
+            await createHostel(hostelData).unwrap();
 
-            reset();
-            toast.success('Create Hostel successfully');
+            dispatch(logOut());
+
+            toast.success(
+                'Hostel Created successfully!!, you will be logout automatically and you will enjoy a admin dashboard '
+            );
         } catch (error: any) {
-            console.log(error?.data?.message);
             toast.error(error?.data?.message);
+            console.log(error?.data?.message);
         }
     };
 
