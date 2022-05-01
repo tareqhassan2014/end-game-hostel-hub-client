@@ -7,8 +7,10 @@ import {
     Typography,
 } from '@mui/material';
 import { SubmitHandler, useForm } from 'react-hook-form';
+import { useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
 import { useCreateHostelMutation } from 'src/app/api';
+import { logOut } from 'src/app/slices/auth/authSlice';
 import useAuth from 'src/hooks/useAuth';
 
 type Inputs = {
@@ -19,6 +21,7 @@ type Inputs = {
 
 export default function CreateHostel() {
     const { user } = useAuth();
+    const dispatch = useDispatch();
 
     const [createHostel, { isLoading, data, isSuccess, isError }] =
         useCreateHostelMutation();
@@ -39,7 +42,7 @@ export default function CreateHostel() {
             const data = await createHostel(hostelData).unwrap();
 
             reset();
-            toast.success('Create Hostel successfully');
+            toast.success('Hostel created successfully');
         } catch (error: any) {
             console.log(error?.data?.message);
             toast.error(error?.data?.message);

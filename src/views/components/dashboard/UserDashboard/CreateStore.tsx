@@ -7,8 +7,10 @@ import {
     Typography,
 } from '@mui/material';
 import { SubmitHandler, useForm } from 'react-hook-form';
+import { useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
 import { useCreateStoreMutation } from 'src/app/api';
+import { logOut } from 'src/app/slices/auth/authSlice';
 import useAuth from 'src/hooks/useAuth';
 
 type Inputs = {
@@ -18,6 +20,7 @@ type Inputs = {
 
 export default function CreateStore() {
     const { user } = useAuth();
+    const dispatch = useDispatch();
 
     const [createStore, { isLoading, data, isSuccess, isError }] =
         useCreateStoreMutation();
@@ -41,7 +44,7 @@ export default function CreateStore() {
             console.log('====================================');
 
             reset();
-            toast.success('Account Store successfully');
+            toast.success('Store created successfully');
         } catch (error: any) {
             console.log(error?.data?.message);
             toast.error(error?.data?.message);
