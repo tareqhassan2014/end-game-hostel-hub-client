@@ -1,4 +1,5 @@
 import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
+import CoPresentIcon from '@mui/icons-material/CoPresent';
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
 import HomeIcon from '@mui/icons-material/Home';
@@ -90,6 +91,18 @@ const AdminVerticalNav = () => {
                             <AttachMoneyIcon sx={{ color: 'white' }} />
                         </ListItemIcon>
                         <ListItemText primary={open ? 'Manage Bill' : ''} />
+                    </ListItemButton>
+                    <ListItemButton
+                        sx={{
+                            pl: sideNavWidth === 80 ? 2 : 4,
+                            borderRadius: 4,
+                        }}
+                        onClick={() => navigate('/dashboard/sit')}
+                    >
+                        <ListItemIcon>
+                            <CoPresentIcon sx={{ color: 'white' }} />
+                        </ListItemIcon>
+                        <ListItemText primary={open ? 'Manage Sit' : ''} />
                     </ListItemButton>
                     <ListItemButton
                         sx={{

@@ -2,6 +2,7 @@ import AdminBill from 'src/views/components/dashboard/AdminDashboard/AdminBill/A
 import AdminDefault from 'src/views/components/dashboard/AdminDashboard/AdminDefault/AdminDefault';
 import AdminHostel from 'src/views/components/dashboard/AdminDashboard/AdminHostel';
 import AdminProfile from 'src/views/components/dashboard/AdminDashboard/AdminProfile/AdminProfile';
+import AdminSitManage from 'src/views/components/dashboard/AdminDashboard/AdminSitManage/AdminSitManage';
 import ManageModerator from 'src/views/components/dashboard/AdminDashboard/ManageModerator/ManageModerator';
 import ModeratorDefault from 'src/views/components/dashboard/moderatorDashboard/ModeratorDefault';
 import Profile from 'src/views/components/dashboard/profile/Profile';
@@ -43,6 +44,11 @@ export const dashboardRoutes = [
     {
         path: 'hostel',
         element: AdminHostel,
+        role: ['admin'],
+    },
+    {
+        path: 'sit',
+        element: AdminSitManage,
         role: ['admin'],
     },
     {

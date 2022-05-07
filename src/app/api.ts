@@ -65,7 +65,7 @@ interface CreateHostelRequest {
     hostelName: string;
     address: string;
     totalSit: number;
-    url: string;
+    admin?: string;
 }
 
 interface hostelData {
@@ -83,8 +83,29 @@ interface hostelData {
     _id: string;
 }
 
+interface CreateHostelAddRequest {
+    price: number;
+    phone: string;
+    details: string;
+    numberOfVacancy: number;
+    hostel: string;
+}
+
 interface HostelResponse {
     data: { data: [hostelData] };
+}
+
+interface HostelAdd {
+    price: number;
+    phone: string;
+    details: string;
+    numberOfVacancy: number;
+    hostel: string;
+    _id: string;
+}
+
+interface AllHostelAdds {
+    data: { data: HostelAdd[] };
 }
 
 const baseUrl = process.env.REACT_APP_BASE_URL;
@@ -130,11 +151,26 @@ const api = createApi({
             }),
         }),
 
-        createHostel: builder.mutation<AuthResponse, CreateHostelRequest>({
+        createHostel: builder.mutation<null, CreateHostelRequest>({
             query: (credentials) => ({
-                url: credentials.url,
+                url: '/hostel',
                 method: 'POST',
                 body: credentials,
+            }),
+        }),
+
+        addForHostel: builder.mutation<null, CreateHostelAddRequest>({
+            query: (credentials) => ({
+                url: '/hostelAdd',
+                method: 'POST',
+                body: credentials,
+            }),
+        }),
+
+        searchForHostel: builder.query<AllHostelAdds, string>({
+            query: (query) => ({
+                url: query,
+                method: 'GET',
             }),
         }),
 
@@ -162,6 +198,8 @@ export const {
     useCreateHostelMutation,
     useGetHostelQuery,
     useAddProductMutation,
+    useAddForHostelMutation,
+    useSearchForHostelQuery,
 } = api;
 
 export default api;
