@@ -100,12 +100,22 @@ interface HostelAdd {
     phone: string;
     details: string;
     numberOfVacancy: number;
-    hostel: string;
+    hostel: hostelData;
     _id: string;
 }
 
 interface AllHostelAdds {
     data: { data: HostelAdd[] };
+}
+
+interface HostelAddDetails {
+    data: { data: HostelAdd };
+}
+
+interface requestForHostelRequest {
+    hostelId: string;
+    addId: string;
+    userId: string;
 }
 
 const baseUrl = process.env.REACT_APP_BASE_URL;
@@ -167,10 +177,11 @@ const api = createApi({
             }),
         }),
 
-        searchForHostel: builder.query<AllHostelAdds, string>({
-            query: (query) => ({
-                url: query,
-                method: 'GET',
+        requestForHostel: builder.mutation<null, requestForHostelRequest>({
+            query: (credentials) => ({
+                url: '/hostelBooking',
+                method: 'POST',
+                body: credentials,
             }),
         }),
 
@@ -188,6 +199,20 @@ const api = createApi({
                 method: 'GET',
             }),
         }),
+
+        searchForHostel: builder.query<AllHostelAdds, string>({
+            query: (query) => ({
+                url: query,
+                method: 'GET',
+            }),
+        }),
+
+        hostelAddDetails: builder.query<HostelAddDetails, string>({
+            query: (query) => ({
+                url: query,
+                method: 'GET',
+            }),
+        }),
     }),
 });
 
@@ -200,6 +225,8 @@ export const {
     useAddProductMutation,
     useAddForHostelMutation,
     useSearchForHostelQuery,
+    useHostelAddDetailsQuery,
+    useRequestForHostelMutation,
 } = api;
 
 export default api;

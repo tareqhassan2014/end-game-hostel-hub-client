@@ -30,12 +30,27 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSearchForHostelQuery } from 'src/app/api';
 
+interface hostelData {
+    address: string;
+    admin: object;
+    banner: string;
+    createdAt: string;
+    estimation: string;
+    hostelName: string;
+    member: [];
+    request: [];
+    status: string;
+    thumbnail: string;
+    totalSit: number;
+    _id: string;
+}
+
 interface CreateHostelAddRequest {
     price: number;
     phone: string;
     details: string;
     numberOfVacancy: number;
-    hostel: string;
+    hostel: hostelData;
     _id: string;
 }
 
