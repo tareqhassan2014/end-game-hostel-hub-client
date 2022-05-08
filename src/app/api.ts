@@ -113,12 +113,13 @@ interface AllHostelBooking {
 }
 
 interface IHostelBooking {
-    hostelId: string;
     addId: string;
+    hostelId: string;
     userId: {
         img: string;
         name: string;
         email: string;
+        _id: string;
     };
 }
 
@@ -129,6 +130,11 @@ interface HostelAddDetails {
 interface requestForHostelRequest {
     hostelId: string;
     addId: string;
+    userId: string;
+}
+
+interface acceptHostelRequestPayload {
+    hostelId: string;
     userId: string;
 }
 
@@ -149,6 +155,7 @@ const baseQuery = fetchBaseQuery({
 });
 
 const api = createApi({
+    tagTypes: ['hostelMemberRequest'],
     baseQuery,
     endpoints: (builder) => ({
         login: builder.mutation<AuthResponse, LoginRequest>({
@@ -207,6 +214,18 @@ const api = createApi({
             }),
         }),
 
+        acceptHostelMemberRequest: builder.mutation<
+            null,
+            acceptHostelRequestPayload
+        >({
+            query: (credentials) => ({
+                url: '/hostelMember',
+                method: 'POST',
+                body: credentials,
+                invalidatesTags: ['hostelMemberRequest'],
+            }),
+        }),
+
         getHostel: builder.query<HostelResponse, string>({
             query: (query) => ({
                 url: query,
@@ -232,6 +251,15 @@ const api = createApi({
             query: (query) => ({
                 url: query,
                 method: 'GET',
+                providesTags: ['hostelMemberRequest'],
+            }),
+        }),
+
+        getAllUsedProduct: builder.query<AllHostelBooking, string>({
+            query: (query) => ({
+                url: query,
+                method: 'GET',
+                providesTags: ['hostelMemberRequest'],
             }),
         }),
     }),
@@ -249,6 +277,8 @@ export const {
     useHostelAddDetailsQuery,
     useRequestForHostelMutation,
     useGetHostelBookingQuery,
+    useAcceptHostelMemberRequestMutation,
+    useGetAllUsedProductQuery,
 } = api;
 
 export default api;

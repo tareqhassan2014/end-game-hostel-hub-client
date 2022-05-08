@@ -47,7 +47,7 @@ export default function CreateHostel() {
                 showConfirmButton: false,
                 icon: 'error',
                 title: 'Oops...',
-                text: `${error.message || 'Something Went Wrong.'}`,
+                text: `${error?.data?.message || 'Please try again letter'}`,
             });
             console.log(error);
         }

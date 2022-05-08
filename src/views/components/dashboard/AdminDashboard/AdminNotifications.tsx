@@ -2,8 +2,12 @@ import CheckIcon from '@mui/icons-material/Check';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { Avatar, Container, Grid, IconButton, Typography } from '@mui/material';
 import { useEffect, useState } from 'react';
-import { useGetHostelBookingQuery } from 'src/app/api';
+import {
+    useAcceptHostelMemberRequestMutation,
+    useGetHostelBookingQuery,
+} from 'src/app/api';
 import useAuth from 'src/hooks/useAuth';
+import Swal from 'sweetalert2';
 
 interface IHostelBooking {
     hostelId: string;
@@ -12,6 +16,7 @@ interface IHostelBooking {
         img: string;
         name: string;
         email: string;
+        _id: string;
     };
 }
 
@@ -20,6 +25,7 @@ const AdminNotifications = () => {
 
     const query = `hostelBooking?hostelId=${hostel._id}`;
     const { data } = useGetHostelBookingQuery(query);
+    const [acceptHostelMemberRequest] = useAcceptHostelMemberRequestMutation();
 
     const [hostelBooking, setHostelBooking] = useState<
         IHostelBooking[] | undefined
@@ -30,6 +36,24 @@ const AdminNotifications = () => {
             setHostelBooking(data.data.data);
         }
     }, [data]);
+
+    const acceptRequest = async (userId: string, hostelId: string) => {
+        try {
+            await acceptHostelMemberRequest({ userId, hostelId });
+            Swal.fire({
+                icon: 'success',
+                title: 'Member added successfully!!',
+            });
+        } catch (error: any) {
+            Swal.fire({
+                showConfirmButton: false,
+                icon: 'error',
+                title: 'Something went very wrong',
+                text: `${error?.data?.message || 'Please try again letter'}`,
+            });
+            console.log(error);
+        }
+    };
 
     return (
         <Container>
@@ -77,6 +101,12 @@ const AdminNotifications = () => {
                                             <DeleteIcon />
                                         </IconButton>
                                         <IconButton
+                                            onClick={() =>
+                                                acceptRequest(
+                                                    booking.userId._id,
+                                                    booking.hostelId
+                                                )
+                                            }
                                             aria-label="delete"
                                             color="success"
                                         >
