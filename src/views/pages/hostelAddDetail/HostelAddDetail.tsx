@@ -50,6 +50,8 @@ const HostelAddDetail = () => {
         }
     }, [data]);
 
+    console.log(hostelAddDetail);
+
     const sendRequest = async () => {
         try {
             const data = {
@@ -69,18 +71,21 @@ const HostelAddDetail = () => {
         } catch (error: any) {
             Swal.fire({
                 showConfirmButton: false,
-                icon: 'error',
-                title: 'Oops...',
-                text: `${error.message || 'Something Went Wrong.'}`,
+                icon: 'info',
+                title: 'Your Request Already send',
+                text: `${
+                    error.message ||
+                    'Please wait while the hostel admin being accept your request.'
+                }`,
             });
         }
     };
 
     return (
         <Container sx={{ my: 5 }}>
-            <p>Hostel Add Details</p>
-            <p>Hostel Add Details</p>
-            <p>Hostel Add Details</p>
+            <p>Phone: {hostelAddDetail?.phone}</p>
+            <p>address : {hostelAddDetail?.hostel.address} </p>
+            <p>numberOfVacancy : {hostelAddDetail?.numberOfVacancy}</p>
             <p>Hostel Add Details id : {hostelAddDetail?._id}</p>
             <Button
                 variant="contained"
