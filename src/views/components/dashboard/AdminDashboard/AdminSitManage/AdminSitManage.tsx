@@ -7,23 +7,21 @@ import {
     Typography,
 } from '@mui/material';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import { useCreateHostelMutation } from 'src/app/api';
-import { logOut } from 'src/app/slices/auth/authSlice';
-import { useAppDispatch } from 'src/hooks/hooks';
+import { useAddForHostelMutation } from 'src/app/api';
 import useAuth from 'src/hooks/useAuth';
 import Swal from 'sweetalert2';
 
 type Inputs = {
-    address: string;
-    hostelName: string;
-    totalSit: number;
+    price: number;
+    phone: string;
+    details: string;
+    numberOfVacancy: number;
 };
 
-export default function CreateHostel() {
-    const { user } = useAuth();
-    const dispatch = useAppDispatch();
+const AdminSitManage = () => {
+    const { hostel } = useAuth();
 
-    const [createHostel, { isLoading }] = useCreateHostelMutation();
+    const [addForHostel, { isLoading }] = useAddForHostelMutation();
 
     const {
         register,
@@ -33,15 +31,12 @@ export default function CreateHostel() {
 
     const onSubmit: SubmitHandler<Inputs> = async (hostelData) => {
         try {
-            await createHostel({ ...hostelData, admin: user._id }).unwrap();
+            await addForHostel({ ...hostelData, hostel: hostel._id }).unwrap();
 
             Swal.fire(
-                'Hostel Created successfully!!',
-                'you will be logout automatically and you can enjoy admin dashboard ',
-                'success'
+                'success',
+                'A add for your hostel successfully created!!'
             );
-
-            dispatch(logOut());
         } catch (error: any) {
             Swal.fire({
                 showConfirmButton: false,
@@ -65,7 +60,7 @@ export default function CreateHostel() {
                 }}
             >
                 <Typography component="h1" variant="h5">
-                    Create Your Hostel
+                    Create a Add Your Hostel
                 </Typography>
                 <Box
                     component="form"
@@ -78,23 +73,24 @@ export default function CreateHostel() {
                         autoFocus
                         fullWidth
                         margin="normal"
-                        error={Boolean(errors.hostelName)}
-                        label={errors.hostelName ? 'Error' : 'Store Name'}
-                        helperText={errors.hostelName?.message}
-                        {...register('hostelName', {
-                            required: 'Store Name is required',
+                        error={Boolean(errors.phone)}
+                        label={errors.phone ? 'Error' : 'Phone'}
+                        helperText={errors.phone?.message}
+                        {...register('phone', {
+                            required: 'Phone is required',
                         })}
                     />
+
                     <TextField
                         fullWidth
                         required
                         margin="normal"
-                        error={Boolean(errors.address)}
-                        label={errors.address ? 'Error' : 'Address'}
-                        helperText={errors.address?.message}
-                        autoComplete="address"
-                        {...register('address', {
-                            required: 'Address is required',
+                        error={Boolean(errors.details)}
+                        label={errors.details ? 'Error' : 'details'}
+                        helperText={errors.details?.message}
+                        autoComplete="details"
+                        {...register('details', {
+                            required: 'details is required',
                         })}
                     />
 
@@ -103,12 +99,31 @@ export default function CreateHostel() {
                         required
                         type="number"
                         margin="normal"
-                        error={Boolean(errors.totalSit)}
-                        label={errors.totalSit ? 'Error' : 'totalSit'}
-                        helperText={errors.totalSit?.message}
-                        autoComplete="totalSit"
-                        {...register('totalSit', {
-                            required: 'totalSit is required',
+                        error={Boolean(errors.price)}
+                        label={errors.price ? 'Error' : 'price'}
+                        helperText={errors.price?.message}
+                        autoComplete="price"
+                        {...register('price', {
+                            required: 'price is required',
+                            valueAsNumber: true,
+                        })}
+                    />
+
+                    <TextField
+                        fullWidth
+                        required
+                        type="number"
+                        margin="normal"
+                        error={Boolean(errors.numberOfVacancy)}
+                        label={
+                            errors.numberOfVacancy
+                                ? 'Error'
+                                : 'number Of vacancy'
+                        }
+                        helperText={errors.numberOfVacancy?.message}
+                        autoComplete="numberOfVacancy"
+                        {...register('numberOfVacancy', {
+                            required: 'numberOfVacancy is required',
                             valueAsNumber: true,
                         })}
                     />
@@ -120,10 +135,12 @@ export default function CreateHostel() {
                         sx={{ mt: 3, mb: 2 }}
                         loading={isLoading}
                     >
-                        Create Hostel
+                        Add for Hostel
                     </LoadingButton>
                 </Box>
             </Box>
         </Container>
     );
-}
+};
+
+export default AdminSitManage;

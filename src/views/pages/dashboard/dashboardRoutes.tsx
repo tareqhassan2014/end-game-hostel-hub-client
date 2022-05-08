@@ -1,16 +1,15 @@
 import AdminBill from 'src/views/components/dashboard/AdminDashboard/AdminBill/AdminBill';
 import AdminDefault from 'src/views/components/dashboard/AdminDashboard/AdminDefault/AdminDefault';
 import AdminHostel from 'src/views/components/dashboard/AdminDashboard/AdminHostel';
-import AdminProfile from 'src/views/components/dashboard/AdminDashboard/AdminProfile/AdminProfile';
+import AdminNotifications from 'src/views/components/dashboard/AdminDashboard/AdminNotifications';
+import AdminSitManage from 'src/views/components/dashboard/AdminDashboard/AdminSitManage/AdminSitManage';
 import ManageModerator from 'src/views/components/dashboard/AdminDashboard/ManageModerator/ManageModerator';
 import ModeratorDefault from 'src/views/components/dashboard/moderatorDashboard/ModeratorDefault';
 import Profile from 'src/views/components/dashboard/profile/Profile';
 import CreateHostel from 'src/views/components/dashboard/UserDashboard/CreateHostel';
 import CreateStore from 'src/views/components/dashboard/UserDashboard/CreateStore';
 import UserBills from 'src/views/components/dashboard/UserDashboard/UserBills';
-import UserDefault from 'src/views/components/dashboard/UserDashboard/UserDefault';
 import UserMeal from 'src/views/components/dashboard/UserDashboard/UserMeal';
-import { default as ModeratorProfile } from 'src/views/components/dashboard/UserDashboard/UserProfile';
 import AddProduct from 'src/views/components/dashboard/vendorDashboard/AddProduct';
 import ConfirmOrder from 'src/views/components/dashboard/vendorDashboard/ConfirmOrder';
 import ManageOrder from 'src/views/components/dashboard/vendorDashboard/ManageOrder';
@@ -31,8 +30,8 @@ export const dashboardRoutes = [
         role: ['admin'],
     },
     {
-        path: 'profile',
-        element: AdminProfile,
+        path: 'notification',
+        element: AdminNotifications,
         role: ['admin'],
     },
     {
@@ -46,13 +45,13 @@ export const dashboardRoutes = [
         role: ['admin'],
     },
     {
-        path: '*',
-        element: UserDefault,
-        role: ['user'],
+        path: 'sit',
+        element: AdminSitManage,
+        role: ['admin'],
     },
     {
-        path: 'default',
-        element: UserDefault,
+        path: '*',
+        element: Profile,
         role: ['user'],
     },
     {
@@ -88,12 +87,6 @@ export const dashboardRoutes = [
     {
         path: 'default',
         element: ModeratorDefault,
-        role: ['moderator'],
-    },
-
-    {
-        path: 'profile',
-        element: ModeratorProfile,
         role: ['moderator'],
     },
     {

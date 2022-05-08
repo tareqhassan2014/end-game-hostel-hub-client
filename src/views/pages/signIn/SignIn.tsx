@@ -14,9 +14,8 @@ import {
 } from '@mui/material';
 import { useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import { Link as DomLink, useLocation, useNavigate } from 'react-router-dom';
+import { Link as DomLink } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import { useLoginMutation } from '../../../app/api';
 import google from '../../../assets/images/1534129544.svg';
 import facebook from '../../../assets/images/facebook-svgrepo-com.svg';
 import useFirebase from '../../../hooks/firebase/useFirebase';
@@ -28,10 +27,8 @@ type Inputs = {
 
 export default function SignIn() {
     const [show, setShow] = useState(false);
-    const { state } = useLocation();
-    const navigate = useNavigate();
+
     const { firebaseGoogle, firebaseFacebook, SignInFirebase } = useFirebase();
-    const [signIn, { isLoading }] = useLoginMutation();
 
     const {
         register,
@@ -114,7 +111,7 @@ export default function SignIn() {
                         fullWidth
                         variant="contained"
                         sx={{ mt: 1, mb: 1 }}
-                        loading={isLoading}
+                        loading={false}
                     >
                         Sign In
                     </LoadingButton>

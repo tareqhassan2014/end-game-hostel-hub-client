@@ -2,8 +2,8 @@ import { Box, styled } from '@mui/system';
 import { Route, Routes } from 'react-router-dom';
 import useAuth from 'src/hooks/useAuth';
 import useThemeAndLayout from 'src/hooks/useThemeAndLayout';
-import DashboardHeader from '../../components/dashboard/DashboardHeader';
-import LayoutSidenav from '../../components/dashboard/LayoutSidenav';
+import DashboardHeader from '../../components/dashboard/common/DashboardHeader';
+import LayoutSidenav from '../../components/dashboard/common/LayoutSidenav';
 import { dashboardRoutes } from './dashboardRoutes';
 
 const Layout1Root = styled(Box)(({ theme }) => ({

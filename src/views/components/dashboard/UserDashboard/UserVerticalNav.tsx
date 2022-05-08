@@ -38,15 +38,6 @@ const UserVerticalNav = () => {
         >
             <ListItemButton
                 sx={{ borderRadius: 4 }}
-                onClick={() => navigate('/dashboard/default')}
-            >
-                <ListItemIcon>
-                    <HomeIcon sx={{ color: 'white' }} />
-                </ListItemIcon>
-                <ListItemText primary="Home" />
-            </ListItemButton>
-            <ListItemButton
-                sx={{ borderRadius: 4 }}
                 onClick={() => navigate('/dashboard/profile')}
             >
                 <ListItemIcon>

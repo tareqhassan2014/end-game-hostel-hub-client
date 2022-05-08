@@ -1,29 +1,44 @@
-import HomeWorkIcon from '@mui/icons-material/HomeWork';
-import { Box, styled } from '@mui/system';
+import { Box } from '@mui/system';
 import React from 'react';
-
-const BrandRoot = styled(Box)(() => ({
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    padding: '20px 18px 20px 29px',
-}));
-
-const StyledSpan = styled('span')(() => ({
-    fontSize: 18,
-    marginLeft: '.5rem',
-    display: 'block',
-}));
+import { useNavigate } from 'react-router-dom';
+import logo from 'src/assets/images/logos/brandLogo.png';
+import useThemeAndLayout from 'src/hooks/useThemeAndLayout';
 
 const Brand: React.FC = ({ children }) => {
+    const { sideNavWidth } = useThemeAndLayout();
+    const navigate = useNavigate();
+
     return (
-        <BrandRoot>
+        <Box
+            sx={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                p:
+                    sideNavWidth === 80
+                        ? '20px 18px 20px 20px'
+                        : '20px 18px 20px 29px',
+            }}
+        >
             <Box display="flex" alignItems="center">
-                <HomeWorkIcon />
-                <StyledSpan className="sidenavHoverShow">Hostel Hub</StyledSpan>
+                <Box
+                    component="img"
+                    src={logo}
+                    sx={{
+                        height: sideNavWidth === 80 ? 30 : 50,
+                        cursor: 'pointer',
+                    }}
+                    alt="logo"
+                    onClick={() => navigate('/')}
+                />
             </Box>
-            <Box className="sidenavHoverShow">{children || null}</Box>
-        </BrandRoot>
+            <Box
+                className="sidenavHoverShow"
+                sx={{ display: sideNavWidth === 80 ? 'none' : 'block' }}
+            >
+                {children || null}
+            </Box>
+        </Box>
     );
 };
 

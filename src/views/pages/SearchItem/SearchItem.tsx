@@ -1,18 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-
-import Drawer from '@mui/material/Drawer';
-import IconButton from '@mui/material/IconButton';
 import ArrowRightAltOutlinedIcon from '@mui/icons-material/ArrowRightAltOutlined';
-
 import FilterListIcon from '@mui/icons-material/FilterList';
-import Toolbar from '@mui/material/Toolbar';
-import Grid from '@mui/material/Grid';
-import Paper from '@mui/material/Paper';
-import InputBase from '@mui/material/InputBase';
-
-import SearchIcon from '@mui/icons-material/Search';
 import HomeIcon from '@mui/icons-material/Home';
 import {
     Button,
@@ -27,48 +14,74 @@ import {
     FormLabel,
     Radio,
     RadioGroup,
-    Rating,
     Slider,
     Tooltip,
     Typography,
 } from '@mui/material';
+import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
+import Drawer from '@mui/material/Drawer';
+import Grid from '@mui/material/Grid';
+import IconButton from '@mui/material/IconButton';
+import InputBase from '@mui/material/InputBase';
+import Paper from '@mui/material/Paper';
+import Toolbar from '@mui/material/Toolbar';
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useSearchForHostelQuery } from 'src/app/api';
 
 interface hostelData {
-    id: number;
-    first_name: string;
-    email: string;
-    gender: string;
-    photo: string;
-    city: string;
-    rating: number;
-    price: number;
+    address: string;
+    admin: object;
+    banner: string;
+    createdAt: string;
+    estimation: string;
+    hostelName: string;
+    member: [];
+    request: [];
+    status: string;
+    thumbnail: string;
+    totalSit: number;
+    _id: string;
 }
+
+interface CreateHostelAddRequest {
+    price: number;
+    phone: string;
+    details: string;
+    numberOfVacancy: number;
+    hostel: hostelData;
+    _id: string;
+}
+
 const drawerWidth = 200;
 
-function SearchItem(props: any) {
+const SearchItem = (props: any) => {
+    const navigate = useNavigate();
+
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
+    const [allHostelAdds, setAllHostelAdds] = React.useState<
+        CreateHostelAddRequest[] | undefined
+    >(undefined);
+
+    const [query, setQuery] = React.useState('/hostelAdd');
 
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
     };
 
+    const { data, isLoading, isSuccess } = useSearchForHostelQuery(query);
+
+    useEffect(() => {
+        setAllHostelAdds(data?.data.data);
+    }, [data?.data.data]);
+
     const container =
         window !== undefined ? () => window().document.body : undefined;
 
-    const [allHostel, SetAllHostel] = useState<hostelData[]>([]);
-    const [matchItem, SetmatchItem] = useState<hostelData[]>([]);
     const [price, setPrice] = useState<number>(1000);
     const [gender, setGender] = useState<string>('Male');
-
-    useEffect(() => {
-        fetch('/MOCK_DATA.JSON')
-            .then((res) => res.json())
-            .then((data) => {
-                SetAllHostel(data);
-                SetmatchItem(data);
-            });
-    }, []);
 
     const priceChange = (event: Event, newValue: number | number[]) => {
         setPrice(newValue as number);
@@ -76,16 +89,7 @@ function SearchItem(props: any) {
     const handleRadioChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setGender((event.target as HTMLInputElement).value);
     };
-    const changeSearch = (e: any) => {
-        const searchText = e.target.value;
-        const matchProductToSearch = allHostel.filter(
-            (hostel) =>
-                hostel.city.toLowerCase().includes(searchText.toLowerCase()) &&
-                hostel.price <= price &&
-                hostel.gender === gender
-        );
-        SetmatchItem(matchProductToSearch);
-    };
+
     const drawer = (
         <Box
             sx={{
@@ -185,6 +189,7 @@ function SearchItem(props: any) {
             </FormControl>
         </Box>
     );
+
     return (
         <Box sx={{ maxWidth: '100%', overflow: 'hidden' }}>
             <CssBaseline />
@@ -192,9 +197,7 @@ function SearchItem(props: any) {
                 elevation={0}
                 position="relative"
                 sx={{
-                    // height: { sm: '40px', md: '50px' },
                     width: { sm: '100%' },
-                    // ml: { sm: `${drawerWidth}px` },
                     backgroundColor: 'transparent',
                 }}
             >
@@ -235,7 +238,6 @@ function SearchItem(props: any) {
                                 inputProps={{
                                     'aria-label': 'Search Hostel By Location',
                                 }}
-                                onChange={changeSearch}
                             />
                             <IconButton
                                 type="submit"
@@ -432,8 +434,8 @@ function SearchItem(props: any) {
                                 container
                                 spacing={2}
                             >
-                                {matchItem.length !== 0 ? (
-                                    matchItem.map((hostel, index) => (
+                                {allHostelAdds ? (
+                                    allHostelAdds.map((hostel, index) => (
                                         <Grid
                                             key={index}
                                             item
@@ -457,7 +459,7 @@ function SearchItem(props: any) {
                                                         variant="h5"
                                                         component="div"
                                                     >
-                                                        {hostel.first_name}
+                                                        {hostel.phone}
                                                     </Typography>
                                                     <Typography
                                                         variant="body2"
@@ -466,31 +468,19 @@ function SearchItem(props: any) {
                                                         Price: {hostel.price}{' '}
                                                         BDT
                                                     </Typography>
-                                                    <Typography
-                                                        variant="body2"
-                                                        color="text.secondary"
-                                                    >
-                                                        Type: {hostel.gender}{' '}
-                                                        Hostel
-                                                    </Typography>
-                                                    <Typography
-                                                        variant="body2"
-                                                        color="text.secondary"
-                                                    >
-                                                        Location: {hostel.city}
-                                                    </Typography>
-
-                                                    <Rating
-                                                        name="Rating"
-                                                        value={hostel.rating}
-                                                        readOnly
-                                                    />
                                                 </CardContent>
                                                 <CardActions>
                                                     <Button size="small">
                                                         Booking
                                                     </Button>
-                                                    <Button size="small">
+                                                    <Button
+                                                        size="small"
+                                                        onClick={() =>
+                                                            navigate(
+                                                                `/search-hostel/${hostel._id}`
+                                                            )
+                                                        }
+                                                    >
                                                         Details
                                                     </Button>
                                                 </CardActions>
@@ -518,6 +508,6 @@ function SearchItem(props: any) {
             </Box>
         </Box>
     );
-}
+};
 
 export default SearchItem;

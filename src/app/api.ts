@@ -65,7 +65,7 @@ interface CreateHostelRequest {
     hostelName: string;
     address: string;
     totalSit: number;
-    url: string;
+    admin?: string;
 }
 
 interface hostelData {
@@ -83,8 +83,59 @@ interface hostelData {
     _id: string;
 }
 
+interface CreateHostelAddRequest {
+    price: number;
+    phone: string;
+    details: string;
+    numberOfVacancy: number;
+    hostel: string;
+}
+
 interface HostelResponse {
     data: { data: [hostelData] };
+}
+
+interface HostelAdd {
+    price: number;
+    phone: string;
+    details: string;
+    numberOfVacancy: number;
+    hostel: hostelData;
+    _id: string;
+}
+
+interface AllHostelAdds {
+    data: { data: HostelAdd[] };
+}
+
+interface AllHostelBooking {
+    data: { data: IHostelBooking[] };
+}
+
+interface IHostelBooking {
+    addId: string;
+    hostelId: string;
+    userId: {
+        img: string;
+        name: string;
+        email: string;
+        _id: string;
+    };
+}
+
+interface HostelAddDetails {
+    data: { data: HostelAdd };
+}
+
+interface requestForHostelRequest {
+    hostelId: string;
+    addId: string;
+    userId: string;
+}
+
+interface acceptHostelRequestPayload {
+    hostelId: string;
+    userId: string;
 }
 
 const baseUrl = process.env.REACT_APP_BASE_URL;
@@ -104,6 +155,7 @@ const baseQuery = fetchBaseQuery({
 });
 
 const api = createApi({
+    tagTypes: ['hostelMemberRequest'],
     baseQuery,
     endpoints: (builder) => ({
         login: builder.mutation<AuthResponse, LoginRequest>({
@@ -130,9 +182,25 @@ const api = createApi({
             }),
         }),
 
-        createHostel: builder.mutation<AuthResponse, CreateHostelRequest>({
+        createHostel: builder.mutation<null, CreateHostelRequest>({
             query: (credentials) => ({
-                url: credentials.url,
+                url: '/hostel',
+                method: 'POST',
+                body: credentials,
+            }),
+        }),
+
+        addForHostel: builder.mutation<null, CreateHostelAddRequest>({
+            query: (credentials) => ({
+                url: '/hostelAdd',
+                method: 'POST',
+                body: credentials,
+            }),
+        }),
+
+        requestForHostel: builder.mutation<null, requestForHostelRequest>({
+            query: (credentials) => ({
+                url: '/hostelBooking',
                 method: 'POST',
                 body: credentials,
             }),
@@ -146,10 +214,52 @@ const api = createApi({
             }),
         }),
 
+        acceptHostelMemberRequest: builder.mutation<
+            null,
+            acceptHostelRequestPayload
+        >({
+            query: (credentials) => ({
+                url: '/hostelMember',
+                method: 'POST',
+                body: credentials,
+                invalidatesTags: ['hostelMemberRequest'],
+            }),
+        }),
+
         getHostel: builder.query<HostelResponse, string>({
             query: (query) => ({
                 url: query,
                 method: 'GET',
+            }),
+        }),
+
+        searchForHostel: builder.query<AllHostelAdds, string>({
+            query: (query) => ({
+                url: query,
+                method: 'GET',
+            }),
+        }),
+
+        hostelAddDetails: builder.query<HostelAddDetails, string>({
+            query: (query) => ({
+                url: query,
+                method: 'GET',
+            }),
+        }),
+
+        getHostelBooking: builder.query<AllHostelBooking, string>({
+            query: (query) => ({
+                url: query,
+                method: 'GET',
+                providesTags: ['hostelMemberRequest'],
+            }),
+        }),
+
+        getAllUsedProduct: builder.query<AllHostelBooking, string>({
+            query: (query) => ({
+                url: query,
+                method: 'GET',
+                providesTags: ['hostelMemberRequest'],
             }),
         }),
     }),
@@ -162,6 +272,13 @@ export const {
     useCreateHostelMutation,
     useGetHostelQuery,
     useAddProductMutation,
+    useAddForHostelMutation,
+    useSearchForHostelQuery,
+    useHostelAddDetailsQuery,
+    useRequestForHostelMutation,
+    useGetHostelBookingQuery,
+    useAcceptHostelMemberRequestMutation,
+    useGetAllUsedProductQuery,
 } = api;
 
 export default api;
