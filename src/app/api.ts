@@ -108,6 +108,20 @@ interface AllHostelAdds {
     data: { data: HostelAdd[] };
 }
 
+interface AllHostelBooking {
+    data: { data: IHostelBooking[] };
+}
+
+interface IHostelBooking {
+    hostelId: string;
+    addId: string;
+    userId: {
+        img: string;
+        name: string;
+        email: string;
+    };
+}
+
 interface HostelAddDetails {
     data: { data: HostelAdd };
 }
@@ -213,6 +227,13 @@ const api = createApi({
                 method: 'GET',
             }),
         }),
+
+        getHostelBooking: builder.query<AllHostelBooking, string>({
+            query: (query) => ({
+                url: query,
+                method: 'GET',
+            }),
+        }),
     }),
 });
 
@@ -227,6 +248,7 @@ export const {
     useSearchForHostelQuery,
     useHostelAddDetailsQuery,
     useRequestForHostelMutation,
+    useGetHostelBookingQuery,
 } = api;
 
 export default api;

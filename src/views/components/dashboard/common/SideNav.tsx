@@ -1,72 +1,51 @@
-import { Switch } from '@mui/material';
-import { Box, styled } from '@mui/system';
-import React from 'react';
-import Brand from './Brand';
-import SidenavLinks from './SidenavLinks';
+import { styled } from '@mui/system';
+import React, { Fragment } from 'react';
+import Scrollbar from 'react-perfect-scrollbar';
+import { useDispatch } from 'react-redux';
+import { toggleFullSideBar } from 'src/app/slices/theme/themeSlice';
+import useAuth from 'src/hooks/useAuth';
+import AdminVerticalNav from '../AdminDashboard/AdminVerticalNav';
+import ModeratorVerticalNav from '../moderatorDashboard/ModeratorVerticalNav';
+import UserVerticalNav from '../UserDashboard/UserVerticalNav';
+import VendorVerticalNav from '../vendorDashboard/VendorVerticalNav';
 
-const boxShadow =
-    '0px 5px 5px -3px rgba(0, 0, 0, 0.06),0px 8px 10px 1px rgba(0, 0, 0, 0.042),0px 3px 14px 2px rgba(0, 0, 0, 0.036)';
+const StyledScrollBar = styled(Scrollbar)(() => ({
+    paddingLeft: '1rem',
+    paddingRight: '1rem',
+    position: 'relative',
+}));
 
-const SidebarNavRoot = styled(Box)(({ theme }) => ({
+const SideNavMobile = styled('div')(({ theme }) => ({
     position: 'fixed',
     top: 0,
     left: 0,
-    height: '100vh',
-    width: 260,
-    boxShadow,
-    backgroundRepeat: 'no-repeat',
-    backgroundPosition: 'top',
-    backgroundSize: 'cover',
-    zIndex: 111,
-    overflow: 'hidden',
-    color: theme.palette.text.primary,
-    transition: 'all 250ms ease-in-out',
-    backgroundImage: `linear-gradient(to bottom, rgba(${theme.palette.primary.main}, 0.96), rgba(${theme.palette.primary.main}, 0.96)))`,
-    '&:hover': {
-        width: 260,
-        '& .sidenavHoverShow': {
-            display: 'block',
-        },
-        '& .compactNavItem': {
-            width: '100%',
-            maxWidth: '100%',
-            '& .nav-bullet': {
-                display: 'block',
-            },
-            '& .nav-bullet-text': {
-                display: 'none',
-            },
-        },
+    bottom: 0,
+    right: 0,
+    width: '100vw',
+    background: 'rgba(0, 0, 0, 0.54)',
+    zIndex: -1,
+    [theme.breakpoints.up('lg')]: {
+        display: 'none',
     },
 }));
 
-const NavListBox = styled(Box)(() => ({
-    height: '100%',
-    display: 'flex',
-    flexDirection: 'column',
-}));
-
-const SideNav = () => {
-    const [checked, setChecked] = React.useState(true);
-
-    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setChecked(event.target.checked);
-    };
+const Sidenav: React.FC = ({ children }) => {
+    const dispatch = useDispatch();
+    const { user } = useAuth();
 
     return (
-        <SidebarNavRoot>
-            <NavListBox>
-                <Brand>
-                    <Switch
-                        checked={checked}
-                        onChange={handleChange}
-                        inputProps={{ 'aria-label': 'controlled' }}
-                    />
-                </Brand>
-                <SidenavLinks />
-            </NavListBox>
-        </SidebarNavRoot>
+        <Fragment>
+            <StyledScrollBar options={{ suppressScrollX: true }}>
+                {children}
+                {user.role === 'admin' && <AdminVerticalNav />}
+                {user.role === 'user' && <UserVerticalNav />}
+                {user.role === 'vendor' && <VendorVerticalNav />}
+                {user.role === 'moderator' && <ModeratorVerticalNav />}
+            </StyledScrollBar>
+
+            <SideNavMobile onClick={() => dispatch(toggleFullSideBar(0))} />
+        </Fragment>
     );
 };
 
-export default SideNav;
+export default Sidenav;

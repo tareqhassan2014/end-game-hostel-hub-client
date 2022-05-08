@@ -48,9 +48,9 @@ const HostelAddDetail = () => {
         if (data) {
             setHostelAddDetail(data?.data.data);
         }
+        console.log(hostelAddDetail);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [data]);
-
-    console.log(hostelAddDetail);
 
     const sendRequest = async () => {
         try {
@@ -69,15 +69,30 @@ const HostelAddDetail = () => {
                 text: 'when the hostel admin accept your request you will notified and got a new dashboard with exciting data.',
             });
         } catch (error: any) {
-            Swal.fire({
-                showConfirmButton: false,
-                icon: 'info',
-                title: 'Your Request Already send',
-                text: `${
-                    error.message ||
-                    'Please wait while the hostel admin being accept your request.'
-                }`,
-            });
+            if (
+                error?.data?.message?.includes(
+                    'E11000 duplicate key error collection'
+                )
+            ) {
+                Swal.fire({
+                    showConfirmButton: false,
+                    icon: 'info',
+                    title: 'Your Request Already send',
+                    text: `${
+                        error.message ||
+                        'Please wait while the hostel admin being accept your request.'
+                    }`,
+                });
+            } else {
+                Swal.fire({
+                    showConfirmButton: false,
+                    icon: 'error',
+                    title: 'Something went very wrong',
+                    text: `${
+                        error?.data?.message || 'Please try again letter'
+                    }`,
+                });
+            }
         }
     };
 

@@ -4,6 +4,7 @@ import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
 import HomeIcon from '@mui/icons-material/Home';
 import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
+import NotificationsIcon from '@mui/icons-material/Notifications';
 import PersonIcon from '@mui/icons-material/Person';
 import SettingsIcon from '@mui/icons-material/Settings';
 import Collapse from '@mui/material/Collapse';
@@ -118,6 +119,15 @@ const AdminVerticalNav = () => {
                     </ListItemButton>
                 </List>
             </Collapse>
+            <ListItemButton
+                sx={{ borderRadius: 4 }}
+                onClick={() => navigate('/dashboard/notification')}
+            >
+                <ListItemIcon>
+                    <NotificationsIcon sx={{ color: 'white' }} />
+                </ListItemIcon>
+                <ListItemText primary="notification" />
+            </ListItemButton>
         </List>
     );
 };
