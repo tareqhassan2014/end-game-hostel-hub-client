@@ -69,19 +69,12 @@ const HostelAddDetail = () => {
                 text: 'when the hostel admin accept your request you will notified and got a new dashboard with exciting data.',
             });
         } catch (error: any) {
-            if (
-                error?.data?.message?.includes(
-                    'E11000 duplicate key error collection'
-                )
-            ) {
+            if (error?.data?.message?.includes('Duplicate')) {
                 Swal.fire({
                     showConfirmButton: false,
                     icon: 'info',
                     title: 'Your Request Already send',
-                    text: `${
-                        error.message ||
-                        'Please wait while the hostel admin being accept your request.'
-                    }`,
+                    text: 'Please wait while the hostel admin being accept your request.',
                 });
             } else {
                 Swal.fire({

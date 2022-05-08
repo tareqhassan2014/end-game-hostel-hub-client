@@ -25,7 +25,8 @@ const AdminNotifications = () => {
 
     const query = `hostelBooking?hostelId=${hostel._id}`;
     const { data } = useGetHostelBookingQuery(query);
-    const [acceptHostelMemberRequest] = useAcceptHostelMemberRequestMutation();
+    const [acceptHostelMemberRequest, { isSuccess, isLoading }] =
+        useAcceptHostelMemberRequestMutation();
 
     const [hostelBooking, setHostelBooking] = useState<
         IHostelBooking[] | undefined
@@ -55,6 +56,8 @@ const AdminNotifications = () => {
         }
     };
 
+    console.log(hostelBooking);
+
     return (
         <Container>
             <Grid item xs={12} md={8} lg={9}>
@@ -69,7 +72,9 @@ const AdminNotifications = () => {
                     container
                     spacing={2}
                 >
-                    {hostelBooking && hostelBooking?.length !== 0 ? (
+                    {isLoading && <div>Loading....</div>}
+
+                    {hostelBooking && hostelBooking.length > 0 ? (
                         hostelBooking.map((booking, index) => (
                             <Grid key={index} item xs={12} sm={6} lg={4}>
                                 <Grid
@@ -79,8 +84,8 @@ const AdminNotifications = () => {
                                 >
                                     <Grid item xs={2}>
                                         <Avatar
-                                            src={booking.userId.img}
-                                            alt={booking.userId.name}
+                                            src={booking?.userId?.img || ''}
+                                            alt={booking?.userId?.name || ''}
                                         />
                                     </Grid>
                                     <Grid item xs={7}>
@@ -89,8 +94,8 @@ const AdminNotifications = () => {
                                             variant="body1"
                                             component="div"
                                         >
-                                            {booking.userId.name} Want to be a
-                                            member of your hostel
+                                            {booking?.userId?.name || ''} Want
+                                            to be a member of your hostel
                                         </Typography>
                                     </Grid>
                                     <Grid item xs={3}>
@@ -103,8 +108,8 @@ const AdminNotifications = () => {
                                         <IconButton
                                             onClick={() =>
                                                 acceptRequest(
-                                                    booking.userId._id,
-                                                    booking.hostelId
+                                                    booking?.userId?._id || '',
+                                                    booking?.hostelId || ''
                                                 )
                                             }
                                             aria-label="delete"

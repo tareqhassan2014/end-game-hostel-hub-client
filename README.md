@@ -6,6 +6,10 @@ https://meet.google.com/rcj-jvii-rgp
 
 Live site: https://hostel-hub-7d3bf.web.app/
 
+set on your env
+
+REACT_APP_BASE_URL=https://hostel-hub-new-server.herokuapp.com/api/v1/
+
 <!-- export declare interface User extends UserInfo {
     readonly accessToken : string;
     ; -->
@@ -23,3 +27,5 @@ moderator email: testmoderator@test.com
 moderator password: testmoderator -->
 
 <!-- history.push(`{id}) -->
+
+1. First
