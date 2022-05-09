@@ -1,18 +1,12 @@
-import React from 'react';
-import { Box, Grid, Paper, Typography } from '@mui/material';
-import FastfoodIcon from '@mui/icons-material/Fastfood';
-import RamenDiningIcon from '@mui/icons-material/RamenDining';
-import BrunchDiningIcon from '@mui/icons-material/BrunchDining';
 import AccountBalanceWalletIcon from '@mui/icons-material/AccountBalanceWallet';
-import LunchDiningIcon from '@mui/icons-material/LunchDining';
-import DinnerDiningIcon from '@mui/icons-material/DinnerDining';
-import { Divider } from '@mui/material';
-import UserLineChart from './UserLineChart';
-import UserBarChart from './UserBarChart';
-import UserPiChart from './UserPiChart';
-import UserDoughnutChart from './UserDoughnutChart';
+import BrunchDiningIcon from '@mui/icons-material/BrunchDining';
+import RamenDiningIcon from '@mui/icons-material/RamenDining';
+import { Box, Divider, Grid, Paper, Typography } from '@mui/material';
+import React from 'react';
+import UserDoughnutChart from '../UserDashboard/UserDoughnutChart';
+import UserLineChart from '../UserDashboard/UserLineChart';
 
-const UserDefault = () => {
+const MemberDefault = () => {
     const smallCartData = [
         {
             name: 'Current Month Meals',
@@ -126,4 +120,4 @@ const UserDefault = () => {
     );
 };
 
-export default UserDefault;
+export default MemberDefault;

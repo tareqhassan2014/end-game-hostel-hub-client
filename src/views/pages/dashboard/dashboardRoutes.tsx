@@ -4,6 +4,8 @@ import AdminHostel from 'src/views/components/dashboard/AdminDashboard/AdminHost
 import AdminNotifications from 'src/views/components/dashboard/AdminDashboard/AdminNotifications';
 import AdminSitManage from 'src/views/components/dashboard/AdminDashboard/AdminSitManage/AdminSitManage';
 import ManageModerator from 'src/views/components/dashboard/AdminDashboard/ManageModerator/ManageModerator';
+import MemberHostel from 'src/views/components/dashboard/MemberDashboard/MemberHostel';
+import MemberDefault from 'src/views/components/dashboard/MemberDashboard/UserDefault';
 import ModeratorDefault from 'src/views/components/dashboard/moderatorDashboard/ModeratorDefault';
 import Profile from 'src/views/components/dashboard/profile/Profile';
 import CreateHostel from 'src/views/components/dashboard/UserDashboard/CreateHostel';
@@ -84,6 +86,21 @@ export const dashboardRoutes = [
         path: 'hostel',
         element: CreateHostel,
         role: ['user'],
+    },
+    {
+        path: '*',
+        element: MemberDefault,
+        role: ['member'],
+    },
+    {
+        path: 'default',
+        element: MemberDefault,
+        role: ['member'],
+    },
+    {
+        path: 'hostel',
+        element: MemberHostel,
+        role: ['member'],
     },
     {
         path: '*',
