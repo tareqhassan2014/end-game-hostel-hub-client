@@ -54,20 +54,21 @@ const HostelAddDetail = () => {
 
     const sendRequest = async () => {
         try {
-            const data = {
-                hostelId: hostelAddDetail?.hostel._id || '',
-                addId: hostelAddDetail?._id || '',
-                userId: user._id || '',
-            };
+            if (user && hostelAddDetail) {
+                const data = {
+                    hostelId: hostelAddDetail?.hostel._id || '',
+                    addId: hostelAddDetail?._id || '',
+                    userId: user._id || '',
+                };
+                await requestHostel(data).unwrap();
 
-            await requestHostel(data).unwrap();
-
-            Swal.fire({
-                showConfirmButton: false,
-                icon: 'success',
-                title: 'Your Request sent successfully',
-                text: 'when the hostel admin accept your request you will notified and got a new dashboard with exciting data.',
-            });
+                Swal.fire({
+                    showConfirmButton: false,
+                    icon: 'success',
+                    title: 'Your Request sent successfully',
+                    text: 'when the hostel admin accept your request you will notified and got a new dashboard with exciting data.',
+                });
+            }
         } catch (error: any) {
             if (error?.data?.message?.includes('Duplicate')) {
                 Swal.fire({

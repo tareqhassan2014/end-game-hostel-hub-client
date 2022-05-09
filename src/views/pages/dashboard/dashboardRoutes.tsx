@@ -4,10 +4,12 @@ import AdminHostel from 'src/views/components/dashboard/AdminDashboard/AdminHost
 import AdminNotifications from 'src/views/components/dashboard/AdminDashboard/AdminNotifications';
 import AdminSitManage from 'src/views/components/dashboard/AdminDashboard/AdminSitManage/AdminSitManage';
 import ManageModerator from 'src/views/components/dashboard/AdminDashboard/ManageModerator/ManageModerator';
+import AdProduct from 'src/views/components/dashboard/common/AdProduct';
+import ManageProductAd from 'src/views/components/dashboard/common/ManageProductAd';
+import Profile from 'src/views/components/dashboard/common/profile/Profile';
 import MemberHostel from 'src/views/components/dashboard/MemberDashboard/MemberHostel';
 import MemberDefault from 'src/views/components/dashboard/MemberDashboard/UserDefault';
 import ModeratorDefault from 'src/views/components/dashboard/moderatorDashboard/ModeratorDefault';
-import Profile from 'src/views/components/dashboard/profile/Profile';
 import CreateHostel from 'src/views/components/dashboard/UserDashboard/CreateHostel';
 import CreateStore from 'src/views/components/dashboard/UserDashboard/CreateStore';
 import FindHostel from 'src/views/components/dashboard/UserDashboard/FindHostel';
@@ -25,6 +27,16 @@ export const dashboardRoutes = [
     {
         path: 'profile',
         element: Profile,
+        role: ['user', 'admin', 'grandAdmin', 'moderator', 'vendor', 'member'],
+    },
+    {
+        path: 'Ad_product',
+        element: AdProduct,
+        role: ['user', 'admin', 'grandAdmin', 'moderator', 'vendor', 'member'],
+    },
+    {
+        path: 'manage_product_Ad',
+        element: ManageProductAd,
         role: ['user', 'admin', 'grandAdmin', 'moderator', 'vendor', 'member'],
     },
     {
