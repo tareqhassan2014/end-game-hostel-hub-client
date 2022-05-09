@@ -1,4 +1,5 @@
 import AddBusinessIcon from '@mui/icons-material/AddBusiness';
+import ContentPasteSearchIcon from '@mui/icons-material/ContentPasteSearch';
 import HomeIcon from '@mui/icons-material/Home';
 import PersonIcon from '@mui/icons-material/Person';
 import { useMediaQuery } from '@mui/material';
@@ -44,6 +45,15 @@ const UserVerticalNav = () => {
                     <PersonIcon sx={{ color: 'white' }} />
                 </ListItemIcon>
                 <ListItemText primary="Profile" />
+            </ListItemButton>
+            <ListItemButton
+                sx={{ borderRadius: 4 }}
+                onClick={() => navigate('/dashboard/find-hostel')}
+            >
+                <ListItemIcon>
+                    <ContentPasteSearchIcon sx={{ color: 'white' }} />
+                </ListItemIcon>
+                <ListItemText primary="Find Hostel" />
             </ListItemButton>
             <ListItemButton
                 sx={{ borderRadius: 4 }}

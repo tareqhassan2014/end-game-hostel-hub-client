@@ -19,12 +19,12 @@ export const protectedRoutes = [
     {
         path: 'profile',
         element: Profile,
-        role: ['user', 'admin', 'grandAdmin', 'moderator', 'vendor', 'pending'],
+        role: ['user', 'admin', 'grandAdmin', 'moderator', 'vendor', 'member'],
     },
     {
         path: 'dashboard/*',
         element: Dashboard,
-        role: ['user', 'admin', 'grandAdmin', 'moderator', 'vendor', 'pending'],
+        role: ['user', 'admin', 'grandAdmin', 'moderator', 'vendor', 'member'],
     },
 ];
 

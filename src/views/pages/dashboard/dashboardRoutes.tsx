@@ -8,6 +8,7 @@ import ModeratorDefault from 'src/views/components/dashboard/moderatorDashboard/
 import Profile from 'src/views/components/dashboard/profile/Profile';
 import CreateHostel from 'src/views/components/dashboard/UserDashboard/CreateHostel';
 import CreateStore from 'src/views/components/dashboard/UserDashboard/CreateStore';
+import FindHostel from 'src/views/components/dashboard/UserDashboard/FindHostel';
 import UserBills from 'src/views/components/dashboard/UserDashboard/UserBills';
 import UserMeal from 'src/views/components/dashboard/UserDashboard/UserMeal';
 import AddProduct from 'src/views/components/dashboard/vendorDashboard/AddProduct';
@@ -19,6 +20,11 @@ import Store from 'src/views/components/dashboard/vendorDashboard/Store';
 import VendorDefault from 'src/views/components/dashboard/vendorDashboard/VendorDefault';
 
 export const dashboardRoutes = [
+    {
+        path: 'profile',
+        element: Profile,
+        role: ['user', 'admin', 'grandAdmin', 'moderator', 'vendor', 'member'],
+    },
     {
         path: '*',
         element: AdminDefault,
@@ -55,13 +61,13 @@ export const dashboardRoutes = [
         role: ['user'],
     },
     {
-        path: 'profile',
-        element: Profile,
-        role: ['user', 'admin', 'grandAdmin', 'moderator', 'vendor', 'member'],
-    },
-    {
         path: 'meal',
         element: UserMeal,
+        role: ['user'],
+    },
+    {
+        path: 'find-hostel',
+        element: FindHostel,
         role: ['user'],
     },
     {

@@ -65,11 +65,11 @@ const SearchItem = (props: any) => {
         CreateHostelAddRequest[] | undefined
     >(undefined);
 
-    const [query, setQuery] = React.useState('/hostelAdd');
-
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
     };
+
+    const [query, setQuery] = React.useState('/hostelAdd');
 
     const { data, isLoading, isSuccess } = useSearchForHostelQuery(query);
 
@@ -434,7 +434,10 @@ const SearchItem = (props: any) => {
                                 container
                                 spacing={2}
                             >
-                                {allHostelAdds ? (
+                                {isLoading && <div>Loading...</div>}
+
+                                {allHostelAdds &&
+                                    allHostelAdds.length > 0 &&
                                     allHostelAdds.map((hostel, index) => (
                                         <Grid
                                             key={index}
@@ -486,21 +489,7 @@ const SearchItem = (props: any) => {
                                                 </CardActions>
                                             </Card>
                                         </Grid>
-                                    ))
-                                ) : (
-                                    <Typography
-                                        variant="h2"
-                                        sx={{
-                                            textAlign: 'center',
-                                            color: '#6A52E5',
-                                            m: 5,
-                                        }}
-                                        component="div"
-                                        gutterBottom
-                                    >
-                                        Hostel Not Found
-                                    </Typography>
-                                )}
+                                    ))}
                             </Grid>
                         </Grid>
                     </Grid>
