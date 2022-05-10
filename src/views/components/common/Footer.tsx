@@ -25,6 +25,10 @@ const MyButton = styled(Button)({
     },
 });
 
+function refreshPage() {
+    window.location.reload();
+}
+
 const Footer = () => {
     return (
         <Box
@@ -175,7 +179,9 @@ const Footer = () => {
                         <MyButton size="small">tools</MyButton>
                         <MyButton size="small">web</MyButton>
                         <MyButton size="small">view</MyButton>
-                        <MyButton size="small">work</MyButton>
+                        <MyButton size="small" onClick={refreshPage}>
+                            work
+                        </MyButton>
                     </Grid>
                 </Grid>
                 <Divider />

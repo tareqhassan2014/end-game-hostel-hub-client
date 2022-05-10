@@ -1,6 +1,8 @@
+import AddBoxIcon from '@mui/icons-material/AddBox';
 import AddBusinessIcon from '@mui/icons-material/AddBusiness';
 import ContentPasteSearchIcon from '@mui/icons-material/ContentPasteSearch';
 import HomeIcon from '@mui/icons-material/Home';
+import LocalOfferIcon from '@mui/icons-material/LocalOffer';
 import PersonIcon from '@mui/icons-material/Person';
 import { useMediaQuery } from '@mui/material';
 import List from '@mui/material/List';
@@ -72,6 +74,24 @@ const UserVerticalNav = () => {
                     <HomeIcon sx={{ color: 'white' }} />
                 </ListItemIcon>
                 <ListItemText primary="Create Hostel" />
+            </ListItemButton>
+            <ListItemButton
+                sx={{ borderRadius: 4 }}
+                onClick={() => navigate('/dashboard/Ad_product')}
+            >
+                <ListItemIcon>
+                    <AddBoxIcon sx={{ color: 'white' }} />
+                </ListItemIcon>
+                <ListItemText primary="Ad Product" />
+            </ListItemButton>
+            <ListItemButton
+                sx={{ borderRadius: 4 }}
+                onClick={() => navigate('/dashboard/manage_product_Ad')}
+            >
+                <ListItemIcon>
+                    <LocalOfferIcon sx={{ color: 'white' }} />
+                </ListItemIcon>
+                <ListItemText primary="M product Ad" />
             </ListItemButton>
         </List>
     );
