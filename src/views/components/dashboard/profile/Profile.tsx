@@ -1,4 +1,5 @@
 import AutoFixHighIcon from '@mui/icons-material/AutoFixHigh';
+import PhotoCameraIcon from '@mui/icons-material/PhotoCamera';
 import {
     Avatar,
     Button,
@@ -8,6 +9,7 @@ import {
     TextField,
     Typography,
 } from '@mui/material';
+import { Box } from '@mui/system';
 import { useState } from 'react';
 import useAuth from '../../../../hooks/useAuth';
 import CustomModal from './CustomModal';
@@ -69,7 +71,7 @@ const Profile = () => {
                                     fullWidth
                                     label="First Name"
                                     margin="normal"
-                                    value={user.name}
+                                    defaultValue={user.name}
                                 />
                             </Grid>
                             <Grid item md={6} xs={12}>
@@ -77,7 +79,7 @@ const Profile = () => {
                                     fullWidth
                                     label="Last Name"
                                     margin="normal"
-                                    value={'Last Name'}
+                                    defaultValue={'Last Name'}
                                 />
                             </Grid>
                             <Grid item md={6} xs={12} sx={{ pr: 3 }}>
@@ -85,7 +87,7 @@ const Profile = () => {
                                     fullWidth
                                     label="Address"
                                     margin="normal"
-                                    value={'Address'}
+                                    defaultValue={'Address'}
                                 />
                             </Grid>
                             <Grid item md={6} xs={12}>
@@ -93,7 +95,7 @@ const Profile = () => {
                                     fullWidth
                                     label="Phone"
                                     margin="normal"
-                                    value={user.phone || 'Phone Number'}
+                                    defaultValue={user.phone || 'Phone Number'}
                                 />
                             </Grid>
                         </Grid>
@@ -101,7 +103,7 @@ const Profile = () => {
                             fullWidth
                             label="Email Address"
                             margin="normal"
-                            value={user.email}
+                            defaultValue={user.email}
                         />
 
                         {/* <Grid container sx={{ my: 3 }}>
