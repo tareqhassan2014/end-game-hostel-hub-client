@@ -7,41 +7,42 @@ import {
     Typography,
 } from '@mui/material';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import { toast } from 'react-toastify';
+import { useAdProductMutation } from 'src/app/api';
 import useAuth from 'src/hooks/useAuth';
+import Swal from 'sweetalert2';
 
 type Inputs = {
     price: number;
-    name: string;
+    phone: string;
+    title: string;
     category: string;
 };
 
-export default function CreateHostel() {
+const AdProduct = () => {
     const { user } = useAuth();
-
-    // const [addProduct, { isLoading, data, isSuccess, isError }] =
-    // useAddProductMutation();
+    const [AdProduct, { isLoading }] = useAdProductMutation();
 
     const {
         register,
         handleSubmit,
         formState: { errors },
-        reset,
     } = useForm<Inputs>();
 
-    const onSubmit: SubmitHandler<Inputs> = async (formData) => {
+    const onSubmit: SubmitHandler<Inputs> = async (data) => {
         try {
-            const url = `store/${user._id}/product`;
+            if (user) {
+                await AdProduct({ ...data, userId: user._id || '' }).unwrap();
 
-            const productData = { ...formData, url };
-
-            // const data = await addProduct(productData).unwrap();
-
-            reset();
-            toast.success('Create Hostel successfully');
+                Swal.fire('success', 'product post successfully!!');
+            }
         } catch (error: any) {
-            console.log(error?.data?.message);
-            toast.error(error?.data?.message);
+            Swal.fire({
+                showConfirmButton: false,
+                icon: 'error',
+                title: 'Oops...',
+                text: `${error?.data?.message || 'Please try again letter'}`,
+            });
+            console.log(error);
         }
     };
 
@@ -57,7 +58,7 @@ export default function CreateHostel() {
                 }}
             >
                 <Typography component="h1" variant="h5">
-                    Add Product
+                    Post a Ad
                 </Typography>
                 <Box
                     component="form"
@@ -70,23 +71,36 @@ export default function CreateHostel() {
                         autoFocus
                         fullWidth
                         margin="normal"
-                        error={Boolean(errors.name)}
-                        label={errors.name ? 'Error' : 'Product Name'}
-                        helperText={errors.name?.message}
-                        {...register('name', {
-                            required: 'Name is required',
+                        error={Boolean(errors.phone)}
+                        label={errors.phone ? 'Error' : 'Phone'}
+                        helperText={errors.phone?.message}
+                        {...register('phone', {
+                            required: 'Phone is required',
                         })}
                     />
+
                     <TextField
-                        fullWidth
                         required
+                        fullWidth
                         margin="normal"
                         error={Boolean(errors.category)}
                         label={errors.category ? 'Error' : 'category'}
                         helperText={errors.category?.message}
-                        autoComplete="category"
                         {...register('category', {
                             required: 'category is required',
+                        })}
+                    />
+
+                    <TextField
+                        fullWidth
+                        required
+                        margin="normal"
+                        error={Boolean(errors.title)}
+                        label={errors.title ? 'Error' : 'title'}
+                        helperText={errors.title?.message}
+                        autoComplete="title"
+                        {...register('title', {
+                            required: 'title is required',
                         })}
                     />
 
@@ -110,12 +124,14 @@ export default function CreateHostel() {
                         fullWidth
                         variant="contained"
                         sx={{ mt: 3, mb: 2 }}
-                        loading={false}
+                        loading={isLoading}
                     >
-                        Add Product
+                        Post product
                     </LoadingButton>
                 </Box>
             </Box>
         </Container>
     );
-}
+};
+
+export default AdProduct;

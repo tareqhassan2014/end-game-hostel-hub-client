@@ -11,12 +11,12 @@ import {
 } from '@mui/material';
 import { Box } from '@mui/system';
 import { useState } from 'react';
-import useAuth from '../../../../hooks/useAuth';
+import useAuth from '../../../../../hooks/useAuth';
 import CustomModal from './CustomModal';
 
 const Profile = () => {
     const { user } = useAuth();
-    console.log(user);
+
     //modal
     const [openModal, setModalOpen] = useState(false);
     const handleModalOpen = () => setModalOpen(true);

@@ -18,13 +18,6 @@ interface IStore {
     thumbnail: string;
 }
 
-interface addProductRequest {
-    price: number;
-    name: string;
-    category: string;
-    url: string;
-}
-
 interface LoginRequest {
     token: string;
 }
@@ -112,6 +105,19 @@ interface AllHostelBooking {
     data: { data: IHostelBooking[] };
 }
 
+interface IProduct {
+    price: number;
+    phone: string;
+    userId: string;
+    title: string;
+    category: string;
+    _id: string;
+}
+
+interface AllProducts {
+    data: { data: IProduct[] };
+}
+
 interface IHostelBooking {
     addId: string;
     hostelId: string;
@@ -138,6 +144,14 @@ interface acceptHostelRequestPayload {
     userId: string;
 }
 
+interface AdProductRequest {
+    price: number;
+    phone: string;
+    userId: string;
+    title: string;
+    category: string;
+}
+
 const baseUrl = process.env.REACT_APP_BASE_URL;
 
 const baseQuery = fetchBaseQuery({
@@ -155,7 +169,7 @@ const baseQuery = fetchBaseQuery({
 });
 
 const api = createApi({
-    tagTypes: ['hostelMemberRequest'],
+    tagTypes: ['hostelMemberRequest', 'product', 'hostelAdd', 'hostelBooking'],
     baseQuery,
     endpoints: (builder) => ({
         login: builder.mutation<AuthResponse, LoginRequest>({
@@ -182,6 +196,15 @@ const api = createApi({
             }),
         }),
 
+        AdProduct: builder.mutation<null, AdProductRequest>({
+            query: (credentials) => ({
+                url: '/product',
+                method: 'POST',
+                body: credentials,
+            }),
+            invalidatesTags: ['product'],
+        }),
+
         createHostel: builder.mutation<null, CreateHostelRequest>({
             query: (credentials) => ({
                 url: '/hostel',
@@ -201,14 +224,6 @@ const api = createApi({
         requestForHostel: builder.mutation<null, requestForHostelRequest>({
             query: (credentials) => ({
                 url: '/hostelBooking',
-                method: 'POST',
-                body: credentials,
-            }),
-        }),
-
-        addProduct: builder.mutation<AuthResponse, addProductRequest>({
-            query: (credentials) => ({
-                url: credentials.url,
                 method: 'POST',
                 body: credentials,
             }),
@@ -255,11 +270,11 @@ const api = createApi({
             }),
         }),
 
-        getAllUsedProduct: builder.query<AllHostelBooking, string>({
+        getProduct: builder.query<AllProducts, string>({
             query: (query) => ({
                 url: query,
                 method: 'GET',
-                providesTags: ['hostelMemberRequest'],
+                providesTags: ['product'],
             }),
         }),
     }),
@@ -271,14 +286,14 @@ export const {
     useCreateStoreMutation,
     useCreateHostelMutation,
     useGetHostelQuery,
-    useAddProductMutation,
     useAddForHostelMutation,
     useSearchForHostelQuery,
     useHostelAddDetailsQuery,
     useRequestForHostelMutation,
     useGetHostelBookingQuery,
     useAcceptHostelMemberRequestMutation,
-    useGetAllUsedProductQuery,
+    useAdProductMutation,
+    useGetProductQuery,
 } = api;
 
 export default api;
