@@ -13,7 +13,7 @@ const style = {
     transform: 'translate(-50%, -50%)',
     width: 400,
     bgcolor: 'background.paper',
-    border: '2px solid #000',
+    border: '2px solid #1E90FF	',
     boxShadow: 24,
     p: 4,
 };
@@ -85,6 +85,7 @@ const CustomModal = ({
                                 {...register('name')}
                                 defaultValue={name}
                             />
+
                             <span
                                 style={{ fontSize: '12px', fontWeight: 'bold' }}
                             >
@@ -128,7 +129,7 @@ const CustomModal = ({
                             >
                                 Update
                             </button>
-                            <button
+                            {/* <button
                                 onClick={handleClose}
                                 style={{
                                     padding: '8px 14px',
@@ -140,7 +141,7 @@ const CustomModal = ({
                                 type="submit"
                             >
                                 Cancel
-                            </button>
+                            </button> */}
                         </form>
                     </Box>
                 </Fade>

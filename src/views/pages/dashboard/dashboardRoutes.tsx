@@ -8,7 +8,7 @@ import AdProduct from 'src/views/components/dashboard/common/AdProduct';
 import ManageProductAd from 'src/views/components/dashboard/common/ManageProductAd';
 import Profile from 'src/views/components/dashboard/common/profile/Profile';
 import MemberHostel from 'src/views/components/dashboard/MemberDashboard/MemberHostel';
-import MemberDefault from 'src/views/components/dashboard/MemberDashboard/UserDefault';
+import MemberDefault from 'src/views/components/dashboard/MemberDashboard/MemberDefault';
 import ModeratorDefault from 'src/views/components/dashboard/moderatorDashboard/ModeratorDefault';
 import CreateHostel from 'src/views/components/dashboard/UserDashboard/CreateHostel';
 import CreateStore from 'src/views/components/dashboard/UserDashboard/CreateStore';

@@ -11,12 +11,12 @@ import {
 } from '@mui/material';
 import { Box } from '@mui/system';
 import { useState } from 'react';
-import useAuth from '../../../../../hooks/useAuth';
-import CustomModal from './CustomModal';
+import useAuth from '../../../../hooks/useAuth';
+import CustomModal from '../common/profile/CustomModal';
 
 const Profile = () => {
     const { user } = useAuth();
-
+    console.log(user);
     //modal
     const [openModal, setModalOpen] = useState(false);
     const handleModalOpen = () => setModalOpen(true);
@@ -69,54 +69,49 @@ const Profile = () => {
                             <Grid item md={6} xs={12} sx={{ pr: 3 }}>
                                 <TextField
                                     fullWidth
+                                    label="First Name"
                                     margin="normal"
-                                    variant="standard"
-                                    InputProps={{
-                                        readOnly: true,
-                                    }}
                                     value={user.name}
                                 />
                             </Grid>
                             <Grid item md={6} xs={12}>
-                                <TextField
+                                {/* <TextField
                                     fullWidth
-                                    margin="normal"
+                                    id="standard-basic"
+                                    label="Last Name"
                                     variant="standard"
-                                    InputProps={{
-                                        readOnly: true,
-                                    }}
+                                    margin="normal"
+                                    defaultValue={'Last Name'}
+                                /> */}
+                                <TextField
+                                    id="standard-basic"
+                                    label="Standard"
+                                    variant="standard"
                                     value={'Last Name'}
                                 />
                             </Grid>
                             <Grid item md={6} xs={12} sx={{ pr: 3 }}>
                                 <TextField
                                     fullWidth
+                                    label="Address"
                                     margin="normal"
-                                    variant="standard"
-                                    InputProps={{
-                                        readOnly: true,
-                                    }}
-                                    value={'Address'}
+                                    defaultValue={'Address'}
                                 />
                             </Grid>
                             <Grid item md={6} xs={12}>
                                 <TextField
                                     fullWidth
+                                    label="Phone"
                                     margin="normal"
-                                    variant="standard"
-                                    InputProps={{
-                                        readOnly: true,
-                                    }}
-                                    value={user.phone || '+8801XXXXXXXXX'}
+                                    defaultValue={user.phone || 'Phone Number'}
                                 />
                             </Grid>
                         </Grid>
                         <TextField
                             fullWidth
+                            label="Email Address"
                             margin="normal"
-                            variant="standard"
-                            aria-readonly
-                            value={user.email}
+                            defaultValue={user.email}
                         />
 
                         {/* <Grid container sx={{ my: 3 }}>
