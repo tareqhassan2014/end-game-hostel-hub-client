@@ -169,7 +169,7 @@ const baseQuery = fetchBaseQuery({
 });
 
 const api = createApi({
-    tagTypes: ['hostelMemberRequest'],
+    tagTypes: ['hostelMemberRequest', 'product', 'hostelAdd', 'hostelBooking'],
     baseQuery,
     endpoints: (builder) => ({
         login: builder.mutation<AuthResponse, LoginRequest>({
@@ -202,6 +202,7 @@ const api = createApi({
                 method: 'POST',
                 body: credentials,
             }),
+            invalidatesTags: ['product'],
         }),
 
         createHostel: builder.mutation<null, CreateHostelRequest>({
@@ -273,7 +274,7 @@ const api = createApi({
             query: (query) => ({
                 url: query,
                 method: 'GET',
-                providesTags: ['hostelMemberRequest'],
+                providesTags: ['product'],
             }),
         }),
     }),
