@@ -8,6 +8,7 @@ import {
     Grid,
     Icon,
     Rating,
+    Skeleton,
     Typography,
 } from '@mui/material';
 import { Box } from '@mui/system';
@@ -188,6 +189,29 @@ const Discover = () => {
                     container
                     spacing={2}
                 >
+                    {isLoading && (
+                        <Grid container>
+                            {[...new Array(12)].map((_, index) => (
+                                <Grid
+                                    item
+                                    xs={12}
+                                    sm={6}
+                                    md={3}
+                                    lg={3}
+                                    key={index}
+                                    sx={{ py: 2 }}
+                                >
+                                    <Skeleton
+                                        sx={{ bgcolor: 'grey.500' }}
+                                        variant="rectangular"
+                                        width={210}
+                                        height={118}
+                                    />
+                                </Grid>
+                            ))}
+                        </Grid>
+                    )}
+
                     {allHostelAdds &&
                         allHostelAdds.map((item, index) => (
                             <Grid key={index} item xs={12} sm={6} lg={2}>
@@ -295,6 +319,29 @@ const Discover = () => {
                     container
                     spacing={2}
                 >
+                    {isLoading && (
+                        <Grid container>
+                            {[...new Array(12)].map((_, index) => (
+                                <Grid
+                                    item
+                                    xs={12}
+                                    sm={6}
+                                    md={4}
+                                    lg={3}
+                                    key={index}
+                                    sx={{ py: 2 }}
+                                >
+                                    <Skeleton
+                                        sx={{ bgcolor: 'grey.500' }}
+                                        variant="rectangular"
+                                        width={210}
+                                        height={118}
+                                    />
+                                </Grid>
+                            ))}
+                        </Grid>
+                    )}
+
                     {AllProducts &&
                         AllProducts.map((product, index) => (
                             <Grid key={index} item xs={12} sm={6} lg={2}>
