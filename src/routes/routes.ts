@@ -1,4 +1,5 @@
 import { lazy } from 'react';
+import BookingModal from 'src/views/components/bookingModal/BookingModal';
 import AboutOurTeam from 'src/views/pages/AboutOurTeam/AboutOurTeam';
 import ProductDetails from 'src/views/pages/discover/ProductDetails';
 import HostelAddDetail from 'src/views/pages/hostelAddDetail/HostelAddDetail';
@@ -76,5 +77,9 @@ export const openRoutes = [
     {
         path: 'discover',
         element: Discover,
+    },
+    {
+        path: 'bookingModal',
+        element: BookingModal,
     },
 ];
