@@ -4,6 +4,7 @@ import Brightness7Icon from '@mui/icons-material/Brightness7';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import LogoutIcon from '@mui/icons-material/Logout';
 import MenuIcon from '@mui/icons-material/Menu';
+import SearchIcon from '@mui/icons-material/Search';
 import {
     AppBar,
     Avatar,
@@ -18,8 +19,13 @@ import {
     Typography,
     useScrollTrigger,
 } from '@mui/material';
+import Backdrop from '@mui/material/Backdrop';
+import Fade from '@mui/material/Fade';
+import Modal from '@mui/material/Modal';
 import { Box } from '@mui/system';
+import * as React from 'react';
 import { cloneElement, MouseEvent, useState } from 'react';
+import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { logOut } from 'src/app/slices/auth/authSlice';
@@ -27,6 +33,22 @@ import { toggleColorMode } from 'src/app/slices/theme/themeSlice';
 import logo from 'src/assets/images/logos/brandLogo.png';
 import useAuth from 'src/hooks/useAuth';
 import useThemeAndLayout from 'src/hooks/useThemeAndLayout';
+import './BookingModal.css';
+
+//style modal start
+const style = {
+    position: 'absolute' as const,
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: 500,
+    bgcolor: 'white',
+    border: '10px solid #ffffff27',
+    borderRadius: '15px',
+    boxShadow: '0 5px 50px rgba(0, 0, 0, 0.15);',
+    p: 2,
+};
+//style modal end
 
 const pages = [
     {
@@ -40,10 +62,6 @@ const pages = [
     {
         page: 'Discover',
         link: '/discover',
-    },
-    {
-        page: 'BookingModal',
-        link: '/bookingModal',
     },
 ];
 
@@ -90,6 +108,17 @@ export default function Header(props: Props) {
     const navigate = useNavigate();
     const { user } = useAuth();
     const { mode } = useThemeAndLayout();
+
+    //modal start
+    const [open, setOpen] = React.useState(false);
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
+    const { register, handleSubmit, reset } = useForm();
+    const onSubmit = (data: any) => {
+        console.log(data);
+        reset();
+    };
+    //modal end
 
     const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
     const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
@@ -216,7 +245,165 @@ export default function Header(props: Props) {
                                         </Button>
                                     ))}
                                 </Box>
+                                {/* modal section start */}
 
+                                <button
+                                    style={{
+                                        background: '#4774FF',
+                                        color: 'white',
+                                        fontWeight: 'bold',
+                                        borderRadius: '30px',
+                                        border: 'none',
+                                        padding: '12px 20px',
+                                    }}
+                                    onClick={handleOpen}
+                                >
+                                    Book Now
+                                </button>
+                                <Modal
+                                    aria-labelledby="transition-modal-title"
+                                    aria-describedby="transition-modal-description"
+                                    open={open}
+                                    onClose={handleClose}
+                                    closeAfterTransition
+                                    BackdropComponent={Backdrop}
+                                    BackdropProps={{
+                                        timeout: 500,
+                                    }}
+                                >
+                                    <Fade in={open}>
+                                        <Box sx={style}>
+                                            <button
+                                                onClick={handleClose}
+                                                className="bookingModalBtn"
+                                            >
+                                                X
+                                            </button>
+                                            <Typography
+                                                sx={{
+                                                    mb: 3,
+                                                    textAlign: 'center',
+                                                    fontWeight: 'bold',
+                                                    color: '#4774FF',
+                                                }}
+                                                id="transition-modal-title"
+                                                variant="h4"
+                                                component="h2"
+                                            >
+                                                Search your Room
+                                            </Typography>
+                                            <form
+                                                className="bookingModal"
+                                                onSubmit={handleSubmit(
+                                                    onSubmit
+                                                )}
+                                            >
+                                                <input
+                                                    {...register('location')}
+                                                    placeholder="Location"
+                                                />
+                                                <input
+                                                    {...register('location')}
+                                                    placeholder="Location"
+                                                />
+                                                <input
+                                                    {...register('location')}
+                                                    placeholder="Location"
+                                                />
+
+                                                <div
+                                                    style={{
+                                                        display: 'flex',
+                                                    }}
+                                                >
+                                                    <select
+                                                        style={{
+                                                            marginRight: '5px',
+                                                        }}
+                                                        {...register('bedType')}
+                                                    >
+                                                        <option value="">
+                                                            Room
+                                                        </option>
+                                                        <option value="ac">
+                                                            AC
+                                                        </option>
+                                                        <option value="normal">
+                                                            Normal
+                                                        </option>
+                                                    </select>
+                                                    <select
+                                                        {...register('gender')}
+                                                    >
+                                                        <option value="">
+                                                            Gender
+                                                        </option>
+                                                        <option value="male">
+                                                            Male
+                                                        </option>
+                                                        <option value="female">
+                                                            Female
+                                                        </option>
+                                                    </select>
+                                                </div>
+
+                                                <div
+                                                    style={{
+                                                        display: 'flex',
+                                                    }}
+                                                >
+                                                    <select
+                                                        style={{
+                                                            marginRight: '5px',
+                                                        }}
+                                                        {...register('bedType')}
+                                                    >
+                                                        <option value="">
+                                                            Bed Type
+                                                        </option>
+                                                        <option value="single">
+                                                            Single
+                                                        </option>
+                                                        <option value="double">
+                                                            Double
+                                                        </option>
+                                                    </select>
+                                                    <select
+                                                        {...register('gender')}
+                                                    >
+                                                        <option value="">
+                                                            Price Range
+                                                        </option>
+                                                        <option value="5000- 10000">
+                                                            $ 5000- 10000
+                                                        </option>
+                                                        <option value="10000-15000">
+                                                            $ 10000-15000
+                                                        </option>
+                                                        <option value="15000-20000">
+                                                            $ 15000-20000
+                                                        </option>
+                                                        <option value="20000-25000">
+                                                            $ 20000-25000
+                                                        </option>
+                                                    </select>
+                                                </div>
+
+                                                <div className="searchButton">
+                                                    <SearchIcon
+                                                        sx={{
+                                                            color: 'white',
+                                                        }}
+                                                    />
+                                                    <button type="submit">
+                                                        Search
+                                                    </button>
+                                                </div>
+                                            </form>
+                                        </Box>
+                                    </Fade>
+                                </Modal>
+                                {/* modal section end */}
                                 <IconButton
                                     sx={{ ml: 1 }}
                                     onClick={() => dispatch(toggleColorMode())}
