@@ -28,10 +28,15 @@
 }
 
 .bookingModalBtn {
-    margin-left: 90%;
+    margin-left: 97%;
     background-color: white;
-    border: none;
+    border: 2px solid white;
     font-weight: bold;
+    transition: 0.4s ease-in-out;
+}
+.bookingModalBtn:hover {
+    border: 2px solid #4774ff;
+    border-radius: 50%;
 }
 .searchButton {
     width: 130px;
