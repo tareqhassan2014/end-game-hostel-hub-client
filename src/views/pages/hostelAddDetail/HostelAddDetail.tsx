@@ -146,7 +146,7 @@ const HostelAddDetail = () => {
                 onClick={sendRequest}
                 disabled={Boolean(!user._id)}
             >
-                Sent Request
+                Send Request
             </Button>
         </Container>
     );
