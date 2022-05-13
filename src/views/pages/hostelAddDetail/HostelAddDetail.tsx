@@ -1,4 +1,5 @@
-import { Button, Container } from '@mui/material';
+import { Button, Container, Grid, Typography } from '@mui/material';
+import { Box } from '@mui/system';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import {
@@ -89,13 +90,57 @@ const HostelAddDetail = () => {
             }
         }
     };
+    console.log(hostelAddDetail);
 
     return (
-        <Container sx={{ my: 5 }}>
-            <p>Phone: {hostelAddDetail?.phone}</p>
-            <p>address : {hostelAddDetail?.hostel.address} </p>
-            <p>numberOfVacancy : {hostelAddDetail?.numberOfVacancy}</p>
-            <p>Hostel Add Details id : {hostelAddDetail?._id}</p>
+        <Container sx={{ mb: 5 }}>
+            <Box>
+                <Box
+                    sx={{ width: '100%' }}
+                    component="img"
+                    src={hostelAddDetail?.hostel.banner}
+                />
+                <Box
+                    sx={{
+                        width: '20%',
+                        mt: '-250px',
+                        borderRadius: '50%',
+                        mx: '20px',
+                    }}
+                    component="img"
+                    // src={data.data.data[0].thumbnail}
+                    src="https://i.ibb.co/4Jb1vzN/325.jpg"
+                />
+            </Box>
+
+            <Box sx={{ mb: 1 }}>
+                <Grid container sx={{ pt: 2 }} spacing={2}>
+                    <Grid item xs={12} sm={6}>
+                        <Typography variant="h4" gutterBottom>
+                            {hostelAddDetail?.hostel.hostelName}
+                        </Typography>
+                        <Typography variant="h5" gutterBottom>
+                            address : {hostelAddDetail?.hostel.address}
+                        </Typography>
+                        <Typography variant="h5" gutterBottom>
+                            Phone: {hostelAddDetail?.phone}
+                        </Typography>
+                    </Grid>
+                    <Grid item xs={12} sm={6}>
+                        <Typography variant="h5" gutterBottom>
+                            Total Sit : {hostelAddDetail?.hostel.totalSit}
+                        </Typography>
+
+                        <Typography variant="h5" gutterBottom>
+                            Vacancy : {hostelAddDetail?.numberOfVacancy}
+                        </Typography>
+                        <Typography variant="h5" gutterBottom>
+                            Price (Monthly) : {hostelAddDetail?.hostel.totalSit}
+                        </Typography>
+                    </Grid>
+                </Grid>
+            </Box>
+
             <Button
                 variant="contained"
                 onClick={sendRequest}
