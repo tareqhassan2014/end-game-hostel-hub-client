@@ -110,7 +110,7 @@ const useFirebase = () => {
             } else if (newUser.role === 'vendor') {
                 dispatch(setStore(newUser.store[0]));
             }
-        } catch (error: any) {
+        } catch (error) {
             console.log(error.message);
         }
     };
@@ -151,7 +151,7 @@ const useFirebase = () => {
             } else if (user.role === 'vendor') {
                 dispatch(setStore(user.store[0]));
             }
-        } catch (error: any) {
+        } catch (error) {
             console.log(error.message);
         }
     };
@@ -183,7 +183,7 @@ const useFirebase = () => {
                     token: accessToken,
                 })
             );
-        } catch (error: any) {
+        } catch (error) {
             console.log(error.message);
         }
     };
