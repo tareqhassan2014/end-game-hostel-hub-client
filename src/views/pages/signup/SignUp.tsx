@@ -3,7 +3,6 @@ import LoadingButton from '@mui/lab/LoadingButton';
 import {
     Avatar,
     Box,
-    Button,
     Checkbox,
     Container,
     CssBaseline,
@@ -18,6 +17,8 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import { Link as DomLink } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { useSignUpMutation } from '../../../app/api';
+import google from '../../../assets/images/1534129544.svg';
+import facebook from '../../../assets/images/facebook-svgrepo-com.svg';
 import useFirebase from '../../../hooks/firebase/useFirebase';
 
 type Inputs = {
@@ -56,7 +57,8 @@ export default function SignUp() {
             <CssBaseline />
             <Box
                 sx={{
-                    marginTop: 8,
+                    marginTop: 5,
+                    marginBottom: 5,
                     display: 'flex',
                     flexDirection: 'column',
                     alignItems: 'center',
@@ -72,7 +74,7 @@ export default function SignUp() {
                     component="form"
                     onSubmit={handleSubmit(onSubmit)}
                     noValidate
-                    sx={{ mt: 1 }}
+                    sx={{ mt: 1, width: '320px' }}
                 >
                     <TextField
                         required
@@ -143,6 +145,7 @@ export default function SignUp() {
                     </Box>
 
                     <FormControlLabel
+                        sx={{ mt: -2 }}
                         control={<Checkbox value="remember" color="primary" />}
                         label="Show password"
                         onClick={() => setShow(!show)}
@@ -151,7 +154,7 @@ export default function SignUp() {
                         type="submit"
                         fullWidth
                         variant="contained"
-                        sx={{ mt: 3, mb: 2 }}
+                        sx={{ mt: 1, mb: 1 }}
                         loading={isLoading}
                     >
                         Sign In
@@ -159,22 +162,83 @@ export default function SignUp() {
                     <Grid container>
                         <Grid item xs>
                             <Link href="#" variant="body2">
-                                Forgot password?
+                                {/* Forgot password? */}
                             </Link>
                         </Grid>
                         <Grid item>
-                            <DomLink to="/login">
+                            <DomLink
+                                style={{
+                                    textDecoration: 'none',
+                                    fontSize: '13px',
+                                }}
+                                to="/login"
+                            >
                                 Already Have a Account? login
                             </DomLink>
                         </Grid>
                     </Grid>
                     <Grid container>
-                        <Grid item>
-                            <Button onClick={firebaseGoogle}>Google</Button>
-                        </Grid>
-                        <Grid item>
-                            <Button onClick={firebaseFacebook}>Facebook</Button>
-                        </Grid>
+                        <Box
+                            sx={{
+                                width: '310px',
+                                display: 'flex',
+                                justifyContent: 'space-between',
+                                marginTop: '20px',
+                            }}
+                        >
+                            <button
+                                style={{
+                                    margin: '5px auto',
+                                    display: 'flex',
+                                    justifyContent: 'space-between',
+                                    alignItems: 'center',
+                                    borderRadius: '3px',
+                                    width: '140px',
+                                    height: '30px',
+                                    cursor: 'pointer',
+                                    outline: 'none',
+                                    border: 'none',
+                                }}
+                                onClick={firebaseGoogle}
+                            >
+                                <img width="20px" src={google} alt="" />
+                                <span
+                                    style={{
+                                        fontSize: '13px',
+                                        marginRight: '30px',
+                                        fontWeight: 'bold',
+                                    }}
+                                >
+                                    Google
+                                </span>
+                            </button>
+                            <button
+                                style={{
+                                    margin: '5px auto',
+                                    display: 'flex',
+                                    justifyContent: 'space-between',
+                                    alignItems: 'center',
+                                    borderRadius: '3px',
+                                    width: '140px',
+                                    height: '30px',
+                                    cursor: 'pointer',
+                                    outline: 'none',
+                                    border: 'none',
+                                }}
+                                onClick={firebaseFacebook}
+                            >
+                                <img width="20px" src={facebook} alt="" />
+                                <span
+                                    style={{
+                                        fontSize: '13px',
+                                        marginRight: '30px',
+                                        fontWeight: 'bold',
+                                    }}
+                                >
+                                    Facebook
+                                </span>
+                            </button>
+                        </Box>
                     </Grid>
                 </Box>
             </Box>

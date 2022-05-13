@@ -1,11 +1,14 @@
+import AddBoxIcon from '@mui/icons-material/AddBox';
 import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
+import CoPresentIcon from '@mui/icons-material/CoPresent';
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
 import HomeIcon from '@mui/icons-material/Home';
+import LocalOfferIcon from '@mui/icons-material/LocalOffer';
 import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
+import NotificationsIcon from '@mui/icons-material/Notifications';
 import PersonIcon from '@mui/icons-material/Person';
 import SettingsIcon from '@mui/icons-material/Settings';
-import { useMediaQuery } from '@mui/material';
 import Collapse from '@mui/material/Collapse';
 import List from '@mui/material/List';
 import ListItemButton from '@mui/material/ListItemButton';
@@ -29,10 +32,6 @@ const AdminVerticalNav = () => {
             setOpen(false);
         }
     }, [sideNavWidth]);
-
-    const matches = useMediaQuery('(min-width:600px)');
-
-    console.log(matches);
 
     return (
         <List
@@ -96,8 +95,60 @@ const AdminVerticalNav = () => {
                         </ListItemIcon>
                         <ListItemText primary={open ? 'Manage Bill' : ''} />
                     </ListItemButton>
+                    <ListItemButton
+                        sx={{
+                            pl: sideNavWidth === 80 ? 2 : 4,
+                            borderRadius: 4,
+                        }}
+                        onClick={() => navigate('/dashboard/sit')}
+                    >
+                        <ListItemIcon>
+                            <CoPresentIcon sx={{ color: 'white' }} />
+                        </ListItemIcon>
+                        <ListItemText primary={open ? 'Manage Sit' : ''} />
+                    </ListItemButton>
+                    <ListItemButton
+                        sx={{
+                            pl: sideNavWidth === 80 ? 2 : 4,
+                            borderRadius: 4,
+                        }}
+                        onClick={() => navigate('/dashboard/hostel')}
+                    >
+                        <ListItemIcon>
+                            <AttachMoneyIcon sx={{ color: 'white' }} />
+                        </ListItemIcon>
+                        <ListItemText primary={open ? 'Manage Hostel' : ''} />
+                    </ListItemButton>
                 </List>
             </Collapse>
+            <ListItemButton
+                sx={{ borderRadius: 4 }}
+                onClick={() => navigate('/dashboard/notification')}
+            >
+                <ListItemIcon>
+                    <NotificationsIcon sx={{ color: 'white' }} />
+                </ListItemIcon>
+                <ListItemText primary="notification" />
+            </ListItemButton>
+
+            <ListItemButton
+                sx={{ borderRadius: 4 }}
+                onClick={() => navigate('/dashboard/Ad_product')}
+            >
+                <ListItemIcon>
+                    <AddBoxIcon sx={{ color: 'white' }} />
+                </ListItemIcon>
+                <ListItemText primary="Ad Product" />
+            </ListItemButton>
+            <ListItemButton
+                sx={{ borderRadius: 4 }}
+                onClick={() => navigate('/dashboard/manage_product_Ad')}
+            >
+                <ListItemIcon>
+                    <LocalOfferIcon sx={{ color: 'white' }} />
+                </ListItemIcon>
+                <ListItemText primary="M product Ad" />
+            </ListItemButton>
         </List>
     );
 };

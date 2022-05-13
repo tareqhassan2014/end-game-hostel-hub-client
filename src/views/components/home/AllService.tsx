@@ -7,6 +7,7 @@ import MiscellaneousServicesOutlinedIcon from '@mui/icons-material/Miscellaneous
 import SearchIcon from '@mui/icons-material/Search';
 import SellOutlinedIcon from '@mui/icons-material/SellOutlined';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
+import { useNavigate } from 'react-router-dom';
 import {
     Avatar,
     Card,
@@ -20,6 +21,8 @@ import {
 import { Box } from '@mui/system';
 
 const AllService = () => {
+    const navigate = useNavigate();
+
     return (
         <Box
             sx={{
@@ -122,7 +125,11 @@ const AllService = () => {
                                 }}
                             >
                                 <Tooltip title="Details">
-                                    <IconButton>
+                                    <IconButton
+                                        onClick={() =>
+                                            navigate('/search-hostel')
+                                        }
+                                    >
                                         <ArrowRightAltOutlinedIcon />
                                     </IconButton>
                                 </Tooltip>
@@ -182,7 +189,9 @@ const AllService = () => {
                                 }}
                             >
                                 <Tooltip title="Details">
-                                    <IconButton>
+                                    <IconButton
+                                        onClick={() => navigate('/dashboard')}
+                                    >
                                         <ArrowRightAltOutlinedIcon />
                                     </IconButton>
                                 </Tooltip>
@@ -241,7 +250,9 @@ const AllService = () => {
                                 }}
                             >
                                 <Tooltip title="Details">
-                                    <IconButton>
+                                    <IconButton
+                                        onClick={() => navigate('/dashboard')}
+                                    >
                                         <ArrowRightAltOutlinedIcon />
                                     </IconButton>
                                 </Tooltip>
@@ -300,7 +311,11 @@ const AllService = () => {
                                 }}
                             >
                                 <Tooltip title="Details">
-                                    <IconButton>
+                                    <IconButton
+                                        onClick={() =>
+                                            navigate('/search-old-items')
+                                        }
+                                    >
                                         <ArrowRightAltOutlinedIcon />
                                     </IconButton>
                                 </Tooltip>
@@ -359,7 +374,9 @@ const AllService = () => {
                                 }}
                             >
                                 <Tooltip title="Details">
-                                    <IconButton>
+                                    <IconButton
+                                        onClick={() => navigate('/dashboard')}
+                                    >
                                         <ArrowRightAltOutlinedIcon />
                                     </IconButton>
                                 </Tooltip>
@@ -418,7 +435,9 @@ const AllService = () => {
                                 }}
                             >
                                 <Tooltip title="Details">
-                                    <IconButton>
+                                    <IconButton
+                                        onClick={() => navigate('/dashboard')}
+                                    >
                                         <ArrowRightAltOutlinedIcon />
                                     </IconButton>
                                 </Tooltip>

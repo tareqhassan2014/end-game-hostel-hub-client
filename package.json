@@ -36,6 +36,7 @@
         "react-redux": "^7.2.6",
         "react-router-dom": "^6.2.2",
         "react-scripts": "5.0.0",
+        "react-super-responsive-table": "^5.2.0",
         "react-swipeable-views": "^0.14.0",
         "react-swipeable-views-utils": "^0.14.0",
         "react-table": "^7.7.0",
@@ -43,6 +44,7 @@
         "recharts": "^2.1.9",
         "redux-persist": "^6.0.0",
         "stylis": "^4.1.0",
+        "sweetalert2": "^11.4.10",
         "swiper": "^8.1.0",
         "typeit-react": "^2.3.3",
         "typescript": "~4.1.5"
@@ -71,6 +73,7 @@
         ]
     },
     "devDependencies": {
+        "@faker-js/faker": "^6.2.0",
         "@types/chroma-js": "^2.1.3",
         "@types/faker": "^5.5.3",
         "@types/react-swipeable-views": "^0.13.1",

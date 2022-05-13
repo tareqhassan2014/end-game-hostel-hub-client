@@ -1,27 +1,27 @@
 import AutoFixHighIcon from '@mui/icons-material/AutoFixHigh';
-import LocalGroceryStoreIcon from '@mui/icons-material/LocalGroceryStore';
-import MapsHomeWorkIcon from '@mui/icons-material/MapsHomeWork';
+import PhotoCameraIcon from '@mui/icons-material/PhotoCamera';
 import {
     Avatar,
     Button,
     Container,
     CssBaseline,
     Grid,
-    Paper,
     TextField,
     Typography,
 } from '@mui/material';
+import { Box } from '@mui/system';
 import { useState } from 'react';
-import useAuth from '../../../hooks/useAuth';
-import CustomModal from './CustomModal';
+import useAuth from '../../../../hooks/useAuth';
+import CustomModal from '../common/profile/CustomModal';
 
 const Profile = () => {
     const { user } = useAuth();
+    console.log(user);
     //modal
     const [openModal, setModalOpen] = useState(false);
     const handleModalOpen = () => setModalOpen(true);
     const handleModalClose = () => setModalOpen(false);
-    console.log(handleModalClose);
+
     return (
         <>
             <Container sx={{ my: 5 }}>
@@ -56,37 +56,46 @@ const Profile = () => {
                         </Button>
 
                         <Button
+                            onClick={handleModalOpen}
                             startIcon={<AutoFixHighIcon />}
                             sx={{ textTransform: 'capitalize' }}
                         >
                             Edit
                         </Button>
                     </Grid>
-                    <Grid item md={8} sm={12}>
-                        <Typography variant="h3">My Profile</Typography>
+                    <Grid item md={6} sm={12}>
+                        <Typography variant="h4">My Profile</Typography>
                         <Grid container>
                             <Grid item md={6} xs={12} sx={{ pr: 3 }}>
                                 <TextField
                                     fullWidth
-                                    label="Name"
+                                    label="First Name"
                                     margin="normal"
                                     value={user.name}
                                 />
                             </Grid>
                             <Grid item md={6} xs={12}>
-                                <TextField
+                                {/* <TextField
                                     fullWidth
+                                    id="standard-basic"
                                     label="Last Name"
+                                    variant="standard"
                                     margin="normal"
+                                    defaultValue={'Last Name'}
+                                /> */}
+                                <TextField
+                                    id="standard-basic"
+                                    label="Standard"
+                                    variant="standard"
                                     value={'Last Name'}
                                 />
                             </Grid>
                             <Grid item md={6} xs={12} sx={{ pr: 3 }}>
                                 <TextField
                                     fullWidth
-                                    label="Time Zone"
+                                    label="Address"
                                     margin="normal"
-                                    value={'+6 GMT'}
+                                    defaultValue={'Address'}
                                 />
                             </Grid>
                             <Grid item md={6} xs={12}>
@@ -94,7 +103,7 @@ const Profile = () => {
                                     fullWidth
                                     label="Phone"
                                     margin="normal"
-                                    value={user.phone || '+880-000-111-333'}
+                                    defaultValue={user.phone || 'Phone Number'}
                                 />
                             </Grid>
                         </Grid>
@@ -102,10 +111,10 @@ const Profile = () => {
                             fullWidth
                             label="Email Address"
                             margin="normal"
-                            value={user.email}
+                            defaultValue={user.email}
                         />
 
-                        <Grid container sx={{ my: 3 }}>
+                        {/* <Grid container sx={{ my: 3 }}>
                             <Grid item md={6} xs={12} sx={{ pr: 2 }}>
                                 <Paper onClick={handleModalOpen} sx={{ pt: 3 }}>
                                     <Avatar
@@ -150,13 +159,17 @@ const Profile = () => {
                                     </Typography>
                                 </Paper>
                             </Grid>
-                        </Grid>
+                        </Grid> */}
                     </Grid>
                 </Grid>
             </Container>
             <CustomModal
                 openModal={openModal}
                 handleModalClose={handleModalClose}
+                name={user.name}
+                email={user.email}
+                img={user.img}
+                phone={user.phone}
             ></CustomModal>
         </>
     );

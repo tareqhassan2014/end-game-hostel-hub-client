@@ -7,15 +7,21 @@ import {
     signInWithPopup,
     updateProfile,
 } from 'firebase/auth';
+import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { useLoginMutation, useSignUpMutation } from '../../app/api';
-import { setCredentials } from '../../app/slices/auth/authSlice';
-import { useAppDispatch } from './../hooks';
+import {
+    setCredentials,
+    setHostel,
+    setStore,
+} from '../../app/slices/auth/authSlice';
+import { useAppDispatch } from '../hooks';
 import { InitializeFirebase } from './firebase.init';
 
 InitializeFirebase();
 
 const useFirebase = () => {
+    const navigate = useNavigate();
     //auth
     const auth = getAuth();
     const dispatch = useAppDispatch();
@@ -53,6 +59,8 @@ const useFirebase = () => {
                     token: user.accessToken,
                 })
             );
+
+            navigate('/dashboard');
         } catch (error) {
             console.log(error);
         }
@@ -86,13 +94,21 @@ const useFirebase = () => {
                 token: user.accessToken,
             }).unwrap();
             if (newUser) {
-                toast.success('Account create successfully');
+                toast.success('Successfully Login');
                 dispatch(
                     setCredentials({
                         user: newUser,
                         token: user.accessToken,
                     })
                 );
+            }
+
+            navigate('/dashboard');
+
+            if (newUser.role === 'admin') {
+                dispatch(setHostel(newUser.hostel[0]));
+            } else if (newUser.role === 'vendor') {
+                dispatch(setStore(newUser.store[0]));
             }
         } catch (error: any) {
             console.log(error.message);
@@ -127,6 +143,14 @@ const useFirebase = () => {
                     token: accessToken,
                 })
             );
+
+            navigate('/dashboard');
+
+            if (user.role === 'admin') {
+                dispatch(setHostel(user.hostel[0]));
+            } else if (user.role === 'vendor') {
+                dispatch(setStore(user.store[0]));
+            }
         } catch (error: any) {
             console.log(error.message);
         }

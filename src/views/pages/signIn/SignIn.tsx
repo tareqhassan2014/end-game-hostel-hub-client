@@ -3,7 +3,6 @@ import LoadingButton from '@mui/lab/LoadingButton';
 import {
     Avatar,
     Box,
-    Button,
     Checkbox,
     Container,
     CssBaseline,
@@ -15,9 +14,10 @@ import {
 } from '@mui/material';
 import { useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import { Link as DomLink, useLocation, useNavigate } from 'react-router-dom';
+import { Link as DomLink } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import { useLoginMutation } from '../../../app/api';
+import google from '../../../assets/images/1534129544.svg';
+import facebook from '../../../assets/images/facebook-svgrepo-com.svg';
 import useFirebase from '../../../hooks/firebase/useFirebase';
 
 type Inputs = {
@@ -27,10 +27,8 @@ type Inputs = {
 
 export default function SignIn() {
     const [show, setShow] = useState(false);
-    const { state } = useLocation();
-    const navigate = useNavigate();
+
     const { firebaseGoogle, firebaseFacebook, SignInFirebase } = useFirebase();
-    const [signIn, { isLoading }] = useLoginMutation();
 
     const {
         register,
@@ -54,7 +52,8 @@ export default function SignIn() {
             <CssBaseline />
             <Box
                 sx={{
-                    marginTop: 8,
+                    marginTop: 5,
+                    marginBottom: 8,
                     display: 'flex',
                     flexDirection: 'column',
                     alignItems: 'center',
@@ -63,14 +62,18 @@ export default function SignIn() {
                 <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
                     <LockOutlinedIcon />
                 </Avatar>
-                <Typography component="h1" variant="h5">
+                <Typography
+                    component="h1"
+                    sx={{ fontWeight: 'bold' }}
+                    variant="h5"
+                >
                     Sign In
                 </Typography>
                 <Box
                     component="form"
                     onSubmit={handleSubmit(onSubmit)}
                     noValidate
-                    sx={{ mt: 1 }}
+                    sx={{ mt: 0, width: '310px' }}
                 >
                     <TextField
                         required
@@ -107,29 +110,99 @@ export default function SignIn() {
                         type="submit"
                         fullWidth
                         variant="contained"
-                        sx={{ mt: 3, mb: 2 }}
-                        loading={isLoading}
+                        sx={{ mt: 1, mb: 1 }}
+                        loading={false}
                     >
                         Sign In
                     </LoadingButton>
                     <Grid container>
                         <Grid item xs>
-                            <Link href="#" variant="body2">
+                            <Link
+                                style={{
+                                    textDecoration: 'none',
+                                    fontSize: '13px',
+                                }}
+                                href="#"
+                                variant="body2"
+                            >
                                 Forgot password?
                             </Link>
                         </Grid>
                         <Grid item>
-                            <DomLink to="/signup">New here? Sign UP</DomLink>
+                            <DomLink
+                                style={{
+                                    textDecoration: 'none',
+                                    fontSize: '13px',
+                                }}
+                                to="/signup"
+                            >
+                                New here? Sign UP
+                            </DomLink>
                         </Grid>
                     </Grid>
 
                     <Grid container>
-                        <Grid item>
-                            <Button onClick={firebaseGoogle}>Google</Button>
-                        </Grid>
-                        <Grid item>
-                            <Button onClick={firebaseFacebook}>Facebook</Button>
-                        </Grid>
+                        <Box
+                            sx={{
+                                width: '310px',
+                                display: 'flex',
+                                justifyContent: 'space-between',
+                                marginTop: '20px',
+                            }}
+                        >
+                            <button
+                                style={{
+                                    margin: '5px auto',
+                                    display: 'flex',
+                                    justifyContent: 'space-between',
+                                    alignItems: 'center',
+                                    borderRadius: '3px',
+                                    width: '140px',
+                                    height: '30px',
+                                    cursor: 'pointer',
+                                    outline: 'none',
+                                    border: 'none',
+                                }}
+                                onClick={firebaseGoogle}
+                            >
+                                <img width="20px" src={google} alt="" />
+                                <span
+                                    style={{
+                                        fontSize: '13px',
+                                        marginRight: '30px',
+                                        fontWeight: 'bold',
+                                    }}
+                                >
+                                    Google
+                                </span>
+                            </button>
+                            <button
+                                style={{
+                                    margin: '5px auto',
+                                    display: 'flex',
+                                    justifyContent: 'space-between',
+                                    alignItems: 'center',
+                                    borderRadius: '3px',
+                                    width: '140px',
+                                    height: '30px',
+                                    cursor: 'pointer',
+                                    outline: 'none',
+                                    border: 'none',
+                                }}
+                                onClick={firebaseFacebook}
+                            >
+                                <img width="20px" src={facebook} alt="" />
+                                <span
+                                    style={{
+                                        fontSize: '13px',
+                                        marginRight: '30px',
+                                        fontWeight: 'bold',
+                                    }}
+                                >
+                                    Facebook
+                                </span>
+                            </button>
+                        </Box>
                     </Grid>
                 </Box>
             </Box>

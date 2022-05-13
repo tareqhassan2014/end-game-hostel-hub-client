@@ -15,8 +15,8 @@ const columns: GridColDef[] = [
     },
 
     {
-        field: 'age',
-        headerName: 'Age',
+        field: 'bills',
+        headerName: 'bills (tk)',
         type: 'number',
         width: 90,
     },
@@ -33,51 +33,57 @@ const columns: GridColDef[] = [
 ];
 
 const rows = [
-    { id: 1, lastName: 'Snow', firstName: 'Jon', gender: 'male', age: 35 },
+    { id: 1, lastName: 'Snow', firstName: 'Jon', gender: 'male', bills: 35 },
     {
         id: 2,
         lastName: 'Lannister',
         firstName: 'Cersei',
         gender: 'male',
-        age: 42,
+        bills: 42,
     },
     {
         id: 3,
         lastName: 'Lannister',
         firstName: 'Jaime',
         gender: 'female',
-        age: 45,
+        bills: 45,
     },
-    { id: 4, lastName: 'Stark', firstName: 'Arya', gender: 'male', age: 16 },
+    { id: 4, lastName: 'Stark', firstName: 'Arya', gender: 'male', bills: 16 },
     {
         id: 5,
         lastName: 'Targaryen',
         firstName: 'Daenerys',
         gender: 'female',
-        age: 25,
+        bills: 25,
     },
     {
         id: 6,
         lastName: 'Melisandre',
         firstName: 'Smith',
         gender: 'male',
-        age: 150,
+        bills: 150,
     },
     {
         id: 7,
         lastName: 'Clifford',
         firstName: 'Ferrara',
         gender: 'female',
-        age: 44,
+        bills: 44,
     },
     {
         id: 8,
         lastName: 'Frances',
         firstName: 'Rossini',
         gender: 'male',
-        age: 36,
+        bills: 36,
     },
-    { id: 9, lastName: 'Roxie', firstName: 'Harvey', gender: 'male', age: 65 },
+    {
+        id: 9,
+        lastName: 'Roxie',
+        firstName: 'Harvey',
+        gender: 'male',
+        bills: 65,
+    },
 ];
 
 const Table = () => {

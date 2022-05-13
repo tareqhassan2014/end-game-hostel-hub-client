@@ -1,22 +1,32 @@
-import { Icon, IconButton, Menu, MenuItem } from '@mui/material';
+import { Badge, Icon, IconButton } from '@mui/material';
 import { Box, styled } from '@mui/system';
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { logOut } from 'src/app/slices/auth/authSlice';
-import useAuth from 'src/hooks/useAuth';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { toggleFullSideBar } from 'src/app/slices/theme/themeSlice';
+import useThemeAndLayout from 'src/hooks/useThemeAndLayout';
+import '../../../pages/PostAvailableSit/PostAvailableSit.scss';
+import AvatarMenu from './AvatarMenu';
 
 const StyledIconButton = styled(IconButton)(({ theme }) => ({
     color: theme.palette.text.primary,
 }));
 
-const TopbarRoot = styled('div')(({ theme }) => ({
+const location = window.location;
+
+// pathname
+const manageProductRoute = '/dashboard/manageProduct';
+const manageOrderRoute = '/dashboard/manageOrder';
+const pendingOrderRoute = '/dashboard/pendingOrder';
+const confirmOrderRoute = '/dashboard/confirmOrder';
+
+const TopBarRoot = styled('div')(() => ({
     top: 0,
     zIndex: 96,
     transition: 'all 0.3s ease',
     height: 50,
 }));
 
-const TopbarContainer = styled(Box)(({ theme }) => ({
+const TopBarContainer = styled(Box)(({ theme }) => ({
     padding: '8px',
     paddingLeft: 18,
     paddingRight: 20,
@@ -35,33 +45,6 @@ const TopbarContainer = styled(Box)(({ theme }) => ({
     },
 }));
 
-const UserMenu = styled(Box)(() => ({
-    display: 'flex',
-    alignItems: 'center',
-    cursor: 'pointer',
-    borderRadius: 24,
-    padding: 4,
-    '& span': {
-        margin: '0 8px',
-    },
-}));
-
-const StyledItem = styled(MenuItem)(({ theme }) => ({
-    display: 'flex',
-    alignItems: 'center',
-    minWidth: 185,
-    '& a': {
-        width: '100%',
-        display: 'flex',
-        alignItems: 'center',
-        textDecoration: 'none',
-    },
-    '& span': {
-        marginRight: '10px',
-        color: theme.palette.text.primary,
-    },
-}));
-
 const IconBox = styled('div')(({ theme }) => ({
     display: 'inherit',
     [theme.breakpoints.down('md')]: {
@@ -70,62 +53,78 @@ const IconBox = styled('div')(({ theme }) => ({
 }));
 
 const DashboardHeader = () => {
-    const { user } = useAuth();
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
+    const { sideNavWidth } = useThemeAndLayout();
+
+    const handleSidenavToggle = () => {
+        if (sideNavWidth === 80) {
+            dispatch(toggleFullSideBar(260));
+        }
+        if (sideNavWidth === 260) {
+            dispatch(toggleFullSideBar(0));
+        }
+        if (sideNavWidth === 0) {
+            dispatch(toggleFullSideBar(260));
+        }
+    };
 
     return (
-        <TopbarRoot>
-            <TopbarContainer>
+        <TopBarRoot>
+            <TopBarContainer>
                 <Box display="flex">
-                    <StyledIconButton>
-                        <Icon>menu</Icon>
+                    <StyledIconButton onClick={handleSidenavToggle}>
+                        <Icon sx={{ color: 'white' }}>menu</Icon>
                     </StyledIconButton>
-
                     <IconBox>
-                        <StyledIconButton>
-                            <Icon>mail_outline</Icon>
-                        </StyledIconButton>
-
-                        <StyledIconButton>
-                            <Icon>web_asset</Icon>
-                        </StyledIconButton>
-
-                        <StyledIconButton>
-                            <Icon>star_outline</Icon>
+                        <StyledIconButton
+                            onClick={() => navigate('/dashboard/notification')}
+                        >
+                            <Badge badgeContent={4} color="secondary">
+                                <Icon sx={{ color: 'white' }}>
+                                    notifications
+                                </Icon>
+                            </Badge>
                         </StyledIconButton>
                     </IconBox>
+                    {location.pathname === manageOrderRoute ||
+                    location.pathname === manageProductRoute ||
+                    location.pathname === pendingOrderRoute ||
+                    location.pathname === confirmOrderRoute ? (
+                        <input
+                            className="searchBar"
+                            style={{
+                                marginLeft: '10%',
+
+                                borderRadius: '3px',
+                                border: 'none',
+                            }}
+                            type="text"
+                        />
+                    ) : (
+                        ''
+                    )}
+
+                    {/* {location.href ===
+                        `http://localhost:3000/dashboard/product` && (
+                        <input
+                            className="searchBar"
+                            style={{
+                                marginLeft: '10%',
+
+                                borderRadius: '3px',
+                                border: 'none',
+                            }}
+                            type="text"
+                        />
+                    )} */}
                 </Box>
                 <Box display="flex" alignItems="center">
-                    <Menu
-                        id="fade-menu"
-                        MenuListProps={{
-                            'aria-labelledby': 'fade-button',
-                        }}
-                        open={false}
-                    >
-                        <StyledItem>
-                            <Link to="/">
-                                <Icon> home </Icon>
-                                <span> Home </span>
-                            </Link>
-                        </StyledItem>
-                        <StyledItem>
-                            <Link to="/page-layouts/user-profile">
-                                <Icon> person </Icon>
-                                <span> Profile </span>
-                            </Link>
-                        </StyledItem>
-                        <StyledItem>
-                            <Icon> settings </Icon>
-                            <span> Settings </span>
-                        </StyledItem>
-                        <StyledItem onClick={logOut}>
-                            <Icon> power_settings_new </Icon>
-                            <span> Logout </span>
-                        </StyledItem>
-                    </Menu>
+                    <AvatarMenu />
                 </Box>
-            </TopbarContainer>
-        </TopbarRoot>
+            </TopBarContainer>
+            <Box sx={{ display: 'none' }}></Box>
+        </TopBarRoot>
     );
 };
 

@@ -1,12 +1,14 @@
 import GetAppIcon from '@mui/icons-material/GetApp';
 import { Box, Button, Grid, Typography } from '@mui/material';
-import { Autoplay } from 'swiper';
+import SwiperCore, { Autoplay } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/free-mode';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/thumbs';
 import { Swiper, SwiperSlide } from 'swiper/react';
+
+SwiperCore.use([Autoplay]);
 
 const FeatureApp = () => {
     const myStyle = {
