@@ -7,8 +7,6 @@ import useThemeAndLayout from 'src/hooks/useThemeAndLayout';
 import { convertHexToRGB } from 'src/utility/convertHexToRGB';
 import Brand from './Brand';
 import Sidenav from './SideNav';
-// import Sidenav from './Sidenav';
-
 const SidebarNavRoot = styled(Box)(
     ({ width, color }: { width: number; color: string | undefined }) => ({
         position: 'fixed',

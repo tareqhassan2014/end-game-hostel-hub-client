@@ -50,6 +50,7 @@ const ManageProductAd = () => {
                     ))}
                 </Grid>
             )}
+
             <Grid container>
                 {product &&
                     product.map((product, index) => (
