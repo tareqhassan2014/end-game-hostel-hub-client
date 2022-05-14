@@ -1,0 +1,60 @@
+.bookingModal {
+    width: 100%;
+}
+.bookingModal > input {
+    width: 100%;
+    height: 44px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #e9f7f8;
+}
+.bookingModal > input:focus {
+    outline: none;
+    border: none;
+}
+.bookingModal > div > select {
+    width: 100%;
+    height: 44px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #e9f7f8;
+}
+
+.bookingModal > select:focus {
+    outline: none;
+    border: none;
+}
+
+.bookingModalBtn {
+    margin-left: 97%;
+    background-color: white;
+    border: 2px solid white;
+    font-weight: bold;
+    transition: 0.4s ease-in-out;
+}
+.bookingModalBtn:hover {
+    border: 2px solid #4774ff;
+    border-radius: 50%;
+}
+.searchButton {
+    width: 160px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #4774ff;
+    padding: 10px;
+    border-radius: 30px;
+    margin: 20px auto 10px;
+}
+
+.searchButton > button {
+    color: white;
+    background-color: #4774ff;
+    border: none;
+    font-size: 14px;
+    letter-spacing: 2px;
+    font-family: Poppins;
+}
