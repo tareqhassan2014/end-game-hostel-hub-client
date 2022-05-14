@@ -7,7 +7,7 @@ import image1 from './../../../assets/images/demo1.jpg';
 const ProjectsOverview = () => {
     return (
         <Box color="secondary">
-            <Container sx={{ py: 4 }}>
+            <Container sx={{ py: 5 }}>
                 <Grid container>
                     <Grid item lg={6} md={6} xs={12}>
                         <Box sx={{ pr: 1 }}>
@@ -17,7 +17,7 @@ const ProjectsOverview = () => {
                             <Typography variant="h6" sx={{ mb: 4, color: '' }}>
                                 High quality accomodation services
                             </Typography>
-                            <Typography variant="subtitle2" sx={{ mb: 4 }}>
+                            <Typography variant="subtitle2" sx={{ mb: 5 }}>
                                 Lorem ipsum dolor sit amet consectetur
                                 adipisicing elit. Perferendis, amet consequatur
                                 quisquam distinctio esse culpa tempore, rem
