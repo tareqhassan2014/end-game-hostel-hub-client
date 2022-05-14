@@ -6,10 +6,6 @@ import VisibilitySensor from 'react-visibility-sensor';
 const Counter = () => {
     const [focus, setFocus] = useState(false);
 
-    function onChange(isVisible) {
-        console.log('Element is now %s', isVisible ? 'visible' : 'hidden');
-    }
-
     return (
         <Box sx={{ my: 5 }}>
             <Typography
@@ -41,7 +37,7 @@ const Counter = () => {
                                 sx={{ fontFamily: "'Monoton',cursive" }}
                             >
                                 <CountUp
-                                    start={focus ? 0 : null}
+                                    start={focus ? 0 : undefined}
                                     end={60}
                                     duration={2}
                                     redraw={true}
@@ -81,7 +77,7 @@ const Counter = () => {
                                 sx={{ fontFamily: "'Monoton',cursive" }}
                             >
                                 <CountUp
-                                    start={focus ? 0 : null}
+                                    start={focus ? 0 : undefined}
                                     end={150}
                                     duration={4}
                                     redraw={true}
@@ -121,7 +117,7 @@ const Counter = () => {
                                 sx={{ fontFamily: "'Monoton',cursive" }}
                             >
                                 <CountUp
-                                    start={focus ? 0 : null}
+                                    start={focus ? 0 : undefined}
                                     end={45}
                                     duration={1}
                                     redraw={true}
@@ -160,7 +156,7 @@ const Counter = () => {
                                 sx={{ fontFamily: "'Monoton',cursive" }}
                             >
                                 <CountUp
-                                    start={focus ? 0 : null}
+                                    start={focus ? 0 : undefined}
                                     end={130}
                                     duration={3}
                                     redraw={true}
