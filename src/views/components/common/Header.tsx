@@ -18,8 +18,9 @@ import {
     Typography,
     useScrollTrigger,
 } from '@mui/material';
+import Slide from '@mui/material/Slide';
 import { Box } from '@mui/system';
-import { cloneElement, MouseEvent, useState } from 'react';
+import { MouseEvent, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { logOut } from 'src/app/slices/auth/authSlice';
@@ -67,18 +68,17 @@ interface Props {
     children: React.ReactElement;
 }
 
-function ElevationScroll(props: Props) {
+function HideOnScroll(props: Props) {
     const { children, window } = props;
-
     const trigger = useScrollTrigger({
-        disableHysteresis: true,
-        threshold: 0,
         target: window ? window() : undefined,
     });
 
-    return cloneElement(children, {
-        elevation: trigger ? 4 : 0,
-    });
+    return (
+        <Slide appear={false} direction="down" in={!trigger}>
+            {children}
+        </Slide>
+    );
 }
 
 export default function Header(props: Props) {
@@ -107,11 +107,15 @@ export default function Header(props: Props) {
 
     return (
         <>
-            <ElevationScroll {...props}>
+            <HideOnScroll {...props}>
                 <AppBar
                     sx={{
                         backdropFilter: `saturate(200%) blur(1.875 rem)`,
                         py: 0.5,
+                        backgroundColor: 'white',
+                        color: 'black',
+                        borderEndEndRadius: '0.5rem',
+                        borderEndStartRadius: '0.5rem',
                     }}
                 >
                     <Toolbar>
@@ -175,6 +179,9 @@ export default function Header(props: Props) {
                                     >
                                         {pages.map((page, key) => (
                                             <MenuItem
+                                                sx={{
+                                                    color: 'primary.main',
+                                                }}
                                                 key={key}
                                                 onClick={() => {
                                                     handleCloseNavMenu();
@@ -204,8 +211,8 @@ export default function Header(props: Props) {
                                             }}
                                             sx={{
                                                 my: 2,
-                                                color: 'white',
                                                 display: 'block',
+                                                color: 'primary.main',
                                             }}
                                         >
                                             {page.page}
@@ -285,7 +292,7 @@ export default function Header(props: Props) {
                         </Container>
                     </Toolbar>
                 </AppBar>
-            </ElevationScroll>
+            </HideOnScroll>
             <Toolbar />
         </>
     );
