@@ -11,6 +11,33 @@ import {
 import { blueGrey } from '@mui/material/colors';
 import { styled } from '@mui/system';
 import visaCard from 'src/assets/images/logos/visaCard.png';
+import ImageList from '@mui/material/ImageList';
+import ImageListItem from '@mui/material/ImageListItem';
+
+const itemData = [
+    {
+        img: 'https://i.ibb.co/vcr8XHn/pexels-cottonbro-5158464-min.jpg',
+        title: 'Breakfast',
+        rows: 2,
+        cols: 2,
+    },
+    {
+        img: 'https://i.ibb.co/GMWX69y/pexels-cottonbro-5158945-min.jpg',
+        title: 'Burger',
+    },
+    {
+        img: 'https://i.ibb.co/Sv69tDG/pexels-binyamin-mellish-186181-min.jpg',
+        title: 'Camera',
+    },
+    {
+        img: 'https://i.ibb.co/9V8zSxV/pexels-cottonbro-5137789-min.jpg',
+        title: 'Coffee',
+        cols: 2,
+    },
+];
+
+// https: //i.ibb.co/9Zj2D2h/pexels-george-pak-7968277-min.jpg
+// https: //i.ibb.co/F3SLK7Q/pexels-ketut-subiyanto-4907454-min.jpg
 
 const MyButton = styled(Button)({
     backgroundColor: '#43515a',
@@ -29,20 +56,65 @@ function refreshPage() {
     window.location.reload();
 }
 
+function srcset(image: string, size: number, rows = 1, cols = 1) {
+    return {
+        src: `${image}?w=${size * cols}&h=${size * rows}&fit=crop&auto=format`,
+        srcSet: `${image}?w=${size * cols}&h=${
+            size * rows
+        }&fit=crop&auto=format&dpr=2 2x`,
+    };
+}
+
+const footerBg = {
+    background: `url(https://i.ibb.co/2qf7JbV/aa.jpg)`,
+    backgroundColor: `rgba(33, 33, 33,0.95)`,
+    backgroundBlendMode: `darken, luminosity`,
+    backgroundPossition: `center`,
+    backgroundRepeat: `no-repeat`,
+    backgroundSize: `100%`,
+};
+
 const Footer = () => {
     return (
         <Box
             sx={{
                 pb: 5,
-                bgcolor: blueGrey[900],
+                fontFamily: "'Skranji' , cursive",
             }}
+            style={footerBg}
         >
             <Container>
                 <Grid container>
                     <Grid item md={3} sm={6} xs={12} sx={{ my: 5 }}>
                         <Typography
-                            variant="subtitle1"
-                            sx={{ mb: 5, color: 'white' }}
+                            variant="h6"
+                            sx={{
+                                mb: 5,
+                                color: 'white',
+                                fontFamily: "'Monoton',cursive",
+                            }}
+                        >
+                            Hostel Hub
+                        </Typography>
+
+                        <Grid container sx={{ color: '#9bb8cc', width: '90%' }}>
+                            <Typography variant="caption">
+                                Lorem ipsum dolor sit amet consectetur
+                                adipisicing elit. Delectus nisi dignissimos amet
+                                cum ea ab placeat. Cupiditate quod est corporis
+                                voluptatum quia. Et obcaecati Tempore, expedita
+                                cumque! Provident.
+                            </Typography>
+                        </Grid>
+                    </Grid>
+                    <Grid item md={3} sm={6} xs={12} sx={{ my: 5 }}>
+                        <Typography
+                            variant="h6"
+                            sx={{
+                                mb: 5,
+                                color: 'white',
+                                fontFamily: "'Skranji' , cursive",
+                            }}
                         >
                             Address & Contact
                         </Typography>
@@ -88,8 +160,12 @@ const Footer = () => {
                     </Grid>
                     <Grid item md={3} sm={6} xs={12} sx={{ my: 5 }}>
                         <Typography
-                            variant="subtitle1"
-                            sx={{ mb: 5, color: 'white' }}
+                            variant="h6"
+                            sx={{
+                                mb: 5,
+                                color: 'white',
+                                fontFamily: "'Skranji' , cursive",
+                            }}
                         >
                             Travel Destinations
                         </Typography>
@@ -124,64 +200,55 @@ const Footer = () => {
                             Turkey
                         </Typography>
                     </Grid>
+
                     <Grid item md={3} sm={6} xs={12} sx={{ my: 5 }}>
                         <Typography
                             variant="subtitle1"
-                            sx={{ mb: 5, color: 'white' }}
+                            sx={{
+                                mb: 5,
+                                color: 'white',
+                                fontFamily: "'Monoton',cursive",
+                            }}
                         >
-                            Blog Categories
+                            Instagram
                         </Typography>
 
-                        <Grid container sx={{ color: '#9bb8cc' }}>
-                            <Grid item md={6} xs={6}>
-                                <Typography gutterBottom sx={{ fontSize: 13 }}>
-                                    Improve Life
-                                </Typography>
-                                <Typography gutterBottom sx={{ fontSize: 13 }}>
-                                    Productivity
-                                </Typography>
-                                <Typography gutterBottom sx={{ fontSize: 13 }}>
-                                    Sport
-                                </Typography>
-                                <Typography gutterBottom sx={{ fontSize: 13 }}>
-                                    Tools
-                                </Typography>
+                        {/* <Grid container spacing={1}>
+                            <Grid item xs={4}>
+                                
                             </Grid>
-                            <Grid item md={6} xs={6}>
-                                <Typography gutterBottom sx={{ fontSize: 13 }}>
-                                    Life
-                                </Typography>
-                                <Typography gutterBottom sx={{ fontSize: 13 }}>
-                                    Self Discipline
-                                </Typography>
-                                <Typography gutterBottom sx={{ fontSize: 13 }}>
-                                    Technology
-                                </Typography>
-                            </Grid>
-                        </Grid>
-                    </Grid>
-                    <Grid item md={3} sm={6} xs={12} sx={{ my: 5 }}>
-                        <Typography
-                            variant="subtitle1"
-                            sx={{ mb: 5, color: 'white' }}
+                           
+                        </Grid> */}
+
+                        <ImageList
+                            sx={{
+                                width: '100%',
+                                height: '200px',
+                                borderRadius: 2,
+                            }}
+                            variant="quilted"
+                            cols={4}
+                            rowHeight={98}
                         >
-                            Tags
-                        </Typography>
-                        <MyButton size="small">productivity</MyButton>
-                        <MyButton size="small">relax</MyButton>
-                        <br />
-                        <MyButton size="small">self discipline</MyButton>
-                        <MyButton size="small">software</MyButton>
-                        <br />
-                        <MyButton size="small">productivity</MyButton>
-                        <MyButton size="small">productivity</MyButton>
-                        <br />
-                        <MyButton size="small">tools</MyButton>
-                        <MyButton size="small">web</MyButton>
-                        <MyButton size="small">view</MyButton>
-                        <MyButton size="small" onClick={refreshPage}>
-                            work
-                        </MyButton>
+                            {itemData.map((item) => (
+                                <ImageListItem
+                                    key={item.img}
+                                    cols={item.cols || 1}
+                                    rows={item.rows || 1}
+                                >
+                                    <img
+                                        {...srcset(
+                                            item.img,
+                                            121,
+                                            item.rows,
+                                            item.cols
+                                        )}
+                                        alt={item.title}
+                                        loading="lazy"
+                                    />
+                                </ImageListItem>
+                            ))}
+                        </ImageList>
                     </Grid>
                 </Grid>
                 <Divider />
