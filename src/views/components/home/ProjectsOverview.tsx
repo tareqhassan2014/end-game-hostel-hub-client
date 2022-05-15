@@ -1,8 +1,11 @@
 import React from 'react';
 import { Box, Button, Container, Grid, Typography } from '@mui/material';
 import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
-import image1 from './../../../assets/images/demo1.jpg';
-// import image2 from './../../../assets/images/demo2.jpg';
+import image2 from './../../../assets/images/demo1-removebg.png';
+import image3 from './../../../assets/images/removedBg1.png';
+import image4 from './../../../assets/images/b1.png';
+import ReactDOM from 'react-dom';
+import Tilt from 'react-parallax-tilt';
 
 const ProjectsOverview = () => {
     return (
@@ -41,19 +44,29 @@ const ProjectsOverview = () => {
 
                     <Grid item lg={6} md={6} xs={12}>
                         <Box>
-                            <Box
-                                sx={{
-                                    height: {
-                                        lg: '100%',
-                                        md: '90%',
-                                        sm: '100%',
-                                    },
-                                    width: '100%',
-                                }}
-                                component="img"
-                                src={image1}
-                                alt="demo-image"
-                            />
+                            <Tilt
+                                className="parallax-effect-img"
+                                tiltMaxAngleX={40}
+                                tiltMaxAngleY={40}
+                                perspective={800}
+                                transitionSpeed={1500}
+                                scale={1.1}
+                                gyroscope={true}
+                            >
+                                <Box
+                                    sx={{
+                                        height: {
+                                            lg: '100%',
+                                            md: '90%',
+                                            sm: '100%',
+                                        },
+                                        width: '100%',
+                                    }}
+                                    component="img"
+                                    src={image4}
+                                    alt="demo-image"
+                                />
+                            </Tilt>
                         </Box>
                     </Grid>
                 </Grid>
