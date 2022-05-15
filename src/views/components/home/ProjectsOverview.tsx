@@ -1,11 +1,8 @@
-import React from 'react';
-import { Box, Button, Container, Grid, Typography } from '@mui/material';
 import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
-import image2 from './../../../assets/images/demo1-removebg.png';
-import image3 from './../../../assets/images/removedBg1.png';
-import image4 from './../../../assets/images/b1.png';
-import ReactDOM from 'react-dom';
+import { Box, Button, Container, Grid, Typography } from '@mui/material';
+import React from 'react';
 import Tilt from 'react-parallax-tilt';
+import image4 from './../../../assets/images/b1.png';
 
 const ProjectsOverview = () => {
     return (
@@ -55,11 +52,7 @@ const ProjectsOverview = () => {
                             >
                                 <Box
                                     sx={{
-                                        height: {
-                                            lg: '100%',
-                                            md: '90%',
-                                            sm: '100%',
-                                        },
+                                        height: '100%',
                                         width: '100%',
                                     }}
                                     component="img"
