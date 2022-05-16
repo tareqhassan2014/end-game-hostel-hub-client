@@ -1,6 +1,6 @@
+import React from 'react';
 import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
 import { Box, Button, Container, Grid, Typography } from '@mui/material';
-import React from 'react';
 import Tilt from 'react-parallax-tilt';
 import image4 from './../../../assets/images/b1.png';
 
@@ -15,18 +15,20 @@ const ProjectsOverview = () => {
                                 Hostel Hub Since 2022
                             </Typography>
                             <Typography variant="h6" sx={{ mb: 4, color: '' }}>
-                                High quality accomodation services
+                                High quality accommodation services
                             </Typography>
                             <Typography variant="subtitle2" sx={{ mb: 5 }}>
-                                Lorem ipsum dolor sit amet consectetur
-                                adipisicing elit. Perferendis, amet consequatur
-                                quisquam distinctio esse culpa tempore, rem
-                                labore nemo tenetur totam sit. Harum cupiditate
-                                consequuntur saepe modi doloremque eum
-                                reprehenderit! Lorem ipsum dolor sit amet
-                                consectetur, adipisicing elit. Nesciunt
-                                dignissimos ratione corrupti tenetur amet
-                                doloribus assumenda modi unde minus aperiam!
+                                Hostel hub is related to the management system
+                                of a hostel. All kinds of hostel facilities are
+                                being provided by hostel hub. A student is to
+                                face a lot of hassles to find a hostel in real
+                                life. To reduce sufferings for getting a
+                                wonderful hostel environment based accommodation
+                                hostel hub is waiting for you. Hostel hub is
+                                serving online based hostel booking procedures
+                                for you. After being a member of hostel hub you
+                                will be able to get your dream hostel
+                                definitely.
                             </Typography>
 
                             <Button
@@ -40,7 +42,7 @@ const ProjectsOverview = () => {
                     </Grid>
 
                     <Grid item lg={6} md={6} xs={12}>
-                        <Box>
+                        <Box sx={{ width: { md: '100%' } }}>
                             <Tilt
                                 className="parallax-effect-img"
                                 tiltMaxAngleX={40}
@@ -53,7 +55,7 @@ const ProjectsOverview = () => {
                                 <Box
                                     sx={{
                                         height: '100%',
-                                        width: '100%',
+                                        width: { md: '100%' },
                                     }}
                                     component="img"
                                     src={image4}
