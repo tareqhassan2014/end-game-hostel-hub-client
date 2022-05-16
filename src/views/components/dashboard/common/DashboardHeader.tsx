@@ -104,20 +104,6 @@ const DashboardHeader = () => {
                     ) : (
                         ''
                     )}
-
-                    {/* {location.href ===
-                        `http://localhost:3000/dashboard/product` && (
-                        <input
-                            className="searchBar"
-                            style={{
-                                marginLeft: '10%',
-
-                                borderRadius: '3px',
-                                border: 'none',
-                            }}
-                            type="text"
-                        />
-                    )} */}
                 </Box>
                 <Box display="flex" alignItems="center">
                     <AvatarMenu />

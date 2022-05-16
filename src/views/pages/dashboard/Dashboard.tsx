@@ -1,36 +1,11 @@
-import { Box, styled } from '@mui/system';
+import { Box } from '@mui/system';
 import { Route, Routes } from 'react-router-dom';
 import useAuth from 'src/hooks/useAuth';
 import useThemeAndLayout from 'src/hooks/useThemeAndLayout';
 import DashboardHeader from '../../components/dashboard/common/DashboardHeader';
-import LayoutSidenav from '../../components/dashboard/common/LayoutSidenav';
+import Sidenav from '../../components/dashboard/common/sideNave/Sidenav';
 import { dashboardRoutes } from './dashboardRoutes';
-
-const Layout1Root = styled(Box)(({ theme }) => ({
-    display: 'flex',
-    background: theme.palette.background.default,
-}));
-
-const ContentBox = styled(Box)(() => ({
-    height: '100%',
-    display: 'flex',
-    overflowY: 'auto',
-    overflowX: 'hidden',
-    flexDirection: 'column',
-    justifyContent: 'space-between',
-}));
-
-const LayoutContainer = styled(Box)(({ width }: { width: number }) => ({
-    height: '100vh',
-    display: 'flex',
-    flexGrow: '1',
-    flexDirection: 'column',
-    verticalAlign: 'top',
-    marginLeft: width,
-    position: 'relative',
-    overflow: 'hidden',
-    transition: 'all 0.3s ease',
-}));
+import { ContentBox, Layout1Root, LayoutContainer } from './style';
 
 const Dashboard = () => {
     const { user } = useAuth();
@@ -42,7 +17,7 @@ const Dashboard = () => {
 
     return (
         <Layout1Root>
-            {sideNavWidth !== 0 && <LayoutSidenav />}
+            {sideNavWidth !== 0 && <Sidenav />}
 
             <LayoutContainer width={sideNavWidth}>
                 <ContentBox>
