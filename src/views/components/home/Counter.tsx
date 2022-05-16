@@ -39,7 +39,7 @@ const Counter = () => {
                                 <CountUp
                                     start={focus ? 0 : undefined}
                                     end={60}
-                                    duration={2}
+                                    duration={3.6}
                                     redraw={true}
                                     suffix=" +"
                                 >
@@ -79,7 +79,7 @@ const Counter = () => {
                                 <CountUp
                                     start={focus ? 0 : undefined}
                                     end={150}
-                                    duration={4}
+                                    duration={3}
                                     redraw={true}
                                     suffix=" +"
                                 >
@@ -119,7 +119,7 @@ const Counter = () => {
                                 <CountUp
                                     start={focus ? 0 : undefined}
                                     end={45}
-                                    duration={1}
+                                    duration={3.5}
                                     redraw={true}
                                     suffix=" +"
                                 >
@@ -158,7 +158,7 @@ const Counter = () => {
                                 <CountUp
                                     start={focus ? 0 : undefined}
                                     end={130}
-                                    duration={3}
+                                    duration={3.1}
                                     redraw={true}
                                     suffix=" +"
                                 >
