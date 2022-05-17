@@ -4,6 +4,7 @@ import useAuth from 'src/hooks/useAuth';
 import useThemeAndLayout from 'src/hooks/useThemeAndLayout';
 import DashboardHeader from '../../components/dashboard/common/DashboardHeader';
 import Sidenav from '../../components/dashboard/common/sideNave/Sidenav';
+import AnimatedDashboard from './AnimatedDashboard';
 import { dashboardRoutes } from './dashboardRoutes';
 import { ContentBox, Layout1Root, LayoutContainer } from './style';
 
@@ -23,6 +24,7 @@ const Dashboard = () => {
                 <ContentBox>
                     <DashboardHeader />
                     <Box flexGrow={1} position="relative">
+                        {/* <AnimatedDashboard></AnimatedDashboard> */}
                         <Routes>
                             {proRoutes.map((route, idx) => {
                                 return (

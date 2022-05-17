@@ -15,6 +15,7 @@ import { Box } from '@mui/system';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useGetProductQuery, useSearchForHostelQuery } from 'src/app/api';
+import { motion } from 'framer-motion';
 
 const items = [
     {
@@ -153,7 +154,11 @@ const Discover = () => {
     }, [products]);
 
     return (
-        <div>
+        <motion.div
+            initial={{ width: 0 }}
+            animate={{ width: '100%', transition: { duration: 0.4 } }}
+            exit={{ x: window.innerWidth, transition: { duration: 0.05 } }}
+        >
             <Container sx={{ my: 5 }}>
                 <Typography
                     variant="h5"
@@ -496,7 +501,7 @@ const Discover = () => {
                     ))}
                 </Grid>
             </Container>
-        </div>
+        </motion.div>
     );
 };
 
