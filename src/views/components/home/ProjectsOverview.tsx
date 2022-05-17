@@ -1,16 +1,45 @@
-import React from 'react';
+import React, { useState } from 'react';
 import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
 import { Box, Button, Container, Grid, Typography } from '@mui/material';
 import Tilt from 'react-parallax-tilt';
 import image4 from './../../../assets/images/b1.png';
+import { motion, useAnimation } from 'framer-motion';
+import { InView, useInView } from 'react-intersection-observer';
+import { useEffect } from 'react';
 
 const ProjectsOverview = () => {
+    const { ref, inView } = useInView({
+        threshold: 0.2,
+        triggerOnce: true,
+    });
+    const animation = useAnimation();
+
+    useEffect(() => {
+        if (inView) {
+            animation.start({
+                x: 0,
+                transition: {
+                    type: 'spring',
+                    duration: 1,
+                    bounce: 0.3,
+                },
+            });
+        }
+        if (!inView) {
+            animation.start({ x: '-100vw' });
+        }
+    }, [inView, animation]);
+
     return (
         <Box color="secondary">
             <Container sx={{ py: 5 }}>
                 <Grid container>
-                    <Grid item lg={6} md={6} xs={12}>
-                        <Box sx={{ pr: 1 }}>
+                    <Grid ref={ref} item lg={6} md={6} xs={12}>
+                        <Box
+                            sx={{ pr: 1 }}
+                            component={motion.div}
+                            animate={animation}
+                        >
                             <Typography variant="h4" sx={{ color: '#4A148C' }}>
                                 Hostel Hub Since 2022
                             </Typography>
@@ -40,7 +69,6 @@ const ProjectsOverview = () => {
                             </Button>
                         </Box>
                     </Grid>
-
                     <Grid item lg={6} md={6} xs={12}>
                         <Box sx={{ width: { md: '100%' } }}>
                             <Tilt
