@@ -1,6 +1,7 @@
 import LoadingButton from '@mui/lab/LoadingButton';
 import {
     Box,
+    Button,
     Container,
     CssBaseline,
     TextField,
@@ -16,6 +17,7 @@ type Inputs = {
     phone: string;
     title: string;
     category: string;
+    picture: string;
 };
 
 const AdProduct = () => {
@@ -29,11 +31,12 @@ const AdProduct = () => {
     } = useForm<Inputs>();
 
     const onSubmit: SubmitHandler<Inputs> = async (data) => {
+        console.log(data);
         try {
             if (user) {
                 await AdProduct({ ...data, userId: user._id || '' }).unwrap();
 
-                Swal.fire('success', 'product post successfully!!');
+                Swal.fire('success', 'product posted successfully!!');
             }
         } catch (error: any) {
             Swal.fire({
@@ -58,7 +61,7 @@ const AdProduct = () => {
                 }}
             >
                 <Typography component="h1" variant="h5">
-                    Post a Ad
+                    Add A Product
                 </Typography>
                 <Box
                     component="form"
@@ -116,6 +119,23 @@ const AdProduct = () => {
                         {...register('price', {
                             required: 'price is required',
                             valueAsNumber: true,
+                        })}
+                    />
+                    {/* <Button variant="contained" component="label">
+                        Upload File
+                        <input type="file" hidden />
+                        
+                    </Button> */}
+
+                    <TextField
+                        fullWidth
+                        required
+                        type="file"
+                        margin="normal"
+                        error={Boolean(errors.picture)}
+                        autoComplete="picture"
+                        {...register('picture', {
+                            required: 'picture is required',
                         })}
                     />
 
