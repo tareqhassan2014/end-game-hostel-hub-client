@@ -1,9 +1,12 @@
+import PhotoCamera from '@mui/icons-material/PhotoCamera';
 import LoadingButton from '@mui/lab/LoadingButton';
 import {
     Box,
     Button,
     Container,
     CssBaseline,
+    IconButton,
+    Input,
     TextField,
     Typography,
 } from '@mui/material';
@@ -121,23 +124,30 @@ const AdProduct = () => {
                             valueAsNumber: true,
                         })}
                     />
-                    {/* <Button variant="contained" component="label">
-                        Upload File
-                        <input type="file" hidden />
-                        
-                    </Button> */}
+                    <Button variant="contained" component="label">
+                        Attach Image
+                        <input
+                            type="file"
+                            required
+                            autoComplete="picture"
+                            {...register('picture', {
+                                required: 'picture is required',
+                            })}
+                            hidden
+                        />
+                    </Button>
 
-                    <TextField
+                    {/* <TextField
                         fullWidth
-                        required
                         type="file"
+                        required
                         margin="normal"
                         error={Boolean(errors.picture)}
                         autoComplete="picture"
                         {...register('picture', {
                             required: 'picture is required',
                         })}
-                    />
+                    /> */}
 
                     <LoadingButton
                         type="submit"
