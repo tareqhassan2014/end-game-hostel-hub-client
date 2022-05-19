@@ -1,6 +1,6 @@
 import React from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { useLocation } from 'react-router-dom';
+import { Navigate, useLocation } from 'react-router-dom';
 import { Route, Routes } from 'react-router-dom';
 import useAuth from 'src/hooks/useAuth';
 import useThemeAndLayout from 'src/hooks/useThemeAndLayout';
@@ -15,7 +15,7 @@ const AnimatedDashboard = () => {
     // );
     return (
         <AnimatePresence>
-            {/* <Routes location={location} key={location?.pathname}>
+            {/* <Routes location={location} key={location.pathname}>
                 {proRoutes.map((route, idx) => {
                     return (
                         route.element && (

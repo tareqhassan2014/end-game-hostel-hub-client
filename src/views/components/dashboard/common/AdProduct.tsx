@@ -1,4 +1,5 @@
 import PhotoCamera from '@mui/icons-material/PhotoCamera';
+import AddIcon from '@mui/icons-material/Add';
 import LoadingButton from '@mui/lab/LoadingButton';
 import {
     Box,
@@ -125,6 +126,7 @@ const AdProduct = () => {
                         })}
                     />
                     <Button variant="contained" component="label">
+                        <AddIcon />
                         Attach Image
                         <input
                             type="file"
