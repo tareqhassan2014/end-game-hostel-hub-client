@@ -66,3 +66,25 @@ interface CreateStoreRequest {
     name: string;
     phone: string;
 }
+
+interface addGroceryRequest {
+    title: string;
+    price: number;
+    description: string;
+}
+
+interface Grocery {
+    store: {
+        address: string;
+    };
+    vendor: string;
+    title: string;
+    description: string;
+    price: 20;
+    photo: string;
+    _id: string;
+}
+
+interface AllGroceries {
+    data: { data: Grocery[] };
+}
