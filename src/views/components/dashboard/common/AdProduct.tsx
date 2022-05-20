@@ -161,7 +161,7 @@ const AdProduct = () => {
                         sx={{ mt: 3, mb: 2 }}
                         loading={isLoading}
                     >
-                        Post product
+                        Add product
                     </LoadingButton>
                 </Box>
             </Box>
