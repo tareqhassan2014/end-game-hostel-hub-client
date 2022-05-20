@@ -1,4 +1,4 @@
-import { Box, Grid, Typography, Container, Paper } from '@mui/material';
+import { Box, Container, Grid, Paper, Typography } from '@mui/material';
 import React, { useState } from 'react';
 import CountUp from 'react-countup';
 import VisibilitySensor from 'react-visibility-sensor';
