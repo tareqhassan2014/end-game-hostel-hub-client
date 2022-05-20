@@ -7,36 +7,37 @@ import {
     Typography,
 } from '@mui/material';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import { useAddForHostelMutation } from 'src/app/api';
-import useAuth from 'src/hooks/useAuth';
+import { useCreateHostelsAdsMutation } from 'src/app/api';
 import Swal from 'sweetalert2';
 
 type Inputs = {
     price: number;
+    description: string;
+    title: string;
+    numberOfValency: number;
     phone: string;
-    details: string;
-    numberOfVacancy: number;
 };
 
 const AdminSitManage = () => {
-    const { hostel } = useAuth();
-
-    const [addForHostel, { isLoading }] = useAddForHostelMutation();
+    const [createHostelsAds, { isLoading }] = useCreateHostelsAdsMutation();
 
     const {
         register,
         handleSubmit,
         formState: { errors },
+        reset,
     } = useForm<Inputs>();
 
     const onSubmit: SubmitHandler<Inputs> = async (hostelData) => {
         try {
-            await addForHostel({ ...hostelData, hostel: hostel._id }).unwrap();
+            await createHostelsAds(hostelData).unwrap();
 
             Swal.fire(
                 'success',
                 'A add for your hostel successfully created!!'
             );
+
+            reset();
         } catch (error: any) {
             Swal.fire({
                 showConfirmButton: false,
@@ -60,7 +61,7 @@ const AdminSitManage = () => {
                 }}
             >
                 <Typography component="h1" variant="h5">
-                    Create a Add Your Hostel
+                    Create a Ad Your Hostel
                 </Typography>
                 <Box
                     component="form"
@@ -69,15 +70,16 @@ const AdminSitManage = () => {
                     sx={{ mt: 1 }}
                 >
                     <TextField
-                        required
                         autoFocus
                         fullWidth
+                        required
                         margin="normal"
-                        error={Boolean(errors.phone)}
-                        label={errors.phone ? 'Error' : 'Phone'}
-                        helperText={errors.phone?.message}
-                        {...register('phone', {
-                            required: 'Phone is required',
+                        error={Boolean(errors.title)}
+                        label={errors.title ? 'Error' : 'Title'}
+                        helperText={errors.title?.message}
+                        autoComplete="title"
+                        {...register('title', {
+                            required: 'title is required',
                         })}
                     />
 
@@ -85,13 +87,23 @@ const AdminSitManage = () => {
                         fullWidth
                         required
                         margin="normal"
-                        error={Boolean(errors.details)}
-                        label={errors.details ? 'Error' : 'details'}
-                        helperText={errors.details?.message}
-                        autoComplete="details"
-                        {...register('details', {
-                            required: 'details is required',
+                        error={Boolean(errors.description)}
+                        label={errors.description ? 'Error' : 'description'}
+                        helperText={errors.description?.message}
+                        autoComplete="description"
+                        {...register('description', {
+                            required: 'description is required',
                         })}
+                    />
+
+                    <TextField
+                        required
+                        fullWidth
+                        margin="normal"
+                        error={Boolean(errors.phone)}
+                        label={errors.phone ? 'Error' : 'Phone'}
+                        helperText={errors.phone?.message}
+                        {...register('phone')}
                     />
 
                     <TextField
@@ -114,16 +126,16 @@ const AdminSitManage = () => {
                         required
                         type="number"
                         margin="normal"
-                        error={Boolean(errors.numberOfVacancy)}
+                        error={Boolean(errors.numberOfValency)}
                         label={
-                            errors.numberOfVacancy
+                            errors.numberOfValency
                                 ? 'Error'
                                 : 'number Of vacancy'
                         }
-                        helperText={errors.numberOfVacancy?.message}
-                        autoComplete="numberOfVacancy"
-                        {...register('numberOfVacancy', {
-                            required: 'numberOfVacancy is required',
+                        helperText={errors.numberOfValency?.message}
+                        autoComplete="numberOfValency"
+                        {...register('numberOfValency', {
+                            required: 'numberOfValency is required',
                             valueAsNumber: true,
                         })}
                     />

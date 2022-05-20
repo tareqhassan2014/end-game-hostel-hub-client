@@ -8,46 +8,25 @@ import {
     Grid,
     Typography,
 } from '@mui/material';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useSearchForHostelQuery } from 'src/app/api';
-
-interface hostelData {
-    address: string;
-    admin: object;
-    banner: string;
-    createdAt: string;
-    estimation: string;
-    hostelName: string;
-    member: [];
-    request: [];
-    status: string;
-    thumbnail: string;
-    totalSit: number;
-    _id: string;
-}
-
-interface CreateHostelAddRequest {
-    price: number;
-    phone: string;
-    details: string;
-    numberOfVacancy: number;
-    hostel: hostelData;
-    _id: string;
-}
+import { useGetHostelsAdsQuery } from 'src/app/api';
 
 const FindHostel = () => {
     const navigate = useNavigate();
-    const [query, setQuery] = React.useState('/hostelAdd');
-    const { data, isLoading, isSuccess } = useSearchForHostelQuery(query);
+    const [allHostelsAds, setAllHostelsAds] = useState<HostelAd[] | undefined>(
+        undefined
+    );
 
-    const [allHostelAdds, setAllHostelAdds] = React.useState<
-        CreateHostelAddRequest[] | undefined
-    >(undefined);
+    const {
+        data: hostel,
+        isLoading,
+        isSuccess,
+    } = useGetHostelsAdsQuery('/hostelsAds');
 
     useEffect(() => {
-        setAllHostelAdds(data?.data.data);
-    }, [data?.data.data]);
+        setAllHostelsAds(hostel?.data.data);
+    }, [hostel?.data.data]);
 
     return (
         <Container sx={{ my: 5 }}>
@@ -68,9 +47,8 @@ const FindHostel = () => {
                 >
                     {isLoading && <div>Loading...</div>}
 
-                    {allHostelAdds &&
-                        allHostelAdds.length > 0 &&
-                        allHostelAdds.map((hostel, index) => (
+                    {allHostelsAds &&
+                        allHostelsAds.map((hostel, index) => (
                             <Grid key={index} item xs={12} sm={6} lg={4}>
                                 <Card sx={{ maxWidth: '100%' }}>
                                     <CardMedia

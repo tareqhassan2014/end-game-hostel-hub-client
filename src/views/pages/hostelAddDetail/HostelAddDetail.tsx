@@ -3,65 +3,37 @@ import { Box } from '@mui/system';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import {
-    useHostelAddDetailsQuery,
-    useRequestForHostelMutation,
+    useGetHostelAdDetailsQuery,
+    useMemberRequestMutation,
 } from 'src/app/api';
 import useAuth from 'src/hooks/useAuth';
 import Swal from 'sweetalert2';
 
-interface hostelData {
-    address: string;
-    admin: object;
-    banner: string;
-    createdAt: string;
-    estimation: string;
-    hostelName: string;
-    member: [];
-    request: [];
-    status: string;
-    thumbnail: string;
-    totalSit: number;
-    _id: string;
-}
-
-interface IHostelAddDetail {
-    price: number;
-    phone: string;
-    details: string;
-    numberOfVacancy: number;
-    hostel: hostelData;
-    _id: string;
-}
-
 const HostelAddDetail = () => {
     const { user } = useAuth();
     const { id } = useParams();
-    const { data } = useHostelAddDetailsQuery(`/hostelAdd/${id}`);
-
-    const [requestHostel, { isLoading, isSuccess }] =
-        useRequestForHostelMutation();
+    const [memberRequest] = useMemberRequestMutation();
+    const { data } = useGetHostelAdDetailsQuery(`/hostelsAds/${id}`);
 
     const [hostelAddDetail, setHostelAddDetail] = useState<
-        IHostelAddDetail | undefined
-    >(undefined);
+        HostelAd | undefined
+    >();
 
     useEffect(() => {
         if (data) {
             setHostelAddDetail(data?.data.data);
         }
-        console.log(hostelAddDetail);
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [data]);
 
     const sendRequest = async () => {
         try {
             if (user && hostelAddDetail) {
                 const data = {
-                    hostelId: hostelAddDetail?.hostel._id || '',
-                    addId: hostelAddDetail?._id || '',
-                    userId: user._id || '',
+                    hostel: hostelAddDetail?.hostel._id || '',
+                    hostelsAd: hostelAddDetail?._id || '',
                 };
-                await requestHostel(data).unwrap();
+
+                await memberRequest(data).unwrap();
 
                 Swal.fire({
                     showConfirmButton: false,
@@ -82,15 +54,12 @@ const HostelAddDetail = () => {
                 Swal.fire({
                     showConfirmButton: false,
                     icon: 'error',
-                    title: 'Something went very wrong',
-                    text: `${
-                        error?.data?.message || 'Please try again letter'
-                    }`,
+                    title: error?.data?.message,
+                    text: 'Only user can send request to hostel admin',
                 });
             }
         }
     };
-    console.log(hostelAddDetail);
 
     return (
         <Container sx={{ mb: 5 }}>
@@ -117,7 +86,7 @@ const HostelAddDetail = () => {
                 <Grid container sx={{ pt: 2 }} spacing={2}>
                     <Grid item xs={12} sm={6}>
                         <Typography variant="h4" gutterBottom>
-                            {hostelAddDetail?.hostel.hostelName}
+                            {hostelAddDetail?.hostel.name}
                         </Typography>
                         <Typography variant="h5" gutterBottom>
                             address : {hostelAddDetail?.hostel.address}
@@ -132,7 +101,7 @@ const HostelAddDetail = () => {
                         </Typography>
 
                         <Typography variant="h5" gutterBottom>
-                            Vacancy : {hostelAddDetail?.numberOfVacancy}
+                            Vacancy : {hostelAddDetail?.numberOfValency}
                         </Typography>
                         <Typography variant="h5" gutterBottom>
                             Price (Monthly) : {hostelAddDetail?.hostel.totalSit}

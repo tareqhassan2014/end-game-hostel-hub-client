@@ -140,16 +140,13 @@ export default function CreateHostel() {
 
                     <TextField
                         fullWidth
-                        required
                         margin="normal"
                         defaultValue={user?.email}
                         error={Boolean(errors.email)}
                         label={errors.email ? 'Error' : 'email'}
                         helperText={errors.email?.message}
                         autoComplete="email"
-                        {...register('email', {
-                            required: 'email is required',
-                        })}
+                        {...register('email')}
                     />
 
                     <TextField

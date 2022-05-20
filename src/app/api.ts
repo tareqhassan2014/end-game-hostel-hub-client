@@ -67,44 +67,16 @@ interface CreateHostelRequest {
     thumbnail: File;
 }
 
-interface hostelData {
-    address: string;
-    admin: object;
-    banner: string;
-    createdAt: string;
-    estimation: string;
-    hostelName: string;
-    member: [];
-    request: [];
-    status: string;
-    thumbnail: string;
-    totalSit: number;
-    _id: string;
-}
-
-interface CreateHostelAddRequest {
+interface CreateHostelAdsRequest {
     price: number;
+    description: string;
+    title: string;
+    numberOfValency: number;
     phone: string;
-    details: string;
-    numberOfVacancy: number;
-    hostel: string;
 }
 
 interface HostelResponse {
     data: { data: [hostelData] };
-}
-
-interface HostelAdd {
-    price: number;
-    phone: string;
-    details: string;
-    numberOfVacancy: number;
-    hostel: hostelData;
-    _id: string;
-}
-
-interface AllHostelAdds {
-    data: { data: HostelAdd[] };
 }
 
 interface AllHostelBooking {
@@ -135,16 +107,6 @@ interface IHostelBooking {
     };
 }
 
-interface HostelAddDetails {
-    data: { data: HostelAdd };
-}
-
-interface requestForHostelRequest {
-    hostelId: string;
-    addId: string;
-    userId: string;
-}
-
 interface acceptHostelRequestPayload {
     hostelId: string;
     userId: string;
@@ -158,8 +120,8 @@ interface AdProductRequest {
     category: string;
 }
 
-// const baseUrl = process.env.REACT_APP_BASE_URL;
-const baseUrl = 'https://end-game-hostel-hub-server.herokuapp.com/api/v1/';
+const baseUrl = process.env.REACT_APP_BASE_URL;
+// const baseUrl = 'https://end-game-hostel-hub-server.herokuapp.com/api/v1/';
 
 const baseQuery = fetchBaseQuery({
     baseUrl,
@@ -227,17 +189,17 @@ const api = createApi({
             }),
         }),
 
-        addForHostel: builder.mutation<null, CreateHostelAddRequest>({
+        createHostelsAds: builder.mutation<null, CreateHostelAdsRequest>({
             query: (credentials) => ({
-                url: '/hostelAdd',
+                url: '/hostelsAds',
                 method: 'POST',
                 body: credentials,
             }),
         }),
 
-        requestForHostel: builder.mutation<null, requestForHostelRequest>({
+        memberRequest: builder.mutation<null, memberRequest>({
             query: (credentials) => ({
-                url: '/hostelBooking',
+                url: '/memberRequests',
                 method: 'POST',
                 body: credentials,
             }),
@@ -262,14 +224,14 @@ const api = createApi({
             }),
         }),
 
-        searchForHostel: builder.query<AllHostelAdds, string>({
+        getHostelsAds: builder.query<AllHostelAds, string>({
             query: (query) => ({
                 url: query,
                 method: 'GET',
             }),
         }),
 
-        hostelAddDetails: builder.query<HostelAddDetails, string>({
+        getHostelAdDetails: builder.query<HostelAdDetails, string>({
             query: (query) => ({
                 url: query,
                 method: 'GET',
@@ -300,10 +262,10 @@ export const {
     useCreateStoreMutation,
     useCreateHostelMutation,
     useGetHostelQuery,
-    useAddForHostelMutation,
-    useSearchForHostelQuery,
-    useHostelAddDetailsQuery,
-    useRequestForHostelMutation,
+    useCreateHostelsAdsMutation,
+    useGetHostelsAdsQuery,
+    useGetHostelAdDetailsQuery,
+    useMemberRequestMutation,
     useGetHostelBookingQuery,
     useAcceptHostelMemberRequestMutation,
     useAdProductMutation,
