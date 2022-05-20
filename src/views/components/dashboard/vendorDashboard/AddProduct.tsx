@@ -38,7 +38,7 @@ export default function CreateHostel() {
             // const data = await addProduct(productData).unwrap();
 
             reset();
-            toast.success('Create Hostel successfully');
+            toast.success('Product added successfully');
         } catch (error: any) {
             console.log(error?.data?.message);
             toast.error(error?.data?.message);
