@@ -1,3 +1,5 @@
+import EuroIcon from '@mui/icons-material/Euro';
+import HomeIcon from '@mui/icons-material/Home';
 import {
     Button,
     Card,
@@ -5,43 +7,15 @@ import {
     CardContent,
     CardMedia,
     Grid,
-    Icon,
     Rating,
     Typography,
 } from '@mui/material';
+import { deepPurple } from '@mui/material/colors';
 import { Box } from '@mui/system';
 import React, { useEffect, useState } from 'react';
-import { render } from 'react-dom';
 import { useNavigate } from 'react-router-dom';
 import Slider from 'react-slick';
-import EuroIcon from '@mui/icons-material/Euro';
-import HomeIcon from '@mui/icons-material/Home';
-import { useSearchForHostelQuery } from 'src/app/api';
-import { deepPurple } from '@mui/material/colors';
-
-interface hostelData {
-    address: string;
-    admin: object;
-    banner: string;
-    createdAt: string;
-    estimation: string;
-    hostelName: string;
-    member: [];
-    request: [];
-    status: string;
-    thumbnail: string;
-    totalSit: number;
-    _id: string;
-}
-
-interface CreateHostelAddRequest {
-    price: number;
-    phone: string;
-    details: string;
-    numberOfVacancy: number;
-    hostel: hostelData;
-    _id: string;
-}
+import { useGetHostelsAdsQuery } from 'src/app/api';
 
 const HomePageHorzontalCart = () => {
     const settings = {
@@ -86,28 +60,28 @@ const HomePageHorzontalCart = () => {
 
     const navigate = useNavigate();
 
-    const [allHostelAdds, setAllHostelAdds] = useState<
-        CreateHostelAddRequest[] | undefined
-    >(undefined);
+    const [allHostelsAds, setAllHostelsAds] = useState<HostelAd[] | undefined>(
+        undefined
+    );
 
     const {
         data: hostel,
         isLoading,
         isSuccess,
-    } = useSearchForHostelQuery('/hostelAdd');
+    } = useGetHostelsAdsQuery('/hostelsAds');
 
     useEffect(() => {
-        setAllHostelAdds(hostel?.data.data);
+        setAllHostelsAds(hostel?.data.data);
     }, [hostel?.data.data]);
-    console.log(allHostelAdds);
+
     const boxBg = {
         backgroundColor: deepPurple[50],
     };
     return (
         <Box style={boxBg} sx={{ width: '90%', mx: 'auto', my: 2, py: 1 }}>
             <Slider {...settings}>
-                {allHostelAdds &&
-                    allHostelAdds.map((item, index) => (
+                {allHostelsAds &&
+                    allHostelsAds.map((item, index) => (
                         <Box key={index} sx={{ px: 1 }}>
                             <Card sx={{ py: 1, mb: 1, boxShadow: 1 }}>
                                 <CardMedia
@@ -137,10 +111,10 @@ const HomePageHorzontalCart = () => {
                                     <Rating name="Rating" value={4} readOnly />
 
                                     <Typography variant="h6">
-                                        Double Bed
+                                        {item.title.slice(0, 25)}...
                                     </Typography>
                                     <Typography variant="body2">
-                                        {item.details.slice(0, 25)}...
+                                        {item.description.slice(0, 35)}...
                                     </Typography>
                                 </CardContent>
                                 <CardActions>

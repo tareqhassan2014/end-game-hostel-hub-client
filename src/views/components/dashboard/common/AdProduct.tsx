@@ -1,16 +1,14 @@
-import PhotoCamera from '@mui/icons-material/PhotoCamera';
-import AddIcon from '@mui/icons-material/Add';
+import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import LoadingButton from '@mui/lab/LoadingButton';
 import {
     Box,
     Button,
     Container,
     CssBaseline,
-    IconButton,
-    Input,
     TextField,
     Typography,
 } from '@mui/material';
+import { styled } from '@mui/material/styles';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { useAdProductMutation } from 'src/app/api';
 import useAuth from 'src/hooks/useAuth';
@@ -21,8 +19,12 @@ type Inputs = {
     phone: string;
     title: string;
     category: string;
-    picture: string;
+    photo: File;
 };
+
+const Input = styled('input')({
+    display: 'none',
+});
 
 const AdProduct = () => {
     const { user } = useAuth();
@@ -125,35 +127,26 @@ const AdProduct = () => {
                             valueAsNumber: true,
                         })}
                     />
-                    <Button
-                        variant="contained"
-                        sx={{ width: '100%' }}
-                        component="label"
-                    >
-                        <AddIcon />
-                        Attach a Image
-                        <input
+
+                    <label htmlFor="contained-button-file">
+                        <Input
+                            accept="image/*"
+                            id="contained-button-file"
+                            multiple
                             type="file"
-                            required
-                            autoComplete="picture"
-                            {...register('picture', {
+                            {...register('photo', {
                                 required: 'picture is required',
                             })}
-                            hidden
                         />
-                    </Button>
-
-                    {/* <TextField
-                        fullWidth
-                        type="file"
-                        required
-                        margin="normal"
-                        error={Boolean(errors.picture)}
-                        autoComplete="picture"
-                        {...register('picture', {
-                            required: 'picture is required',
-                        })}
-                    /> */}
+                        <Button
+                            sx={{ width: '100%' }}
+                            variant="contained"
+                            component="span"
+                            startIcon={<CloudUploadIcon />}
+                        >
+                            Upload a image
+                        </Button>
+                    </label>
 
                     <LoadingButton
                         type="submit"

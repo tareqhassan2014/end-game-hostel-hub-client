@@ -4,7 +4,6 @@ import ContentPasteSearchIcon from '@mui/icons-material/ContentPasteSearch';
 import HomeIcon from '@mui/icons-material/Home';
 import LocalOfferIcon from '@mui/icons-material/LocalOffer';
 import PersonIcon from '@mui/icons-material/Person';
-import { useMediaQuery } from '@mui/material';
 import List from '@mui/material/List';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
@@ -23,10 +22,6 @@ const UserVerticalNav = () => {
             setOpen(false);
         }
     }, [sideNavWidth]);
-
-    const matches = useMediaQuery('(min-width:600px)');
-
-    console.log(matches);
 
     return (
         <List

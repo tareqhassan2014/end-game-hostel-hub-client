@@ -9,7 +9,7 @@ import App from './App';
 import { persistor, store } from './app/store';
 
 ReactDOM.render(
-    <React.StrictMode>
+    <>
         <CssBaseline />
         <ToastContainer />
         <PersistGate loading={null} persistor={persistor}>
@@ -17,6 +17,6 @@ ReactDOM.render(
                 <App />
             </Provider>
         </PersistGate>
-    </React.StrictMode>,
+    </>,
     document.getElementById('root')
 );

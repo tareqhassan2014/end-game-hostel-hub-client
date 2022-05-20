@@ -28,54 +28,33 @@ import Paper from '@mui/material/Paper';
 import Toolbar from '@mui/material/Toolbar';
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useSearchForHostelQuery } from 'src/app/api';
-
-interface hostelData {
-    address: string;
-    admin: object;
-    banner: string;
-    createdAt: string;
-    estimation: string;
-    hostelName: string;
-    member: [];
-    request: [];
-    status: string;
-    thumbnail: string;
-    totalSit: number;
-    _id: string;
-}
-
-interface CreateHostelAddRequest {
-    price: number;
-    phone: string;
-    details: string;
-    numberOfVacancy: number;
-    hostel: hostelData;
-    _id: string;
-}
+import { useGetHostelsAdsQuery } from 'src/app/api';
 
 const drawerWidth = 200;
 
 const SearchItem = (props: any) => {
-    const navigate = useNavigate();
-
     const { window } = props;
+
+    const navigate = useNavigate();
     const [mobileOpen, setMobileOpen] = React.useState(false);
-    const [allHostelAdds, setAllHostelAdds] = React.useState<
-        CreateHostelAddRequest[] | undefined
-    >(undefined);
 
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
     };
 
-    const [query, setQuery] = React.useState('/hostelAdd');
+    const [allHostelsAds, setAllHostelsAds] = useState<
+        HostelAd[] | undefined
+    >();
 
-    const { data, isLoading, isSuccess } = useSearchForHostelQuery(query);
+    const {
+        data: hostel,
+        isLoading,
+        isSuccess,
+    } = useGetHostelsAdsQuery('/hostelsAds');
 
     useEffect(() => {
-        setAllHostelAdds(data?.data.data);
-    }, [data?.data.data]);
+        setAllHostelsAds(hostel?.data.data);
+    }, [hostel?.data.data]);
 
     const container =
         window !== undefined ? () => window().document.body : undefined;
@@ -436,9 +415,8 @@ const SearchItem = (props: any) => {
                             >
                                 {isLoading && <div>Loading...</div>}
 
-                                {allHostelAdds &&
-                                    allHostelAdds.length > 0 &&
-                                    allHostelAdds.map((hostel, index) => (
+                                {allHostelsAds &&
+                                    allHostelsAds.map((hostel, index) => (
                                         <Grid
                                             key={index}
                                             item
