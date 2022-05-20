@@ -4,21 +4,13 @@ import { useGetProductQuery } from 'src/app/api';
 import useAuth from 'src/hooks/useAuth';
 import ProductCardDb from '../AdminDashboard/relative/ProductCard';
 
-interface AdProductRequest {
-    price: number;
-    phone: string;
-    userId: string;
-    title: string;
-    category: string;
-}
-
 const ManageProductAd = () => {
     const { user } = useAuth();
     const { data, isLoading } = useGetProductQuery(
-        `/product?userId=${user._id}`
+        `/products?user=${user._id}`
     );
 
-    const [product, setProduct] = useState<AdProductRequest[] | undefined>();
+    const [product, setProduct] = useState<IProduct[] | undefined>();
 
     useEffect(() => {
         if (data) {

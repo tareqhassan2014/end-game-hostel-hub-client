@@ -92,32 +92,16 @@ const items = [
     },
 ];
 
-interface AdProductRequest {
-    price: number;
-    phone: string;
-    userId: string;
-    title: string;
-    category: string;
-    _id: string;
-}
-
 const Discover = () => {
     const navigate = useNavigate();
-    const { data: products } = useGetProductQuery('/product');
+    const { data: products } = useGetProductQuery('/products');
+    const { data: hostel, isLoading } = useGetHostelsAdsQuery('/hostelsAds');
 
-    const [AllProducts, setAllProducts] = useState<
-        AdProductRequest[] | undefined
-    >();
+    const [AllProducts, setAllProducts] = useState<IProduct[] | undefined>();
 
     const [allHostelsAds, setAllHostelsAds] = useState<HostelAd[] | undefined>(
         undefined
     );
-
-    const {
-        data: hostel,
-        isLoading,
-        isSuccess,
-    } = useGetHostelsAdsQuery('/hostelsAds');
 
     useEffect(() => {
         setAllHostelsAds(hostel?.data.data);

@@ -14,14 +14,6 @@ import { useAdProductMutation } from 'src/app/api';
 import useAuth from 'src/hooks/useAuth';
 import Swal from 'sweetalert2';
 
-type Inputs = {
-    price: number;
-    phone: string;
-    title: string;
-    category: string;
-    photo: File;
-};
-
 const Input = styled('input')({
     display: 'none',
 });
@@ -34,13 +26,13 @@ const AdProduct = () => {
         register,
         handleSubmit,
         formState: { errors },
-    } = useForm<Inputs>();
+    } = useForm<AdProductRequest>();
 
-    const onSubmit: SubmitHandler<Inputs> = async (data) => {
+    const onSubmit: SubmitHandler<AdProductRequest> = async (data) => {
         console.log(data);
         try {
             if (user) {
-                await AdProduct({ ...data, userId: user._id || '' }).unwrap();
+                await AdProduct({ ...data }).unwrap();
 
                 Swal.fire('success', 'product posted successfully!!');
             }
@@ -54,6 +46,91 @@ const AdProduct = () => {
             console.log(error);
         }
     };
+
+    const inputFields = (
+        <>
+            <TextField
+                fullWidth
+                autoFocus
+                required
+                margin="normal"
+                error={Boolean(errors.title)}
+                label={errors.title ? 'Error' : 'Title'}
+                helperText={errors.title?.message}
+                autoComplete="title"
+                {...register('title', {
+                    required: 'title is required',
+                })}
+            />
+
+            <TextField
+                required
+                fullWidth
+                margin="normal"
+                error={Boolean(errors.category)}
+                label={errors.category ? 'Error' : 'category'}
+                helperText={errors.category?.message}
+                {...register('category', {
+                    required: 'category is required',
+                })}
+            />
+
+            <TextField
+                required
+                fullWidth
+                margin="normal"
+                error={Boolean(errors.description)}
+                label={errors.description ? 'Error' : 'description'}
+                helperText={errors.description?.message}
+                {...register('description', {
+                    required: 'description is required',
+                })}
+            />
+
+            <TextField
+                fullWidth
+                required
+                type="number"
+                margin="normal"
+                error={Boolean(errors.price)}
+                label={errors.price ? 'Error' : 'price'}
+                helperText={errors.price?.message}
+                autoComplete="price"
+                {...register('price', {
+                    required: 'price is required',
+                    valueAsNumber: true,
+                })}
+            />
+
+            <TextField
+                required
+                fullWidth
+                margin="normal"
+                error={Boolean(errors.phone)}
+                label={errors.phone ? 'Error' : 'Phone'}
+                helperText={errors.phone?.message}
+                {...register('phone', {
+                    required: 'Phone is required',
+                })}
+            />
+
+            <label htmlFor="contained-button-file">
+                <Input
+                    accept="image/*"
+                    id="contained-button-file"
+                    multiple
+                    type="file"
+                />
+                <Button
+                    variant="contained"
+                    component="span"
+                    startIcon={<CloudUploadIcon />}
+                >
+                    Upload
+                </Button>
+            </label>
+        </>
+    );
 
     return (
         <Container component="main" maxWidth="xs">
@@ -75,77 +152,7 @@ const AdProduct = () => {
                     noValidate
                     sx={{ mt: 1 }}
                 >
-                    <TextField
-                        required
-                        autoFocus
-                        fullWidth
-                        margin="normal"
-                        error={Boolean(errors.phone)}
-                        label={errors.phone ? 'Error' : 'Phone'}
-                        helperText={errors.phone?.message}
-                        {...register('phone', {
-                            required: 'Phone is required',
-                        })}
-                    />
-
-                    <TextField
-                        required
-                        fullWidth
-                        margin="normal"
-                        error={Boolean(errors.category)}
-                        label={errors.category ? 'Error' : 'category'}
-                        helperText={errors.category?.message}
-                        {...register('category', {
-                            required: 'category is required',
-                        })}
-                    />
-
-                    <TextField
-                        fullWidth
-                        required
-                        margin="normal"
-                        error={Boolean(errors.title)}
-                        label={errors.title ? 'Error' : 'title'}
-                        helperText={errors.title?.message}
-                        autoComplete="title"
-                        {...register('title', {
-                            required: 'title is required',
-                        })}
-                    />
-
-                    <TextField
-                        fullWidth
-                        required
-                        type="number"
-                        margin="normal"
-                        error={Boolean(errors.price)}
-                        label={errors.price ? 'Error' : 'price'}
-                        helperText={errors.price?.message}
-                        autoComplete="price"
-                        {...register('price', {
-                            required: 'price is required',
-                            valueAsNumber: true,
-                        })}
-                    />
-
-                    <label htmlFor="contained-button-file">
-                        <Input
-                            accept="image/*"
-                            id="contained-button-file"
-                            multiple
-                            type="file"
-                            {...register('photo', {
-                                required: 'picture is required',
-                            })}
-                        />
-                        <Button
-                            variant="contained"
-                            component="span"
-                            startIcon={<CloudUploadIcon />}
-                        >
-                            Upload
-                        </Button>
-                    </label>
+                    {inputFields}
 
                     <LoadingButton
                         type="submit"

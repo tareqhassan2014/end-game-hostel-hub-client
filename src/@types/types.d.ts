@@ -38,3 +38,31 @@ interface memberRequest {
     hostel: string;
     hostelsAd: string;
 }
+
+interface AdProductRequest {
+    price: number;
+    phone: string;
+    title: string;
+    category: string;
+    photo: File;
+    description: string;
+}
+
+interface IProduct {
+    price: number;
+    phone: string;
+    userId: string;
+    title: string;
+    category: string;
+    _id: string;
+}
+
+interface AllProducts {
+    data: { data: IProduct[] };
+}
+
+interface CreateStoreRequest {
+    address: string;
+    name: string;
+    phone: string;
+}

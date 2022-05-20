@@ -50,12 +50,6 @@ interface AuthResponse {
     };
 }
 
-interface CreateStoreRequest {
-    storeName: string;
-    address: string;
-    url: string;
-}
-
 interface CreateHostelRequest {
     name: string;
     address: string;
@@ -83,19 +77,6 @@ interface AllHostelBooking {
     data: { data: IHostelBooking[] };
 }
 
-interface IProduct {
-    price: number;
-    phone: string;
-    userId: string;
-    title: string;
-    category: string;
-    _id: string;
-}
-
-interface AllProducts {
-    data: { data: IProduct[] };
-}
-
 interface IHostelBooking {
     addId: string;
     hostelId: string;
@@ -112,16 +93,8 @@ interface acceptHostelRequestPayload {
     userId: string;
 }
 
-interface AdProductRequest {
-    price: number;
-    phone: string;
-    userId: string;
-    title: string;
-    category: string;
-}
-
-const baseUrl = process.env.REACT_APP_BASE_URL;
-// const baseUrl = 'https://end-game-hostel-hub-server.herokuapp.com/api/v1/';
+// const baseUrl = process.env.REACT_APP_BASE_URL;
+const baseUrl = 'https://end-game-hostel-hub-server.herokuapp.com/api/v1/';
 
 const baseQuery = fetchBaseQuery({
     baseUrl,
@@ -164,9 +137,9 @@ const api = createApi({
             }),
         }),
 
-        createStore: builder.mutation<AuthResponse, CreateStoreRequest>({
+        createStore: builder.mutation<void, CreateStoreRequest>({
             query: (credentials) => ({
-                url: credentials.url,
+                url: '/stores',
                 method: 'POST',
                 body: credentials,
             }),
@@ -174,7 +147,7 @@ const api = createApi({
 
         AdProduct: builder.mutation<null, AdProductRequest>({
             query: (credentials) => ({
-                url: '/product',
+                url: '/products',
                 method: 'POST',
                 body: credentials,
             }),
