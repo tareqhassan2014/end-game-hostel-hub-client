@@ -1,3 +1,5 @@
+import EuroIcon from '@mui/icons-material/Euro';
+import HomeIcon from '@mui/icons-material/Home';
 import {
     Button,
     Card,
@@ -5,19 +7,15 @@ import {
     CardContent,
     CardMedia,
     Grid,
-    Icon,
     Rating,
     Typography,
 } from '@mui/material';
+import { deepPurple } from '@mui/material/colors';
 import { Box } from '@mui/system';
 import React, { useEffect, useState } from 'react';
-import { render } from 'react-dom';
 import { useNavigate } from 'react-router-dom';
 import Slider from 'react-slick';
-import EuroIcon from '@mui/icons-material/Euro';
-import HomeIcon from '@mui/icons-material/Home';
 import { useSearchForHostelQuery } from 'src/app/api';
-import { deepPurple } from '@mui/material/colors';
 
 interface hostelData {
     address: string;
@@ -94,12 +92,12 @@ const HomePageHorzontalCart = () => {
         data: hostel,
         isLoading,
         isSuccess,
-    } = useSearchForHostelQuery('/hostelAdd');
+    } = useSearchForHostelQuery('/hostelsAds');
 
     useEffect(() => {
         setAllHostelAdds(hostel?.data.data);
     }, [hostel?.data.data]);
-    console.log(allHostelAdds);
+
     const boxBg = {
         backgroundColor: deepPurple[50],
     };

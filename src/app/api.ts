@@ -19,7 +19,8 @@ interface IStore {
 }
 
 interface LoginRequest {
-    token: string;
+    password: string;
+    email: string;
 }
 
 interface IHostel {
@@ -35,6 +36,7 @@ interface IHostel {
 }
 
 interface AuthResponse {
+    token: string;
     user: {
         name: string;
         email: string;
@@ -55,10 +57,14 @@ interface CreateStoreRequest {
 }
 
 interface CreateHostelRequest {
-    hostelName: string;
+    name: string;
     address: string;
     totalSit: number;
-    admin?: string;
+    city: string;
+    phone: string;
+    email: string;
+    banner: File;
+    thumbnail: File;
 }
 
 interface hostelData {
@@ -152,7 +158,8 @@ interface AdProductRequest {
     category: string;
 }
 
-const baseUrl = process.env.REACT_APP_BASE_URL;
+// const baseUrl = process.env.REACT_APP_BASE_URL;
+const baseUrl = 'https://end-game-hostel-hub-server.herokuapp.com/api/v1/';
 
 const baseQuery = fetchBaseQuery({
     baseUrl,
@@ -174,9 +181,16 @@ const api = createApi({
     endpoints: (builder) => ({
         login: builder.mutation<AuthResponse, LoginRequest>({
             query: (credentials) => ({
-                url: '/auth/login',
+                url: '/users/login',
                 method: 'POST',
                 body: credentials,
+            }),
+        }),
+
+        getMe: builder.query<AuthResponse, void>({
+            query: () => ({
+                url: '/users/me',
+                method: 'GET',
             }),
         }),
 
@@ -207,7 +221,7 @@ const api = createApi({
 
         createHostel: builder.mutation<null, CreateHostelRequest>({
             query: (credentials) => ({
-                url: '/hostel',
+                url: '/hostels',
                 method: 'POST',
                 body: credentials,
             }),
@@ -294,6 +308,7 @@ export const {
     useAcceptHostelMemberRequestMutation,
     useAdProductMutation,
     useGetProductQuery,
+    useGetMeQuery,
 } = api;
 
 export default api;
