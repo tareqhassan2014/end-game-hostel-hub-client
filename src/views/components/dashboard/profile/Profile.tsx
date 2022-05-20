@@ -13,6 +13,7 @@ import { Box } from '@mui/system';
 import { useState } from 'react';
 import useAuth from '../../../../hooks/useAuth';
 import CustomModal from '../common/profile/CustomModal';
+import { motion } from 'framer-motion';
 
 const Profile = () => {
     const { user } = useAuth();
@@ -23,7 +24,11 @@ const Profile = () => {
     const handleModalClose = () => setModalOpen(false);
 
     return (
-        <>
+        <motion.div
+            initial={{ width: 0 }}
+            animate={{ width: '100%', transition: { duration: 0.4 } }}
+            exit={{ x: window.innerWidth, transition: { duration: 0.05 } }}
+        >
             <Container sx={{ my: 5 }}>
                 <CssBaseline />
                 <Grid container justifyContent="center">
@@ -171,7 +176,7 @@ const Profile = () => {
                 img={user.img}
                 phone={user.phone}
             ></CustomModal>
-        </>
+        </motion.div>
     );
 };
 

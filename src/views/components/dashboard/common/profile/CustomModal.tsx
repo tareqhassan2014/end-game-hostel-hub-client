@@ -24,7 +24,6 @@ interface Props {
     phone: string;
     img: string;
     openModal: boolean;
-
     handleModalClose: () => void;
 }
 

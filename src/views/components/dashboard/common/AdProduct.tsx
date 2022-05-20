@@ -1,8 +1,13 @@
+import PhotoCamera from '@mui/icons-material/PhotoCamera';
+import AddIcon from '@mui/icons-material/Add';
 import LoadingButton from '@mui/lab/LoadingButton';
 import {
     Box,
+    Button,
     Container,
     CssBaseline,
+    IconButton,
+    Input,
     TextField,
     Typography,
 } from '@mui/material';
@@ -16,6 +21,7 @@ type Inputs = {
     phone: string;
     title: string;
     category: string;
+    picture: string;
 };
 
 const AdProduct = () => {
@@ -29,11 +35,12 @@ const AdProduct = () => {
     } = useForm<Inputs>();
 
     const onSubmit: SubmitHandler<Inputs> = async (data) => {
+        console.log(data);
         try {
             if (user) {
                 await AdProduct({ ...data, userId: user._id || '' }).unwrap();
 
-                Swal.fire('success', 'product post successfully!!');
+                Swal.fire('success', 'product posted successfully!!');
             }
         } catch (error: any) {
             Swal.fire({
@@ -58,7 +65,7 @@ const AdProduct = () => {
                 }}
             >
                 <Typography component="h1" variant="h5">
-                    Post a Ad
+                    Add A Product
                 </Typography>
                 <Box
                     component="form"
@@ -118,6 +125,31 @@ const AdProduct = () => {
                             valueAsNumber: true,
                         })}
                     />
+                    <Button variant="contained" component="label">
+                        <AddIcon />
+                        Attach Image
+                        <input
+                            type="file"
+                            required
+                            autoComplete="picture"
+                            {...register('picture', {
+                                required: 'picture is required',
+                            })}
+                            hidden
+                        />
+                    </Button>
+
+                    {/* <TextField
+                        fullWidth
+                        type="file"
+                        required
+                        margin="normal"
+                        error={Boolean(errors.picture)}
+                        autoComplete="picture"
+                        {...register('picture', {
+                            required: 'picture is required',
+                        })}
+                    /> */}
 
                     <LoadingButton
                         type="submit"

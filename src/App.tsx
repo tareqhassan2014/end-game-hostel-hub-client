@@ -3,9 +3,12 @@ import { blueGrey, grey, indigo } from '@mui/material/colors';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useMemo } from 'react';
 import { BrowserRouter } from 'react-router-dom';
+import './App.css';
 import useThemeAndLayout from './hooks/useThemeAndLayout';
 import themeComponents from './theme/themeComponents';
 import TheLayout from './views/TheLayout';
+// import '~slick-carousel/slick/slick.css';
+// import '~slick-carousel/slick/slick-theme.css';
 
 function App() {
     const { mode } = useThemeAndLayout();

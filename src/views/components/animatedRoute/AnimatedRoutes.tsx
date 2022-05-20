@@ -1,22 +1,22 @@
-import { Suspense } from 'react';
+import React from 'react';
+import { useLocation } from 'react-router-dom';
 import { Navigate, Route, Routes } from 'react-router-dom';
-import useAuth from '../hooks/useAuth';
-import { openRoutes, protectedRoutes } from '../routes/routes';
-import PrivateRoute from '../utility/PrivateRoute';
-import AnimatedRoutes from './components/animatedRoute/AnimatedRoutes';
-import Loading from './components/Lottie/Loading';
+import useAuth from 'src/hooks/useAuth';
+import { openRoutes, protectedRoutes } from 'src/routes/routes';
+import PrivateRoute from 'src/utility/PrivateRoute';
+import { AnimatePresence, motion } from 'framer-motion';
 
-const View = () => {
-    // const { user } = useAuth();
+const AnimatedRoutes = () => {
+    const location = useLocation();
+    const { user } = useAuth();
 
-    // const proRoutes = protectedRoutes.filter((router) =>
-    //     router.role.includes(user.role || 'user')
-    // );
+    const proRoutes = protectedRoutes.filter((router) =>
+        router.role.includes(user.role || 'user')
+    );
 
     return (
-        <Suspense fallback={<Loading />}>
-            <AnimatedRoutes></AnimatedRoutes>
-            {/* <Routes>
+        <AnimatePresence>
+            <Routes location={location} key={location.pathname}>
                 <Route path="*" element={<Navigate to="/" />} />
                 {openRoutes.map((route, idex) => {
                     return (
@@ -45,9 +45,9 @@ const View = () => {
                         )
                     );
                 })}
-            </Routes> */}
-        </Suspense>
+            </Routes>
+        </AnimatePresence>
     );
 };
 
-export default View;
+export default AnimatedRoutes;

@@ -15,3 +15,12 @@
 #editButton:hover {
     border: 1px solid #139e1a !important;
 }
+.dtlHed {
+    font-weight: 700 !important;
+    letter-spacing: 0;
+    color: #383a4e;
+    line-height: 1.2;
+}
+.text-left {
+    text-align: left !important;
+}

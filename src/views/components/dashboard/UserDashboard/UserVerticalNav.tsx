@@ -82,7 +82,7 @@ const UserVerticalNav = () => {
                 <ListItemIcon>
                     <AddBoxIcon sx={{ color: 'white' }} />
                 </ListItemIcon>
-                <ListItemText primary="Ad Product" />
+                <ListItemText primary="Add Product" />
             </ListItemButton>
             <ListItemButton
                 sx={{ borderRadius: 4 }}
@@ -91,7 +91,7 @@ const UserVerticalNav = () => {
                 <ListItemIcon>
                     <LocalOfferIcon sx={{ color: 'white' }} />
                 </ListItemIcon>
-                <ListItemText primary="M product Ad" />
+                <ListItemText primary="Manage Product" />
             </ListItemButton>
         </List>
     );

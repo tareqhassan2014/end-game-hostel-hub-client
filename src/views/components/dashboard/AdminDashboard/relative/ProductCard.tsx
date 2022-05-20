@@ -15,6 +15,7 @@ interface Props {
 
 export default function ProductCardDb({ product }: Props) {
     const [open, setOpen] = useState(false);
+    console.log(product);
     const handleOpen = () => {
         setOpen(true);
     };

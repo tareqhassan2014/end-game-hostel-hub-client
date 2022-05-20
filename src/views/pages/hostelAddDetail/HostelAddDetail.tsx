@@ -98,7 +98,7 @@ const HostelAddDetail = () => {
                 <Box
                     sx={{ width: '100%' }}
                     component="img"
-                    src={hostelAddDetail?.hostel.banner}
+                    src="https://i.ibb.co/MSrwbxN/1217.jpg"
                 />
                 <Box
                     sx={{
@@ -146,7 +146,7 @@ const HostelAddDetail = () => {
                 onClick={sendRequest}
                 disabled={Boolean(!user._id)}
             >
-                Sent Request
+                Send Request
             </Button>
         </Container>
     );
