@@ -125,9 +125,13 @@ const AdProduct = () => {
                             valueAsNumber: true,
                         })}
                     />
-                    <Button variant="contained" component="label">
+                    <Button
+                        variant="contained"
+                        sx={{ width: '100%' }}
+                        component="label"
+                    >
                         <AddIcon />
-                        Attach Image
+                        Attach a Image
                         <input
                             type="file"
                             required
