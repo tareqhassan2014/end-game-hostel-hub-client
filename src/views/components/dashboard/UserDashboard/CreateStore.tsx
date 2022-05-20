@@ -6,61 +6,45 @@ import {
     TextField,
     Typography,
 } from '@mui/material';
-import { useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
-import { toast } from 'react-toastify';
 import { useCreateStoreMutation } from 'src/app/api';
 import { logOut } from 'src/app/slices/auth/authSlice';
-import useAuth from 'src/hooks/useAuth';
-import AlertModal from './AlertModal';
-
-type Inputs = {
-    address: string;
-    storeName: string;
-};
+import Swal from 'sweetalert2';
 
 export default function CreateStore() {
-    const { user } = useAuth();
     const dispatch = useDispatch();
-    //handle modal  start
-    const [openModal, setModalOpen] = useState(false);
-    const handleModalOpen = () => setModalOpen(true);
-    const handleModalClose = () => setModalOpen(false);
-    //handle modal end
 
-    const [createStore, { isLoading, data, isSuccess, isError }] =
-        useCreateStoreMutation();
+    const [createStore, { isLoading }] = useCreateStoreMutation();
 
     const {
         register,
         handleSubmit,
         formState: { errors },
         reset,
-    } = useForm<Inputs>();
+    } = useForm<CreateStoreRequest>();
 
-    const onSubmit: SubmitHandler<Inputs> = async (formData) => {
-        const url = `auth/${user._id}/store`;
-
-        const storeData = { ...formData, url };
-
+    const onSubmit: SubmitHandler<CreateStoreRequest> = async (data) => {
         try {
-            const data = await createStore(storeData).unwrap();
-            console.log('====================================');
-            console.log(data);
-            console.log('====================================');
+            await createStore({ ...data }).unwrap();
 
             reset();
-            // {
-            //     isSuccess && handleModalOpen();
-            // }
-            toast.success(
-                'Store created successfully and your role upgraded to vendor'
+
+            Swal.fire(
+                'Store Created successfully!!',
+                'you will be logout automatically and you can enjoy vendor dashboard ',
+                'success'
             );
-            // dispatch(logOut());
+
+            dispatch(logOut());
         } catch (error: any) {
-            console.log(error?.data?.message);
-            toast.error(error?.data?.message);
+            Swal.fire({
+                showConfirmButton: false,
+                icon: 'error',
+                title: 'Oops...',
+                text: `${error?.data?.message || 'Please try again letter'}`,
+            });
+            console.log(error);
         }
     };
 
@@ -89,13 +73,14 @@ export default function CreateStore() {
                         autoFocus
                         fullWidth
                         margin="normal"
-                        error={Boolean(errors.storeName)}
-                        label={errors.storeName ? 'Error' : 'Store Name'}
-                        helperText={errors.storeName?.message}
-                        {...register('storeName', {
+                        error={Boolean(errors.name)}
+                        label={errors.name ? 'Error' : 'Store Name'}
+                        helperText={errors.name?.message}
+                        {...register('name', {
                             required: 'Store Name is required',
                         })}
                     />
+
                     <TextField
                         fullWidth
                         required
@@ -106,6 +91,19 @@ export default function CreateStore() {
                         autoComplete="address"
                         {...register('address', {
                             required: 'Address is required',
+                        })}
+                    />
+
+                    <TextField
+                        fullWidth
+                        required
+                        margin="normal"
+                        error={Boolean(errors.phone)}
+                        label={errors.phone ? 'Error' : 'phone'}
+                        helperText={errors.phone?.message}
+                        autoComplete="phone"
+                        {...register('phone', {
+                            required: 'phone is required',
                         })}
                     />
 
@@ -120,10 +118,6 @@ export default function CreateStore() {
                     </LoadingButton>
                 </Box>
             </Box>
-            <AlertModal
-                openModal={openModal}
-                handleModalClose={handleModalClose}
-            />
         </Container>
     );
 }

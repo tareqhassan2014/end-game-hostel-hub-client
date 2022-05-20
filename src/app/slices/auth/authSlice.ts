@@ -96,6 +96,13 @@ export const authSlice = createSlice({
             state.token = token;
         },
 
+        updateMe: (
+            state,
+            { payload: { user } }: PayloadAction<{ user: IUser }>
+        ) => {
+            state.user = user;
+        },
+
         setStore: (state, { payload: store }: PayloadAction<IStore>) => {
             state.store = store;
         },
@@ -113,7 +120,8 @@ export const authSlice = createSlice({
     },
 });
 
-export const { setCredentials, logOut, setStore, setHostel } =
+export const { setCredentials, logOut, setStore, setHostel, updateMe } =
     authSlice.actions;
+
 export default authSlice.reducer;
 export const selectCurrentUser = (state: RootState) => state.auth;

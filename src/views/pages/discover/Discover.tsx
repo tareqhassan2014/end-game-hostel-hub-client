@@ -12,10 +12,10 @@ import {
     Typography,
 } from '@mui/material';
 import { Box } from '@mui/system';
+import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useGetProductQuery, useSearchForHostelQuery } from 'src/app/api';
-import { motion } from 'framer-motion';
+import { useGetHostelsAdsQuery, useGetProductQuery } from 'src/app/api';
 
 const items = [
     {
@@ -92,59 +92,19 @@ const items = [
     },
 ];
 
-interface hostelData {
-    address: string;
-    admin: object;
-    banner: string;
-    createdAt: string;
-    estimation: string;
-    hostelName: string;
-    member: [];
-    request: [];
-    status: string;
-    thumbnail: string;
-    totalSit: number;
-    _id: string;
-}
-
-interface CreateHostelAddRequest {
-    price: number;
-    phone: string;
-    details: string;
-    numberOfVacancy: number;
-    hostel: hostelData;
-    _id: string;
-}
-
-interface AdProductRequest {
-    price: number;
-    phone: string;
-    userId: string;
-    title: string;
-    category: string;
-    _id: string;
-}
-
 const Discover = () => {
     const navigate = useNavigate();
-    const { data: products } = useGetProductQuery('/product');
+    const { data: products } = useGetProductQuery('/products');
+    const { data: hostel, isLoading } = useGetHostelsAdsQuery('/hostelsAds');
 
-    const [allHostelAdds, setAllHostelAdds] = useState<
-        CreateHostelAddRequest[] | undefined
-    >(undefined);
+    const [AllProducts, setAllProducts] = useState<IProduct[] | undefined>();
 
-    const [AllProducts, setAllProducts] = useState<
-        AdProductRequest[] | undefined
-    >();
-
-    const {
-        data: hostel,
-        isLoading,
-        isSuccess,
-    } = useSearchForHostelQuery('/hostelAdd');
+    const [allHostelsAds, setAllHostelsAds] = useState<HostelAd[] | undefined>(
+        undefined
+    );
 
     useEffect(() => {
-        setAllHostelAdds(hostel?.data.data);
+        setAllHostelsAds(hostel?.data.data);
     }, [hostel?.data.data]);
 
     useEffect(() => {
@@ -217,8 +177,8 @@ const Discover = () => {
                         </Grid>
                     )}
 
-                    {allHostelAdds &&
-                        allHostelAdds.map((item, index) => (
+                    {allHostelsAds &&
+                        allHostelsAds.map((item, index) => (
                             <Grid key={index} item xs={12} sm={6} lg={2}>
                                 <Card sx={{ maxWidth: '100%', pt: 1 }}>
                                     <CardMedia
@@ -236,7 +196,7 @@ const Discover = () => {
                                             variant="h6"
                                             component="div"
                                         >
-                                            {item.hostel.hostelName}
+                                            {item.hostel.name}
                                         </Typography>
                                         <Typography
                                             variant="body2"

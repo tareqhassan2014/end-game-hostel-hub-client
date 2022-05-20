@@ -14,8 +14,15 @@ import {
 } from '@mui/material';
 import { useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import { Link as DomLink } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { Link as DomLink, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { useLoginMutation } from 'src/app/api';
+import {
+    setCredentials,
+    setHostel,
+    setStore,
+} from 'src/app/slices/auth/authSlice';
 import google from '../../../assets/images/1534129544.svg';
 import facebook from '../../../assets/images/facebook-svgrepo-com.svg';
 import useFirebase from '../../../hooks/firebase/useFirebase';
@@ -26,7 +33,10 @@ type Inputs = {
 };
 
 export default function SignIn() {
+    const dispatch = useDispatch();
     const [show, setShow] = useState(false);
+    const [signIn, { isLoading }] = useLoginMutation();
+    const navigate = useNavigate();
 
     const { firebaseGoogle, firebaseFacebook, SignInFirebase } = useFirebase();
 
@@ -39,8 +49,22 @@ export default function SignIn() {
 
     const onSubmit: SubmitHandler<Inputs> = async ({ email, password }) => {
         try {
-            SignInFirebase(email, password);
+            const { token, user } = await signIn({
+                email,
+                password,
+            }).unwrap();
+
             reset();
+
+            dispatch(setCredentials({ user, token }));
+
+            if (user.role === 'admin') {
+                dispatch(setHostel(user.hostel[0]));
+            } else if (user.role === 'vendor') {
+                dispatch(setStore(user.store[0]));
+            }
+
+            navigate('/dashboard');
         } catch (error: any) {
             console.log(error?.data?.message);
             toast.error(error?.data?.message);
@@ -111,7 +135,7 @@ export default function SignIn() {
                         fullWidth
                         variant="contained"
                         sx={{ mt: 1, mb: 1 }}
-                        loading={false}
+                        loading={isLoading}
                     >
                         Sign In
                     </LoadingButton>
