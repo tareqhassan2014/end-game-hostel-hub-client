@@ -1,6 +1,8 @@
 import ArrowRightAltOutlinedIcon from '@mui/icons-material/ArrowRightAltOutlined';
 import FilterListIcon from '@mui/icons-material/FilterList';
 import HomeIcon from '@mui/icons-material/Home';
+import CropLandscapeIcon from '@mui/icons-material/CropLandscape';
+import BedIcon from '@mui/icons-material/Bed';
 import {
     Button,
     Card,
@@ -425,12 +427,14 @@ const SearchItem = (props: any) => {
                                             lg={4}
                                             sx={{}}
                                         >
-                                            <Box sx={{ width: '100%' }}>
+                                            <Box sx={{ width: '100%', px: 2 }}>
                                                 <Card
                                                     sx={{
                                                         maxWidth: '100%',
                                                         borderRadius: 0.5,
                                                         position: 'relative',
+                                                        backgroundColor: '#fff',
+                                                        overflow: 'hidden',
                                                     }}
                                                 >
                                                     <CardMedia
@@ -439,6 +443,13 @@ const SearchItem = (props: any) => {
                                                             width: '100%',
                                                             m: 0,
                                                             borderRadius: 0,
+                                                            transition: '.5s',
+                                                            transform:
+                                                                'scale(1)',
+                                                            '&:hover': {
+                                                                transform:
+                                                                    'scale(1.1)',
+                                                            },
                                                         }}
                                                         image="https://media.istockphoto.com/photos/dormitory-room-in-the-modern-hostel-picture-id910999556?b=1&k=20&m=910999556&s=170667a&w=0&h=8Ppqwt74V-aaXr4vN2iu5XOv87H0nhJh64am-0bYPLc="
                                                         alt="green iguana"
@@ -446,17 +457,132 @@ const SearchItem = (props: any) => {
                                                     <CardContent>
                                                         <Typography
                                                             gutterBottom
-                                                            variant="h5"
                                                             component="div"
+                                                            sx={{
+                                                                height: 45,
+                                                                fontSize:
+                                                                    '1.05rem',
+                                                                color: 'inherit',
+                                                                mb: 1,
+                                                                backgroundColor:
+                                                                    'transparent',
+                                                            }}
                                                         >
-                                                            {hostel.phone}
+                                                            {/* {hostel.phone} */}
+                                                            {hostel.title}
+                                                        </Typography>
+                                                        <Box
+                                                            component="div"
+                                                            sx={{
+                                                                display: 'flex',
+                                                                justifyContent:
+                                                                    'space-between',
+                                                                alignItems:
+                                                                    'center',
+                                                                marginBottom:
+                                                                    '0.8rem',
+                                                            }}
+                                                        >
+                                                            <Typography
+                                                                sx={{
+                                                                    display:
+                                                                        'flex',
+                                                                    alignItems:
+                                                                        'center',
+                                                                    fontSize: 13,
+                                                                }}
+                                                                component="span"
+                                                            >
+                                                                <BedIcon
+                                                                    fontSize="small"
+                                                                    sx={{
+                                                                        mr: 1,
+                                                                        boxSizing:
+                                                                            'border-box',
+                                                                        borderRadius:
+                                                                            '20px',
+                                                                    }}
+                                                                />
+                                                                Adult:4
+                                                            </Typography>
+                                                            <Typography
+                                                                sx={{
+                                                                    display:
+                                                                        'flex',
+                                                                    alignItems:
+                                                                        'center',
+                                                                    fontSize: 13,
+                                                                }}
+                                                                component="span"
+                                                            >
+                                                                <CropLandscapeIcon
+                                                                    fontSize="small"
+                                                                    sx={{
+                                                                        mr: 1,
+                                                                        boxSizing:
+                                                                            'border-box',
+                                                                        borderRadius:
+                                                                            '20px',
+                                                                    }}
+                                                                />
+                                                                40ft²
+                                                            </Typography>
+                                                        </Box>
+                                                        <Typography
+                                                            component="div"
+                                                            sx={{
+                                                                height: 50,
+                                                                fontSize:
+                                                                    '12px',
+                                                                color: '#7E8588',
+                                                            }}
+                                                        >
+                                                            {/* {hostel?.description.slice(0, 50)} */}
+                                                            Lorem, ipsum dolor
+                                                            sit amet consectetur
+                                                            adipisicing elit.
+                                                            Voluptatum illo
+                                                            aliquid nulla libero
                                                         </Typography>
                                                         <Typography
-                                                            variant="body2"
-                                                            color="text.secondary"
+                                                            component="div"
+                                                            sx={{
+                                                                mt: 2,
+                                                                mb: 0,
+                                                                display: 'flex',
+                                                                alignItem:
+                                                                    'center',
+                                                                justifyContent:
+                                                                    'flex-start',
+                                                            }}
                                                         >
-                                                            Price:{' '}
-                                                            {hostel.price} BDT
+                                                            <Typography
+                                                                sx={{
+                                                                    fontSize: 13,
+                                                                }}
+                                                                component="span"
+                                                            >
+                                                                Location:{' '}
+                                                                {
+                                                                    hostel
+                                                                        ?.hostel
+                                                                        .city
+                                                                }
+                                                                ,
+                                                            </Typography>
+                                                            <Typography
+                                                                sx={{
+                                                                    ml: 1,
+                                                                    fontSize: 13,
+                                                                }}
+                                                                component="span"
+                                                            >
+                                                                {
+                                                                    hostel
+                                                                        ?.hostel
+                                                                        .rating
+                                                                }
+                                                            </Typography>
                                                         </Typography>
                                                     </CardContent>
                                                     <CardActions>
@@ -491,7 +617,7 @@ const SearchItem = (props: any) => {
                                                             )
                                                         }
                                                     >
-                                                        More Info
+                                                        More
                                                     </Button>
                                                 </Card>
                                             </Box>
