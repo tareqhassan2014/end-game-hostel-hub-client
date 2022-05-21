@@ -1,5 +1,7 @@
 import EuroIcon from '@mui/icons-material/Euro';
 import HomeIcon from '@mui/icons-material/Home';
+import CropLandscapeIcon from '@mui/icons-material/CropLandscape';
+import BedIcon from '@mui/icons-material/Bed';
 import {
     Button,
     Card,
@@ -7,25 +9,34 @@ import {
     CardContent,
     CardMedia,
     Grid,
+    makeStyles,
     Rating,
     Typography,
 } from '@mui/material';
 import { deepPurple } from '@mui/material/colors';
-import { Box } from '@mui/system';
+import { border, Box } from '@mui/system';
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Slider from 'react-slick';
 import { useGetHostelsAdsQuery } from 'src/app/api';
+import roomImg from './../../../assets/images/room-2.jpg';
 
-const HomePageHorzontalCart = () => {
+// const useStyles = makeStyles(theme => ({
+//     customHoverFocus: {
+//       "&:hover, &.Mui-focusVisible": { backgroundColor: "yellow" }
+//     }
+//   }));
+
+const HomePageHorizontalCart = () => {
+    // const classes = useStyles();
+
     const settings = {
         dots: true,
         infinite: false,
-
         autoplay: true,
         speed: 1000,
         autoplaySpeed: 2000,
-        slidesToShow: 5,
+        slidesToShow: 3,
         slidesToScroll: 2,
         initialSlide: 0,
         cssEase: 'linear',
@@ -82,30 +93,101 @@ const HomePageHorzontalCart = () => {
             <Slider {...settings}>
                 {allHostelsAds &&
                     allHostelsAds.map((item, index) => (
-                        <Box key={index} sx={{ px: 1 }}>
-                            <Card sx={{ py: 1, mb: 1, boxShadow: 1 }}>
-                                <CardMedia
-                                    component="img"
+                        <Box key={index} sx={{ px: 1, pt: 0 }}>
+                            <Card
+                                sx={{
+                                    mb: 1,
+                                    boxShadow: 1,
+                                    py: '2px',
+                                    px: '10px',
+                                    backgroundColor: '#fff',
+                                }}
+                            >
+                                <Box
                                     sx={{
-                                        maxWidth: '95%',
-                                        width: 'auto',
-                                        m: 'auto',
+                                        overflow: 'hidden',
                                         my: 1,
+                                        borderRadius: '6px',
+                                        border: 0,
                                     }}
-                                    image="https://i.ibb.co/qJXxcCG/Hostel-min.jpg"
-                                />
-                                <CardContent sx={{ pb: 0, px: 2 }}>
+                                >
+                                    <CardMedia
+                                        component="img"
+                                        sx={{
+                                            borderRadius: '6px',
+                                            maxWidth: '100%',
+                                            width: '100%',
+                                            m: 'auto',
+                                            boxShadow: 0,
+                                            transition: '.5s',
+                                            transform: 'scale(1)',
+                                            '&:hover': {
+                                                transform: 'scale(1.1)',
+                                            },
+                                        }}
+                                        image={roomImg}
+                                    />
+                                </Box>
+                                <CardContent sx={{ py: 2, px: 2 }}>
                                     <Typography
                                         variant="caption"
                                         sx={{
                                             display: 'flex',
                                             alignItems: 'center',
-
+                                            justifyContent: 'space-between',
                                             my: 0.6,
+                                            backgroundColor: '#ECFAFB',
+                                            py: 1,
+                                            px: 2,
+                                            borderRadius: '20px',
+                                            mt: 2,
+                                            mb: 3,
                                         }}
                                     >
-                                        <HomeIcon sx={{ fontSize: 20 }} />
-                                        15 ft X 12 ft
+                                        <Box
+                                            sx={{
+                                                display: 'flex',
+                                                justifyContent: 'start',
+                                            }}
+                                        >
+                                            <BedIcon
+                                                sx={{
+                                                    backgroundColor: '#fff',
+                                                    p: 1,
+                                                    mr: 1,
+                                                    boxSizing: 'border-box',
+                                                    borderRadius: '20px',
+                                                }}
+                                            ></BedIcon>
+                                            <Box
+                                                component="span"
+                                                sx={{ color: '#64688c' }}
+                                            >
+                                                Adults: 4
+                                            </Box>
+                                        </Box>
+                                        <Box
+                                            sx={{
+                                                display: 'flex',
+                                                justifyContent: 'space-between',
+                                            }}
+                                        >
+                                            <CropLandscapeIcon
+                                                sx={{
+                                                    backgroundColor: '#fff',
+                                                    p: 1,
+                                                    mr: 1,
+                                                    boxSizing: 'border-box',
+                                                    borderRadius: '20px',
+                                                }}
+                                            ></CropLandscapeIcon>
+                                            <Box
+                                                component="span"
+                                                sx={{ color: '#64688c' }}
+                                            >
+                                                30ft²
+                                            </Box>
+                                        </Box>
                                     </Typography>
 
                                     <Rating name="Rating" value={4} readOnly />
@@ -117,7 +199,7 @@ const HomePageHorzontalCart = () => {
                                         {item.description.slice(0, 35)}...
                                     </Typography>
                                 </CardContent>
-                                <CardActions>
+                                <CardActions sx={{ mb: 2 }}>
                                     <Grid container spacing={1}>
                                         <Grid item xs={6}>
                                             <Typography
@@ -144,7 +226,7 @@ const HomePageHorzontalCart = () => {
                                                     fontWeight: 'bold',
                                                     borderRadius: '30px',
                                                     border: 'none',
-                                                    padding: '4px 15px',
+                                                    padding: '15px 25px',
                                                 }}
                                                 onClick={() =>
                                                     navigate(
@@ -164,4 +246,4 @@ const HomePageHorzontalCart = () => {
         </Box>
     );
 };
-export default HomePageHorzontalCart;
+export default HomePageHorizontalCart;
