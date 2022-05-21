@@ -15,89 +15,20 @@ import { Box } from '@mui/system';
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useGetHostelsAdsQuery, useGetProductQuery } from 'src/app/api';
-
-const items = [
-    {
-        name: 'Hostel Name',
-        price: 100,
-        location: 'daulotpout, Khulna',
-        rating: 5,
-    },
-    {
-        name: 'Hostel Name',
-        price: 100,
-        location: 'daulotpout, Khulna',
-        rating: 5,
-    },
-    {
-        name: 'Hostel Name',
-        price: 100,
-        location: 'daulotpout, Khulna',
-        rating: 5,
-    },
-    {
-        name: 'Hostel Name',
-        price: 100,
-        location: 'daulotpout, Khulna',
-        rating: 5,
-    },
-    {
-        name: 'Hostel Name',
-        price: 100,
-        location: 'daulotpout, Khulna',
-        rating: 5,
-    },
-    {
-        name: 'Hostel Name',
-        price: 100,
-        location: 'daulotpout, Khulna',
-        rating: 5,
-    },
-    {
-        name: 'Hostel Name',
-        price: 100,
-        location: 'daulotpout, Khulna',
-        rating: 5,
-    },
-    {
-        name: 'Hostel Name',
-        price: 100,
-        location: 'daulotpout, Khulna',
-        rating: 5,
-    },
-    {
-        name: 'Hostel Name',
-        price: 100,
-        location: 'daulotpout, Khulna',
-        rating: 5,
-    },
-    {
-        name: 'Hostel Name',
-        price: 100,
-        location: 'daulotpout, Khulna',
-        rating: 5,
-    },
-    {
-        name: 'Hostel Name',
-        price: 100,
-        location: 'daulotpout, Khulna',
-        rating: 5,
-    },
-    {
-        name: 'Hostel Name',
-        price: 100,
-        location: 'daulotpout, Khulna',
-        rating: 5,
-    },
-];
+import {
+    useGetGroceryQuery,
+    useGetHostelsAdsQuery,
+    useGetProductQuery,
+} from 'src/app/api';
 
 const Discover = () => {
     const navigate = useNavigate();
     const { data: products } = useGetProductQuery('/products');
     const { data: hostel, isLoading } = useGetHostelsAdsQuery('/hostelsAds');
+    const { data: groceries } = useGetGroceryQuery('/grocery');
 
     const [AllProducts, setAllProducts] = useState<IProduct[] | undefined>();
+    const [Groceries, setGroceries] = useState<Grocery[] | undefined>();
 
     const [allHostelsAds, setAllHostelsAds] = useState<HostelAd[] | undefined>(
         undefined
@@ -112,6 +43,12 @@ const Discover = () => {
             setAllProducts(products.data.data);
         }
     }, [products]);
+
+    useEffect(() => {
+        if (groceries) {
+            setGroceries(groceries.data.data);
+        }
+    }, [groceries]);
 
     return (
         <motion.div
@@ -397,68 +334,92 @@ const Discover = () => {
                     container
                     spacing={2}
                 >
-                    {items.map((item, index) => (
-                        <Grid key={index} item xs={12} sm={6} lg={2}>
-                            <Card sx={{ maxWidth: '100%', pt: 1 }}>
-                                <CardMedia
-                                    component="img"
-                                    sx={{
-                                        maxWidth: '90%',
-                                        width: 'auto',
-                                        m: 'auto',
-                                    }}
-                                    image="https://media.istockphoto.com/photos/dormitory-room-in-the-modern-hostel-picture-id910999556?b=1&k=20&m=910999556&s=170667a&w=0&h=8Ppqwt74V-aaXr4vN2iu5XOv87H0nhJh64am-0bYPLc="
-                                    alt={item.name}
-                                />
-                                <CardContent sx={{ pb: 0, px: 2 }}>
-                                    <Typography
-                                        gutterBottom
-                                        variant="h6"
-                                        component="div"
-                                    >
-                                        {item.name}
-                                    </Typography>
-                                    <Typography
-                                        variant="body2"
-                                        color="text.secondary"
-                                        sx={{
-                                            display: 'flex',
-                                            alignItems: 'center',
-                                            ml: -0.5,
-                                        }}
-                                    >
-                                        <Icon color="primary">sell</Icon>{' '}
-                                        {item.price} BDT
-                                    </Typography>
-                                    <Typography
-                                        variant="body2"
-                                        color="text.secondary"
-                                        sx={{
-                                            display: 'flex',
-                                            alignItems: 'center',
-                                            ml: -1,
-                                        }}
-                                    >
-                                        <Icon color="primary">room</Icon>{' '}
-                                        {item.location}
-                                    </Typography>
-                                    <Rating
-                                        name="Rating"
-                                        value={item.rating}
-                                        readOnly
+                    {isLoading && (
+                        <Grid container>
+                            {[...new Array(12)].map((_, index) => (
+                                <Grid
+                                    item
+                                    xs={12}
+                                    sm={6}
+                                    md={4}
+                                    lg={3}
+                                    key={index}
+                                    sx={{ py: 2 }}
+                                >
+                                    <Skeleton
+                                        sx={{ bgcolor: 'grey.500' }}
+                                        variant="rectangular"
+                                        width={210}
+                                        height={118}
                                     />
-                                </CardContent>
-                                <CardActions>
-                                    <Button variant="outlined" size="small">
-                                        Booking
-                                    </Button>
-                                    <Button variant="outlined" size="small">
-                                        Details
-                                    </Button>
-                                </CardActions>
-                            </Card>
+                                </Grid>
+                            ))}
                         </Grid>
-                    ))}
+                    )}
+
+                    {Groceries &&
+                        Groceries.map((grocery, index) => (
+                            <Grid key={index} item xs={12} sm={6} lg={2}>
+                                <Card sx={{ maxWidth: '100%', pt: 1 }}>
+                                    <CardMedia
+                                        component="img"
+                                        sx={{
+                                            maxWidth: '90%',
+                                            width: 'auto',
+                                            m: 'auto',
+                                        }}
+                                        image="https://media.istockphoto.com/photos/dormitory-room-in-the-modern-hostel-picture-id910999556?b=1&k=20&m=910999556&s=170667a&w=0&h=8Ppqwt74V-aaXr4vN2iu5XOv87H0nhJh64am-0bYPLc="
+                                        alt={grocery.title}
+                                    />
+                                    <CardContent sx={{ pb: 0, px: 2 }}>
+                                        <Typography
+                                            gutterBottom
+                                            variant="h6"
+                                            component="div"
+                                        >
+                                            {grocery.title}
+                                        </Typography>
+                                        <Typography
+                                            variant="body2"
+                                            color="text.secondary"
+                                            sx={{
+                                                display: 'flex',
+                                                alignItems: 'center',
+                                                ml: -0.5,
+                                            }}
+                                        >
+                                            <Icon color="primary">sell</Icon>{' '}
+                                            {grocery.price} BDT
+                                        </Typography>
+                                        <Typography
+                                            variant="body2"
+                                            color="text.secondary"
+                                            sx={{
+                                                display: 'flex',
+                                                alignItems: 'center',
+                                                ml: -1,
+                                            }}
+                                        >
+                                            <Icon color="primary">room</Icon>{' '}
+                                            {grocery.store.address}
+                                        </Typography>
+                                        <Rating
+                                            name="Rating"
+                                            value={4}
+                                            readOnly
+                                        />
+                                    </CardContent>
+                                    <CardActions>
+                                        <Button variant="outlined" size="small">
+                                            Booking
+                                        </Button>
+                                        <Button variant="outlined" size="small">
+                                            Details
+                                        </Button>
+                                    </CardActions>
+                                </Card>
+                            </Grid>
+                        ))}
                 </Grid>
             </Container>
         </motion.div>

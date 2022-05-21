@@ -8,34 +8,21 @@ import {
 } from '@mui/material';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
-import useAuth from 'src/hooks/useAuth';
-
-type Inputs = {
-    price: number;
-    name: string;
-    category: string;
-};
+import { useAddGroceryMutation } from 'src/app/api';
 
 export default function CreateHostel() {
-    const { user } = useAuth();
-
-    // const [addProduct, { isLoading, data, isSuccess, isError }] =
-    // useAddProductMutation();
+    const [AddGrocery, { isLoading }] = useAddGroceryMutation();
 
     const {
         register,
         handleSubmit,
         formState: { errors },
         reset,
-    } = useForm<Inputs>();
+    } = useForm<addGroceryRequest>();
 
-    const onSubmit: SubmitHandler<Inputs> = async (formData) => {
+    const onSubmit: SubmitHandler<addGroceryRequest> = async (data) => {
         try {
-            const url = `store/${user._id}/product`;
-
-            const productData = { ...formData, url };
-
-            // const data = await addProduct(productData).unwrap();
+            await AddGrocery({ ...data }).unwrap();
 
             reset();
             toast.success('Product added successfully');
@@ -70,23 +57,23 @@ export default function CreateHostel() {
                         autoFocus
                         fullWidth
                         margin="normal"
-                        error={Boolean(errors.name)}
-                        label={errors.name ? 'Error' : 'Product Name'}
-                        helperText={errors.name?.message}
-                        {...register('name', {
-                            required: 'Name is required',
+                        error={Boolean(errors.title)}
+                        label={errors.title ? 'Error' : 'Product title'}
+                        helperText={errors.title?.message}
+                        {...register('title', {
+                            required: 'title is required',
                         })}
                     />
                     <TextField
                         fullWidth
                         required
                         margin="normal"
-                        error={Boolean(errors.category)}
-                        label={errors.category ? 'Error' : 'category'}
-                        helperText={errors.category?.message}
-                        autoComplete="category"
-                        {...register('category', {
-                            required: 'category is required',
+                        error={Boolean(errors.description)}
+                        label={errors.description ? 'Error' : 'description'}
+                        helperText={errors.description?.message}
+                        autoComplete="description"
+                        {...register('description', {
+                            required: 'description is required',
                         })}
                     />
 
@@ -110,7 +97,7 @@ export default function CreateHostel() {
                         fullWidth
                         variant="contained"
                         sx={{ mt: 3, mb: 2 }}
-                        loading={false}
+                        loading={isLoading}
                     >
                         Add Product
                     </LoadingButton>

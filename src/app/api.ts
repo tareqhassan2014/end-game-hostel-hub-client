@@ -226,6 +226,24 @@ const api = createApi({
                 providesTags: ['product'],
             }),
         }),
+
+        addGrocery: builder.mutation<null, addGroceryRequest>({
+            query: (credentials) => ({
+                url: '/grocery',
+                method: 'POST',
+                body: credentials,
+            }),
+            invalidatesTags: ['product'],
+        }),
+
+        getGrocery: builder.query<AllGroceries, string>({
+            query: (query) => ({
+                url: query,
+                method: 'GET',
+            }),
+
+            providesTags: ['product'],
+        }),
     }),
 });
 
@@ -244,6 +262,8 @@ export const {
     useAdProductMutation,
     useGetProductQuery,
     useGetMeQuery,
+    useAddGroceryMutation,
+    useGetGroceryQuery,
 } = api;
 
 export default api;
