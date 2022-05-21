@@ -54,6 +54,7 @@ const SearchItem = (props: any) => {
 
     useEffect(() => {
         setAllHostelsAds(hostel?.data.data);
+        console.log(hostel?.data.data);
     }, [hostel?.data.data]);
 
     const container =
@@ -73,7 +74,6 @@ const SearchItem = (props: any) => {
         <Box
             sx={{
                 p: 3,
-
                 mt: 4,
             }}
         >
@@ -407,7 +407,7 @@ const SearchItem = (props: any) => {
                                     p: { xs: 1, md: 2, lg: 3 },
                                     me: 1,
                                     mt: 1,
-                                    borderRadius: 3,
+                                    borderRadius: 2,
                                     height: 'auto',
                                 }}
                                 container
@@ -423,49 +423,78 @@ const SearchItem = (props: any) => {
                                             xs={12}
                                             sm={6}
                                             lg={4}
+                                            sx={{}}
                                         >
-                                            <Card sx={{ maxWidth: '100%' }}>
-                                                <CardMedia
-                                                    component="img"
+                                            <Box sx={{ width: '100%' }}>
+                                                <Card
                                                     sx={{
-                                                        maxWidth: '90%',
-                                                        width: 'auto',
+                                                        maxWidth: '100%',
+                                                        borderRadius: 0.5,
+                                                        position: 'relative',
                                                     }}
-                                                    image="https://media.istockphoto.com/photos/dormitory-room-in-the-modern-hostel-picture-id910999556?b=1&k=20&m=910999556&s=170667a&w=0&h=8Ppqwt74V-aaXr4vN2iu5XOv87H0nhJh64am-0bYPLc="
-                                                    alt="green iguana"
-                                                />
-                                                <CardContent>
-                                                    <Typography
-                                                        gutterBottom
-                                                        variant="h5"
-                                                        component="div"
-                                                    >
-                                                        {hostel.phone}
-                                                    </Typography>
-                                                    <Typography
-                                                        variant="body2"
-                                                        color="text.secondary"
-                                                    >
-                                                        Price: {hostel.price}{' '}
-                                                        BDT
-                                                    </Typography>
-                                                </CardContent>
-                                                <CardActions>
-                                                    <Button size="small">
-                                                        Booking
-                                                    </Button>
+                                                >
+                                                    <CardMedia
+                                                        component="img"
+                                                        sx={{
+                                                            width: '100%',
+                                                            m: 0,
+                                                            borderRadius: 0,
+                                                        }}
+                                                        image="https://media.istockphoto.com/photos/dormitory-room-in-the-modern-hostel-picture-id910999556?b=1&k=20&m=910999556&s=170667a&w=0&h=8Ppqwt74V-aaXr4vN2iu5XOv87H0nhJh64am-0bYPLc="
+                                                        alt="green iguana"
+                                                    />
+                                                    <CardContent>
+                                                        <Typography
+                                                            gutterBottom
+                                                            variant="h5"
+                                                            component="div"
+                                                        >
+                                                            {hostel.phone}
+                                                        </Typography>
+                                                        <Typography
+                                                            variant="body2"
+                                                            color="text.secondary"
+                                                        >
+                                                            Price:{' '}
+                                                            {hostel.price} BDT
+                                                        </Typography>
+                                                    </CardContent>
+                                                    <CardActions>
+                                                        {/* <Button size="small">
+                                                            Booking
+                                                        </Button> */}
+                                                        {/* <Button
+                                                            size="small"
+                                                            onClick={() =>
+                                                                navigate(
+                                                                    `/search-hostel/${hostel._id}`
+                                                                )
+                                                            }
+                                                        >
+                                                            More Info
+                                                        </Button> */}
+                                                    </CardActions>
                                                     <Button
                                                         size="small"
+                                                        variant="contained"
+                                                        color="info"
+                                                        sx={{
+                                                            position:
+                                                                'absolute',
+                                                            bottom: '0px',
+                                                            right: '0px',
+                                                            borderRadius: 0,
+                                                        }}
                                                         onClick={() =>
                                                             navigate(
                                                                 `/search-hostel/${hostel._id}`
                                                             )
                                                         }
                                                     >
-                                                        Details
+                                                        More Info
                                                     </Button>
-                                                </CardActions>
-                                            </Card>
+                                                </Card>
+                                            </Box>
                                         </Grid>
                                     ))}
                             </Grid>
