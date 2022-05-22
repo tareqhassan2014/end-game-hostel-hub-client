@@ -3,6 +3,8 @@ import FilterListIcon from '@mui/icons-material/FilterList';
 import HomeIcon from '@mui/icons-material/Home';
 import CropLandscapeIcon from '@mui/icons-material/CropLandscape';
 import BedIcon from '@mui/icons-material/Bed';
+import LocationOnIcon from '@mui/icons-material/LocationOn';
+import RateReviewIcon from '@mui/icons-material/RateReview';
 import {
     Button,
     Card,
@@ -406,7 +408,7 @@ const SearchItem = (props: any) => {
                         <Grid item xs={12} md={8} lg={9}>
                             <Grid
                                 sx={{
-                                    p: { xs: 1, md: 2, lg: 3 },
+                                    p: { xs: 1, md: 1, lg: 3 },
                                     me: 1,
                                     mt: 1,
                                     borderRadius: 2,
@@ -425,35 +427,39 @@ const SearchItem = (props: any) => {
                                             xs={12}
                                             sm={6}
                                             lg={4}
-                                            sx={{}}
                                         >
-                                            <Box sx={{ width: '100%', px: 2 }}>
+                                            <Box sx={{ width: '100%' }}>
                                                 <Card
                                                     sx={{
-                                                        maxWidth: '100%',
                                                         borderRadius: 0.5,
                                                         position: 'relative',
                                                         backgroundColor: '#fff',
-                                                        overflow: 'hidden',
                                                     }}
                                                 >
-                                                    <CardMedia
-                                                        component="img"
+                                                    <Box
                                                         sx={{
-                                                            width: '100%',
-                                                            m: 0,
-                                                            borderRadius: 0,
-                                                            transition: '.5s',
-                                                            transform:
-                                                                'scale(1)',
-                                                            '&:hover': {
-                                                                transform:
-                                                                    'scale(1.1)',
-                                                            },
+                                                            overflow: 'hidden',
                                                         }}
-                                                        image="https://media.istockphoto.com/photos/dormitory-room-in-the-modern-hostel-picture-id910999556?b=1&k=20&m=910999556&s=170667a&w=0&h=8Ppqwt74V-aaXr4vN2iu5XOv87H0nhJh64am-0bYPLc="
-                                                        alt="green iguana"
-                                                    />
+                                                    >
+                                                        <CardMedia
+                                                            component="img"
+                                                            sx={{
+                                                                width: '100%',
+                                                                m: 'auto',
+                                                                borderRadius: 0,
+                                                                transition:
+                                                                    '.5s',
+                                                                transform:
+                                                                    'scale(1)',
+                                                                '&:hover': {
+                                                                    transform:
+                                                                        'scale(1.1)',
+                                                                },
+                                                            }}
+                                                            image="https://media.istockphoto.com/photos/dormitory-room-in-the-modern-hostel-picture-id910999556?b=1&k=20&m=910999556&s=170667a&w=0&h=8Ppqwt74V-aaXr4vN2iu5XOv87H0nhJh64am-0bYPLc="
+                                                            alt="green iguana"
+                                                        />
+                                                    </Box>
                                                     <CardContent>
                                                         <Typography
                                                             gutterBottom
@@ -461,7 +467,7 @@ const SearchItem = (props: any) => {
                                                             sx={{
                                                                 height: 45,
                                                                 fontSize:
-                                                                    '1.05rem',
+                                                                    '1rem',
                                                                 color: 'inherit',
                                                                 mb: 1,
                                                                 backgroundColor:
@@ -475,12 +481,11 @@ const SearchItem = (props: any) => {
                                                             component="div"
                                                             sx={{
                                                                 display: 'flex',
-                                                                justifyContent:
-                                                                    'space-between',
+
                                                                 alignItems:
                                                                     'center',
                                                                 marginBottom:
-                                                                    '0.8rem',
+                                                                    '0.7rem',
                                                             }}
                                                         >
                                                             <Typography
@@ -490,20 +495,23 @@ const SearchItem = (props: any) => {
                                                                     alignItems:
                                                                         'center',
                                                                     fontSize: 13,
+                                                                    mr: 2,
                                                                 }}
                                                                 component="span"
                                                             >
-                                                                <BedIcon
+                                                                <LocationOnIcon
                                                                     fontSize="small"
                                                                     sx={{
                                                                         mr: 1,
                                                                         boxSizing:
                                                                             'border-box',
-                                                                        borderRadius:
-                                                                            '20px',
                                                                     }}
                                                                 />
-                                                                Adult:4
+                                                                {
+                                                                    hostel
+                                                                        ?.hostel
+                                                                        .city
+                                                                }
                                                             </Typography>
                                                             <Typography
                                                                 sx={{
@@ -515,17 +523,19 @@ const SearchItem = (props: any) => {
                                                                 }}
                                                                 component="span"
                                                             >
-                                                                <CropLandscapeIcon
+                                                                <RateReviewIcon
                                                                     fontSize="small"
                                                                     sx={{
                                                                         mr: 1,
                                                                         boxSizing:
                                                                             'border-box',
-                                                                        borderRadius:
-                                                                            '20px',
                                                                     }}
                                                                 />
-                                                                40ft²
+                                                                {
+                                                                    hostel
+                                                                        ?.hostel
+                                                                        .rating
+                                                                }
                                                             </Typography>
                                                         </Box>
                                                         <Typography
@@ -544,61 +554,45 @@ const SearchItem = (props: any) => {
                                                             Voluptatum illo
                                                             aliquid nulla libero
                                                         </Typography>
-                                                        <Typography
-                                                            component="div"
-                                                            sx={{
-                                                                mt: 2,
-                                                                mb: 0,
-                                                                display: 'flex',
-                                                                alignItem:
-                                                                    'center',
-                                                                justifyContent:
-                                                                    'flex-start',
-                                                            }}
-                                                        >
-                                                            <Typography
-                                                                sx={{
-                                                                    fontSize: 13,
-                                                                }}
-                                                                component="span"
-                                                            >
-                                                                Location:{' '}
-                                                                {
-                                                                    hostel
-                                                                        ?.hostel
-                                                                        .city
-                                                                }
-                                                                ,
-                                                            </Typography>
-                                                            <Typography
-                                                                sx={{
-                                                                    ml: 1,
-                                                                    fontSize: 13,
-                                                                }}
-                                                                component="span"
-                                                            >
-                                                                {
-                                                                    hostel
-                                                                        ?.hostel
-                                                                        .rating
-                                                                }
-                                                            </Typography>
-                                                        </Typography>
                                                     </CardContent>
-                                                    <CardActions>
-                                                        {/* <Button size="small">
-                                                            Booking
-                                                        </Button> */}
-                                                        {/* <Button
-                                                            size="small"
-                                                            onClick={() =>
-                                                                navigate(
-                                                                    `/search-hostel/${hostel._id}`
-                                                                )
-                                                            }
+                                                    <CardActions
+                                                        sx={{
+                                                            // mb: 0,
+                                                            // display: 'flex',
+                                                            // alignItem: 'center',
+                                                            // justifyContent:
+                                                            //     'flex-start',
+                                                            color: '#00aeef',
+                                                            marginLeft: '14px',
+                                                            fontSize: ' 1.2rem',
+                                                        }}
+                                                    >
+                                                        {/* <Typography
+                                                            sx={{
+                                                                fontSize: 13,
+                                                            }}
+                                                            component="span"
                                                         >
-                                                            More Info
-                                                        </Button> */}
+                                                            Location:{' '}
+                                                            {
+                                                                hostel?.hostel
+                                                                    .city
+                                                            }
+                                                            ,
+                                                        </Typography>
+                                                        <Typography
+                                                            sx={{
+                                                                ml: 1,
+                                                                fontSize: 13,
+                                                            }}
+                                                            component="span"
+                                                        >
+                                                            {
+                                                                hostel?.hostel
+                                                                    .rating
+                                                            }
+                                                        </Typography> */}
+                                                        {hostel.price} BDT
                                                     </CardActions>
                                                     <Button
                                                         size="small"
