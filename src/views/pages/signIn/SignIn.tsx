@@ -3,6 +3,7 @@ import LoadingButton from '@mui/lab/LoadingButton';
 import {
     Avatar,
     Box,
+    Button,
     Checkbox,
     Container,
     CssBaseline,
@@ -25,7 +26,6 @@ import {
 } from 'src/app/slices/auth/authSlice';
 import google from '../../../assets/images/1534129544.svg';
 import facebook from '../../../assets/images/facebook-svgrepo-com.svg';
-import useFirebase from '../../../hooks/firebase/useFirebase';
 
 type Inputs = {
     email: string;
@@ -37,8 +37,6 @@ export default function SignIn() {
     const [show, setShow] = useState(false);
     const [signIn, { isLoading }] = useLoginMutation();
     const navigate = useNavigate();
-
-    const { firebaseGoogle, firebaseFacebook, SignInFirebase } = useFirebase();
 
     const {
         register,
@@ -174,8 +172,8 @@ export default function SignIn() {
                                 marginTop: '20px',
                             }}
                         >
-                            <button
-                                style={{
+                            <Button
+                                sx={{
                                     margin: '5px auto',
                                     display: 'flex',
                                     justifyContent: 'space-between',
@@ -187,7 +185,6 @@ export default function SignIn() {
                                     outline: 'none',
                                     border: 'none',
                                 }}
-                                onClick={firebaseGoogle}
                             >
                                 <img width="20px" src={google} alt="" />
                                 <span
@@ -199,9 +196,9 @@ export default function SignIn() {
                                 >
                                     Google
                                 </span>
-                            </button>
-                            <button
-                                style={{
+                            </Button>
+                            <Button
+                                sx={{
                                     margin: '5px auto',
                                     display: 'flex',
                                     justifyContent: 'space-between',
@@ -213,7 +210,6 @@ export default function SignIn() {
                                     outline: 'none',
                                     border: 'none',
                                 }}
-                                onClick={firebaseFacebook}
                             >
                                 <img width="20px" src={facebook} alt="" />
                                 <span
@@ -225,7 +221,7 @@ export default function SignIn() {
                                 >
                                     Facebook
                                 </span>
-                            </button>
+                            </Button>
                         </Box>
                     </Grid>
                 </Box>

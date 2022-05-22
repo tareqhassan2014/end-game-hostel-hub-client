@@ -14,24 +14,19 @@ import {
 } from '@mui/material';
 import { useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import { Link as DomLink } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { Link as DomLink, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { setCredentials } from 'src/app/slices/auth/authSlice';
 import { useSignUpMutation } from '../../../app/api';
 import google from '../../../assets/images/1534129544.svg';
 import facebook from '../../../assets/images/facebook-svgrepo-com.svg';
-import useFirebase from '../../../hooks/firebase/useFirebase';
-
-type Inputs = {
-    email: string;
-    password: string;
-    name: string;
-    ConfirmPassword: string;
-};
 
 export default function SignUp() {
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
     const [show, setShow] = useState(false);
-    const { firebaseGoogle, firebaseFacebook, RegisterUser } = useFirebase();
-    const [_, { isLoading }] = useSignUpMutation();
+    const [signUp, { isLoading }] = useSignUpMutation();
 
     const {
         register,
@@ -39,13 +34,18 @@ export default function SignUp() {
         formState: { errors },
         reset,
         watch,
-    } = useForm<Inputs>();
+    } = useForm<SignUpRequest>();
     const password = watch('password');
 
-    const onSubmit: SubmitHandler<Inputs> = async (data) => {
+    const onSubmit: SubmitHandler<SignUpRequest> = async (data) => {
         try {
-            RegisterUser(data.name, data.email, data.password);
+            const { token, user } = await signUp({ ...data }).unwrap();
+
             reset();
+
+            dispatch(setCredentials({ user, token }));
+
+            navigate('/dashboard');
         } catch (error: any) {
             console.log(error?.data?.message);
             toast.error(error?.data?.message);
@@ -103,6 +103,19 @@ export default function SignUp() {
                         })}
                     />
 
+                    <TextField
+                        fullWidth
+                        required
+                        margin="normal"
+                        error={Boolean(errors.phone)}
+                        label={errors.phone ? 'Error' : 'Phone'}
+                        helperText={errors.phone?.message}
+                        autoComplete="phone"
+                        {...register('phone', {
+                            required: 'phone is required',
+                        })}
+                    />
+
                     <Box
                         sx={{
                             display: 'flex',
@@ -127,15 +140,15 @@ export default function SignUp() {
                             required
                             margin="normal"
                             type={show ? 'text' : 'password'}
-                            error={Boolean(errors.ConfirmPassword)}
+                            error={Boolean(errors.passwordConfirm)}
                             label={
-                                errors.ConfirmPassword
+                                errors.passwordConfirm
                                     ? 'Error'
                                     : 'Confirm Password'
                             }
-                            helperText={errors.ConfirmPassword?.message || ' '}
+                            helperText={errors.passwordConfirm?.message || ' '}
                             autoComplete="current-password"
-                            {...register('ConfirmPassword', {
+                            {...register('passwordConfirm', {
                                 required: 'please confirm !',
                                 validate: (value) =>
                                     value === password ||
@@ -199,7 +212,6 @@ export default function SignUp() {
                                     outline: 'none',
                                     border: 'none',
                                 }}
-                                onClick={firebaseGoogle}
                             >
                                 <img width="20px" src={google} alt="" />
                                 <span
@@ -225,7 +237,6 @@ export default function SignUp() {
                                     outline: 'none',
                                     border: 'none',
                                 }}
-                                onClick={firebaseFacebook}
                             >
                                 <img width="20px" src={facebook} alt="" />
                                 <span

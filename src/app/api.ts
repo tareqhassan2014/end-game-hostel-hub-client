@@ -1,13 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { RootState } from './store';
 
-interface SignUpRequest {
-    name: string | null;
-    email: string | null;
-    img: string | null;
-    phone: string | null;
-}
-
 interface IStore {
     address: string;
     banner: string;
@@ -131,7 +124,7 @@ const api = createApi({
 
         signUp: builder.mutation<AuthResponse, SignUpRequest>({
             query: (credentials) => ({
-                url: '/auth/signup',
+                url: '/users/signup',
                 method: 'POST',
                 body: credentials,
             }),

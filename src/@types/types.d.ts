@@ -88,3 +88,11 @@ interface Grocery {
 interface AllGroceries {
     data: { data: Grocery[] };
 }
+
+interface SignUpRequest {
+    phone: string;
+    name: string;
+    email: string;
+    password: string;
+    passwordConfirm: string;
+}
