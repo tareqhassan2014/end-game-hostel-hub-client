@@ -1,6 +1,7 @@
 import {
     Button,
     Card,
+    CardActions,
     CardContent,
     CardMedia,
     Container,
@@ -12,6 +13,10 @@ import {
 } from '@mui/material';
 import { Box } from '@mui/system';
 import { useNavigate } from 'react-router-dom';
+import PlaceIcon from '@mui/icons-material/Place';
+import PeopleOutlineIcon from '@mui/icons-material/PeopleOutline';
+import SingleBedIcon from '@mui/icons-material/SingleBed';
+import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
 
 export const LoadingContainer = () => {
     return (
@@ -44,47 +49,124 @@ interface IHostelCard {
 
 export const HostelCard = ({ item }: IHostelCard) => {
     const navigate = useNavigate();
+    console.log(item, item.title, item.hostel.city, item.hostel.totalSit);
+
     return (
-        <Card
-            sx={{ maxWidth: '100%', pt: 1, cursor: 'pointer' }}
-            onClick={() => navigate(`/search-hostel/${item._id}`)}
-        >
-            <CardMedia
-                component="img"
-                sx={{
-                    maxWidth: '90%',
-                    width: 'auto',
-                    m: 'auto',
-                }}
-                image="https://media.istockphoto.com/photos/dormitory-room-in-the-modern-hostel-picture-id910999556?b=1&k=20&m=910999556&s=170667a&w=0&h=8Ppqwt74V-aaXr4vN2iu5XOv87H0nhJh64am-0bYPLc="
-            />
-            <CardContent sx={{ pb: 0, px: 2 }}>
-                <Typography component="div">{item.hostel.name}</Typography>
-                <Typography
-                    variant="body2"
-                    color="text.secondary"
+        <Box sx={{ maxWidth: '100%', borderRadius: 0 }}>
+            <Card sx={{ borderRadius: 0 }}>
+                <Box sx={{ overflow: 'hidden', position: 'relative' }}>
+                    <CardMedia
+                        component="img"
+                        sx={{
+                            borderRadius: 0,
+                            maxWidth: '100%',
+                            maxHeight: '100%',
+                            width: 'auto',
+                            m: 'auto',
+                            transition: '.5s',
+                            transform: 'scale(1)',
+                            '&:hover': {
+                                transform: 'scale(1.1)',
+                            },
+                        }}
+                        image="https://media.istockphoto.com/photos/dormitory-room-in-the-modern-hostel-picture-id910999556?b=1&k=20&m=910999556&s=170667a&w=0&h=8Ppqwt74V-aaXr4vN2iu5XOv87H0nhJh64am-0bYPLc="
+                    />
+                    <Typography
+                        component="div"
+                        sx={{
+                            position: 'absolute',
+                            right: 0,
+                            bottom: 50,
+                            backgroundColor: '#fff',
+                            color: '#235784',
+                            py: 1,
+                            px: 2,
+                            fontWeight: 'bold',
+                            borderStartStartRadius: 1,
+                        }}
+                    >
+                        ৳{item.price}
+                        <Typography component="span" sx={{ color: '#2C3C4A' }}>
+                            /month
+                        </Typography>
+                    </Typography>
+                </Box>
+
+                <CardContent sx={{ pb: 0, px: 2 }}>
+                    <Typography
+                        component="div"
+                        sx={{
+                            fontSize: '17px',
+                            height: '46px',
+                            fontWeight: 'bolder',
+                        }}
+                    >
+                        {item.title}
+                    </Typography>
+                    <Typography
+                        component="div"
+                        sx={{
+                            display: 'flex',
+                            alignItems: 'center',
+                            ml: -0.5,
+                            color: '#235784',
+                            fontWeight: 'light',
+                            mt: 2,
+                            mb: 1,
+                        }}
+                    >
+                        <Typography
+                            component="span"
+                            sx={{
+                                display: 'flex',
+                                alignItems: 'center',
+                            }}
+                        >
+                            <PlaceIcon /> {item?.hostel.city}
+                        </Typography>
+                        <Typography
+                            component="span"
+                            sx={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                ml: 3,
+                            }}
+                        >
+                            <PeopleOutlineIcon sx={{ mr: 1 }} />{' '}
+                            {item?.hostel.totalSit}
+                        </Typography>
+                    </Typography>
+                    <Typography
+                        component="span"
+                        color="text.secondary"
+                        sx={{
+                            display: 'flex',
+                            alignItems: 'center',
+                        }}
+                    >
+                        <Rating
+                            style={{ fontSize: '1.02rem' }}
+                            name="Rating"
+                            value={item?.hostel.rating}
+                            readOnly
+                        />
+                    </Typography>
+                </CardContent>
+                <CardActions
+                    onClick={() => navigate(`/search-hostel/${item._id}`)}
                     sx={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        ml: -0.5,
+                        color: '#235784',
+                        fontSize: ' 1rem',
+                        fontWeight: 'bold',
+                        ml: 1,
+                        cursor: 'pointer',
+                        mt: 3,
                     }}
                 >
-                    <Icon color="primary">sell</Icon> {item.price} BDT
-                </Typography>
-                <Typography
-                    variant="body2"
-                    color="text.secondary"
-                    sx={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        ml: -1,
-                    }}
-                >
-                    <Icon color="primary">room</Icon> {item.hostel.address}
-                </Typography>
-                <Rating name="Rating" value={4} readOnly />
-            </CardContent>
-        </Card>
+                    See availability <ArrowRightAltIcon />
+                </CardActions>
+            </Card>
+        </Box>
     );
 };
 

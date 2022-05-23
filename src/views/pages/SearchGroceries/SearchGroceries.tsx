@@ -57,7 +57,7 @@ function SearchGroceries(props: any) {
         window !== undefined ? () => window().document.body : undefined;
 
     const [allHostel, SetAllHostel] = useState<hostelData[]>([]);
-    const [matchItem, SetmatchItem] = useState<hostelData[]>([]);
+    const [matchItem, setMatchItem] = useState<hostelData[]>([]);
     const [price, setPrice] = useState<number>(1000);
     const [gender, setGender] = useState<string>('Male');
 
@@ -66,7 +66,7 @@ function SearchGroceries(props: any) {
             .then((res) => res.json())
             .then((data) => {
                 SetAllHostel(data);
-                SetmatchItem(data);
+                setMatchItem(data);
             });
     }, []);
 
@@ -76,15 +76,18 @@ function SearchGroceries(props: any) {
     const handleRadioChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setGender((event.target as HTMLInputElement).value);
     };
+
     const changeSearch = (e: any) => {
         const searchText = e.target.value;
+        const term = '';
         const matchProductToSearch = allHostel.filter(
             (hostel) =>
                 hostel.first_name
                     .toLowerCase()
                     .includes(searchText.toLowerCase()) && hostel.price <= price
+            // .includes(searchText.toLowerCase()) && hostel.price <= price
         );
-        SetmatchItem(matchProductToSearch);
+        setMatchItem(matchProductToSearch);
     };
     const drawer = (
         <Box
@@ -111,7 +114,7 @@ function SearchGroceries(props: any) {
             </Box>
             <FormControl>
                 <FormLabel id="demo-radio-buttons-group-label">
-                    Grocary Quality
+                    Grocery Quality
                 </FormLabel>
                 <RadioGroup
                     aria-labelledby="demo-radio-buttons-group-label"
@@ -183,9 +186,9 @@ function SearchGroceries(props: any) {
                             </IconButton>
                             <InputBase
                                 sx={{ ml: 1, flex: 1 }}
-                                placeholder="Search Groceri  "
+                                placeholder="Search Grocery  "
                                 inputProps={{
-                                    'aria-label': 'Search Groceri',
+                                    'aria-label': 'Search Grocery',
                                 }}
                                 onChange={changeSearch}
                             />
@@ -312,7 +315,7 @@ function SearchGroceries(props: any) {
                                 </Box>
                                 <FormControl>
                                     <FormLabel id="demo-radio-buttons-group-label">
-                                        Groceri Quality
+                                        Grocery Quality
                                     </FormLabel>
                                     <RadioGroup
                                         aria-labelledby="demo-radio-buttons-group-label"
@@ -413,7 +416,7 @@ function SearchGroceries(props: any) {
                                         component="div"
                                         gutterBottom
                                     >
-                                        Groceri Not Found
+                                        No Grocery Found
                                     </Typography>
                                 )}
                             </Grid>

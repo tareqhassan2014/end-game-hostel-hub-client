@@ -19,11 +19,11 @@ const Discover = () => {
 
     useEffect(() => {
         if (products) {
-            setProducts(products.data.data);
+            setProducts(products?.data.data);
         } else if (groceries) {
-            setGroceries(groceries.data.data);
+            setGroceries(groceries?.data.data);
         } else if (hostels) {
-            setHostelsAds(hostels.data.data);
+            setHostelsAds(hostels?.data.data);
         }
     }, [groceries, hostels, products]);
 

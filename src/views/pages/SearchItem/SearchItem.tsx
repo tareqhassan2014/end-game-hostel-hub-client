@@ -433,7 +433,8 @@ const SearchItem = (props: any) => {
                                                     sx={{
                                                         borderRadius: 0.5,
                                                         position: 'relative',
-                                                        backgroundColor: '#fff',
+                                                        backgroundColor:
+                                                            '#fcfcfc',
                                                     }}
                                                 >
                                                     <Box

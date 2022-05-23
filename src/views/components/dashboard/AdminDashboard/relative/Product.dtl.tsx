@@ -3,6 +3,7 @@ import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import React, { Fragment } from 'react';
 import './dashboard.css';
+
 const ProductDtl = () => {
     return (
         <Fragment>
@@ -64,6 +65,7 @@ const ProductDtl = () => {
                                 width: '90%',
                                 height: '300px',
                                 position: 'fixed',
+                                zIndex: '100',
                             }}
                         >
                             <Paper variant="outlined" square>

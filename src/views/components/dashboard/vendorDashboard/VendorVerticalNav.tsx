@@ -130,7 +130,7 @@ const VendorVerticalNav = () => {
                     </ListItemButton>
                 </List>
             </Collapse> */}
-            <ListItemButton
+            {/* <ListItemButton
                 sx={{ borderRadius: 4 }}
                 onClick={() => navigate('/dashboard/Ad_product')}
             >
@@ -147,7 +147,7 @@ const VendorVerticalNav = () => {
                     <LocalOfferIcon sx={{ color: 'white' }} />
                 </ListItemIcon>
                 <ListItemText primary="M product Ad" />
-            </ListItemButton>
+            </ListItemButton> */}
         </List>
     );
 };
