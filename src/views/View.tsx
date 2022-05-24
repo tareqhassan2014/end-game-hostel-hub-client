@@ -1,51 +1,53 @@
+import { AnimatePresence } from 'framer-motion';
 import { Suspense } from 'react';
-import { Navigate, Route, Routes } from 'react-router-dom';
-import useAuth from '../hooks/useAuth';
-import { openRoutes, protectedRoutes } from '../routes/routes';
-import PrivateRoute from '../utility/PrivateRoute';
-import AnimatedRoutes from './components/animatedRoute/AnimatedRoutes';
+import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
+import useAuth from 'src/hooks/useAuth';
+import { openRoutes, protectedRoutes } from 'src/routes/routes';
+import PrivateRoute from 'src/utility/PrivateRoute';
 import Loading from './components/Lottie/Loading';
 
 const View = () => {
-    // const { user } = useAuth();
+    const { user } = useAuth();
+    const location = useLocation();
 
-    // const proRoutes = protectedRoutes.filter((router) =>
-    //     router.role.includes(user.role || 'user')
-    // );
+    const proRoutes = protectedRoutes.filter((router) =>
+        router.role.includes(user.role || 'user')
+    );
 
     return (
         <Suspense fallback={<Loading />}>
-            <AnimatedRoutes></AnimatedRoutes>
-            {/* <Routes>
-                <Route path="*" element={<Navigate to="/" />} />
-                {openRoutes.map((route, idex) => {
-                    return (
-                        route.element && (
-                            <Route
-                                key={idex}
-                                path={route.path}
-                                element={<route.element />}
-                            />
-                        )
-                    );
-                })}
-                {proRoutes.map((route, idex) => {
-                    return (
-                        route.element && (
-                            <Route
-                                path="/*"
-                                key={idex}
-                                element={<PrivateRoute />}
-                            >
+            <AnimatePresence>
+                <Routes location={location} key={location.pathname}>
+                    <Route path="*" element={<Navigate to="/" />} />
+                    {openRoutes.map((route, idex) => {
+                        return (
+                            route.element && (
                                 <Route
+                                    key={idex}
                                     path={route.path}
                                     element={<route.element />}
-                                ></Route>
-                            </Route>
-                        )
-                    );
-                })}
-            </Routes> */}
+                                />
+                            )
+                        );
+                    })}
+                    {proRoutes.map((route, idex) => {
+                        return (
+                            route.element && (
+                                <Route
+                                    path="/*"
+                                    key={idex}
+                                    element={<PrivateRoute />}
+                                >
+                                    <Route
+                                        path={route.path}
+                                        element={<route.element />}
+                                    ></Route>
+                                </Route>
+                            )
+                        );
+                    })}
+                </Routes>
+            </AnimatePresence>
         </Suspense>
     );
 };

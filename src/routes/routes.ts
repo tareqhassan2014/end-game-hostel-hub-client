@@ -1,5 +1,4 @@
 import { lazy } from 'react';
-import Cart from 'src/views/components/common/cart/Cart';
 import ProductDtl from 'src/views/components/dashboard/AdminDashboard/relative/Product.dtl';
 import AboutOurTeam from 'src/views/pages/AboutOurTeam/AboutOurTeam';
 import ProductDetails from 'src/views/pages/discover/ProductDetails';
@@ -79,10 +78,6 @@ export const openRoutes = [
         path: 'discover',
         element: Discover,
     },
-    // {
-    //     path: '/cart',
-    //     element: Cart,
-    // },
     {
         path: '/product/dtl',
         element: ProductDtl,
