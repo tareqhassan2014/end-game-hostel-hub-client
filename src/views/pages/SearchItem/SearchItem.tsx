@@ -548,12 +548,15 @@ const SearchItem = (props: any) => {
                                                                 color: '#7E8588',
                                                             }}
                                                         >
-                                                            {/* {hostel?.description.slice(0, 50)} */}
-                                                            Lorem, ipsum dolor
+                                                            {hostel?.description.slice(
+                                                                0,
+                                                                50
+                                                            )}
+                                                            {/* Lorem, ipsum dolor
                                                             sit amet consectetur
                                                             adipisicing elit.
                                                             Voluptatum illo
-                                                            aliquid nulla libero
+                                                            aliquid nulla libero */}
                                                         </Typography>
                                                     </CardContent>
                                                     <CardActions

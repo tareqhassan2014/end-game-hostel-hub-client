@@ -33,7 +33,7 @@ const ProjectsOverview = () => {
     return (
         <Box color="secondary">
             <Container sx={{ py: 5 }}>
-                <Grid container>
+                <Grid container spacing={{ xs: 4 }}>
                     <Grid ref={ref} item lg={6} md={6} xs={12}>
                         <Box
                             sx={{ pr: 1 }}
@@ -43,7 +43,7 @@ const ProjectsOverview = () => {
                             <Typography variant="h4" sx={{ color: '#4A148C' }}>
                                 Hostel Hub Since 2022
                             </Typography>
-                            <Typography variant="h6" sx={{ mb: 4, color: '' }}>
+                            <Typography variant="h6" sx={{ mb: 2, color: '' }}>
                                 High quality accommodation services
                             </Typography>
                             <Typography variant="subtitle2" sx={{ mb: 5 }}>
@@ -61,7 +61,7 @@ const ProjectsOverview = () => {
                             </Typography>
 
                             <Button
-                                sx={{ mt: 5 }}
+                                sx={{ mt: 4 }}
                                 color="primary"
                                 variant="contained"
                             >
@@ -70,7 +70,11 @@ const ProjectsOverview = () => {
                         </Box>
                     </Grid>
                     <Grid item lg={6} md={6} xs={12}>
-                        <Box sx={{ width: { md: '100%' } }}>
+                        <Box
+                            sx={{
+                                width: { md: '100%', xs: '100%', sx: '100%' },
+                            }}
+                        >
                             <Tilt
                                 className="parallax-effect-img"
                                 tiltMaxAngleX={40}
@@ -83,7 +87,7 @@ const ProjectsOverview = () => {
                                 <Box
                                     sx={{
                                         height: '100%',
-                                        width: { md: '100%' },
+                                        width: '100%',
                                     }}
                                     component="img"
                                     src={image4}

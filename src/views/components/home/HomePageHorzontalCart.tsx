@@ -39,7 +39,7 @@ const HomePageHorizontalCart = () => {
     const settings = {
         dots: true,
         infinite: false,
-        autoplay: false,
+        autoplay: true,
         speed: 1000,
         autoplaySpeed: 2000,
         slidesToShow: 3,
@@ -217,12 +217,12 @@ const HomePageHorizontalCart = () => {
                                         component="div"
                                         sx={{ h: 80, fontSize: '12px' }}
                                     >
-                                        {/* {item.description.slice(0, 115)}... */}
-                                        Lorem ipsum dolor sit amet consectetur,
+                                        {item.description.slice(0, 115)}...
+                                        {/* Lorem ipsum dolor sit amet consectetur,
                                         adipisicing elit. Quas neque, nemo, id
                                         magnam magni ducimus consequatur qui
                                         dignissimos officia tenetur
-                                        exercitationem
+                                        exercitationem */}
                                     </Typography>
                                 </CardContent>
                                 <CardActions sx={{ mb: 2 }}>
